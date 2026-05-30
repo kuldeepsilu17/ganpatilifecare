@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a2e24;
+  --medical-green: #009245;
+  --medical-green-dark: #007a38;
+  --medical-green-light: #00b050;
+  --brand-orange: #f58220;
+  --brand-orange-dark: #d96d10;
+  --brand-red: #e94b35;
+  --gold: #f58220;
+  --gold-dark: #d96d10;
+  --sky: #f4faf6;
+  --card: #ffffff;
+  --muted: #5a6b63;
+}
+
+.dark {
+  --background: #0f1f18;
+  --foreground: #eef8f1;
+  --sky: #142820;
+  --card: #162a22;
+  --muted: #9cb5a8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-medical: var(--medical-green);
+  --color-medical-dark: var(--medical-green-dark);
+  --color-medical-light: var(--medical-green-light);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-orange-dark: var(--brand-orange-dark);
+  --color-brand-red: var(--brand-red);
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --color-sky: var(--sky);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-montserrat);
+  --font-body: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+.font-display {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+}
+
+.gradient-hero {
+  background: linear-gradient(
+    135deg,
+    #009245 0%,
+    #00a651 35%,
+    #f58220 75%,
+    #e94b35 100%
+  );
+}
+
+.gradient-footer {
+  background: linear-gradient(160deg, #007a38 0%, #009245 45%, #007a38 100%);
+}
+
+.gradient-green-soft {
+  background: linear-gradient(180deg, #ffffff 0%, #f4faf6 50%, #eef8f1 100%);
+}
+
+.dark .gradient-green-soft {
+  background: linear-gradient(180deg, #0f1f18 0%, #142820 50%, #0f1f18 100%);
+}
+
+.card-glow:hover {
+  box-shadow:
+    0 12px 40px -12px rgba(0, 146, 69, 0.3),
+    0 0 0 1px rgba(245, 130, 32, 0.2);
+}
+
+.logo-glow {
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.45))
+    drop-shadow(0 0 40px rgba(245, 130, 32, 0.35));
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Hide Next.js development portal / badge in development mode */
+next-dev-portal,
+#__next-prerender-indicator {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

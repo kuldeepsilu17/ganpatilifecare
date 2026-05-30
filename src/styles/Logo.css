@@ -1,0 +1,101 @@
+/* Logo Container */
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Logo Wrapper with Entry Animation */
+.logo-wrapper {
+  animation: logo-entry 0.8s ease-out forwards;
+}
+
+.logo-wrapper.fade-in {
+  animation: logo-entry 0.8s ease-out forwards;
+}
+
+/* Logo Image Container with Floating Animation */
+.logo-float {
+  animation: logo-float 4s ease-in-out infinite;
+}
+
+.logo-image {
+  position: relative;
+  display: block;
+}
+
+/* Logo Sizing Variants */
+.logo-size-full {
+  height: 3.5rem;
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .logo-size-full {
+    height: 4rem;
+    width: auto;
+  }
+}
+
+.logo-size-mark {
+  height: 2.5rem;
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .logo-size-mark {
+    height: 3rem;
+    width: auto;
+  }
+}
+
+/* Logo Glow Effects */
+.logo-glow {
+  filter: drop-shadow(0px 4px 8px rgba(245, 130, 32, 0.15));
+  animation: logo-glow 4s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes logo-entry {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes logo-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0px 4px 8px rgba(245, 130, 32, 0.15));
+  }
+  50% {
+    filter: drop-shadow(0px 8px 12px rgba(0, 146, 69, 0.25));
+  }
+}
+
+/* Logo Text (if used) */
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgb(26, 127, 77);
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+  .logo-text {
+    font-size: 1.5rem;
+  }
+}
