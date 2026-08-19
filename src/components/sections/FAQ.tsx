@@ -21,11 +21,11 @@ export function FAQ() {
               <button
                 type="button"
                 onClick={() => setOpen(open === i ? null : i)}
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold"
+                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold cursor-pointer"
                 aria-expanded={open === i}
               >
                 {faq.question}
-                <span className="text-medical">{open === i ? "−" : "+"}</span>
+                <span className="text-medical font-bold">{open === i ? "−" : "+"}</span>
               </button>
               {open === i && (
                 <p className="border-t border-medical/10 px-5 pb-4 text-muted">{faq.answer}</p>

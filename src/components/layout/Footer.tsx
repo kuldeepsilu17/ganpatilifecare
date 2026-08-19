@@ -15,7 +15,10 @@ export function Footer() {
             <Link href="#home" className="inline-block rounded-xl bg-white/95 p-3 shadow-lg">
               <Logo variant="full" alt={LOGO.alt.seo} className="h-10 md:h-11" />
             </Link>
-            <p className="mt-5 text-sm leading-relaxed text-white/88">
+            <p className="mt-4 text-xs font-semibold text-brand-orange">
+              Founder &amp; Owner: {BUSINESS.owner}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-white/88">
               Ganpati Lifecare (GLC) — trusted medical cotton, orthopedic, surgical, and hospital
               supply partner serving Hanumangarh, Rajasthan and North India.
             </p>
@@ -45,9 +48,9 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-display font-semibold text-brand-orange">Contact</h4>
+            <h4 className="font-display font-semibold text-brand-orange">Contact &amp; Owner</h4>
             <ul className="mt-4 space-y-2 text-sm text-white/88">
-              <li>{BUSINESS.contactPerson}</li>
+              <li className="font-semibold text-white">{BUSINESS.owner} (Founder &amp; Owner)</li>
               {BUSINESS.phoneDisplay.map((p, i) => (
                 <li key={p}>
                   <a href={`tel:${BUSINESS.phones[i]}`} className="hover:text-brand-orange">
@@ -64,7 +67,9 @@ export function Footer() {
             </ul>
             <div className="mt-5 flex gap-3">
               <a
-                href={`https://wa.me/${BUSINESS.whatsapp}`}
+                href={`https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(
+                  "Hello Ganpati Lifecare, I would like to enquire about your medical and surgical products. Please share product availability and quotation."
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"

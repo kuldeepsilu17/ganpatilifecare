@@ -17,7 +17,6 @@ export async function GET(request: Request) {
 
   try {
     const inquiries = await getInquiries();
-    // Return sorted newest first
     const sorted = [...inquiries].sort(
       (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     );
@@ -32,7 +31,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, phone, email, product_name, quantity, message } = body;
+    const { name, phone, email, product_name, quantity, message, source } = body;
 
     // Validate required fields
     if (!name || !phone) {
@@ -50,6 +49,7 @@ export async function POST(request: Request) {
       product_name: product_name || "General Inquiry",
       quantity: quantity || "1",
       message: message || "",
+      source: source || "Website",
     });
 
     if (!newInquiry) {
@@ -59,20 +59,17 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send admin notification in the background (does not block client response)
+    // Send admin notification in the background
     sendAdminNotification(newInquiry).catch((err) => {
       console.error("Async admin notification error:", err);
     });
 
-    // 1. Compose Email prefilled client text
-    const emailSubject = "Product Inquiry - Ganpati Lifecare Website";
-    const emailBody = `Hello Ganpati Lifecare Team,\n\nI would like to inquire about your surgical and healthcare products.\n\nName:\n${newInquiry.name}\n\nPhone:\n${newInquiry.phone}\n\nEmail:\n${newInquiry.email || "Not Provided"}\n\nMessage:\n${newInquiry.message || "No message provided."}\n\nPlease contact me with product details, pricing, and availability.\n\nThank you.`;
+    // 1. Compose Email prefilled client text according to spec
+    const emailSubject = "Product Inquiry - Ganpati Lifecare";
+    const emailBody = `Hello Ganpati Lifecare Team,\n\nI would like to inquire about your products.\n\nName: ${newInquiry.name}\nPhone: ${newInquiry.phone}\nEmail: ${newInquiry.email || "Not Provided"}\nProduct: ${newInquiry.product_name}\nQuantity: ${newInquiry.quantity}\nMessage:\n${newInquiry.message || "Please provide quotation and availability details."}\n\nPlease share product details and quotation.\n\nThank you.`;
 
-    // 2. Compose Customer Direct WhatsApp text
-    const whatsappMessage = `Hello Ganpati Lifecare,\n\nI am interested in your healthcare and surgical products.\n\nName: ${newInquiry.name}\nPhone: ${newInquiry.phone}\n\nPlease share product details and pricing.\n\nThank you.`;
-
-    // 3. Compose WhatsApp admin order summary
-    const whatsappAdminMessage = `New Inquiry Received\n\nInquiry ID: ${newInquiry.inquiry_id}\n\nName: ${newInquiry.name}\nPhone: ${newInquiry.phone}\nEmail: ${newInquiry.email || "Not Provided"}\n\nProduct: ${newInquiry.product_name}\nQuantity: ${newInquiry.quantity}\n\nMessage:\n${newInquiry.message || "No message provided."}`;
+    // 2. Compose Customer Direct WhatsApp text according to spec
+    const whatsappMessage = `Hello Ganpati Lifecare,\n\nI am interested in your products.\n\nName: ${newInquiry.name}\nPhone: ${newInquiry.phone}\nProduct: ${newInquiry.product_name}\nQuantity: ${newInquiry.quantity}\n\nPlease share availability and pricing.\n\nThank you.`;
 
     return NextResponse.json({
       success: true,
@@ -80,7 +77,6 @@ export async function POST(request: Request) {
       emailSubject,
       emailBody,
       whatsappMessage,
-      whatsappAdminMessage,
     });
   } catch (err) {
     console.error("POST inquiries route error:", err);

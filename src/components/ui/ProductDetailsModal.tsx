@@ -2,6 +2,7 @@
 
 import { useState, useEffect, FormEvent } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { EnrichedProduct } from "@/lib/product-details";
 import { BUSINESS } from "@/lib/constants";
@@ -17,22 +18,15 @@ export function ProductDetailsModal({
   isOpen,
   onClose,
 }: ProductDetailsModalProps) {
-  const [activeImage, setActiveImage] = useState<string>("");
   const [showInquiryForm, setShowInquiryForm] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSent, setFormSent] = useState(false);
 
-  const [prevProduct, setPrevProduct] = useState<EnrichedProduct | null>(null);
-  if (product !== prevProduct) {
-    setPrevProduct(product);
-    setActiveImage(product ? product.image : "");
-    setShowInquiryForm(false);
-    setFormSent(false);
-  }
-
-  // Lock body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      setShowInquiryForm(false);
+      setFormSent(false);
     } else {
       document.body.style.overflow = "";
     }
@@ -43,269 +37,209 @@ export function ProductDetailsModal({
 
   if (!product) return null;
 
-  const whatsappUrl = `https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(
-    `Hello Ganpati Lifecare, I am interested in inquiring about: ${product.name} (Category: ${product.category})`
+  const whatsappInquiryUrl = `https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(
+    `Hello Ganpati Lifecare,\n\nI am interested in ${product.name}.\n\nPlease share availability, sizes and quotation.\n\nThank you.`
   )}`;
 
-  const callUrl = `tel:${BUSINESS.phones[0]}`;
-
-  const handleInquirySubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleInquirySubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const name = data.get("name");
-    const phone = data.get("phone");
-    const notes = data.get("notes");
-    
-    const text = `Product Inquiry%0AProduct Name: ${product.name}%0ACategory: ${product.category}%0AClient Name: ${name}%0APhone: ${phone}%0AMessage: ${notes}`;
-    
-    window.open(`https://wa.me/${BUSINESS.whatsapp}?text=${text}`, "_blank");
-    setFormSent(true);
-    e.currentTarget.reset();
+    setIsSubmitting(true);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: formData.get("name") as string,
+      phone: formData.get("phone") as string,
+      email: (formData.get("email") as string) || "",
+      product_name: product.name,
+      quantity: (formData.get("quantity") as string) || "1",
+      message: (formData.get("message") as string) || `Inquiry for ${product.name}`,
+      source: "Product Modal",
+    };
+
+    try {
+      const res = await fetch("/api/inquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        setFormSent(true);
+        form.reset();
+        window.open(whatsappInquiryUrl, "_blank");
+      }
+    } catch (err) {
+      console.error("Modal inquiry error:", err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6 overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs"
           />
 
-          {/* Modal Container */}
+          {/* Modal Card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            initial={{ opacity: 0, scale: 0.96, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: "spring", duration: 0.5 }}
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-card text-foreground shadow-2xl border border-medical/15 z-10 scrollbar-thin"
+            exit={{ opacity: 0, scale: 0.96, y: 15 }}
+            className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-card text-foreground shadow-2xl border border-medical/20 z-10 p-4 sm:p-6 md:p-8"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 text-muted hover:text-medical border border-medical/10 shadow-sm transition-colors cursor-pointer"
-              aria-label="Close details"
+              className="absolute top-3.5 right-3.5 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-muted hover:text-medical transition-colors cursor-pointer"
+              aria-label="Close dialog"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
-            {/* Content Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-5 sm:p-6 md:p-8">
-              {/* Left Column: Image Gallery */}
-              <div className="flex flex-col gap-4">
-                {/* Main Image Display */}
-                <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-muted/20 border border-medical/5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+              {/* Left Column: Image */}
+              <div>
+                <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-gray-50 border border-medical/10">
                   <Image
-                    src={activeImage || product.image}
+                    src={product.image}
                     alt={product.name}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
+                    sizes="(max-width: 768px) 100vw, 400px"
                   />
                 </div>
 
-                {/* Gallery Thumbnails */}
-                {product.gallery.length > 1 && (
-                  <div className="flex flex-wrap gap-2.5">
-                    {product.gallery.map((img, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setActiveImage(img)}
-                        className={`relative h-16 w-16 overflow-hidden rounded-lg border-2 bg-muted/10 transition-all ${
-                          activeImage === img ? "border-medical scale-105 shadow-sm" : "border-transparent opacity-75 hover:opacity-100"
-                        }`}
-                      >
-                        <Image
-                          src={img}
-                          alt={`${product.name} preview ${index + 1}`}
-                          fill
-                          className="object-cover"
-                          sizes="64px"
-                        />
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Right Column: Details & Inquiry Form */}
-              <div className="flex flex-col gap-5">
-                {/* Category & Title */}
-                <div>
-                  <span className="inline-block rounded-full bg-medical/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-medical-dark dark:text-medical-light">
-                    {product.category}
-                  </span>
-                  <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-                    {product.name}
-                  </h2>
+                <div className="mt-3 flex items-center gap-2 text-xs font-semibold text-medical bg-medical/5 px-3 py-2 rounded-lg border border-medical/10">
+                  <span>✓</span>
+                  <span>Bulk orders &amp; wholesale hospital supply available</span>
                 </div>
 
-                {/* Description */}
-                <p className="text-sm leading-relaxed text-muted md:text-base">
-                  {product.description}
-                </p>
+                {/* Direct Action Links */}
+                <div className="mt-4 flex flex-col gap-2">
+                  <a
+                    href={whatsappInquiryUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-2.5 text-xs sm:text-sm font-bold text-white shadow-xs hover:bg-[#1fb855] transition-colors"
+                  >
+                    <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    WhatsApp Inquiry
+                  </a>
+                  <Link
+                    href={`/products/${product.id}`}
+                    onClick={onClose}
+                    className="text-center text-xs font-semibold text-medical hover:underline pt-1"
+                  >
+                    Open Full Product Page →
+                  </Link>
+                </div>
+              </div>
 
-                {/* Features list */}
-                {product.features && product.features.length > 0 && (
-                  <div>
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-foreground">
-                      Key Features
-                    </h3>
-                    <ul className="mt-2 space-y-1.5">
-                      {product.features.map((feat, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-foreground/90">
-                          <svg className="mt-0.5 h-4.5 w-4.5 shrink-0 text-medical" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+              {/* Right Column: Information & Details */}
+              <div className="space-y-4">
+                <div>
+                  <span className="inline-block rounded-full bg-medical/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-medical">
+                    {product.category}
+                  </span>
+                  <h2 className="mt-1.5 font-display text-lg sm:text-xl md:text-2xl font-bold text-foreground">
+                    {product.name}
+                  </h2>
+                  <p className="mt-2 text-xs sm:text-sm text-foreground/80 leading-relaxed">
+                    {product.description}
+                  </p>
+                </div>
 
-                {/* Specifications table */}
-                {product.specifications && Object.keys(product.specifications).length > 0 && (
-                  <div>
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-foreground">
-                      Technical Specifications
-                    </h3>
-                    <div className="mt-2 overflow-hidden rounded-xl border border-medical/10 text-sm">
-                      <table className="w-full border-collapse text-left">
-                        <tbody>
-                          {Object.entries(product.specifications).map(([key, val], idx) => (
-                            <tr
-                              key={idx}
-                              className={idx % 2 === 0 ? "bg-muted/10" : "bg-transparent"}
-                            >
-                              <td className="border-r border-medical/10 px-4 py-2 font-semibold text-muted w-1/3">
-                                {key}
-                              </td>
-                              <td className="px-4 py-2 text-foreground/95">
-                                {val}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                )}
-
-                {/* Usage instruction */}
+                {/* Applications / Usage */}
                 {product.usage && (
-                  <div className="rounded-2xl bg-medical/5 p-4 border border-medical/10">
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-medical-dark dark:text-medical-light">
-                      Usage Guidelines
+                  <div>
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-foreground/90">
+                      Applications &amp; Uses
                     </h3>
-                    <p className="mt-1.5 text-xs md:text-sm text-foreground/90 leading-relaxed">
+                    <p className="mt-1 text-xs text-foreground/80 leading-relaxed">
                       {product.usage}
                     </p>
                   </div>
                 )}
 
-                {/* Call-to-Actions Buttons */}
-                <div className="mt-2 flex flex-col gap-2.5">
-                  <div className="flex gap-2">
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-sm font-bold text-white transition hover:bg-[#20ba59] shadow-sm active:scale-98"
-                    >
-                      <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.45 4.817 1.45 5.487 0 9.954-4.466 9.957-9.958.002-2.661-1.034-5.163-2.92-7.054C16.616 1.701 14.113.666 11.45.665c-5.492 0-9.959 4.468-9.962 9.959-.001 1.737.478 3.427 1.39 4.908l-.999 3.65 3.738-.98c1.51.823 3.155 1.25 4.82 1.25.01 0 0 0 0 0z" />
-                      </svg>
-                      WhatsApp Chat
-                    </a>
-
-                    <a
-                      href={callUrl}
-                      className="flex-1 flex items-center justify-center gap-2 rounded-full bg-brand-orange py-3 text-sm font-bold text-white transition hover:bg-brand-orange-dark shadow-sm active:scale-98"
-                    >
-                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                      Call Direct
-                    </a>
-                  </div>
-
-                  <button
-                    onClick={() => {
-                      setShowInquiryForm(!showInquiryForm);
-                      setFormSent(false);
-                    }}
-                    className="w-full flex items-center justify-center gap-2 rounded-full bg-medical py-3 text-sm font-bold text-white transition hover:bg-medical-dark shadow-sm active:scale-98 cursor-pointer"
-                  >
-                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                    </svg>
-                    {showInquiryForm ? "Hide Form" : "Send Inquiry Request"}
-                  </button>
+                {/* Sizes / Specifications */}
+                <div className="rounded-xl bg-gray-50 p-3 border border-gray-100">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-foreground/90 mb-1.5">
+                    Available Sizes &amp; Specifications
+                  </h3>
+                  {product.specifications && Object.keys(product.specifications).length > 0 ? (
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      {Object.entries(product.specifications).map(([key, val]) => (
+                        <div key={key}>
+                          <span className="font-semibold text-foreground/70">{key}: </span>
+                          <span className="text-foreground">{val}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-xs text-muted">
+                      Contact us for available sizes, customized packaging, and bulk specifications.
+                    </p>
+                  )}
                 </div>
 
-                {/* Sub-panel Form for Direct Inquiries */}
-                <AnimatePresence>
-                  {showInquiryForm && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="overflow-hidden rounded-2xl border border-medical/15 bg-background p-4"
+                {/* Quick Quote Button / Form */}
+                <div className="pt-2">
+                  {!showInquiryForm ? (
+                    <button
+                      type="button"
+                      onClick={() => setShowInquiryForm(true)}
+                      className="w-full rounded-xl bg-medical py-2.5 text-xs sm:text-sm font-bold text-white shadow-xs hover:bg-medical-dark transition-colors cursor-pointer"
                     >
-                      <h4 className="text-sm font-bold text-foreground mb-3">
-                        Inquire about {product.name}
-                      </h4>
-                      {formSent ? (
-                        <div className="text-center py-4 text-sm text-medical font-medium">
-                          ✓ Inquiry request opening via WhatsApp…
-                        </div>
-                      ) : (
-                        <form onSubmit={handleInquirySubmit} className="space-y-3">
-                          <div>
-                            <input
-                              type="text"
-                              name="name"
-                              required
-                              placeholder="Your Name"
-                              className="w-full rounded-xl border border-medical/20 bg-card px-3 py-2 text-sm outline-none focus:border-medical"
-                            />
-                          </div>
-                          <div>
-                            <input
-                              type="tel"
-                              name="phone"
-                              required
-                              placeholder="Phone Number"
-                              className="w-full rounded-xl border border-medical/20 bg-card px-3 py-2 text-sm outline-none focus:border-medical"
-                            />
-                          </div>
-                          <div>
-                            <textarea
-                              name="notes"
-                              rows={2}
-                              placeholder="Notes (quantity, specifications, custom requests...)"
-                              className="w-full rounded-xl border border-medical/20 bg-card px-3 py-2 text-sm outline-none focus:border-medical"
-                            />
-                          </div>
-                          <button
-                            type="submit"
-                            className="w-full rounded-full bg-medical py-2 text-xs font-semibold text-white transition hover:bg-medical-dark cursor-pointer"
-                          >
-                            Submit Inquiry Form
-                          </button>
-                        </form>
-                      )}
-                    </motion.div>
+                      Get Bulk Quote for {product.name}
+                    </button>
+                  ) : formSent ? (
+                    <div className="rounded-xl bg-medical/10 p-3 text-center text-xs font-bold text-medical">
+                      Quote request submitted! Opening WhatsApp...
+                    </div>
+                  ) : (
+                    <form onSubmit={handleInquirySubmit} className="space-y-2.5 rounded-xl bg-gray-50 p-3 border border-gray-200">
+                      <h4 className="text-xs font-bold text-foreground">Get Bulk Quote for {product.name}</h4>
+                      <input
+                        name="name"
+                        required
+                        placeholder="Your Name"
+                        className="w-full rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs text-foreground outline-none focus:border-medical"
+                      />
+                      <input
+                        name="phone"
+                        type="tel"
+                        required
+                        placeholder="Phone Number (e.g. +91 98282 32254)"
+                        className="w-full rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs text-foreground outline-none focus:border-medical"
+                      />
+                      <input
+                        name="quantity"
+                        placeholder="Required Quantity / Details"
+                        className="w-full rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs text-foreground outline-none focus:border-medical"
+                      />
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full rounded-lg bg-medical py-2 text-xs font-bold text-white hover:bg-medical-dark transition-colors cursor-pointer"
+                      >
+                        {isSubmitting ? "Submitting..." : "Submit Quote Request"}
+                      </button>
+                    </form>
                   )}
-                </AnimatePresence>
+                </div>
               </div>
             </div>
           </motion.div>

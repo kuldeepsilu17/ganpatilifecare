@@ -48,7 +48,8 @@ export function RequestQuote() {
 
       // Launch WhatsApp in a new tab with the WhatsApp order summary containing Inquiry ID
       const whatsappUrl = `https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(
-        result.whatsappAdminMessage
+        result.whatsappAdminMessage ||
+        `Hello Ganpati Lifecare,\n\nI would like to request a bulk quote.\n\nName: ${payload.name}\nPhone: ${payload.phone}\nProduct: ${payload.product_name}\nQuantity: ${payload.quantity}\n\nThank you.`
       )}`;
       
       window.open(whatsappUrl, "_blank");

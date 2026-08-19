@@ -30,33 +30,33 @@ export const PRODUCTS: Product[] = [
     name: "Orthocot Cotton Roll",
     category: "orthopedic",
     description: "Premium orthopedic cotton rolls for clinical and hospital use.",
-    image: "/images/products/surgical_cotton_showcase_1779200486555.png",
+    image: "/images/products/orthocot_cotton_roll.png",
   },
   {
     id: "stockinet",
     name: "Stockinet",
     category: "orthopedic",
     description: "Soft, breathable stockinet for casts and wound care.",
-    image: "/images/products/medical_sponge_stockinet_1779200845560.png",
+    image: "/images/products/stockinet.png",
   },
   {
     id: "skin-traction-kit",
     name: "Skin Traction Kit",
     category: "orthopedic",
     description: "Complete skin traction kits for orthopedic procedures.",
-    image: "/images/products/complete_product_collection_1779201240988.png",
+    image: "/images/products/skin_traction_kit.jpg",
   },
   {
-    id: "orthopedic-gauze",
-    name: "Orthopedic Gauze",
+    id: "orthopedic-gauze-bandages",
+    name: "Orthopedic Gauze Bandages",
     category: "orthopedic",
     description: "High-absorbency gauze for orthopedic dressing applications.",
-    image: "/images/products/complete_product_collection_1779201240988.png",
+    image: "/images/products/orthopedic_gauze_bandages.jpg",
   },
   {
     id: "bandages",
     name: "Bandages",
-    category: "orthopedic",
+    category: "surgical",
     description: "Elastic and crepe bandages in multiple sizes.",
     image: "/images/products/medical_bandage_rolls_1779200753456.png",
   },
@@ -72,10 +72,10 @@ export const PRODUCTS: Product[] = [
     name: "Gamjee Roll",
     category: "surgical",
     description: "Absorbent gamjee rolls for post-operative care.",
-    image: "/images/products/medical_bandage_rolls_1779200753456.png",
+    image: "/images/products/surgical_cotton_showcase_1779200486555.png",
   },
   {
-    id: "surgical-dressing",
+    id: "surgical-dressing-materials",
     name: "Surgical Dressing Materials",
     category: "surgical",
     description: "Complete range of surgical dressing supplies.",
@@ -85,29 +85,29 @@ export const PRODUCTS: Product[] = [
     id: "doctor-coats",
     name: "Doctor Coats",
     category: "uniforms",
-    description: "Professional doctor coats in premium fabric.",
-    image: "/images/products/hospital_uniform_display_1779200633810.png",
+    description: "Professional doctor coats in premium durable fabric.",
+    image: "/images/products/doctor_apparel.png",
   },
   {
     id: "nurse-uniforms",
     name: "Nurse Uniforms",
     category: "uniforms",
     description: "Comfortable, durable nurse uniforms for hospitals.",
-    image: "/images/products/hospital_uniform_display_1779200633810.png",
+    image: "/images/products/nurse_uniforms.png",
   },
   {
     id: "ot-dresses",
     name: "OT Dresses",
     category: "uniforms",
-    description: "Sterile OT dresses for operating theatre staff.",
-    image: "/images/products/hospital_uniform_display_1779200633810.png",
+    description: "Sterile OT scrub suits for operating theatre staff.",
+    image: "/images/products/ot_dresses.png",
   },
   {
     id: "staff-uniforms",
     name: "Staff Uniforms",
     category: "uniforms",
     description: "Custom staff uniforms for healthcare facilities.",
-    image: "/images/products/hospital_uniform_display_1779200633810.png",
+    image: "/images/products/staff_uniforms.png",
   },
   {
     id: "medical-disposables",
@@ -121,7 +121,7 @@ export const PRODUCTS: Product[] = [
     name: "Hospital Consumables",
     category: "essentials",
     description: "Essential hospital consumables at competitive prices.",
-    image: "/images/products/complete_product_collection_1779201240988.png",
+    image: "/images/products/hospital_uniform_display_1779200633810.png",
   },
 ];
 
@@ -153,7 +153,7 @@ export const WHY_CHOOSE_US = [
   },
   {
     title: "Professional Service",
-    description: "Experienced team led by Dharampal for personalized assistance.",
+    description: "Experienced team led by Dharampal Varma for personalized assistance.",
     icon: "service",
   },
   {
@@ -166,72 +166,71 @@ export const WHY_CHOOSE_US = [
 export const TESTIMONIALS = [
   {
     quote:
-      "Excellent quality medical supplies and quick response. GLC is our go-to supplier.",
-    author: "Hospital Procurement Manager",
-    location: "Hanumangarh",
+      "Excellent quality medical supplies and prompt dispatch. Ganpati Lifecare is our dependable supplier for orthopedic products.",
+    author: "Healthcare Procurement",
+    location: "Hanumangarh, Rajasthan",
   },
   {
     quote:
-      "Trusted supplier for hospital uniforms and orthopedic products. Highly recommended.",
-    author: "Clinic Owner",
+      "Trusted supplier for hospital uniforms, OT dresses, and cotton rolls. High product quality and honest pricing.",
+    author: "Clinic Administration",
     location: "Rajasthan",
   },
   {
     quote:
-      "Professional service and genuine products. Great experience for bulk orders.",
+      "Professional service and genuine products. Very smooth experience for bulk medical supplies.",
     author: "Orthopedic Centre",
     location: "North India",
   },
 ] as const;
 
 export const STATS = [
-  { value: "500+", label: "Products Supplied" },
-  { value: "100+", label: "Happy Clients" },
-  { value: "10+", label: "Years Experience" },
-  { value: "24/7", label: "Support Available" },
+  { value: "Wide Range", label: "Products & Sizes Available" },
+  { value: "Bulk Ready", label: "Hospital & Wholesale Supply" },
+  { value: "Hanumangarh", label: "Based in Goluwala, Rajasthan" },
+  { value: "Direct Support", label: "Led by Dharampal Varma" },
 ] as const;
 
 export const CERTIFICATIONS = [
   "Quality Assured Supplies",
-  "ISO Compliant Partners",
   "Healthcare Grade Materials",
-  "Verified Distributor Network",
+  "Reliable Sourcing Network",
+  "Strict Quality Checks",
 ] as const;
 
 export const BRANDS = [
   "Orthocot",
-  "Premium Medical",
-  "Surgical Pro",
-  "Hospital Wear",
-  "CarePlus",
-  "MediTrust",
+  "GLC Orthopedic",
+  "GLC Surgical",
+  "GLC Uniforms",
+  "GLC Consumables",
 ] as const;
 
 export const FAQS = [
   {
     question: "What products does Ganpati Lifecare supply?",
     answer:
-      "We supply orthopedic products (cotton rolls, stockinet, traction kits, bandages), surgical materials, hospital uniforms (doctor coats, nurse uniforms, OT dresses), and healthcare consumables across Rajasthan.",
+      "We supply orthopedic products (Orthocot cotton rolls, stockinet, traction kits, bandages), surgical dressing materials, hospital uniforms (doctor coats, nurse uniforms, OT dresses, staff uniforms), and healthcare consumables across Rajasthan.",
   },
   {
     question: "Do you offer bulk order discounts?",
     answer:
-      "Yes. Contact us via phone, WhatsApp, or the inquiry form for competitive bulk pricing on hospital and clinic orders.",
+      "Yes. Contact Dharampal Varma via phone, WhatsApp (+91 98282 32254), or our quotation form for competitive wholesale pricing.",
   },
   {
     question: "Which areas do you deliver to?",
     answer:
-      "We serve Goluwala, Hanumangarh, Rajasthan, and deliver across North India including major cities in Rajasthan and neighboring states.",
+      "We are based in Goluwala, Hanumangarh, Rajasthan, and deliver to hospitals, clinics, and distributors across Rajasthan and North India.",
   },
   {
     question: "How can I request a quote?",
     answer:
-      "Call +91 98282 32254 or +91 94600 95250, WhatsApp us, or fill out the contact form with your product list and quantity.",
+      "You can submit our online quote form, call +91 98282 32254 / +91 94600 95250, or WhatsApp us directly for an immediate quotation.",
   },
   {
-    question: "Are your products suitable for hospitals?",
+    question: "Are your products suitable for hospitals and clinics?",
     answer:
-      "Absolutely. Our products meet healthcare-grade standards for hospitals, clinics, orthopedic centres, and surgical facilities.",
+      "Yes. All our products meet healthcare-grade standards for hospitals, private clinics, nursing homes, and orthopedic facilities.",
   },
 ] as const;
 
@@ -239,7 +238,9 @@ export const FEATURED_CAROUSEL = [
   "Orthocot Cotton Roll",
   "Stockinet",
   "Skin Traction Kit",
+  "Orthopedic Gauze Bandages",
   "Doctor Coats",
   "OT Dresses",
   "Surgical Dressing Materials",
+  "Hospital Consumables",
 ] as const;

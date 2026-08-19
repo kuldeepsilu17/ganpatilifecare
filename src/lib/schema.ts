@@ -8,14 +8,19 @@ export function getOrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: BUSINESS.name,
-    alternateName: BUSINESS.shortName,
+    alternateName: ["Ganpati Life Care", "GLC", "Ganpati Life Care Hanumangarh", "Ganpati Lifecare Goluwala"],
     url: BUSINESS.siteUrl,
     logo: logoUrl,
     image: `${BUSINESS.siteUrl}${LOGO.og}`,
     email: BUSINESS.email,
-    telephone: BUSINESS.phones,
+    telephone: [...BUSINESS.phones],
+    founder: {
+      "@type": "Person",
+      name: BUSINESS.owner,
+      jobTitle: "Founder & Owner",
+    },
     description:
-      "Ganpati Lifecare — GLC medical cotton, orthopedic, surgical, and hospital supply brand in Rajasthan.",
+      "Ganpati Lifecare, led by Dharampal Varma in Goluwala, Hanumangarh, is a trusted healthcare supplies company providing orthopedic, surgical, and hospital products across Rajasthan.",
     address: {
       "@type": "PostalAddress",
       streetAddress: BUSINESS.address.streetAddress,
@@ -33,13 +38,18 @@ export function getLocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     name: BUSINESS.name,
-    alternateName: BUSINESS.shortName,
+    alternateName: ["Ganpati Life Care", "GLC"],
+    founder: {
+      "@type": "Person",
+      name: BUSINESS.owner,
+      jobTitle: "Founder & Owner",
+    },
     description:
-      "Premium orthopedic, surgical, hospital uniforms, cotton rolls, bandages, and healthcare products supplier in Rajasthan.",
+      "Ganpati Lifecare is a healthcare supplies company in Goluwala, Hanumangarh, Rajasthan, supplying orthopedic, surgical, hospital consumables and healthcare uniforms.",
     url: BUSINESS.siteUrl,
     logo: logoUrl,
     image: `${BUSINESS.siteUrl}${LOGO.og}`,
-    telephone: BUSINESS.phones,
+    telephone: [...BUSINESS.phones],
     email: BUSINESS.email,
     address: {
       "@type": "PostalAddress",
@@ -60,19 +70,19 @@ export function getLocalBusinessSchema() {
       { "@type": "Country", name: "India" },
     ],
     priceRange: "$$",
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ],
-      opens: "09:00",
-      closes: "19:00",
-    },
+  };
+}
+
+export function getWebSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: BUSINESS.name,
+    alternateName: "Ganpati Life Care",
+    url: BUSINESS.siteUrl,
+    description:
+      "Official website of Ganpati Lifecare (GLC) — Orthopedic, Surgical & Hospital Supplies in Hanumangarh, Rajasthan.",
+    inLanguage: "en-IN",
   };
 }
 

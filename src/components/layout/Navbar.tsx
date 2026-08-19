@@ -13,7 +13,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const whatsappUrl = `https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(
-    "Hello Ganpati Lifecare, I would like to inquire about medical supplies."
+    "Hello Ganpati Lifecare, I would like to enquire about your medical and surgical products. Please share product availability and quotation."
   )}`;
 
   useEffect(() => {
@@ -87,7 +87,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setOpen(!open)}
-            className="navbar-menu-toggle"
+            className="navbar-menu-toggle cursor-pointer"
             aria-expanded={open}
             aria-label="Toggle menu"
           >

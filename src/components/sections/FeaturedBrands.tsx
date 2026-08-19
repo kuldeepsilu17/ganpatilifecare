@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BRANDS, FEATURED_CAROUSEL } from "@/lib/data";
 
 export function FeaturedBrands() {
+  // Seamless loop without duplicate text in the initial set
   const items = [...FEATURED_CAROUSEL, ...FEATURED_CAROUSEL];
 
   return (
@@ -11,8 +12,8 @@ export function FeaturedBrands() {
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <SectionHeading
           eyebrow="Featured"
-          title="Popular Medical Products"
-          description="Hospital uniform supplier and orthopedic products supplier trusted across North India."
+          title="Popular Medical Supplies"
+          description="High-demand orthopedic, surgical, and hospital products supplied across Rajasthan and North India."
         />
         <div className="mt-8 overflow-hidden">
           <ul className="animate-marquee flex w-max gap-3 md:gap-4">

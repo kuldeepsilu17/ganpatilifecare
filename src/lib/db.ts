@@ -1,6 +1,15 @@
 import fs from "fs/promises";
 import path from "path";
 
+export type InquiryStatus =
+  | "New"
+  | "Contacted"
+  | "Quoted"
+  | "Completed"
+  | "Cancelled"
+  | "New Inquiry"
+  | "In Progress";
+
 export interface Inquiry {
   id: number;
   inquiry_id: string; // E.g., GLC-0001, GLC-0002
@@ -11,7 +20,8 @@ export interface Inquiry {
   quantity: string;
   message: string;
   created_at: string;
-  status: "New Inquiry" | "In Progress" | "Completed";
+  status: InquiryStatus;
+  source?: string;
 }
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -22,23 +32,21 @@ const LOCK_FILE = path.join(DATA_DIR, "inquiries.lock");
 async function initDb() {
   try {
     await fs.mkdir(DATA_DIR, { recursive: true });
-  } catch (err) {
-    // Already exists or permission denied (will catch on write if failed)
+  } catch {
+    // Already exists or permission denied
   }
 
   try {
     await fs.access(DB_FILE);
   } catch {
-    // If database file does not exist, initialize as empty array
     await fs.writeFile(DB_FILE, JSON.stringify([], null, 2), "utf8");
   }
 }
 
-// Concurrency file lock management to prevent race conditions
+// Concurrency file lock management
 async function acquireLock(retries = 30, delay = 50): Promise<boolean> {
   for (let i = 0; i < retries; i++) {
     try {
-      // Create file in exclusive write 'wx' mode (errors if already exists)
       const fileHandle = await fs.open(LOCK_FILE, "wx");
       await fileHandle.close();
       return true;
@@ -93,17 +101,15 @@ async function saveInquiries(inquiries: Inquiry[]): Promise<boolean> {
 export async function createInquiry(data: {
   name: string;
   phone: string;
-  email: string;
-  product_name: string;
-  quantity: string;
-  message: string;
+  email?: string;
+  product_name?: string;
+  quantity?: string;
+  message?: string;
+  source?: string;
 }): Promise<Inquiry | null> {
   const inquiries = await getInquiries();
-  
-  // Calculate next numeric ID
+
   const nextId = inquiries.length > 0 ? Math.max(...inquiries.map((i) => i.id)) + 1 : 1;
-  
-  // Calculate next sequential Inquiry ID (GLC-0001)
   const nextNumStr = String(nextId).padStart(4, "0");
   const inquiry_id = `GLC-${nextNumStr}`;
 
@@ -112,12 +118,13 @@ export async function createInquiry(data: {
     inquiry_id,
     name: data.name.trim(),
     phone: data.phone.trim(),
-    email: data.email.trim(),
-    product_name: data.product_name.trim() || "General Inquiry",
-    quantity: data.quantity.trim() || "1",
-    message: data.message.trim(),
+    email: (data.email || "").trim(),
+    product_name: (data.product_name || "General Inquiry").trim(),
+    quantity: (data.quantity || "1").trim(),
+    message: (data.message || "").trim(),
+    source: data.source || "Website",
     created_at: new Date().toISOString(),
-    status: "New Inquiry",
+    status: "New",
   };
 
   inquiries.push(newInquiry);
@@ -128,7 +135,7 @@ export async function createInquiry(data: {
 // Update the status of an existing inquiry
 export async function updateInquiryStatus(
   id: number,
-  status: "New Inquiry" | "In Progress" | "Completed"
+  status: InquiryStatus
 ): Promise<Inquiry | null> {
   const inquiries = await getInquiries();
   const index = inquiries.findIndex((i) => i.id === id);

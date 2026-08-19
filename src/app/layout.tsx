@@ -7,6 +7,7 @@ import {
   getFaqSchema,
   getLocalBusinessSchema,
   getOrganizationSchema,
+  getWebSiteSchema,
 } from "@/lib/schema";
 import { FAQS } from "@/lib/data";
 
@@ -29,28 +30,33 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(BUSINESS.siteUrl),
-  title: "Ganpati Lifecare | Medical & Hospital Supply Distributor in Rajasthan",
+  title: {
+    default: "Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies",
+    template: "%s | Ganpati Lifecare",
+  },
   description:
-    "Ganpati Lifecare provides premium orthopedic, surgical, hospital uniforms, cotton rolls, bandages, and healthcare products in Rajasthan. Trusted medical supplier in Hanumangarh.",
+    "Ganpati Lifecare is a healthcare supplies company in Goluwala, Hanumangarh, Rajasthan, supplying orthopedic, surgical, hospital consumables and healthcare uniforms.",
   keywords: [...SEO_KEYWORDS],
-  authors: [{ name: BUSINESS.name }],
+  authors: [{ name: BUSINESS.name }, { name: BUSINESS.owner }],
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-128x128.png", sizes: "128x128", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     shortcut: "/favicon.ico",
   },
   openGraph: {
-    title: "Ganpati Lifecare | GLC Medical & Hospital Supply",
+    title: "Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies",
     description:
-      "Premium orthopedic, surgical, and hospital products in Goluwala, Hanumangarh, Rajasthan.",
+      "Orthopedic, surgical and hospital supplies from Ganpati Lifecare, Goluwala, Hanumangarh, Rajasthan.",
     url: BUSINESS.siteUrl,
-    siteName: BUSINESS.name,
+    siteName: "Ganpati Lifecare",
     locale: "en_IN",
     type: "website",
     images: [
@@ -58,15 +64,15 @@ export const metadata: Metadata = {
         url: LOGO.og,
         width: 512,
         height: 512,
-        alt: LOGO.alt.brand,
+        alt: "Ganpati Lifecare - Orthopedic & Surgical Products",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ganpati Lifecare | GLC Medical Products",
+    title: "Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies",
     description:
-      "Trusted medical supplier in Rajasthan — orthopedic, surgical & hospital uniforms.",
+      "Orthopedic, surgical and hospital supplies from Ganpati Lifecare, Goluwala, Hanumangarh, Rajasthan.",
     images: [LOGO.og],
   },
   robots: { index: true, follow: true },
@@ -79,6 +85,7 @@ export default function RootLayout({
   const schemas = [
     getOrganizationSchema(),
     getLocalBusinessSchema(),
+    getWebSiteSchema(),
     getFaqSchema(FAQS),
   ];
 

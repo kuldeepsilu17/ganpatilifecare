@@ -79,12 +79,12 @@ export function PremiumHero() {
 
         {/* Main Heading */}
         <h1 className="hero-title">
-          Trusted Surgical Products <span className="hero-title-accent">Manufacturer</span>
+          Orthopedic, Surgical &amp; <span className="hero-title-accent">Hospital Supplies</span>
         </h1>
 
         {/* Subheading */}
         <p className="hero-subtitle">
-          Premium orthopedic, surgical, and healthcare supplies manufacturer in Rajasthan.
+          Quality orthopedic, surgical, and healthcare supplies for hospitals, clinics and healthcare professionals in Rajasthan.
         </p>
 
         {/* CTA Buttons */}

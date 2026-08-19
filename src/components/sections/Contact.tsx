@@ -21,10 +21,10 @@ export function Contact() {
     const payload = {
       name: formData.get("name") as string,
       phone: formData.get("phone") as string,
-      email: formData.get("email") as string,
-      product_name: "General Inquiry",
+      email: (formData.get("email") as string) || "",
+      product_name: (formData.get("requirement") as string) || "General Inquiry",
       quantity: "1",
-      message: formData.get("message") as string,
+      message: (formData.get("message") as string) || "General inquiry from contact form.",
     };
 
     try {
@@ -46,10 +46,12 @@ export function Contact() {
       setSent(true);
       form.reset();
 
-      // Launch the default email client with pre-filled content returned by API
       const mailtoUrl = `mailto:${BUSINESS.email}?subject=${encodeURIComponent(
-        result.emailSubject
-      )}&body=${encodeURIComponent(result.emailBody)}`;
+        result.emailSubject || `Product Inquiry [${result.inquiry.inquiry_id}] - Ganpati Lifecare`
+      )}&body=${encodeURIComponent(
+        result.emailBody ||
+        `Hello Dharampal Varma,\n\nName: ${payload.name}\nPhone: ${payload.phone}\nRequirement: ${payload.product_name}\nMessage: ${payload.message}`
+      )}`;
       
       window.location.href = mailtoUrl;
     } catch (err) {
@@ -69,30 +71,37 @@ export function Contact() {
         <SectionHeading
           eyebrow="Contact"
           title="Get In Touch"
-          description={`Reach ${BUSINESS.name} in Goluwala, Hanumangarh for medical supplies.`}
+          description={`Reach Ganpati Lifecare in Goluwala, Hanumangarh for medical, orthopedic, and surgical supplies.`}
         />
         <div className="mt-12 grid gap-10 lg:grid-cols-2">
           <div className="space-y-6">
             <article className="rounded-2xl bg-card p-6 shadow-lg">
               <h3 className="font-display text-xl font-bold">{BUSINESS.name}</h3>
+              <p className="mt-1 text-sm font-semibold text-medical">Founder &amp; Owner: {BUSINESS.owner}</p>
               <p className="mt-2 text-muted">{BUSINESS.location}</p>
-              <p className="mt-4">
-                <span className="font-medium">Contact:</span> {BUSINESS.contactPerson}
-              </p>
-              <ul className="mt-4 space-y-2">
-                {BUSINESS.phoneDisplay.map((phone, i) => (
-                  <li key={phone}>
-                    <a href={`tel:${BUSINESS.phones[i]}`} className="font-medium text-medical hover:underline">
-                      {phone}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <a href={`mailto:${BUSINESS.email}`} className="mt-4 block text-medical hover:underline">
-                {BUSINESS.email}
-              </a>
+              
+              <div className="mt-4 pt-4 border-t border-medical/10">
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted">Direct Phone Contacts</p>
+                <ul className="mt-2 space-y-1.5">
+                  {BUSINESS.phoneDisplay.map((phone, i) => (
+                    <li key={phone}>
+                      <a href={`tel:${BUSINESS.phones[i]}`} className="font-medium text-medical hover:underline inline-flex items-center gap-2">
+                        <span>📞</span> {phone}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-medical/10">
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted">Email Contact</p>
+                <a href={`mailto:${BUSINESS.email}`} className="mt-1 inline-flex items-center gap-2 text-medical hover:underline font-medium">
+                  <span>✉️</span> {BUSINESS.email}
+                </a>
+              </div>
             </article>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
+
+            <div className="overflow-hidden rounded-2xl shadow-lg border border-medical/10">
               <iframe
                 title="Ganpati Lifecare location map"
                 src={mapSrc}
@@ -115,10 +124,7 @@ export function Contact() {
                 Inquiry ID: <span className="text-medical">{inquiryId}</span>
               </p>
               <p className="mt-4 text-sm leading-relaxed text-foreground/80 max-w-sm">
-                Thank you for contacting Ganpati Lifecare. Your inquiry has been received successfully. Our team will contact you shortly.
-              </p>
-              <p className="mt-4 text-xs text-muted">
-                Your default email client should open automatically with your inquiry summary.
+                Thank you for reaching out to Ganpati Lifecare. Dharampal Varma and our team will get back to you shortly.
               </p>
               <button
                 onClick={() => {
@@ -145,7 +151,7 @@ export function Contact() {
                 <input
                   name="name"
                   required
-                  placeholder="Enter your name"
+                  placeholder="Enter your full name"
                   className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-4 py-3 placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out"
                 />
               </label>
@@ -166,7 +172,16 @@ export function Contact() {
                 <input
                   name="email"
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Enter your email address (optional)"
+                  className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-4 py-3 placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out"
+                />
+              </label>
+
+              <label className="mt-4 block">
+                <span className="text-sm font-medium">Product / Requirement</span>
+                <input
+                  name="requirement"
+                  placeholder="e.g. Orthocot Cotton Rolls, Doctor Coats, Gamjee"
                   className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-4 py-3 placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out"
                 />
               </label>
@@ -177,7 +192,7 @@ export function Contact() {
                   name="message"
                   rows={4}
                   required
-                  placeholder="Enter your message"
+                  placeholder="Please describe your product requirements and quantity..."
                   className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-4 py-3 placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out"
                 />
               </label>
@@ -187,7 +202,7 @@ export function Contact() {
                 disabled={isSubmitting}
                 className="mt-6 w-full rounded-full bg-medical py-3 font-semibold text-white hover:bg-medical-dark transition-all duration-300 shadow-md active:scale-98 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? "Submitting..." : "Send Email Inquiry"}
+                {isSubmitting ? "Submitting..." : "Send Inquiry"}
               </button>
             </form>
           )}

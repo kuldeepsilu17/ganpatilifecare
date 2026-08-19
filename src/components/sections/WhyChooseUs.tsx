@@ -27,7 +27,7 @@ export function WhyChooseUs() {
               <li className="list-none flex h-full flex-col rounded-2xl border border-medical/10 bg-background p-3.5 sm:p-5 md:p-6 shadow-sm transition hover:border-medical/30 hover:shadow-md">
                 <span className="flex h-9 w-9 md:h-12 md:w-12 items-center justify-center rounded-xl bg-medical/10 text-medical shrink-0">
                   <svg className="h-4.5 w-4.5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={icons[item.icon]} />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={icons[item.icon] || icons.shield} />
                   </svg>
                 </span>
                 <h3 className="mt-3 font-display font-semibold text-sm md:text-base leading-snug break-words">{item.title}</h3>

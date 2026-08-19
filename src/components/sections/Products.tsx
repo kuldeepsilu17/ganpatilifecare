@@ -45,10 +45,10 @@ export function Products() {
               key={cat.id}
               type="button"
               onClick={() => setFilter(cat.id)}
-              className={`rounded-full px-4 py-2 text-xs md:text-sm font-medium transition ${
+              className={`rounded-full px-4 py-2 text-xs md:text-sm font-medium transition cursor-pointer ${
                 filter === cat.id
                   ? "bg-medical text-white shadow-md ring-2 ring-brand-orange/40"
-                  : "bg-card text-foreground/80 ring-1 ring-medical/20 hover:ring-brand-orange hover:text-medical cursor-pointer"
+                  : "bg-card text-foreground/80 ring-1 ring-medical/20 hover:ring-brand-orange hover:text-medical"
               }`}
             >
               {cat.label}
@@ -68,11 +68,11 @@ export function Products() {
                 <div className="relative aspect-square bg-muted/20 overflow-hidden">
                   <Image
                     src={product.image}
-                    alt={product.name}
+                    alt={`${product.name} supplied by Ganpati Lifecare - Goluwala, Hanumangarh`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                    loading="lazy"
+                    priority={i < 4}
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-3 md:p-5">
