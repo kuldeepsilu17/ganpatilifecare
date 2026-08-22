@@ -76,6 +76,8 @@ export function Footer() {
                 <Link href="/locations/sri-ganganagar" className="hover:text-brand-orange">Ganganagar</Link>
                 <Link href="/locations/suratgarh" className="hover:text-brand-orange">Suratgarh</Link>
                 <Link href="/locations/bikaner" className="hover:text-brand-orange">Bikaner</Link>
+                <Link href="/locations/nohar" className="hover:text-brand-orange">Nohar</Link>
+                <Link href="/locations/rawatsar" className="hover:text-brand-orange">Rawatsar</Link>
               </div>
             </div>
           </div>
