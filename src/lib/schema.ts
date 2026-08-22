@@ -7,6 +7,7 @@ export function getOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${BUSINESS.siteUrl}/#organization`,
     name: BUSINESS.name,
     alternateName: ["Ganpati Life Care", "GLC", "Ganpati Life Care Hanumangarh", "Ganpati Lifecare Goluwala"],
     url: BUSINESS.siteUrl,
@@ -37,6 +38,7 @@ export function getLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
+    "@id": `${BUSINESS.siteUrl}/#localbusiness`,
     name: BUSINESS.name,
     alternateName: ["Ganpati Life Care", "GLC"],
     founder: {
@@ -77,12 +79,16 @@ export function getWebSiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${BUSINESS.siteUrl}/#website`,
     name: BUSINESS.name,
     alternateName: "Ganpati Life Care",
     url: BUSINESS.siteUrl,
     description:
       "Official website of Ganpati Lifecare (GLC) — Orthopedic, Surgical & Hospital Supplies in Hanumangarh, Rajasthan.",
     inLanguage: "en-IN",
+    publisher: {
+      "@id": `${BUSINESS.siteUrl}/#organization`,
+    },
   };
 }
 

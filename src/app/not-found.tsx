@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Logo } from "@/components/brand/Logo";
+
+export const metadata: Metadata = {
+  title: "Page Not Found | Ganpati Lifecare",
+  description: "The requested page could not be found.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function NotFound() {
   return (

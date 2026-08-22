@@ -4,7 +4,10 @@ import { updateInquiryStatus, deleteInquiry, InquiryStatus } from "@/lib/db";
 // Helper to authenticate admin panel requests
 function isAuthorized(request: Request): boolean {
   const authHeader = request.headers.get("Authorization");
-  const expectedPassword = process.env.ADMIN_PASSWORD || "glcadmin123";
+  const expectedPassword = process.env.ADMIN_PASSWORD;
+  if (!expectedPassword || !authHeader) {
+    return false;
+  }
   return authHeader === expectedPassword;
 }
 

@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { BLOG_POSTS } from "@/lib/blog";
 import { BUSINESS } from "@/lib/constants";
+import { LOGO } from "@/lib/brand";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -58,23 +59,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     "@type": "BlogPosting",
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${BUSINESS.siteUrl}/blog/${post.slug}`
+      "@id": `${BUSINESS.siteUrl}/blog/${post.slug}`,
     },
     headline: post.title,
     description: post.excerpt,
+    image: `${BUSINESS.siteUrl}${LOGO.og}`,
     author: {
       "@type": "Person",
-      name: post.author
+      name: post.author,
     },
     publisher: {
       "@type": "Organization",
       name: "Ganpati Lifecare",
       logo: {
         "@type": "ImageObject",
-        url: `${BUSINESS.siteUrl}/logo.png`
-      }
+        url: `${BUSINESS.siteUrl}${LOGO.og}`,
+      },
     },
-    datePublished: new Date(post.date).toISOString()
+    datePublished: new Date(post.date).toISOString(),
   };
 
   return (

@@ -10,7 +10,7 @@ export const BRAND_COLORS = {
 export const LOGO = {
   full: "/logo.svg",
   mark: "/logo.svg",
-  png: "/logo.png",
+  png: "/og-brand.png",
   og: "/og-brand.png",
   alt: {
     main: "Ganpati Lifecare GLC Logo",

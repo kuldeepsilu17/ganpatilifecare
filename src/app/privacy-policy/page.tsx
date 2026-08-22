@@ -7,6 +7,9 @@ import { BUSINESS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Privacy Policy | Ganpati Lifecare",
   description: "Privacy Policy and data protection guidelines of Ganpati Lifecare (GLC).",
+  alternates: {
+    canonical: `${BUSINESS.siteUrl}/privacy-policy`,
+  },
 };
 
 export default function PrivacyPolicyPage() {

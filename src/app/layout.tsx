@@ -4,12 +4,10 @@ import "./globals.css";
 import { BUSINESS, SEO_KEYWORDS } from "@/lib/constants";
 import { LOGO } from "@/lib/brand";
 import {
-  getFaqSchema,
   getLocalBusinessSchema,
   getOrganizationSchema,
   getWebSiteSchema,
 } from "@/lib/schema";
-import { FAQS } from "@/lib/data";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -76,7 +74,6 @@ export const metadata: Metadata = {
     images: [LOGO.og],
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: BUSINESS.siteUrl },
 };
 
 export default function RootLayout({
@@ -86,7 +83,6 @@ export default function RootLayout({
     getOrganizationSchema(),
     getLocalBusinessSchema(),
     getWebSiteSchema(),
-    getFaqSchema(FAQS),
   ];
 
   return (

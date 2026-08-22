@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { LoadingScreen } from "@/components/layout/LoadingScreen";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -14,10 +15,25 @@ import { DistributorPartnership } from "@/components/sections/DistributorPartner
 import { RequestQuote } from "@/components/sections/RequestQuote";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
+import { BUSINESS } from "@/lib/constants";
+import { getFaqSchema } from "@/lib/schema";
+import { FAQS } from "@/lib/data";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: BUSINESS.siteUrl,
+  },
+};
 
 export default function Home() {
+  const faqSchema = getFaqSchema(FAQS);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <LoadingScreen />
       <Navbar />
       <main>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimateIn } from "@/components/ui/AnimateIn";
@@ -76,18 +77,31 @@ export function Products() {
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-3 md:p-5">
-                  <h3 className="font-display font-semibold text-foreground text-base md:text-lg leading-snug break-words">
-                    {product.name}
-                  </h3>
+                  <Link
+                    href={`/products/${product.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleOpenDetails(product);
+                    }}
+                    className="group-hover:text-medical transition-colors"
+                  >
+                    <h3 className="font-display font-semibold text-foreground text-base md:text-lg leading-snug break-words">
+                      {product.name}
+                    </h3>
+                  </Link>
                   <p className="mt-1.5 flex-1 text-sm text-muted line-clamp-2 md:line-clamp-none">
                     {product.description}
                   </p>
-                  <button
-                    type="button"
+                  <Link
+                    href={`/products/${product.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleOpenDetails(product);
+                    }}
                     className="mt-3 block w-full rounded-full bg-medical py-2 text-center text-sm font-semibold text-white transition hover:bg-medical-dark cursor-pointer"
                   >
                     View Details
-                  </button>
+                  </Link>
                 </div>
               </motion.li>
             </AnimateIn>

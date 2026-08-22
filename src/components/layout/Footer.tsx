@@ -26,26 +26,58 @@ export function Footer() {
           <div>
             <h4 className="font-display font-semibold text-brand-orange">Quick Links</h4>
             <ul className="mt-4 space-y-2 text-sm text-white/88">
-              {NAV_LINKS.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="transition hover:text-brand-orange">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/#home" className="transition hover:text-brand-orange">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/#about" className="transition hover:text-brand-orange">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="transition hover:text-brand-orange">
+                  Products Catalog
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="transition hover:text-brand-orange">
+                  Medical Blog &amp; Insights
+                </Link>
+              </li>
+              <li>
+                <Link href="/#why-us" className="transition hover:text-brand-orange">
+                  Why Choose Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact" className="transition hover:text-brand-orange">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
-            <h4 className="font-display font-semibold text-brand-orange">Categories</h4>
+            <h4 className="font-display font-semibold text-brand-orange">Categories &amp; Service Areas</h4>
             <ul className="mt-4 space-y-2 text-sm text-white/88">
               {PRODUCT_CATEGORIES.filter((c) => c.id !== "all").map((c) => (
                 <li key={c.id}>
-                  <Link href="#categories" className="transition hover:text-brand-orange">
+                  <Link href="/products" className="transition hover:text-brand-orange">
                     {c.label}
                   </Link>
                 </li>
               ))}
             </ul>
+            <div className="mt-4 pt-3 border-t border-white/10">
+              <p className="text-xs font-semibold text-brand-orange mb-2 uppercase tracking-wider">Service Hubs</p>
+              <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-white/80">
+                <Link href="/locations/hanumangarh" className="hover:text-brand-orange">Hanumangarh</Link>
+                <Link href="/locations/sri-ganganagar" className="hover:text-brand-orange">Ganganagar</Link>
+                <Link href="/locations/suratgarh" className="hover:text-brand-orange">Suratgarh</Link>
+                <Link href="/locations/bikaner" className="hover:text-brand-orange">Bikaner</Link>
+              </div>
+            </div>
           </div>
           <div>
             <h4 className="font-display font-semibold text-brand-orange">Contact &amp; Owner</h4>
@@ -100,11 +132,19 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-10 border-t border-white/15 pt-8 text-center text-sm text-white/75">
+        <div className="mt-10 border-t border-white/15 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-white/75">
           <p>
-            © {year} {BUSINESS.name} ({BUSINESS.shortName}). All rights reserved.{" "}
-            {LOGO.alt.seo}.
+            © {year} {BUSINESS.name} ({BUSINESS.shortName}). All rights reserved.
           </p>
+          <div className="flex gap-4">
+            <Link href="/privacy-policy" className="hover:text-brand-orange transition-colors">
+              Privacy Policy
+            </Link>
+            <span>•</span>
+            <Link href="/terms-and-conditions" className="hover:text-brand-orange transition-colors">
+              Terms &amp; Conditions
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

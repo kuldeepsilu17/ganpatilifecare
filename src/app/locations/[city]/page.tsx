@@ -105,7 +105,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 Order via WhatsApp
               </a>
               <Link
-                href="/#products"
+                href="/products"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-white border border-medical/20 px-6 py-3 text-sm font-bold text-foreground shadow-sm hover:bg-gray-50 transition-all hover:-translate-y-0.5"
               >
                 View Catalog

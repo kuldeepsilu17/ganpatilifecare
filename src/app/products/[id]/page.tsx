@@ -72,6 +72,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
+    "@id": `${BUSINESS.siteUrl}/products/${product.id}#product`,
     name: product.name,
     description: product.description,
     image: `${BUSINESS.siteUrl}${product.image}`,
@@ -80,16 +81,28 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       "@type": "Brand",
       name: "Ganpati Lifecare",
     },
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-      seller: {
-        "@type": "Organization",
-        name: "Ganpati Lifecare",
-      },
+    manufacturer: {
+      "@type": "Organization",
+      name: "Ganpati Lifecare",
+      url: BUSINESS.siteUrl,
     },
   };
+
+  const productFaqSchema =
+    product.faqs && product.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: product.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.a,
+            },
+          })),
+        }
+      : null;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -105,7 +118,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         "@type": "ListItem",
         position: 2,
         name: "Products",
-        item: `${BUSINESS.siteUrl}/#products`,
+        item: `${BUSINESS.siteUrl}/products`,
       },
       {
         "@type": "ListItem",
@@ -126,6 +139,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
+      {productFaqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productFaqSchema) }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -141,7 +160,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               Home
             </Link>
             <span>/</span>
-            <Link href="/#products" className="hover:text-medical">
+            <Link href="/products" className="hover:text-medical">
               Products
             </Link>
             <span>/</span>

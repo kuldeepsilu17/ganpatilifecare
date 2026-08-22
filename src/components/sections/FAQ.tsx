@@ -20,16 +20,25 @@ export function FAQ() {
             <li key={faq.question} className="list-none overflow-hidden rounded-2xl border border-medical/10 bg-background">
               <button
                 type="button"
+                id={`faq-question-${i}`}
                 onClick={() => setOpen(open === i ? null : i)}
                 className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold cursor-pointer"
                 aria-expanded={open === i}
+                aria-controls={`faq-answer-${i}`}
               >
-                {faq.question}
+                <span>{faq.question}</span>
                 <span className="text-medical font-bold">{open === i ? "−" : "+"}</span>
               </button>
-              {open === i && (
-                <p className="border-t border-medical/10 px-5 pb-4 text-muted">{faq.answer}</p>
-              )}
+              <div
+                id={`faq-answer-${i}`}
+                role="region"
+                aria-labelledby={`faq-question-${i}`}
+                className={`border-t border-medical/10 px-5 pb-4 text-muted transition-all ${
+                  open === i ? "block" : "hidden"
+                }`}
+              >
+                <p>{faq.answer}</p>
+              </div>
             </li>
           ))}
         </ul>

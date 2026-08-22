@@ -7,6 +7,9 @@ import { BUSINESS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Terms & Conditions | Ganpati Lifecare",
   description: "Terms and conditions for product inquiries, quotations, and supply orders with Ganpati Lifecare.",
+  alternates: {
+    canonical: `${BUSINESS.siteUrl}/terms-and-conditions`,
+  },
 };
 
 export default function TermsAndConditionsPage() {
