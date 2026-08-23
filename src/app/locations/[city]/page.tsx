@@ -100,6 +100,8 @@ export default async function LocationPage({ params }: LocationPageProps) {
     ],
   };
 
+
+
   return (
     <>
       <script
@@ -115,6 +117,19 @@ export default async function LocationPage({ params }: LocationPageProps) {
         {/* Localized Hero Section */}
         <section className="relative overflow-hidden bg-medical/5 py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
+
+            {/* Breadcrumb Navigation */}
+            <nav aria-label="Breadcrumb" className="mb-6 flex items-center justify-center gap-2 text-xs text-muted">
+              <Link href="/" className="hover:text-medical">
+                Home
+              </Link>
+              <span>/</span>
+              <Link href="/areas-we-serve" className="hover:text-medical">
+                Areas We Serve
+              </Link>
+              <span>/</span>
+              <span className="font-semibold text-foreground">{location.city}</span>
+            </nav>
             <span className="inline-block rounded-full bg-medical/10 px-4 py-1.5 text-sm font-bold uppercase tracking-wider text-medical mb-4">
               Authorized Medical Supplier
             </span>

@@ -50,7 +50,7 @@ export function Contact() {
         result.emailSubject || `Product Inquiry [${result.inquiry.inquiry_id}] - Ganpati Lifecare`
       )}&body=${encodeURIComponent(
         result.emailBody ||
-        `Hello Dharampal Varma,\n\nName: ${payload.name}\nPhone: ${payload.phone}\nRequirement: ${payload.product_name}\nMessage: ${payload.message}`
+        `Hello Dharampal Verma,\n\nName: ${payload.name}\nPhone: ${payload.phone}\nRequirement: ${payload.product_name}\nMessage: ${payload.message}`
       )}`;
       
       window.location.href = mailtoUrl;
@@ -124,7 +124,7 @@ export function Contact() {
                 Inquiry ID: <span className="text-medical">{inquiryId}</span>
               </p>
               <p className="mt-4 text-sm leading-relaxed text-foreground/80 max-w-sm">
-                Thank you for reaching out to Ganpati Lifecare. Dharampal Varma and our team will get back to you shortly.
+                Thank you for reaching out to Ganpati Lifecare. Dharampal Verma and our team will get back to you shortly.
               </p>
               <button
                 onClick={() => {

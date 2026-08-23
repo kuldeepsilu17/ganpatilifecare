@@ -27,11 +27,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    
+    {
+      url: `${BUSINESS.siteUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BUSINESS.siteUrl}/areas-we-serve`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
     {
       url: `${BUSINESS.siteUrl}/privacy-policy`,
-      lastModified: baseDate,
-      changeFrequency: "monthly",
-      priority: 0.3,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.5,
     },
     {
       url: `${BUSINESS.siteUrl}/terms-and-conditions`,

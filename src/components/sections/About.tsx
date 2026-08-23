@@ -23,7 +23,7 @@ export function About() {
                   OT dresses, staff uniforms, medical disposables and hospital consumables.
                 </p>
                 <p className="mt-5 text-sm md:text-base lg:text-lg leading-relaxed text-muted">
-                  Led by Dharampal Varma, our mission is to deliver dependable healthcare
+                  Led by Dharampal Verma, our mission is to deliver dependable healthcare
                   supplies with strict quality assurance, competitive pricing, and timely
                   dispatch to hospitals, clinics, and healthcare institutions across North India.
                 </p>
@@ -32,7 +32,7 @@ export function About() {
               <div className="mt-6 pt-5 border-t border-medical/10 flex items-center justify-between flex-wrap gap-2">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-medical">Leadership &amp; Location</p>
-                  <p className="text-sm md:text-base font-bold text-foreground">Founder &amp; Owner: Dharampal Varma</p>
+                  <p className="text-sm md:text-base font-bold text-foreground">Founder &amp; Owner: Dharampal Verma</p>
                   <p className="text-xs text-muted">Goluwala, Hanumangarh, Rajasthan, India</p>
                 </div>
                 <span className="inline-flex items-center rounded-full bg-medical/10 px-3.5 py-1 text-xs font-semibold text-medical">

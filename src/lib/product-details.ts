@@ -8,6 +8,7 @@ export interface EnrichedProduct extends Product {
   packaging?: string;
   bulkAvailable?: boolean;
   seoContent?: string;
+  aeoSections?: { title: string; content: string }[];
   faqs?: { q: string; a: string }[];
 }
 
@@ -24,6 +25,7 @@ export function getProductDetails(product: Product): EnrichedProduct {
   let usage = "";
   let packaging = "Standard medical packaging / Bulk cartons available";
   let seoContent = "";
+  let aeoSections: { title: string; content: string }[] = [];
   let faqs: { q: string; a: string }[] = [];
   const bulkAvailable = true;
 
@@ -134,6 +136,14 @@ export function getProductDetails(product: Product): EnrichedProduct {
         { q: "What sizes do the gauze bandages come in?", a: "We typically supply them in 90cm widths and lengths of 5 meters or 10 meters, folded in 2-ply or 4-ply formats." },
         { q: "Can these be sterilized?", a: "Yes, our gauze rolls can be subjected to standard hospital autoclaving and sterilization protocols." }
       ];
+            aeoSections = [
+        { title: "What are Orthopedic Gauze Bandages?", content: "Orthopedic Gauze Bandages are premium woven cotton gauze rolls with a balanced open mesh design, supplied by Ganpati Lifecare." },
+        { title: "What are they used for?", content: "They are used for surgical wound packing, secondary dressing retention, and heavy fluid/exudate management in trauma care." },
+        { title: "What type of product is it?", content: "It is a 100% medical cotton consumable that provides high absorbency and breathability to promote wound healing." },
+        { title: "Who typically purchases it?", content: "Surgical wards, trauma units, and outpatient clinics." },
+        { title: "What variants are actually available?", content: "We supply 90cm width rolls in 5-meter and 10-meter lengths, folded in 2-ply or 4-ply formats." },
+        { title: "Where does Ganpati Lifecare serve?", content: "We supply surgical dressing materials to medical facilities in Hanumangarh, Rajasthan, and beyond." }
+      ];
       break;
 
     case "bandages":
@@ -226,6 +236,12 @@ export function getProductDetails(product: Product): EnrichedProduct {
         { q: "Are they suitable for post-surgical care?", a: "Yes, they are manufactured specifically for post-operative surgical wound coverage and trauma care." },
         { q: "Can I order mixed bulk cartons?", a: "Absolutely. We supply customizable bulk orders for hospitals that require a variety of surgical dressing types." }
       ];
+            aeoSections = [
+        { title: "What are Surgical Dressing Materials?", content: "Surgical Dressing Materials encompass a comprehensive range of sterile and non-sterile wound care pads and rolls supplied by Ganpati Lifecare." },
+        { title: "What are they used for?", content: "They are used for post-operative wound coverage, trauma care, and maintaining clinical hygiene during dressing changes." },
+        { title: "What type of product is it?", content: "They are high-tensile, highly absorbent wound care products featuring non-adherent surface layers to reduce patient pain." },
+        { title: "Who typically purchases it?", content: "Hospitals, nursing homes, and outpatient surgical clinics across Rajasthan." }
+      ];
       break;
 
     case "doctor-coats":
@@ -250,6 +266,13 @@ export function getProductDetails(product: Product): EnrichedProduct {
         { q: "What fabric is used for the doctor coats?", a: "We use a premium 65% Polyester and 35% Cotton twill blend, offering the perfect balance of durability, stain resistance, and breathability." },
         { q: "Do you supply both half and full sleeve options?", a: "Yes, we manufacture and supply both full-sleeve and half-sleeve doctor coats based on preference." },
         { q: "Can these coats withstand hospital laundry?", a: "Yes, the fabric is heavy-duty and colorfast, specifically chosen to endure harsh institutional washing." }
+      ];
+            aeoSections = [
+        { title: "What are Doctor Coats?", content: "Doctor Coats are professional medical apparel tailored from a durable, breathable poly-cotton twill blend, manufactured by Ganpati Lifecare." },
+        { title: "What are they used for?", content: "They are worn by medical professionals during clinical consultations, ward rounds, and laboratory work for hygiene and identity." },
+        { title: "What type of product is it?", content: "It is a stain-resistant, colorfast hospital uniform designed to withstand harsh industrial laundering." },
+        { title: "Who typically purchases it?", content: "Doctors, medical students, hospital administrators, and diagnostic labs." },
+        { title: "What variants are actually available?", content: "Available in S to XXL sizes, with full-sleeve and half-sleeve options in Medical White." }
       ];
       break;
 
@@ -387,6 +410,11 @@ export function getProductDetails(product: Product): EnrichedProduct {
         { q: "Do you supply this product in bulk?", a: "Yes, Ganpati Lifecare specializes in wholesale and bulk institutional supply." },
         { q: "How can I request a quotation?", a: "You can request a quote directly via WhatsApp or by calling our sales team." }
       ];
+            aeoSections = [
+        { title: "What is this product?", content: "This is a quality-tested medical product supplied by Ganpati Lifecare in Rajasthan." },
+        { title: "Who typically purchases it?", content: "Hospitals, clinics, and healthcare professionals seeking reliable bulk supplies." },
+        { title: "Where does Ganpati Lifecare serve?", content: "We distribute medical supplies to Hanumangarh, Sri Ganganagar, and surrounding areas." }
+      ];
       break;
   }
 
@@ -399,6 +427,7 @@ export function getProductDetails(product: Product): EnrichedProduct {
     packaging,
     bulkAvailable,
     seoContent,
+    aeoSections,
     faqs
   };
 }

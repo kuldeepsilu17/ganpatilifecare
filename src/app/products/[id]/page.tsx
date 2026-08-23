@@ -313,6 +313,22 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             </div>
           )}
 
+          {/* AEO Content Section */}
+          {product.aeoSections && product.aeoSections.length > 0 && (
+            <div className="mt-12 rounded-3xl bg-card p-6 sm:p-8 md:p-10 shadow-sm border border-medical/10 space-y-8">
+              {product.aeoSections.map((section, idx) => (
+                <section key={idx}>
+                  <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-3">
+                    {section.title}
+                  </h2>
+                  <p className="text-sm sm:text-base leading-relaxed text-foreground/80">
+                    {section.content}
+                  </p>
+                </section>
+              ))}
+            </div>
+          )}
+
           {/* Product FAQs */}
           {product.faqs && product.faqs.length > 0 && (
             <div className="mt-8 rounded-3xl bg-card p-6 sm:p-8 md:p-10 shadow-sm border border-medical/10">

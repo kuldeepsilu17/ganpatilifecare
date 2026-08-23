@@ -153,7 +153,7 @@ export const WHY_CHOOSE_US = [
   },
   {
     title: "Professional Service",
-    description: "Experienced team led by Dharampal Varma for personalized assistance.",
+    description: "Experienced team led by Dharampal Verma for personalized assistance.",
     icon: "service",
   },
   {

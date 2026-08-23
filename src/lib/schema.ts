@@ -1,5 +1,6 @@
 import { BUSINESS } from "./constants";
 import { LOGO } from "./brand";
+import { LOCATIONS } from "./locations";
 
 const logoUrl = `${BUSINESS.siteUrl}${LOGO.png}`;
 
@@ -21,7 +22,7 @@ export function getOrganizationSchema() {
       jobTitle: "Founder & Owner",
     },
     description:
-      "Ganpati Lifecare, led by Dharampal Varma in Goluwala, Hanumangarh, is a trusted healthcare supplies company providing orthopedic, surgical, and hospital products across Rajasthan.",
+      "Ganpati Lifecare, led by Dharampal Verma in Goluwala, Hanumangarh, is a trusted healthcare supplies company providing orthopedic, surgical, and hospital products across Rajasthan.",
     address: {
       "@type": "PostalAddress",
       streetAddress: BUSINESS.address.streetAddress,
@@ -67,16 +68,10 @@ export function getLocalBusinessSchema() {
       longitude: 74.3294,
     },
     areaServed: [
-      { "@type": "City", name: "Goluwala" },
-      { "@type": "City", name: "Hanumangarh" },
-      { "@type": "City", name: "Sri Ganganagar" },
-      { "@type": "City", name: "Suratgarh" },
-      { "@type": "City", name: "Bikaner" },
-      { "@type": "AdministrativeArea", name: "North Rajasthan" },
+      ...LOCATIONS.map((loc) => ({ "@type": "City", name: loc.city })),
       { "@type": "AdministrativeArea", name: "Rajasthan" },
       { "@type": "Country", name: "India" },
     ],
-    priceRange: "$$",
   };
 }
 

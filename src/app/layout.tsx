@@ -37,10 +37,16 @@ export const metadata: Metadata = {
   keywords: [...SEO_KEYWORDS],
   authors: [{ name: BUSINESS.name }, { name: BUSINESS.owner }],
   icons: {
-    icon: { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
-    shortcut: { url: "/favicon.ico", type: "image/x-icon" },
-    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    icon: [
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon-128x128.png", sizes: "128x128", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon-48x48.png",
   },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies",
     description:
