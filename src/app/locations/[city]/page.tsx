@@ -75,11 +75,40 @@ export default async function LocationPage({ params }: LocationPageProps) {
     }
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: BUSINESS.siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Areas We Serve",
+        item: `${BUSINESS.siteUrl}/areas-we-serve`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: location.city,
+        item: `${BUSINESS.siteUrl}/locations/${location.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Navbar />
       <main className="min-h-screen bg-background">
