@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   keywords: [...SEO_KEYWORDS],
   authors: [{ name: BUSINESS.name }, { name: BUSINESS.owner }],
   icons: {
-    icon: "/favicon-96x96.png",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+    shortcut: { url: "/favicon.ico", type: "image/x-icon" },
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
   },
   openGraph: {
     title: "Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies",
