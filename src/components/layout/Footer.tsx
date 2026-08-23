@@ -16,11 +16,10 @@ export function Footer() {
               <Logo variant="full" alt={LOGO.alt.seo} className="h-10 md:h-11" />
             </Link>
             <p className="mt-4 text-xs font-semibold text-brand-orange">
-              Founder &amp; Owner: {BUSINESS.owner}
+              Owned &amp; operated by {BUSINESS.owner}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-white/88">
-              Ganpati Lifecare (GLC) — trusted medical cotton, orthopedic, surgical, and hospital
-              supply partner serving Hanumangarh, Rajasthan and North India.
+              Ganpati Lifecare — {BUSINESS.location}
             </p>
           </div>
           <div>

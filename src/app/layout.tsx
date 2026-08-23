@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: "%s | Ganpati Lifecare",
   },
   description:
-    "Ganpati Lifecare is a healthcare supplies company in Goluwala, Hanumangarh, Rajasthan, supplying orthopedic, surgical, hospital consumables and healthcare uniforms.",
+    "Ganpati Lifecare, owned and operated by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic, surgical, hospital and medical products.",
   keywords: [...SEO_KEYWORDS],
   authors: [{ name: BUSINESS.name }, { name: BUSINESS.owner }],
   icons: {

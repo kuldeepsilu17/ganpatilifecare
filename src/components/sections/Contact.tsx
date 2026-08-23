@@ -77,7 +77,7 @@ export function Contact() {
           <div className="space-y-6">
             <article className="rounded-2xl bg-card p-6 shadow-lg">
               <h3 className="font-display text-xl font-bold">{BUSINESS.name}</h3>
-              <p className="mt-1 text-sm font-semibold text-medical">Founder &amp; Owner: {BUSINESS.owner}</p>
+              <p className="mt-1 text-sm font-semibold text-medical">Owner: {BUSINESS.owner}</p>
               <p className="mt-2 text-muted">{BUSINESS.location}</p>
               
               <div className="mt-4 pt-4 border-t border-medical/10">
