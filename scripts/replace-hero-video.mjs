@@ -22,7 +22,7 @@ if (!fs.existsSync(videoDir)) {
 
 async function downloadVideo() {
   console.log('🎬 Downloading healthcare stock video...');
-  
+
   // List of reliable stock video URLs (from Pexels)
   const videoUrls = [
     'https://videos.pexels.com/video-files/9786240/9786240-hd_1920_1080_30fps.mp4',
@@ -58,38 +58,38 @@ async function downloadVideo() {
       console.log(`✗ Failed: ${err.message}`);
     }
   }
-  
+
   throw new Error('All download attempts failed. Network may be restricted.');
 }
 
 async function processVideo() {
   console.log('🎥 Processing video with FFmpeg...\n');
-  
+
   try {
     // Get ffmpeg path from ffmpeg-static
     const ffmpeg = (await import('ffmpeg-static')).default;
-    
+
     console.log('Converting to MP4 (1280x720, H.264)...');
     execSync(`"${ffmpeg}" -i "${tempFile}" -t 30 -vf "scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2" -c:v libx264 -crf 23 -preset fast -movflags +faststart "${finalMp4}"`, {
       stdio: 'inherit',
       timeout: 60000
     });
     console.log('✓ MP4 created\n');
-    
+
     console.log('Converting to WebM (VP9)...');
     execSync(`"${ffmpeg}" -i "${tempFile}" -t 30 -vf "scale=1280:720" -c:v libvpx-vp9 -b:v 1M "${finalWebm}"`, {
       stdio: 'inherit',
       timeout: 60000
     });
     console.log('✓ WebM created\n');
-    
+
     console.log('Creating poster image...');
     execSync(`"${ffmpeg}" -i "${finalMp4}" -ss 00:00:02 -vf scale=1920:1080 -vframes 1 "${finalPoster}"`, {
       stdio: 'inherit',
       timeout: 30000
     });
     console.log('✓ Poster created\n');
-    
+
   } finally {
     // Clean up temp file
     if (fs.existsSync(tempFile)) {
@@ -104,7 +104,7 @@ async function main() {
     console.log('\n════════════════════════════════════════════');
     console.log('  Hero Video Replacement Tool');
     console.log('════════════════════════════════════════════\n');
-    
+
     // Try to download
     try {
       await downloadVideo();
@@ -112,7 +112,7 @@ async function main() {
     } catch {
       console.log('\n⚠️  Network download failed.');
       console.log('Falling back to placeholder video generation...\n');
-      
+
       // Create a simple solid-color video as fallback
       const { default: ffmpeg } = await import('ffmpeg-static');
       console.log('Generating placeholder video (30-second solid background)...');
@@ -121,24 +121,24 @@ async function main() {
         timeout: 60000
       });
       console.log('✓ Placeholder MP4 created\n');
-      
+
       execSync(`"${ffmpeg}" -f lavfi -i color=c=#1a7f4d:s=1280x720:d=30 -c:v libvpx-vp9 -b:v 1M "${finalWebm}"`, {
         stdio: 'inherit',
         timeout: 60000
       });
       console.log('✓ Placeholder WebM created\n');
-      
+
       execSync(`"${ffmpeg}" -f lavfi -i color=c=#1a7f4d:s=1920x1080:d=1 -vframes 1 "${finalPoster}"`, {
         stdio: 'inherit',
         timeout: 30000
       });
       console.log('✓ Placeholder poster created\n');
-      
+
       console.log('📌 NOTE: A placeholder video was created in the brand green color.');
       console.log('         Replace it manually with a real stock video using:');
       console.log('         https://www.pexels.com/videos/ or https://pixabay.com/videos/\n');
     }
-    
+
     // Verify files
     console.log('════════════════════════════════════════════');
     console.log('  Results:');
@@ -151,10 +151,10 @@ async function main() {
         console.log(`✗ ${path.basename(file)}: MISSING`);
       }
     });
-    
+
     console.log('\n🎉 Hero video replacement complete!');
     console.log('   Test with: npm run dev\n');
-    
+
   } catch (error) {
     console.error('\n❌ Error:', error.message);
     process.exit(1);
