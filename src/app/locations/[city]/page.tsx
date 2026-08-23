@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { LOCATIONS } from "@/lib/locations";
 import { BUSINESS } from "@/lib/constants";
-import { PRODUCTS } from "@/lib/data";
+
 import { Products } from "@/components/sections/Products";
 
 interface LocationPageProps {

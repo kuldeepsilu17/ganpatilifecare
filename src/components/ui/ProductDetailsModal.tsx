@@ -25,8 +25,6 @@ export function ProductDetailsModal({
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      setShowInquiryForm(false);
-      setFormSent(false);
     } else {
       document.body.style.overflow = "";
     }
@@ -34,6 +32,12 @@ export function ProductDetailsModal({
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  const handleClose = () => {
+    setShowInquiryForm(false);
+    setFormSent(false);
+    onClose();
+  };
 
   if (!product) return null;
 
@@ -85,7 +89,7 @@ export function ProductDetailsModal({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
+            onClick={handleClose}
             className="fixed inset-0 bg-black/60 backdrop-blur-xs"
           />
 
@@ -98,7 +102,7 @@ export function ProductDetailsModal({
           >
             {/* Close Button */}
             <button
-              onClick={onClose}
+              onClick={handleClose}
               className="absolute top-3.5 right-3.5 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-muted hover:text-medical transition-colors cursor-pointer"
               aria-label="Close dialog"
             >
@@ -140,7 +144,7 @@ export function ProductDetailsModal({
                   </a>
                   <Link
                     href={`/products/${product.id}`}
-                    onClick={onClose}
+                    onClick={handleClose}
                     className="text-center text-xs font-semibold text-medical hover:underline pt-1"
                   >
                     Open Full Product Page →

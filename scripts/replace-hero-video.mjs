@@ -109,7 +109,7 @@ async function main() {
     try {
       await downloadVideo();
       await processVideo();
-    } catch (downloadError) {
+    } catch {
       console.log('\n⚠️  Network download failed.');
       console.log('Falling back to placeholder video generation...\n');
       

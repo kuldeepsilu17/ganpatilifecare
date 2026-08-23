@@ -106,7 +106,7 @@ export const BLOG_POSTS: BlogPost[] = [
         </ul>
         <h2>Best Practices for Application</h2>
         <p>
-          Always ensure the skin is clean, dry, and free from abrasions before application. Monitor the patient's peripheral circulation regularly. 
+          Always ensure the skin is clean, dry, and free from abrasions before application. Monitor the patient&apos;s peripheral circulation regularly. 
           Using high-quality kits minimizes the risk of slippage, ensuring the patient remains comfortable and the fracture remains stabilized.
         </p>
       </>

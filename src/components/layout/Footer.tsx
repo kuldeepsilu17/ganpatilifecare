@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BUSINESS, NAV_LINKS } from "@/lib/constants";
+import { BUSINESS } from "@/lib/constants";
 import { PRODUCT_CATEGORIES } from "@/lib/data";
 import { Logo } from "@/components/brand/Logo";
 import { LOGO } from "@/lib/brand";
@@ -56,6 +56,11 @@ export function Footer() {
                   Contact Us
                 </Link>
               </li>
+              <li>
+                <Link href="/areas-we-serve" className="transition hover:text-brand-orange">
+                  Areas We Serve
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -73,11 +78,12 @@ export function Footer() {
               <p className="text-xs font-semibold text-brand-orange mb-2 uppercase tracking-wider">Service Hubs</p>
               <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-white/80">
                 <Link href="/locations/hanumangarh" className="hover:text-brand-orange">Hanumangarh</Link>
-                <Link href="/locations/sri-ganganagar" className="hover:text-brand-orange">Ganganagar</Link>
+                <Link href="/locations/sri-ganganagar" className="hover:text-brand-orange">Sri Ganganagar</Link>
                 <Link href="/locations/suratgarh" className="hover:text-brand-orange">Suratgarh</Link>
-                <Link href="/locations/bikaner" className="hover:text-brand-orange">Bikaner</Link>
-                <Link href="/locations/nohar" className="hover:text-brand-orange">Nohar</Link>
-                <Link href="/locations/rawatsar" className="hover:text-brand-orange">Rawatsar</Link>
+                <Link href="/locations/pilibanga" className="hover:text-brand-orange">Pilibanga</Link>
+                <Link href="/locations/sangaria" className="hover:text-brand-orange">Sangaria</Link>
+                <Link href="/locations/bhadra" className="hover:text-brand-orange">Bhadra</Link>
+                <Link href="/areas-we-serve" className="hover:text-brand-orange font-semibold text-brand-orange/80">+ More Areas</Link>
               </div>
             </div>
           </div>

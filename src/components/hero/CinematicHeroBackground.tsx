@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { HERO_PRODUCTS, HERO_TAGLINES } from "@/lib/hero-video";
 import { BRAND_COLORS } from "@/lib/brand";
 
 const DURATION = 30;
 const GREEN = BRAND_COLORS.green;
-const ORANGE = BRAND_COLORS.orange;
 type Scene = {
   start: number;
   end: number;
@@ -88,146 +86,61 @@ function drawManufacturing(
   ctx.fillRect(camX, h * 0.2, w * 0.9, h * 0.55);
 }
 
-function drawProductOrbs(
-  ctx: CanvasRenderingContext2D,
-  w: number,
-  h: number,
-  t: number,
-  labels: readonly string[],
-  progress: number
-) {
-  labels.forEach((label, i) => {
-    const angle = t * 0.5 + (i / labels.length) * Math.PI * 2;
-    const radius = Math.min(w, h) * 0.28;
-    const cx = w / 2 + Math.cos(angle) * radius * 0.35;
-    const cy = h / 2 + Math.sin(angle) * radius * 0.25;
-    const scale = 0.85 + Math.sin(t + i) * 0.08;
-
-    ctx.save();
-    ctx.translate(cx, cy);
-    ctx.scale(scale, scale);
-    ctx.beginPath();
-    ctx.arc(0, 0, 42, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(255,255,255,0.95)";
-    ctx.shadowColor = GREEN;
-    ctx.shadowBlur = 24 * progress;
-    ctx.fill();
-    ctx.shadowBlur = 0;
-
-    ctx.fillStyle = GREEN;
-    ctx.font = "600 11px system-ui, sans-serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    const words = label.split(" ");
-    words.forEach((word, wi) => {
-      ctx.fillText(word, 0, wi * 14 - (words.length - 1) * 7);
-    });
-    ctx.restore();
-  });
-}
-
-function drawCenterLogoGlow(
-  ctx: CanvasRenderingContext2D,
-  w: number,
-  h: number,
-  t: number,
-  progress: number
-) {
-  const cx = w / 2;
-  const cy = h / 2;
-  const pulse = 0.7 + Math.sin(t * 2) * 0.15;
-
-  const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 120 * pulse);
-  glow.addColorStop(0, `rgba(245,130,32,${0.45 * progress})`);
-  glow.addColorStop(0.5, `rgba(0,146,69,${0.35 * progress})`);
-  glow.addColorStop(1, "rgba(0,0,0,0)");
-  ctx.fillStyle = glow;
-  ctx.fillRect(0, 0, w, h);
-
-  ctx.fillStyle = "#fff";
-  ctx.font = "800 42px system-ui, sans-serif";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText("GLC", cx, cy - 8);
-  ctx.font = "600 14px system-ui, sans-serif";
-  ctx.fillStyle = ORANGE;
-  ctx.fillText("Ganpati Lifecare", cx, cy + 28);
-}
-
-function drawTagline(
-  ctx: CanvasRenderingContext2D,
-  w: number,
-  h: number,
-  text: string,
-  progress: number
-) {
-  const alpha = easeInOut(Math.min(1, progress * 2)) * (1 - Math.max(0, (progress - 0.85) * 6));
-  ctx.save();
-  ctx.globalAlpha = alpha;
-  ctx.fillStyle = "rgba(0,0,0,0.35)";
-  ctx.fillRect(0, h * 0.72, w, h * 0.2);
-  ctx.fillStyle = "#fff";
-  ctx.font = `700 ${Math.min(28, w / 28)}px system-ui, sans-serif`;
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText(text, w / 2, h * 0.82, w * 0.85);
-  ctx.restore();
-}
 
 const SCENES: Scene[] = [
   {
     start: 0,
     end: 5,
-    draw: (ctx, w, h, t, p) => {
+    draw: (ctx, w, h, _t, p) => {
       drawManufacturing(ctx, w, h, p);
     },
   },
   {
     start: 5,
     end: 10,
-    draw: (ctx, w, h, t, p) => {
+    draw: (ctx, w, h, _t, p) => {
       drawManufacturing(ctx, w, h, p);
     },
   },
   {
     start: 10,
     end: 14,
-    draw: (ctx, w, h, t, p) => {
+    draw: (ctx, w, h, _t, p) => {
       drawManufacturing(ctx, w, h, p);
     },
   },
   {
     start: 14,
     end: 18,
-    draw: (ctx, w, h, t, p) => {
+    draw: (ctx, w, h, _t, p) => {
       drawManufacturing(ctx, w, h, p);
     },
   },
   {
     start: 18,
     end: 22,
-    draw: (ctx, w, h, t, p) => {
+    draw: (ctx, w, h, _t, p) => {
       drawManufacturing(ctx, w, h, p * 0.5 + 0.5);
     },
   },
   {
     start: 22,
     end: 26,
-    draw: (ctx, w, h, t, p) => {
+    draw: (ctx, w, h, _t, p) => {
       drawManufacturing(ctx, w, h, p);
     },
   },
   {
     start: 26,
     end: 28,
-    draw: (ctx, w, h, t, p) => {
+    draw: () => {
       // Just background
     },
   },
   {
     start: 28,
     end: 30,
-    draw: (ctx, w, h, t, p) => {
+    draw: () => {
       // Just background
     },
   },

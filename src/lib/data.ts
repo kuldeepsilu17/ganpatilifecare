@@ -174,21 +174,21 @@ export const TESTIMONIALS = [
     quote:
       "Trusted supplier for hospital uniforms, OT dresses, and cotton rolls. High product quality and honest pricing.",
     author: "Clinic Administration",
-    location: "Rajasthan",
+    location: "Shri Ganganagar, Rajasthan",
   },
   {
     quote:
       "Professional service and genuine products. Very smooth experience for bulk medical supplies.",
     author: "Orthopedic Centre",
-    location: "North India",
+    location: "North Rajasthan",
   },
 ] as const;
 
 export const STATS = [
-  { value: "Wide Range", label: "Products & Sizes Available" },
-  { value: "Bulk Ready", label: "Hospital & Wholesale Supply" },
-  { value: "Hanumangarh", label: "Based in Goluwala, Rajasthan" },
-  { value: "Direct Support", label: "Led by Dharampal Varma" },
+  { value: "Wide Range", label: "Orthopedic & Surgical Supplies" },
+  { value: "Bulk Ready", label: "Hospital Wholesale Supply" },
+  { value: "Goluwala", label: "Based in Hanumangarh, Rajasthan" },
+  { value: "North Rajasthan", label: "Serving Regional Healthcare" },
 ] as const;
 
 export const CERTIFICATIONS = [
@@ -213,24 +213,24 @@ export const FAQS = [
       "We supply orthopedic products (Orthocot cotton rolls, stockinet, traction kits, bandages), surgical dressing materials, hospital uniforms (doctor coats, nurse uniforms, OT dresses, staff uniforms), and healthcare consumables across Rajasthan.",
   },
   {
-    question: "Do you offer bulk order discounts?",
+    question: "Does Ganpati Lifecare supply medical products in Hanumangarh?",
     answer:
-      "Yes. Contact Dharampal Varma via phone, WhatsApp (+91 98282 32254), or our quotation form for competitive wholesale pricing.",
+      "Yes, our primary distribution hub is in Goluwala, Hanumangarh. We provide rapid dispatch of medical and surgical supplies to hospitals and clinics throughout the Hanumangarh district.",
   },
   {
-    question: "Which areas do you deliver to?",
+    question: "Do you serve areas near Shri Ganganagar?",
     answer:
-      "We are based in Goluwala, Hanumangarh, Rajasthan, and deliver to hospitals, clinics, and distributors across Rajasthan and North India.",
+      "Absolutely. We are a trusted medical supplier for healthcare institutions across Sri Ganganagar and surrounding areas in North Rajasthan, delivering premium cotton rolls, dressings, and uniforms.",
   },
   {
-    question: "How can I request a quote?",
+    question: "Where is Ganpati Lifecare located?",
     answer:
-      "You can submit our online quote form, call +91 98282 32254 / +91 94600 95250, or WhatsApp us directly for an immediate quotation.",
+      "We are headquartered in Goluwala, Hanumangarh, Rajasthan, India, and serve as a regional wholesale distributor for North Rajasthan.",
   },
   {
-    question: "Are your products suitable for hospitals and clinics?",
+    question: "How can hospitals contact Ganpati Lifecare for supplies?",
     answer:
-      "Yes. All our products meet healthcare-grade standards for hospitals, private clinics, nursing homes, and orthopedic facilities.",
+      "Hospitals and clinics can submit our online quote form, call +91 98282 32254, or WhatsApp us directly for immediate quotations on bulk medical supplies.",
   },
 ] as const;
 

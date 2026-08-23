@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${BUSINESS.siteUrl}/blog`,
   },
+  openGraph: {
+    title: "Medical Supplies Blog & Knowledge Center | Ganpati Lifecare",
+    description: "Read expert articles on orthopedic supplies, hospital consumables, and surgical equipment from Ganpati Lifecare in Rajasthan.",
+    url: `${BUSINESS.siteUrl}/blog`,
+    type: "website",
+  },
 };
 
 export default function BlogIndexPage() {

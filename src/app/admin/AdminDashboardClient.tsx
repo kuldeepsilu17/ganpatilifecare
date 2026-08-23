@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { LOGO } from "@/lib/brand";
-import { Inquiry, InquiryStatus } from "@/lib/db";
+import { Inquiry } from "@/lib/db";
 
 export function AdminDashboardClient() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);

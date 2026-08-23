@@ -69,6 +69,18 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     (p) => p.category === product.category && p.id !== product.id
   ).slice(0, 4);
 
+  const getBrandName = (id: string, category: string) => {
+    if (id === "orthocot-cotton-roll") return "Orthocot";
+    switch (category) {
+      case "orthopedic": return "GLC Orthopedic";
+      case "surgical": return "GLC Surgical";
+      case "uniforms": return "GLC Uniforms";
+      case "essentials": return "GLC Consumables";
+      default: return "Ganpati Lifecare";
+    }
+  };
+  const brandName = getBrandName(product.id, product.category);
+
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -79,7 +91,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     category: product.category,
     brand: {
       "@type": "Brand",
-      name: "Ganpati Lifecare",
+      name: brandName,
     },
     manufacturer: {
       "@type": "Organization",

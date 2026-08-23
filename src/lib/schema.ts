@@ -67,7 +67,12 @@ export function getLocalBusinessSchema() {
       longitude: 74.3294,
     },
     areaServed: [
+      { "@type": "City", name: "Goluwala" },
       { "@type": "City", name: "Hanumangarh" },
+      { "@type": "City", name: "Sri Ganganagar" },
+      { "@type": "City", name: "Suratgarh" },
+      { "@type": "City", name: "Bikaner" },
+      { "@type": "AdministrativeArea", name: "North Rajasthan" },
       { "@type": "AdministrativeArea", name: "Rajasthan" },
       { "@type": "Country", name: "India" },
     ],
