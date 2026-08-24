@@ -215,10 +215,10 @@ export const TESTIMONIALS = [
 ] as const;
 
 export const STATS = [
-  { value: "Wide Range", label: "Orthopedic & Surgical Supplies" },
-  { value: "Bulk Ready", label: "Hospital Wholesale Supply" },
-  { value: "Goluwala", label: "Based in Hanumangarh, Rajasthan" },
-  { value: "North Rajasthan", label: "Serving Regional Healthcare" },
+  { value: "Wide Range", label: "Products & Sizes Available" },
+  { value: "Bulk Ready", label: "Hospital & Wholesale Supply" },
+  { value: "Hanumangarh", label: "Based in Goluwala, Rajasthan" },
+  { value: "Direct Support", label: "Led by Dharampal Varma" },
 ] as const;
 
 export const CERTIFICATIONS = [
