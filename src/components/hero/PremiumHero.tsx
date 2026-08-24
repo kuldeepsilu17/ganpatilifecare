@@ -67,7 +67,7 @@ export function PremiumHero() {
           {/* Glowing Circle Background */}
           <div className="hero-logo-circle">
             {/* Logo Component */}
-            <Logo variant="mark" className="hero-logo-image-scale" />
+            <Logo variant="mark" className="hero-logo-image-scale" priority />
           </div>
 
           {/* Rotating Glow Ring */}

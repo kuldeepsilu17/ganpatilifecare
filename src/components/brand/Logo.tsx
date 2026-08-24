@@ -55,6 +55,7 @@ export function Logo({
           width={size.width}
           height={size.height}
           priority={priority}
+          loading={priority ? "eager" : undefined}
           className={`logo-image ${size.className}`}
         />
       </motion.div>
