@@ -10,7 +10,7 @@ export function getOrganizationSchema() {
     "@type": "Organization",
     "@id": `${BUSINESS.siteUrl}/#organization`,
     name: BUSINESS.name,
-    alternateName: ["Ganpati Life Care", "GLC", "Ganpati Life Care Hanumangarh", "Ganpati Lifecare Goluwala"],
+    alternateName: ["Ganpati Life Care", "GLC", "Ganpati Lifecare Hanumangarh", "Ganpati Life Care Hanumangarh", "Ganpati Lifecare Goluwala", "Ganpati Lifecare Rajasthan"],
     url: BUSINESS.siteUrl,
     logo: logoUrl,
     image: `${BUSINESS.siteUrl}${LOGO.og}`,
@@ -22,7 +22,7 @@ export function getOrganizationSchema() {
       jobTitle: "Founder & Owner",
     },
     description:
-      "Ganpati Lifecare, led by Dharampal Verma in Goluwala, Hanumangarh, is a trusted healthcare supplies company providing orthopedic, surgical, and hospital products across Rajasthan.",
+      "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic, surgical, hospital consumables and medical products.",
     address: {
       "@type": "PostalAddress",
       streetAddress: BUSINESS.address.streetAddress,
@@ -41,14 +41,14 @@ export function getLocalBusinessSchema() {
     "@type": "MedicalBusiness",
     "@id": `${BUSINESS.siteUrl}/#localbusiness`,
     name: BUSINESS.name,
-    alternateName: ["Ganpati Life Care", "GLC"],
+    alternateName: ["Ganpati Life Care", "GLC", "Ganpati Lifecare Hanumangarh", "Ganpati Lifecare Goluwala"],
     founder: {
       "@type": "Person",
       name: BUSINESS.owner,
       jobTitle: "Founder & Owner",
     },
     description:
-      "Ganpati Lifecare is a healthcare supplies company in Goluwala, Hanumangarh, Rajasthan, supplying orthopedic, surgical, hospital consumables and healthcare uniforms.",
+      "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic, surgical, hospital consumables and medical products.",
     url: BUSINESS.siteUrl,
     logo: logoUrl,
     image: `${BUSINESS.siteUrl}${LOGO.og}`,

@@ -79,13 +79,20 @@ export function PremiumHero() {
 
         {/* Main Heading */}
         <h1 className="hero-title">
-          Orthopedic, Surgical &amp; <span className="hero-title-accent">Hospital Supplies</span>
+          Ganpati Lifecare &ndash; Orthopedic, Surgical &amp; <span className="hero-title-accent">Hospital Supplies</span>
         </h1>
 
         {/* Subheading */}
-        <p className="hero-subtitle">
-          Quality orthopedic, surgical, and healthcare supplies for hospitals, clinics and healthcare professionals in Rajasthan.
-        </p>
+        <div className="hero-subtitle flex flex-col items-center gap-2 mt-4">
+          <p>
+            Quality orthopedic, surgical, and hospital supplies for healthcare professionals.
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-1 text-sm sm:text-base font-medium text-white/90 bg-black/20 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/10">
+            <span>📍 Goluwala, Hanumangarh, Rajasthan</span>
+            <span className="hidden sm:inline">&bull;</span>
+            <span>👤 Owned and operated by Dharampal Verma</span>
+          </div>
+        </div>
 
         {/* CTA Buttons */}
         <div className="hero-buttons">

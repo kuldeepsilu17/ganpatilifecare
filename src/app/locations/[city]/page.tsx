@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
     return { title: "Location Not Found | Ganpati Lifecare" };
   }
 
-  const title = `Medical & Surgical Supplies in ${location.city}, ${location.region} | Ganpati Lifecare`;
+  const title = location.metaTitle || `Medical & Surgical Supplies in ${location.city}, ${location.region} | Ganpati Lifecare`;
   const description = location.description;
   const canonicalUrl = `${BUSINESS.siteUrl}/locations/${location.slug}`;
 
@@ -134,7 +134,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
               Authorized Medical Supplier
             </span>
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight">
-              Medical &amp; Surgical Supplies in <span className="text-medical">{location.city}</span>
+              {location.h1 || `Medical & Surgical Supplies in ${location.city}`}
             </h1>
             <p className="mt-6 text-base sm:text-lg text-foreground/80 max-w-2xl mx-auto leading-relaxed">
               {location.description} We are the preferred wholesale distributor for orthopedic products, surgical dressings, and hospital uniforms in the {location.city} area.

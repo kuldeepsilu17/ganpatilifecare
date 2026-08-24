@@ -11,6 +11,8 @@ export interface Product {
   category: Exclude<ProductCategory, "all">;
   description: string;
   image: string;
+  metaTitle: string;
+  metaDescription: string;
 }
 
 export const PRODUCT_CATEGORIES: {
@@ -31,6 +33,8 @@ export const PRODUCTS: Product[] = [
     category: "orthopedic",
     description: "Premium orthopedic cotton rolls for clinical and hospital use.",
     image: "/images/products/orthocot_cotton_roll.png",
+    metaTitle: "Orthocot Cotton Roll | Ganpati Lifecare",
+    metaDescription: "Premium Orthocot cotton rolls for clinical and hospital use. Manufactured for high absorbency and comfort. Distributed by Ganpati Lifecare.",
   },
   {
     id: "stockinet",
@@ -38,6 +42,8 @@ export const PRODUCTS: Product[] = [
     category: "orthopedic",
     description: "Soft, breathable stockinet for casts and wound care.",
     image: "/images/products/stockinet.png",
+    metaTitle: "Stockinet for Orthopedic Use | Ganpati Lifecare",
+    metaDescription: "Soft, breathable orthopedic stockinet for cast application and wound care. Available in bulk from Ganpati Lifecare for hospitals in Rajasthan.",
   },
   {
     id: "skin-traction-kit",
@@ -45,6 +51,8 @@ export const PRODUCTS: Product[] = [
     category: "orthopedic",
     description: "Complete skin traction kits for orthopedic procedures.",
     image: "/images/products/skin_traction_kit.jpg",
+    metaTitle: "Skin Traction Kit | Ganpati Lifecare",
+    metaDescription: "Complete skin traction kits for emergency orthopedic procedures. Reliable fracture management supplies from Ganpati Lifecare.",
   },
   {
     id: "orthopedic-gauze-bandages",
@@ -52,6 +60,8 @@ export const PRODUCTS: Product[] = [
     category: "orthopedic",
     description: "High-absorbency gauze for orthopedic dressing applications.",
     image: "/images/products/orthopedic_gauze_bandages.jpg",
+    metaTitle: "Orthopedic Gauze Bandages | Ganpati Lifecare",
+    metaDescription: "High-absorbency orthopedic gauze bandages. Essential surgical dressing materials distributed by Ganpati Lifecare in Hanumangarh.",
   },
   {
     id: "bandages",
@@ -59,6 +69,8 @@ export const PRODUCTS: Product[] = [
     category: "surgical",
     description: "Elastic and crepe bandages in multiple sizes.",
     image: "/images/products/medical_bandage_rolls_1779200753456.png",
+    metaTitle: "Medical Bandages | Ganpati Lifecare",
+    metaDescription: "Elastic and crepe medical bandages in multiple sizes. Secure wound care and compression solutions from Ganpati Lifecare.",
   },
   {
     id: "sponge-pad",
@@ -66,6 +78,8 @@ export const PRODUCTS: Product[] = [
     category: "surgical",
     description: "Sterile sponge pads for surgical and OT procedures.",
     image: "/images/products/medical_sponge_stockinet_1779200845560.png",
+    metaTitle: "Surgical Sponge Pad | Ganpati Lifecare",
+    metaDescription: "Sterile surgical sponge pads for OT procedures and advanced wound care. Order hospital consumables from Ganpati Lifecare.",
   },
   {
     id: "gamjee-roll",
@@ -73,6 +87,8 @@ export const PRODUCTS: Product[] = [
     category: "surgical",
     description: "Absorbent gamjee rolls for post-operative care.",
     image: "/images/products/surgical_cotton_showcase_1779200486555.png",
+    metaTitle: "Gamjee Roll | Surgical Dressing Supply | Ganpati Lifecare",
+    metaDescription: "Highly absorbent Gamjee rolls for post-operative care and surgical dressing. Quality hospital supplies by Ganpati Lifecare.",
   },
   {
     id: "surgical-dressing-materials",
@@ -80,6 +96,8 @@ export const PRODUCTS: Product[] = [
     category: "surgical",
     description: "Complete range of surgical dressing supplies.",
     image: "/images/products/complete_product_collection_1779201240988.png",
+    metaTitle: "Surgical Dressing Materials | Ganpati Lifecare",
+    metaDescription: "Complete range of surgical dressing materials including gauze, cotton, and pads for hospitals and clinics across North Rajasthan.",
   },
   {
     id: "doctor-coats",
@@ -87,6 +105,8 @@ export const PRODUCTS: Product[] = [
     category: "uniforms",
     description: "Professional doctor coats in premium durable fabric.",
     image: "/images/products/doctor_apparel.png",
+    metaTitle: "Doctor Coats | Hospital Uniforms | Ganpati Lifecare",
+    metaDescription: "Professional, durable doctor coats designed for comfort and hygiene in healthcare settings. Supplied by Ganpati Lifecare.",
   },
   {
     id: "nurse-uniforms",
@@ -94,6 +114,8 @@ export const PRODUCTS: Product[] = [
     category: "uniforms",
     description: "Comfortable, durable nurse uniforms for hospitals.",
     image: "/images/products/nurse_uniforms.png",
+    metaTitle: "Nurse Uniforms | Hospital Uniforms | Ganpati Lifecare",
+    metaDescription: "Comfortable and professional nurse uniforms for hospitals and clinics. Quality hospital uniforms from Ganpati Lifecare.",
   },
   {
     id: "ot-dresses",
@@ -101,6 +123,8 @@ export const PRODUCTS: Product[] = [
     category: "uniforms",
     description: "Sterile OT scrub suits for operating theatre staff.",
     image: "/images/products/ot_dresses.png",
+    metaTitle: "OT Dresses | Operating Theatre Uniforms | Ganpati Lifecare",
+    metaDescription: "Sterile and comfortable OT scrub suits and dresses for operating theatre staff. Premium hospital uniforms by Ganpati Lifecare.",
   },
   {
     id: "staff-uniforms",
@@ -108,6 +132,8 @@ export const PRODUCTS: Product[] = [
     category: "uniforms",
     description: "Custom staff uniforms for healthcare facilities.",
     image: "/images/products/staff_uniforms.png",
+    metaTitle: "Hospital Staff Uniforms | Ganpati Lifecare",
+    metaDescription: "Custom healthcare staff uniforms for hospital personnel. Durable and easy to maintain uniforms supplied by Ganpati Lifecare.",
   },
   {
     id: "medical-disposables",
@@ -115,6 +141,8 @@ export const PRODUCTS: Product[] = [
     category: "essentials",
     description: "Single-use medical disposables for hospitals and clinics.",
     image: "/images/products/complete_product_collection_1779201240988.png",
+    metaTitle: "Medical Disposable Products | Ganpati Lifecare",
+    metaDescription: "Single-use medical disposable products for hospitals and clinics. Essential infection control supplies from Ganpati Lifecare.",
   },
   {
     id: "hospital-consumables",
@@ -122,6 +150,8 @@ export const PRODUCTS: Product[] = [
     category: "essentials",
     description: "Essential hospital consumables at competitive prices.",
     image: "/images/products/hospital_uniform_display_1779200633810.png",
+    metaTitle: "Hospital Consumables | Ganpati Lifecare",
+    metaDescription: "Essential hospital consumables and daily medical supplies available at competitive bulk pricing from Ganpati Lifecare, Rajasthan.",
   },
 ];
 

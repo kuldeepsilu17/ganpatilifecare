@@ -57,56 +57,69 @@ export function Products() {
           ))}
         </div>
 
-        <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:mt-12 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-          {filtered.map((product, i) => (
-            <AnimateIn key={product.id} delay={i * 0.05}>
-              <motion.li
-                onClick={() => handleOpenDetails(product)}
-                className="card-glow group flex h-full list-none flex-col overflow-hidden rounded-2xl bg-card shadow-md transition duration-300 hover:-translate-y-1 cursor-pointer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="relative aspect-square bg-muted/20 overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={`${product.name} supplied by Ganpati Lifecare - Goluwala, Hanumangarh`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                    priority={i < 4}
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-3 md:p-5">
-                  <Link
-                    href={`/products/${product.id}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleOpenDetails(product);
-                    }}
-                    className="group-hover:text-medical transition-colors"
-                  >
-                    <h3 className="font-display font-semibold text-foreground text-base md:text-lg leading-snug break-words">
-                      {product.name}
-                    </h3>
-                  </Link>
-                  <p className="mt-1.5 flex-1 text-sm text-muted line-clamp-2 md:line-clamp-none">
-                    {product.description}
-                  </p>
-                  <Link
-                    href={`/products/${product.id}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleOpenDetails(product);
-                    }}
-                    className="mt-3 block w-full rounded-full bg-medical py-2 text-center text-sm font-semibold text-white transition hover:bg-medical-dark cursor-pointer"
-                  >
-                    View Details
-                  </Link>
-                </div>
-              </motion.li>
-            </AnimateIn>
-          ))}
-        </ul>
+        <div className="mt-10 md:mt-12 flex flex-col gap-6 sm:gap-8 md:gap-12">
+          {PRODUCT_CATEGORIES.filter((cat) => cat.id !== "all").map((cat) => {
+            const catProducts = PRODUCTS.filter((p) => p.category === cat.id);
+            if (filter !== "all" && filter !== cat.id) return null;
+            if (catProducts.length === 0) return null;
+
+            return (
+              <section key={cat.id}>
+                <h2 className="sr-only">{cat.label}</h2>
+                <ul className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+                  {catProducts.map((product, i) => (
+                    <AnimateIn key={product.id} delay={i * 0.05}>
+                      <motion.li
+                        onClick={() => handleOpenDetails(product)}
+                        className="card-glow group flex h-full list-none flex-col overflow-hidden rounded-2xl bg-card shadow-md transition duration-300 hover:-translate-y-1 cursor-pointer"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <div className="relative aspect-square bg-muted/20 overflow-hidden">
+                          <Image
+                            src={product.image}
+                            alt={`${product.name} supplied by Ganpati Lifecare - Goluwala, Hanumangarh`}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                            priority={i < 4}
+                          />
+                        </div>
+                        <div className="flex flex-1 flex-col p-3 md:p-5">
+                          <Link
+                            href={`/products/${product.id}`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleOpenDetails(product);
+                            }}
+                            className="group-hover:text-medical transition-colors"
+                          >
+                            <h3 className="font-display font-semibold text-foreground text-base md:text-lg leading-snug break-words">
+                              {product.name}
+                            </h3>
+                          </Link>
+                          <p className="mt-1.5 flex-1 text-sm text-muted line-clamp-2 md:line-clamp-none">
+                            {product.description}
+                          </p>
+                          <Link
+                            href={`/products/${product.id}`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleOpenDetails(product);
+                            }}
+                            className="mt-3 block w-full rounded-full bg-medical py-2 text-center text-sm font-semibold text-white transition hover:bg-medical-dark cursor-pointer"
+                          >
+                            View Details
+                          </Link>
+                        </div>
+                      </motion.li>
+                    </AnimateIn>
+                  ))}
+                </ul>
+              </section>
+            );
+          })}
+        </div>
       </div>
 
       {/* Product Details Modal Overlay */}

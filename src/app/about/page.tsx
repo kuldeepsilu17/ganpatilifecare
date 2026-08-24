@@ -7,9 +7,9 @@ import { BUSINESS } from "@/lib/constants";
 import { getOrganizationSchema, getLocalBusinessSchema } from "@/lib/schema";
 import { Products } from "@/components/sections/Products";
 
-const title = "About Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies";
+const title = "About Ganpati Lifecare | Dharampal Verma | Hanumangarh";
 const description =
-  "Learn about Ganpati Lifecare, a trusted healthcare supplies business based in Goluwala, Hanumangarh, Rajasthan. Owned by Dharampal Verma, we supply hospitals and clinics.";
+  "Learn about Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan. We supply orthopedic, surgical, hospital consumables and medical products.";
 const canonicalUrl = `${BUSINESS.siteUrl}/about`;
 
 export const metadata: Metadata = {
@@ -60,7 +60,7 @@ export default function AboutPage() {
               Our Story
             </span>
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight">
-              Ganpati Lifecare &ndash; Orthopedic, Surgical &amp; Hospital Supplies
+              About Ganpati Lifecare
             </h1>
           </div>
         </section>
@@ -73,7 +73,7 @@ export default function AboutPage() {
               <section>
                 <h2 className="font-display text-2xl font-bold text-foreground mb-4">Who is Ganpati Lifecare?</h2>
                 <p className="text-base leading-relaxed text-foreground/80">
-                  Ganpati Lifecare is a dedicated healthcare supplies business based in Goluwala, Hanumangarh, Rajasthan. We specialize in providing high-quality orthopedic items, surgical materials, hospital consumables, medical disposable products, and healthcare uniforms to medical professionals and institutions.
+                  Ganpati Lifecare is a dedicated healthcare supplies business based in Goluwala, Hanumangarh, Rajasthan. We specialize in providing high-quality orthopedic supplies, surgical supplies, hospital consumables, medical disposable products, and healthcare uniforms to medical professionals and institutions.
                 </p>
               </section>
 

@@ -32,8 +32,8 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${product.name} | Ganpati Lifecare`;
-  const description = `Explore ${product.name} from Ganpati Lifecare, a healthcare supplier based in Goluwala, Hanumangarh, Rajasthan. Contact us for product availability and bulk requirements.`;
+  const title = product.metaTitle || `${product.name} | Ganpati Lifecare`;
+  const description = product.metaDescription || `Explore ${product.name} from Ganpati Lifecare, a healthcare supplier based in Goluwala, Hanumangarh, Rajasthan. Contact us for product availability and bulk requirements.`;
   const canonicalUrl = `${BUSINESS.siteUrl}/products/${product.id}`;
 
   return {

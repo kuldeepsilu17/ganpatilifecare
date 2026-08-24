@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Montserrat, Inter } from "next/font/google";
 import "./globals.css";
-import { BUSINESS, SEO_KEYWORDS } from "@/lib/constants";
+import { BUSINESS } from "@/lib/constants";
 import { LOGO } from "@/lib/brand";
 import {
   getLocalBusinessSchema,
@@ -33,8 +33,7 @@ export const metadata: Metadata = {
     template: "%s | Ganpati Lifecare",
   },
   description:
-    "Ganpati Lifecare, owned and operated by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic, surgical, hospital and medical products.",
-  keywords: [...SEO_KEYWORDS],
+    "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic, surgical, hospital consumables and medical products.",
   authors: [{ name: BUSINESS.name }, { name: BUSINESS.owner }],
   icons: {
     icon: [

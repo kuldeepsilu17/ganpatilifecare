@@ -4,6 +4,8 @@ export interface LocationData {
   region: string;
   description: string;
   hospitalCount: string;
+  metaTitle: string;
+  h1: string;
 }
 
 export const LOCATIONS: LocationData[] = [
@@ -13,6 +15,8 @@ export const LOCATIONS: LocationData[] = [
     region: "Rajasthan",
     description: "Serving clinics, nursing homes, and major hospitals in Hanumangarh with rapid dispatch of orthopedic products, surgical dressings, and hospital uniforms.",
     hospitalCount: "50+ Clinics & Hospitals",
+    metaTitle: "Orthopedic & Hospital Supplies in Hanumangarh | Ganpati Lifecare",
+    h1: "Orthopedic & Hospital Supplies in Hanumangarh",
   },
   {
     city: "Sri Ganganagar",
@@ -20,6 +24,8 @@ export const LOCATIONS: LocationData[] = [
     region: "Rajasthan",
     description: "Providing premium medical cotton, surgical dressings, and OT uniforms to healthcare institutions across Sri Ganganagar (Shri Ganganagar).",
     hospitalCount: "100+ Clinics & Hospitals",
+    metaTitle: "Hospital & Surgical Supplies in Sri Ganganagar | Ganpati Lifecare",
+    h1: "Hospital & Surgical Supplies in Sri Ganganagar",
   },
   {
     city: "Suratgarh",
@@ -27,6 +33,8 @@ export const LOCATIONS: LocationData[] = [
     region: "Rajasthan",
     description: "Trusted wholesale medical supplier for Suratgarh's trauma centers, orthopedic clinics, and pharmacies.",
     hospitalCount: "40+ Clinics & Hospitals",
+    metaTitle: "Medical & Surgical Supplies in Suratgarh | Ganpati Lifecare",
+    h1: "Medical & Surgical Supplies in Suratgarh",
   },
   {
     city: "Bikaner",
@@ -34,6 +42,8 @@ export const LOCATIONS: LocationData[] = [
     region: "Rajasthan",
     description: "Delivering bulk hospital consumables and surgical gauze directly to Bikaner's leading medical facilities.",
     hospitalCount: "150+ Clinics & Hospitals",
+    metaTitle: "Orthopedic & Hospital Supplies in Bikaner | Ganpati Lifecare",
+    h1: "Orthopedic & Hospital Supplies in Bikaner",
   },
   {
     city: "Nohar",
@@ -41,6 +51,8 @@ export const LOCATIONS: LocationData[] = [
     region: "Rajasthan",
     description: "Your local partner for dependable medical disposables and doctor coats in Nohar and surrounding villages.",
     hospitalCount: "30+ Clinics & Hospitals",
+    metaTitle: "Medical Supplies in Nohar | Ganpati Lifecare",
+    h1: "Medical Supplies in Nohar",
   },
   {
     city: "Rawatsar",
@@ -48,6 +60,8 @@ export const LOCATIONS: LocationData[] = [
     region: "Rajasthan",
     description: "Supplying top-grade skin traction kits and elastic bandages to orthopedic specialists in Rawatsar.",
     hospitalCount: "25+ Clinics & Hospitals",
+    metaTitle: "Hospital & Surgical Supplies in Rawatsar | Ganpati Lifecare",
+    h1: "Hospital & Surgical Supplies in Rawatsar",
   },
   {
     city: "Pilibanga",
@@ -55,6 +69,8 @@ export const LOCATIONS: LocationData[] = [
     region: "Rajasthan",
     description: "Reaching hospitals and primary health centres across Pilibanga tehsil with orthopedic cotton rolls, stockinet, and everyday hospital consumables.",
     hospitalCount: "Local Clinics & Hospitals",
+    metaTitle: "Medical & Surgical Supplies in Pilibanga | Ganpati Lifecare",
+    h1: "Medical & Surgical Supplies in Pilibanga",
   },
   {
     city: "Sangaria",
@@ -62,6 +78,8 @@ export const LOCATIONS: LocationData[] = [
     region: "Rajasthan",
     description: "Supplying surgical dressing materials, bandages, and healthcare staff uniforms to clinics and nursing homes across Sangaria.",
     hospitalCount: "Local Clinics & Hospitals",
+    metaTitle: "Hospital & Surgical Supplies in Sangaria | Ganpati Lifecare",
+    h1: "Hospital & Surgical Supplies in Sangaria",
   },
   {
     city: "Bhadra",
@@ -69,5 +87,7 @@ export const LOCATIONS: LocationData[] = [
     region: "Rajasthan",
     description: "A dependable source of orthopedic padding, gauze bandages, and hospital uniforms for healthcare facilities throughout Bhadra tehsil.",
     hospitalCount: "Local Clinics & Hospitals",
+    metaTitle: "Orthopedic & Hospital Supplies in Bhadra | Ganpati Lifecare",
+    h1: "Orthopedic & Hospital Supplies in Bhadra",
   }
 ];

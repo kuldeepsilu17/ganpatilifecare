@@ -65,6 +65,10 @@ export function getProductDetails(product: Product): EnrichedProduct {
         { q: "Can the cotton roll be sterilized?", a: "Yes, our medical-grade cotton rolls are autoclavable and can be safely sterilized for surgical use." },
         { q: "What sizes do you supply?", a: "We offer bulk rolls in 100g, 200g, 300g, and 500g weights to accommodate various clinical needs." }
       ];
+      aeoSections = [
+        { title: "What is an Orthocot Cotton Roll?", content: "An Orthocot Cotton Roll is a premium, highly absorbent medical-grade cotton roll supplied by Ganpati Lifecare for use in clinical environments." },
+        { title: "What is an orthopedic cotton roll used for?", content: "It is primarily used as protective padding under plaster of Paris and synthetic casts to prevent skin irritation and pressure sores, as well as for general wound cleansing." }
+      ];
       break;
 
     case "stockinet":
@@ -89,6 +93,10 @@ export function getProductDetails(product: Product): EnrichedProduct {
         { q: "Does the material stretch?", a: "Yes, the rib-knit structure allows it to stretch and conform comfortably to various body contours without constricting blood flow." },
         { q: "Is it hypoallergenic?", a: "Absolutely. It is made from soft, breathable cotton that is skin-friendly and ideal for prolonged wear under casts." }
       ];
+      aeoSections = [
+        { title: "What is stockinet?", content: "Stockinet is a seamless, stretchable tubular bandage made from soft, breathable cotton." },
+        { title: "What is orthopedic stockinet used for?", content: "It acts as the critical first layer of skin protection applied under orthopedic casts and splints to prevent friction and moisture buildup." }
+      ];
       break;
 
     case "skin-traction-kit":
@@ -111,6 +119,10 @@ export function getProductDetails(product: Product): EnrichedProduct {
         { q: "Do you supply both adhesive and non-adhesive traction kits?", a: "Yes, Ganpati Lifecare supplies both adhesive and non-adhesive skin traction kits to suit different patient skin sensitivities." },
         { q: "Are all components included in one box?", a: "Yes, each kit is a complete, ready-to-use package including the foam pad, spreader plate, cords, and crepe bandage." },
         { q: "Is the adhesive hypoallergenic?", a: "Yes, the adhesive used in our kits is formulated to minimize skin irritation during prolonged traction therapy." }
+      ];
+      aeoSections = [
+        { title: "What is a skin traction kit?", content: "A skin traction kit is a complete, ready-to-use orthopedic medical package containing a foam pad, spreader plate, cords, and bandages." },
+        { title: "What is a skin traction kit used for?", content: "It is used by orthopedic surgeons and trauma units to maintain bone alignment, relieve muscle spasms, and stabilize limb injuries prior to definitive surgery." }
       ];
       break;
 
@@ -212,6 +224,10 @@ export function getProductDetails(product: Product): EnrichedProduct {
         { q: "What is a Gamjee Roll used for?", a: "It is primarily used for dressing heavily weeping wounds, burn care, and providing thick cushioning under orthopedic casts." },
         { q: "Is the outer layer made of gauze?", a: "Yes, it features a thick cotton wool core securely enclosed within a fine surgical gauze sleeve." },
         { q: "Can it be cut to size?", a: "Yes, it can be easily trimmed to the required length without the core cotton falling out." }
+      ];
+      aeoSections = [
+        { title: "What is a Gamjee Roll?", content: "A Gamjee Roll is a highly absorbent surgical dressing consisting of a thick layer of premium cotton wool encased in a fine, non-irritating gauze sleeve." },
+        { title: "Where is Gamjee Roll used?", content: "It is widely used in trauma and surgical wards for managing heavily exuding wounds, covering burns, and providing protective mechanical cushioning." }
       ];
       break;
 
@@ -388,6 +404,10 @@ export function getProductDetails(product: Product): EnrichedProduct {
         { q: "Can you supply an entire hospital's monthly consumable requirement?", a: "Yes, we act as a central supplier for many hospitals, fulfilling their complete monthly inventory of routine consumables." },
         { q: "Are the products compliant with medical standards?", a: "Absolutely. All clinical consumables we supply meet strict healthcare-grade quality and safety standards." },
         { q: "How fast is your delivery for bulk consumable orders?", a: "We pride ourselves on prompt dispatch and maintain ready stock for rapid delivery across North India." }
+      ];
+      aeoSections = [
+        { title: "What are hospital consumables?", content: "Hospital consumables are everyday single-use or disposable clinical products required for routine patient care, diagnosis, and treatment in medical facilities." },
+        { title: "What are common hospital consumable products?", content: "Common products include medical tapes, IV cannulas, syringes, cotton rolls, gauze swabs, and general first-aid materials." }
       ];
       break;
 
