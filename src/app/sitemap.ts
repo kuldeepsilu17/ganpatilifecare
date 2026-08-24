@@ -27,18 +27,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
-    
-    {
-      url: `${BUSINESS.siteUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
     {
       url: `${BUSINESS.siteUrl}/areas-we-serve`,
-      lastModified: new Date(),
+      lastModified: recentDate,
       changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${BUSINESS.siteUrl}/about`,
@@ -57,12 +50,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: baseDate,
       changeFrequency: "monthly",
       priority: 0.3,
-    },
-    {
-      url: `${BUSINESS.siteUrl}/areas-we-serve`,
-      lastModified: recentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
     },
   ];
 
