@@ -2,27 +2,38 @@ import { BUSINESS } from "./constants";
 import { LOGO } from "./brand";
 import { LOCATIONS } from "./locations";
 
-const logoUrl = `${BUSINESS.siteUrl}${LOGO.png}`;
+const logoUrl = `${BUSINESS.siteUrl}/logo.svg`;
+const ogImageUrl = `${BUSINESS.siteUrl}${LOGO.og}`;
 
 export function getOrganizationSchema() {
   return {
-    "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${BUSINESS.siteUrl}/#organization`,
     name: BUSINESS.name,
-    alternateName: ["Ganpati Life Care", "GLC", "Ganpati Lifecare Hanumangarh", "Ganpati Life Care Hanumangarh", "Ganpati Lifecare Goluwala", "Ganpati Lifecare Rajasthan"],
+    alternateName: [
+      "Ganpati Life Care",
+      "GLC",
+      "Ganpati Lifecare Hanumangarh",
+      "Ganpati Life Care Hanumangarh",
+      "Ganpati Lifecare Goluwala",
+      "Ganpati Lifecare Rajasthan",
+    ],
     url: BUSINESS.siteUrl,
     logo: logoUrl,
-    image: `${BUSINESS.siteUrl}${LOGO.og}`,
+    image: ogImageUrl,
     email: BUSINESS.email,
     telephone: [...BUSINESS.phones],
     founder: {
       "@type": "Person",
+      "@id": `${BUSINESS.siteUrl}/#owner`,
       name: BUSINESS.owner,
       jobTitle: "Founder & Owner",
+      worksFor: {
+        "@id": `${BUSINESS.siteUrl}/#organization`,
+      },
     },
     description:
-      "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic, surgical, hospital consumables and medical products.",
+      "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic products, surgical dressings, hospital uniforms, and medical consumables.",
     address: {
       "@type": "PostalAddress",
       streetAddress: BUSINESS.address.streetAddress,
@@ -31,29 +42,44 @@ export function getOrganizationSchema() {
       postalCode: BUSINESS.address.postalCode,
       addressCountry: BUSINESS.address.addressCountry,
     },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: BUSINESS.phones[0],
+      contactType: "sales and customer service",
+      areaServed: "IN",
+      availableLanguage: ["en", "hi"],
+    },
     sameAs: [`https://wa.me/${BUSINESS.whatsapp}`],
   };
 }
 
 export function getLocalBusinessSchema() {
   return {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
+    "@type": ["LocalBusiness", "MedicalBusiness"],
     "@id": `${BUSINESS.siteUrl}/#localbusiness`,
     name: BUSINESS.name,
-    alternateName: ["Ganpati Life Care", "GLC", "Ganpati Lifecare Hanumangarh", "Ganpati Lifecare Goluwala"],
+    alternateName: [
+      "Ganpati Life Care",
+      "GLC",
+      "Ganpati Lifecare Hanumangarh",
+      "Ganpati Lifecare Goluwala",
+    ],
     founder: {
       "@type": "Person",
+      "@id": `${BUSINESS.siteUrl}/#owner`,
       name: BUSINESS.owner,
       jobTitle: "Founder & Owner",
     },
     description:
-      "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic, surgical, hospital consumables and medical products.",
+      "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic products, surgical dressings, hospital uniforms, and medical consumables.",
     url: BUSINESS.siteUrl,
     logo: logoUrl,
-    image: `${BUSINESS.siteUrl}${LOGO.og}`,
+    image: ogImageUrl,
     telephone: [...BUSINESS.phones],
     email: BUSINESS.email,
+    priceRange: "₹₹",
+    currenciesAccepted: "INR",
+    paymentAccepted: "Cash, Bank Transfer, UPI",
     address: {
       "@type": "PostalAddress",
       streetAddress: BUSINESS.address.streetAddress,
@@ -72,12 +98,14 @@ export function getLocalBusinessSchema() {
       { "@type": "AdministrativeArea", name: "Rajasthan" },
       { "@type": "Country", name: "India" },
     ],
+    parentOrganization: {
+      "@id": `${BUSINESS.siteUrl}/#organization`,
+    },
   };
 }
 
 export function getWebSiteSchema() {
   return {
-    "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${BUSINESS.siteUrl}/#website`,
     name: BUSINESS.name,
@@ -92,19 +120,115 @@ export function getWebSiteSchema() {
   };
 }
 
+export function getRootGraphSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      getWebSiteSchema(),
+      getOrganizationSchema(),
+      getLocalBusinessSchema(),
+    ],
+  };
+}
+
+export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
 export function getFaqSchema(
-  faqs: readonly { question: string; answer: string }[]
+  faqs: readonly { question: string; answer: string }[] | readonly { q: string; a: string }[]
 ) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
+    mainEntity: faqs.map((faq) => {
+      const q = "question" in faq ? faq.question : faq.q;
+      const a = "answer" in faq ? faq.answer : faq.a;
+      return {
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: a,
+        },
+      };
+    }),
+  };
+}
+
+export function getProductSchema(product: {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  category: string;
+  brandName?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${BUSINESS.siteUrl}/products/${product.id}#product`,
+    name: product.name,
+    description: product.description,
+    image: product.image.startsWith("http") ? product.image : `${BUSINESS.siteUrl}${product.image}`,
+    category: product.category,
+    brand: {
+      "@type": "Brand",
+      name: product.brandName || "Ganpati Lifecare",
+    },
+    manufacturer: {
+      "@type": "Organization",
+      "@id": `${BUSINESS.siteUrl}/#organization`,
+      name: BUSINESS.name,
+      url: BUSINESS.siteUrl,
+    },
+  };
+}
+
+export function getBlogPostingSchema(post: {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  author: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${BUSINESS.siteUrl}/blog/${post.slug}#article`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${BUSINESS.siteUrl}/blog/${post.slug}`,
+    },
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image ? (post.image.startsWith("http") ? post.image : `${BUSINESS.siteUrl}${post.image}`) : ogImageUrl,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
+    author: {
+      "@type": "Person",
+      name: post.author || BUSINESS.owner,
+      jobTitle: "Founder & Owner, Ganpati Lifecare",
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": `${BUSINESS.siteUrl}/#organization`,
+      name: BUSINESS.name,
+      logo: {
+        "@type": "ImageObject",
+        url: logoUrl,
       },
-    })),
+    },
+    inLanguage: "en-IN",
   };
 }

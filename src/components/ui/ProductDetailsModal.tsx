@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { EnrichedProduct } from "@/lib/product-details";
-import { BUSINESS } from "@/lib/constants";
+import { WHATSAPP_MESSAGES, getWhatsAppInquiryUrl } from "@/lib/constants";
 
 interface ProductDetailsModalProps {
   product: EnrichedProduct | null;
@@ -41,9 +41,9 @@ export function ProductDetailsModal({
 
   if (!product) return null;
 
-  const whatsappInquiryUrl = `https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(
-    `Hello Ganpati Lifecare,\n\nI am interested in ${product.name}.\n\nPlease share availability, sizes and quotation.\n\nThank you.`
-  )}`;
+  const whatsappInquiryUrl = getWhatsAppInquiryUrl(
+    WHATSAPP_MESSAGES.product(product.name)
+  );
 
   const handleInquirySubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -103,7 +103,7 @@ export function ProductDetailsModal({
             {/* Close Button */}
             <button
               onClick={handleClose}
-              className="absolute top-3.5 right-3.5 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-muted hover:text-medical transition-colors cursor-pointer"
+              className="absolute top-3 right-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-muted hover:text-medical transition-colors cursor-pointer"
               aria-label="Close dialog"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -111,7 +111,7 @@ export function ProductDetailsModal({
               </svg>
             </button>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-start">
               {/* Left Column: Image */}
               <div>
                 <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-gray-50 border border-medical/10">
@@ -135,9 +135,9 @@ export function ProductDetailsModal({
                     href={whatsappInquiryUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-2.5 text-xs sm:text-sm font-bold text-white shadow-xs hover:bg-[#1fb855] transition-colors"
+                    className="flex items-center justify-center min-h-[44px] gap-2 rounded-xl bg-[#25D366] py-2.5 px-4 text-xs sm:text-sm font-bold text-white shadow-xs hover:bg-[#1fb855] transition-colors"
                   >
-                    <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <svg className="h-4 w-4 fill-current shrink-0" viewBox="0 0 24 24">
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                     </svg>
                     WhatsApp Inquiry
@@ -145,7 +145,7 @@ export function ProductDetailsModal({
                   <Link
                     href={`/products/${product.id}`}
                     onClick={handleClose}
-                    className="text-center text-xs font-semibold text-medical hover:underline pt-1"
+                    className="text-center text-xs font-semibold text-medical hover:underline pt-1 min-h-[36px] flex items-center justify-center"
                   >
                     Open Full Product Page →
                   </Link>
@@ -158,7 +158,7 @@ export function ProductDetailsModal({
                   <span className="inline-block rounded-full bg-medical/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-medical">
                     {product.category}
                   </span>
-                  <h2 className="mt-1.5 font-display text-lg sm:text-xl md:text-2xl font-bold text-foreground">
+                  <h2 className="mt-1.5 font-display text-lg sm:text-xl md:text-2xl font-bold text-foreground break-words leading-tight">
                     {product.name}
                   </h2>
                   <p className="mt-2 text-xs sm:text-sm text-foreground/80 leading-relaxed">
@@ -184,7 +184,7 @@ export function ProductDetailsModal({
                     Available Sizes &amp; Specifications
                   </h3>
                   {product.specifications && Object.keys(product.specifications).length > 0 ? (
-                    <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                       {Object.entries(product.specifications).map(([key, val]) => (
                         <div key={key}>
                           <span className="font-semibold text-foreground/70">{key}: </span>
@@ -205,7 +205,7 @@ export function ProductDetailsModal({
                     <button
                       type="button"
                       onClick={() => setShowInquiryForm(true)}
-                      className="w-full rounded-xl bg-medical py-2.5 text-xs sm:text-sm font-bold text-white shadow-xs hover:bg-medical-dark transition-colors cursor-pointer"
+                      className="w-full flex items-center justify-center min-h-[44px] rounded-xl bg-medical py-2.5 text-xs sm:text-sm font-bold text-white shadow-xs hover:bg-medical-dark transition-colors cursor-pointer"
                     >
                       Get Bulk Quote for {product.name}
                     </button>
@@ -220,24 +220,24 @@ export function ProductDetailsModal({
                         name="name"
                         required
                         placeholder="Your Name"
-                        className="w-full rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs text-foreground outline-none focus:border-medical"
+                        className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-base sm:text-xs text-foreground outline-none focus:border-medical"
                       />
                       <input
                         name="phone"
                         type="tel"
                         required
                         placeholder="Phone Number (e.g. +91 98282 32254)"
-                        className="w-full rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs text-foreground outline-none focus:border-medical"
+                        className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-base sm:text-xs text-foreground outline-none focus:border-medical"
                       />
                       <input
                         name="quantity"
                         placeholder="Required Quantity / Details"
-                        className="w-full rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs text-foreground outline-none focus:border-medical"
+                        className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-base sm:text-xs text-foreground outline-none focus:border-medical"
                       />
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full rounded-lg bg-medical py-2 text-xs font-bold text-white hover:bg-medical-dark transition-colors cursor-pointer"
+                        className="w-full flex items-center justify-center min-h-[42px] rounded-lg bg-medical py-2 text-xs sm:text-sm font-bold text-white hover:bg-medical-dark transition-colors cursor-pointer"
                       >
                         {isSubmitting ? "Submitting..." : "Submit Quote Request"}
                       </button>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { NAV_LINKS, BUSINESS } from "@/lib/constants";
+import { NAV_LINKS, BUSINESS, WHATSAPP_MESSAGES, getWhatsAppInquiryUrl } from "@/lib/constants";
 import { Logo } from "@/components/brand/Logo";
 import { LOGO } from "@/lib/brand";
 import "@/styles/Navbar.css";
@@ -12,9 +12,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const whatsappUrl = `https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(
-    "Hello Ganpati Lifecare, I would like to enquire about your medical and surgical products. Please share product availability and quotation."
-  )}`;
+  const whatsappUrl = getWhatsAppInquiryUrl(WHATSAPP_MESSAGES.general);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -40,7 +38,7 @@ export function Navbar() {
         className="navbar-wrapper"
         aria-label="Main navigation"
       >
-        <Link href="#home" className="navbar-logo">
+        <Link href="/" className="navbar-logo">
           <Logo variant="full" alt={LOGO.alt.main} priority className="h-11 md:h-12" />
         </Link>
 

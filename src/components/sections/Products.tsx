@@ -40,13 +40,13 @@ export function Products() {
           description="Orthopedic, surgical, hospital uniforms, and healthcare essentials — cotton roll supplier India & surgical products supplier Rajasthan."
         />
 
-        <div id="categories" className="mt-10 flex flex-wrap justify-center gap-2 scroll-mt-28">
+        <div id="categories" className="mt-8 sm:mt-10 flex flex-wrap justify-center gap-1.5 sm:gap-2 scroll-mt-28">
           {PRODUCT_CATEGORIES.map((cat) => (
             <button
               key={cat.id}
               type="button"
               onClick={() => setFilter(cat.id)}
-              className={`rounded-full px-4 py-2 text-xs md:text-sm font-medium transition cursor-pointer ${
+              className={`rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-xs md:text-sm font-medium transition cursor-pointer min-h-[36px] flex items-center ${
                 filter === cat.id
                   ? "bg-medical text-white shadow-md ring-2 ring-brand-orange/40"
                   : "bg-card text-foreground/80 ring-1 ring-medical/20 hover:ring-brand-orange hover:text-medical"
@@ -57,26 +57,26 @@ export function Products() {
           ))}
         </div>
 
-        <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:mt-12 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+        <ul className="mt-8 sm:mt-10 grid grid-cols-1 min-[380px]:grid-cols-2 gap-3.5 sm:gap-4 md:mt-12 md:gap-6 md:grid-cols-3 xl:grid-cols-4">
           {filtered.map((product, i) => (
             <AnimateIn key={product.id} delay={i * 0.05}>
               <motion.li
                 onClick={() => handleOpenDetails(product)}
-                className="card-glow group flex h-full list-none flex-col overflow-hidden rounded-2xl bg-card shadow-md transition duration-300 hover:-translate-y-1 cursor-pointer"
+                className="card-glow group flex h-full list-none flex-col overflow-hidden rounded-2xl bg-card shadow-md transition duration-300 hover:-translate-y-1 cursor-pointer border border-medical/10"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <div className="relative aspect-square bg-muted/20 overflow-hidden">
+                <div className="relative aspect-square bg-muted/10 overflow-hidden">
                   <Image
                     src={product.image}
                     alt={`${product.name} supplied by Ganpati Lifecare - Goluwala, Hanumangarh`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                    sizes="(max-width: 380px) 100vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                     priority={i < 4}
                   />
                 </div>
-                <div className="flex flex-1 flex-col p-3 md:p-5">
+                <div className="flex flex-1 flex-col p-3.5 sm:p-4 md:p-5">
                   <Link
                     href={`/products/${product.id}`}
                     onClick={(e) => {
@@ -85,11 +85,11 @@ export function Products() {
                     }}
                     className="group-hover:text-medical transition-colors"
                   >
-                    <h3 className="font-display font-semibold text-foreground text-base md:text-lg leading-snug break-words">
+                    <h3 className="font-display font-semibold text-foreground text-sm sm:text-base md:text-lg leading-snug break-words">
                       {product.name}
                     </h3>
                   </Link>
-                  <p className="mt-1.5 flex-1 text-sm text-muted line-clamp-2 md:line-clamp-none">
+                  <p className="mt-1.5 flex-1 text-xs sm:text-sm text-muted line-clamp-2 md:line-clamp-none">
                     {product.description}
                   </p>
                   <Link
@@ -98,7 +98,7 @@ export function Products() {
                       e.preventDefault();
                       handleOpenDetails(product);
                     }}
-                    className="mt-3 block w-full rounded-full bg-medical py-2 text-center text-sm font-semibold text-white transition hover:bg-medical-dark cursor-pointer"
+                    className="mt-3 flex items-center justify-center min-h-[40px] w-full rounded-full bg-medical py-2 text-center text-xs sm:text-sm font-semibold text-white transition hover:bg-medical-dark cursor-pointer"
                   >
                     View Details
                   </Link>

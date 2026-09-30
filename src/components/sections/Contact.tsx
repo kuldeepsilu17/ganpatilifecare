@@ -18,6 +18,14 @@ export function Contact() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    const honeypot = formData.get("website_hp") as string;
+    if (honeypot) {
+      // Quietly reject bot submissions
+      setIsSubmitting(false);
+      setSent(true);
+      return;
+    }
+
     const payload = {
       name: formData.get("name") as string,
       phone: formData.get("phone") as string,
@@ -66,26 +74,26 @@ export function Contact() {
   const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(BUSINESS.mapQuery)}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
   return (
-    <section id="contact" className="gradient-green-soft py-12 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-6">
+    <section id="contact" className="gradient-green-soft py-10 md:py-24">
+      <div className="mx-auto max-w-7xl px-3.5 sm:px-4 md:px-6">
         <SectionHeading
           eyebrow="Contact"
           title="Get In Touch"
           description={`Reach Ganpati Lifecare in Goluwala, Hanumangarh for medical, orthopedic, and surgical supplies.`}
         />
-        <div className="mt-12 grid gap-10 lg:grid-cols-2">
+        <div className="mt-8 sm:mt-12 grid gap-6 sm:gap-10 lg:grid-cols-2">
           <div className="space-y-6">
-            <article className="rounded-2xl bg-card p-6 shadow-lg">
-              <h3 className="font-display text-xl font-bold">{BUSINESS.name}</h3>
-              <p className="mt-1 text-sm font-semibold text-medical">Owner: {BUSINESS.owner}</p>
-              <p className="mt-2 text-muted">{BUSINESS.location}</p>
+            <article className="rounded-2xl bg-card p-5 sm:p-6 shadow-md border border-medical/10">
+              <h3 className="font-display text-lg sm:text-xl font-bold">{BUSINESS.name}</h3>
+              <p className="mt-1 text-xs sm:text-sm font-semibold text-medical">Owner: {BUSINESS.owner}</p>
+              <p className="mt-2 text-xs sm:text-sm text-muted">{BUSINESS.location}</p>
               
               <div className="mt-4 pt-4 border-t border-medical/10">
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted">Direct Phone Contacts</p>
-                <ul className="mt-2 space-y-1.5">
+                <ul className="mt-2 space-y-2">
                   {BUSINESS.phoneDisplay.map((phone, i) => (
                     <li key={phone}>
-                      <a href={`tel:${BUSINESS.phones[i]}`} className="font-medium text-medical hover:underline inline-flex items-center gap-2">
+                      <a href={`tel:${BUSINESS.phones[i]}`} className="font-medium text-xs sm:text-sm text-medical hover:underline inline-flex items-center gap-2 min-h-[36px]">
                         <span>📞</span> {phone}
                       </a>
                     </li>
@@ -95,17 +103,17 @@ export function Contact() {
 
               <div className="mt-4 pt-3 border-t border-medical/10">
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted">Email Contact</p>
-                <a href={`mailto:${BUSINESS.email}`} className="mt-1 inline-flex items-center gap-2 text-medical hover:underline font-medium">
+                <a href={`mailto:${BUSINESS.email}`} className="mt-1 inline-flex items-center gap-2 text-xs sm:text-sm text-medical hover:underline font-medium min-h-[36px]">
                   <span>✉️</span> {BUSINESS.email}
                 </a>
               </div>
             </article>
 
-            <div className="overflow-hidden rounded-2xl shadow-lg border border-medical/10">
+            <div className="overflow-hidden rounded-2xl shadow-md border border-medical/10">
               <iframe
                 title="Ganpati Lifecare location map"
                 src={mapSrc}
-                className="h-64 w-full border-0 md:h-80"
+                className="h-60 w-full border-0 md:h-80"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
@@ -113,17 +121,17 @@ export function Contact() {
           </div>
 
           {sent ? (
-            <div className="rounded-2xl bg-card p-8 shadow-lg border border-medical/15 flex flex-col items-center text-center justify-center min-h-[400px]">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-medical/10 text-medical shadow-inner">
-                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="rounded-2xl bg-card p-6 sm:p-8 shadow-lg border border-medical/15 flex flex-col items-center text-center justify-center min-h-[360px]">
+              <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-medical/10 text-medical shadow-inner">
+                <svg className="h-7 w-7 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="mt-6 font-display text-2xl font-bold text-foreground">Inquiry Received!</h3>
+              <h3 className="mt-5 font-display text-xl sm:text-2xl font-bold text-foreground">Inquiry Received!</h3>
               <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-muted">
                 Inquiry ID: <span className="text-medical">{inquiryId}</span>
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-foreground/80 max-w-sm">
+              <p className="mt-3 text-xs sm:text-sm leading-relaxed text-foreground/80 max-w-sm">
                 Thank you for reaching out to Ganpati Lifecare. Dharampal Verma and our team will get back to you shortly.
               </p>
               <button
@@ -131,76 +139,85 @@ export function Contact() {
                   setSent(false);
                   setInquiryId("");
                 }}
-                className="mt-8 rounded-full border border-medical/20 bg-background px-6 py-2.5 text-xs font-bold text-medical hover:bg-medical/5 transition-colors cursor-pointer"
+                className="mt-6 sm:mt-8 inline-flex items-center justify-center min-h-[42px] rounded-full border border-medical/20 bg-background px-6 py-2.5 text-xs font-bold text-medical hover:bg-medical/5 transition-colors cursor-pointer"
               >
                 Submit Another Inquiry
               </button>
             </div>
           ) : (
-            <form onSubmit={onSubmit} className="rounded-2xl bg-card p-8 shadow-lg">
-              <h3 className="font-display text-xl font-bold">Send an Inquiry</h3>
+            <form onSubmit={onSubmit} className="rounded-2xl bg-card p-5 sm:p-8 shadow-lg border border-medical/10">
+              <h3 className="font-display text-lg sm:text-xl font-bold">Send an Inquiry</h3>
               
               {errorMsg && (
-                <div className="mt-4 rounded-xl bg-brand-red/10 p-4 text-sm text-brand-red border border-brand-red/10">
+                <div className="mt-4 rounded-xl bg-brand-red/10 p-3 sm:p-4 text-xs sm:text-sm text-brand-red border border-brand-red/10">
                   {errorMsg}
                 </div>
               )}
 
+              <input
+                type="text"
+                name="website_hp"
+                style={{ display: "none" }}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+
               <label className="mt-4 block">
-                <span className="text-sm font-medium">Your Name</span>
+                <span className="text-xs sm:text-sm font-medium">Your Name</span>
                 <input
                   name="name"
                   required
                   placeholder="Enter your full name"
-                  className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-4 py-3 placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out"
+                  className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out box-border"
                 />
               </label>
               
-              <label className="mt-4 block">
-                <span className="text-sm font-medium">Phone Number</span>
+              <label className="mt-3 sm:mt-4 block">
+                <span className="text-xs sm:text-sm font-medium">Phone Number</span>
                 <input
                   name="phone"
                   type="tel"
                   required
                   placeholder="Enter your phone number"
-                  className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-4 py-3 placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out"
+                  className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out box-border"
                 />
               </label>
               
-              <label className="mt-4 block">
-                <span className="text-sm font-medium">Email Address</span>
+              <label className="mt-3 sm:mt-4 block">
+                <span className="text-xs sm:text-sm font-medium">Email Address</span>
                 <input
                   name="email"
                   type="email"
                   placeholder="Enter your email address (optional)"
-                  className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-4 py-3 placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out"
+                  className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out box-border"
                 />
               </label>
 
-              <label className="mt-4 block">
-                <span className="text-sm font-medium">Product / Requirement</span>
+              <label className="mt-3 sm:mt-4 block">
+                <span className="text-xs sm:text-sm font-medium">Product / Requirement</span>
                 <input
                   name="requirement"
                   placeholder="e.g. Orthocot Cotton Rolls, Doctor Coats, Gamjee"
-                  className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-4 py-3 placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out"
+                  className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out box-border"
                 />
               </label>
               
-              <label className="mt-4 block">
-                <span className="text-sm font-medium">Your Message</span>
+              <label className="mt-3 sm:mt-4 block">
+                <span className="text-xs sm:text-sm font-medium">Your Message</span>
                 <textarea
                   name="message"
                   rows={4}
                   required
                   placeholder="Please describe your product requirements and quantity..."
-                  className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-4 py-3 placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out"
+                  className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out box-border"
                 />
               </label>
               
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-6 w-full rounded-full bg-medical py-3 font-semibold text-white hover:bg-medical-dark transition-all duration-300 shadow-md active:scale-98 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                className="mt-5 sm:mt-6 w-full flex items-center justify-center min-h-[46px] rounded-full bg-medical py-3 font-semibold text-xs sm:text-sm text-white hover:bg-medical-dark transition-all duration-300 shadow-md active:scale-98 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Submitting..." : "Send Inquiry"}
               </button>

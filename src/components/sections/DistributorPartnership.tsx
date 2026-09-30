@@ -83,13 +83,13 @@ export function DistributorPartnership() {
                 <button
                   type="button"
                   onClick={() => setShowModal(true)}
-                  className="rounded-full bg-brand-orange px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-brand-orange-dark transition-colors cursor-pointer"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-brand-orange px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-brand-orange-dark transition-colors cursor-pointer"
                 >
                   Become a Partner
                 </button>
                 <a
                   href={`tel:${BUSINESS.phones[0]}`}
-                  className="rounded-full bg-white/20 border border-white/40 px-5 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white hover:text-medical transition-colors"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-white/20 border border-white/40 px-5 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white hover:text-medical transition-colors"
                 >
                   Talk to Sales
                 </a>
@@ -101,14 +101,14 @@ export function DistributorPartnership() {
 
       {/* Distributor Application Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs text-foreground">
-          <div className="relative w-full max-w-lg rounded-2xl bg-card p-6 shadow-2xl border border-medical/20">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs text-foreground overflow-y-auto">
+          <div className="relative w-full max-w-lg rounded-2xl bg-card p-5 sm:p-6 shadow-2xl border border-medical/20 max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => {
                 setShowModal(false);
                 setSent(false);
               }}
-              className="absolute top-4 right-4 text-muted hover:text-foreground cursor-pointer text-sm"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 flex h-9 w-9 items-center justify-center rounded-full text-muted hover:text-foreground hover:bg-gray-100 transition-colors cursor-pointer text-sm"
               aria-label="Close form"
             >
               ✕
@@ -122,68 +122,68 @@ export function DistributorPartnership() {
                 </p>
                 <button
                   onClick={() => setShowModal(false)}
-                  className="mt-5 rounded-full bg-medical px-6 py-2 text-xs font-bold text-white"
+                  className="mt-5 min-h-[44px] rounded-full bg-medical px-6 py-2.5 text-xs sm:text-sm font-bold text-white"
                 >
                   Close
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <h3 className="font-display text-lg font-bold text-foreground">
+              <form onSubmit={handleSubmit} className="space-y-3 pt-2">
+                <h3 className="font-display text-base sm:text-lg font-bold text-foreground">
                   Distributor Partnership Inquiry
                 </h3>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <input
                     name="name"
                     required
                     placeholder="Your Name *"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs outline-none focus:border-medical"
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
                   />
                   <input
                     name="businessName"
                     required
                     placeholder="Business / Firm Name *"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs outline-none focus:border-medical"
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
                   />
                 </div>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <input
                     name="phone"
                     type="tel"
                     required
                     placeholder="Phone Number *"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs outline-none focus:border-medical"
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
                   />
                   <input
                     name="email"
                     type="email"
                     placeholder="Email Address"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs outline-none focus:border-medical"
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
                   />
                 </div>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <input
                     name="city"
                     required
                     placeholder="City / Region *"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs outline-none focus:border-medical"
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
                   />
                   <input
                     name="products"
                     placeholder="Products Interested In"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs outline-none focus:border-medical"
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
                   />
                 </div>
                 <textarea
                   name="message"
                   rows={3}
                   placeholder="Tell us about your distribution experience and coverage..."
-                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs outline-none focus:border-medical"
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full rounded-xl bg-brand-orange py-2.5 text-xs font-bold text-white hover:bg-brand-orange-dark transition-colors cursor-pointer"
+                  className="w-full min-h-[44px] rounded-xl bg-brand-orange py-3 text-xs sm:text-sm font-bold text-white hover:bg-brand-orange-dark transition-colors cursor-pointer"
                 >
                   {isSubmitting ? "Submitting..." : "Submit Partnership Request"}
                 </button>

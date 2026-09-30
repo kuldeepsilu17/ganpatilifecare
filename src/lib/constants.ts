@@ -1,26 +1,65 @@
+import {
+  SITE_URL,
+  SITE_NAME,
+  OWNER_NAME,
+  PHONE_1,
+  PHONE_2,
+  PHONE_DISPLAY_1,
+  PHONE_DISPLAY_2,
+  EMAIL,
+  WHATSAPP_NUMBER,
+  LOCATION_CITY,
+  LOCATION_DISTRICT,
+  LOCATION_STATE,
+  LOCATION_POSTAL_CODE,
+  LOCATION_FULL,
+} from "./site";
+
 export const BUSINESS = {
-  name: "Ganpati Lifecare",
-  alternateNames: ["Ganpati Life Care", "GLC", "Ganpati Life Care Hanumangarh", "Ganpati Lifecare Goluwala", "Ganpati Lifecare Sri Ganganagar", "Ganpati Lifecare Shri Ganganagar"],
+  name: SITE_NAME,
+  alternateNames: [
+    "Ganpati Life Care",
+    "GLC",
+    "Ganpati Life Care Hanumangarh",
+    "Ganpati Lifecare Goluwala",
+    "Ganpati Lifecare Sri Ganganagar",
+    "Ganpati Lifecare Shri Ganganagar",
+  ],
   shortName: "GLC",
-  owner: "Dharampal Verma",
-  contactPerson: "Dharampal Verma",
-  ownerTitle: "Founder & Owner — Dharampal Verma",
-  location: "Goluwala, Hanumangarh, Rajasthan, India",
+  owner: OWNER_NAME,
+  contactPerson: OWNER_NAME,
+  ownerTitle: `Founder & Owner — ${OWNER_NAME}`,
+  location: LOCATION_FULL,
   address: {
-    streetAddress: "Goluwala",
-    addressLocality: "Hanumangarh",
-    addressRegion: "Rajasthan",
-    postalCode: "335512",
+    streetAddress: LOCATION_CITY,
+    addressLocality: LOCATION_DISTRICT,
+    addressRegion: LOCATION_STATE,
+    postalCode: LOCATION_POSTAL_CODE,
     addressCountry: "IN",
   },
-  phones: ["+919828232254", "+919460095250"] as const,
-  phoneDisplay: ["+91 98282 32254", "+91 94600 95250"] as const,
-  email: "whiteroseglc@gmail.com",
-  whatsapp: "919828232254",
-  mapQuery: "Goluwala, Hanumangarh, Rajasthan, India",
-  directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=Goluwala+Hanumangarh+Rajasthan+India",
-  siteUrl: "https://ganpatilifecare.vercel.app",
+  phones: [PHONE_1, PHONE_2] as const,
+  phoneDisplay: [PHONE_DISPLAY_1, PHONE_DISPLAY_2] as const,
+  email: EMAIL,
+  whatsapp: WHATSAPP_NUMBER,
+  mapQuery: `${LOCATION_CITY}, ${LOCATION_DISTRICT}, ${LOCATION_STATE}, India`,
+  directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+    LOCATION_FULL
+  )}`,
+  siteUrl: SITE_URL,
 } as const;
+
+export const WHATSAPP_MESSAGES = {
+  general:
+    "Hello Ganpati Lifecare, I want to enquire about Surgical cotton roll & Dressing Product. Please share product availability, bulk pricing, and quotation.",
+  product: (productName: string) =>
+    `Hello Ganpati Lifecare, I am interested in your ${productName}. Please share product specifications, availability, and quotation.`,
+  location: (city: string) =>
+    `Hello Ganpati Lifecare, I am reaching out from ${city}. I want to enquire about Surgical cotton roll & Dressing Product supplies for our healthcare facility. Please share product availability and quotation.`,
+} as const;
+
+export function getWhatsAppInquiryUrl(message: string): string {
+  return `https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(message)}`;
+}
 
 export const NAV_LINKS = [
   { href: "/#home", label: "Home" },

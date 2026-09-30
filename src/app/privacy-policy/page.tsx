@@ -3,18 +3,39 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { BUSINESS } from "@/lib/constants";
+import { getBreadcrumbSchema } from "@/lib/schema";
+
+const title = "Privacy Policy | Ganpati Lifecare";
+const description =
+  "Privacy Policy and data protection guidelines of Ganpati Lifecare (GLC) for medical supply inquiries and orders.";
+const canonicalUrl = `${BUSINESS.siteUrl}/privacy-policy`;
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Ganpati Lifecare",
-  description: "Privacy Policy and data protection guidelines of Ganpati Lifecare (GLC).",
+  title,
+  description,
   alternates: {
-    canonical: `${BUSINESS.siteUrl}/privacy-policy`,
+    canonical: canonicalUrl,
+  },
+  openGraph: {
+    title,
+    description,
+    url: canonicalUrl,
+    type: "website",
   },
 };
 
 export default function PrivacyPolicyPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: BUSINESS.siteUrl },
+    { name: "Privacy Policy", url: canonicalUrl },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar />
       <main className="bg-background min-h-screen py-12 md:py-20 text-foreground">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">

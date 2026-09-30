@@ -50,11 +50,11 @@ export const BLOG_POSTS: BlogPost[] = [
     content: (
       <>
         <p>
-          A <Link href="/products/stockinet" className="text-medical font-semibold hover:underline">Stockinet</Link> (or stockinette) is a seamless, tubular knitted cotton bandage designed to stretch comfortably over a patient's limb. It serves as the very first layer of skin defense applied before any padding or casting material is used.
+          A <Link href="/products/stockinet" className="text-medical font-semibold hover:underline">Stockinet</Link> (or stockinette) is a seamless, tubular knitted cotton bandage designed to stretch comfortably over a patient&apos;s limb. It serves as the very first layer of skin defense applied before any padding or casting material is used.
         </p>
         <h2>Why is Orthopedic Stockinet Used?</h2>
         <p>
-          The primary purpose of an orthopedic stockinet is to wick away moisture and provide a smooth, frictionless surface between the skin and the cast padding. Because it is manufactured with a circular rib-knit structure, it stretches to conform perfectly to the body's contours without restricting blood flow.
+          The primary purpose of an orthopedic stockinet is to wick away moisture and provide a smooth, frictionless surface between the skin and the cast padding. Because it is manufactured with a circular rib-knit structure, it stretches to conform perfectly to the body&apos;s contours without restricting blood flow.
         </p>
         <p>
           Our premium stockinets can be easily cut to the required length without fraying, making them highly versatile for both adult and pediatric orthopedic procedures across Goluwala and greater Rajasthan.
@@ -248,7 +248,7 @@ export const BLOG_POSTS: BlogPost[] = [
         </p>
         <h2>Selecting Doctor Coats</h2>
         <p>
-          A high-quality doctor's coat should be tailored from a durable, breathable poly-cotton twill blend. It must be stain-resistant and capable of enduring high-temperature laundering to maintain a crisp medical white finish. Deep utility pockets and reinforced stitching are essential for daily clinical consultations.
+          A high-quality doctor&apos;s coat should be tailored from a durable, breathable poly-cotton twill blend. It must be stain-resistant and capable of enduring high-temperature laundering to maintain a crisp medical white finish. Deep utility pockets and reinforced stitching are essential for daily clinical consultations.
         </p>
         <h2>Procuring Nurse Uniforms</h2>
         <p>

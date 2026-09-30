@@ -3,18 +3,39 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { BUSINESS } from "@/lib/constants";
+import { getBreadcrumbSchema } from "@/lib/schema";
+
+const title = "Terms & Conditions | Ganpati Lifecare";
+const description =
+  "Terms and conditions for product inquiries, quotations, and wholesale supply orders with Ganpati Lifecare.";
+const canonicalUrl = `${BUSINESS.siteUrl}/terms-and-conditions`;
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Ganpati Lifecare",
-  description: "Terms and conditions for product inquiries, quotations, and supply orders with Ganpati Lifecare.",
+  title,
+  description,
   alternates: {
-    canonical: `${BUSINESS.siteUrl}/terms-and-conditions`,
+    canonical: canonicalUrl,
+  },
+  openGraph: {
+    title,
+    description,
+    url: canonicalUrl,
+    type: "website",
   },
 };
 
 export default function TermsAndConditionsPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: BUSINESS.siteUrl },
+    { name: "Terms & Conditions", url: canonicalUrl },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar />
       <main className="bg-background min-h-screen py-12 md:py-20 text-foreground">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -32,7 +53,7 @@ export default function TermsAndConditionsPage() {
             <section className="space-y-2">
               <h2 className="text-base sm:text-lg font-bold text-foreground">1. Agreement to Terms</h2>
               <p>
-                By accessing this website or requesting quotations from Ganpati Lifecare (GLC), you agree to abide by these terms and conditions. These terms govern all inquiries, wholesale transactions, and commercial arrangements.
+                By accessing this website or requesting quotations from Ganpati Lifecare (GLC), you agree to abide by these terms and conditions. These terms govern all inquiries, wholesale transactions, and commercial supply arrangements.
               </p>
             </section>
 

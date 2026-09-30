@@ -4,11 +4,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PRODUCTS } from "@/lib/data";
 import { getProductDetails } from "@/lib/product-details";
-import { BUSINESS } from "@/lib/constants";
+import { BUSINESS, WHATSAPP_MESSAGES, getWhatsAppInquiryUrl } from "@/lib/constants";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { RequestQuote } from "@/components/sections/RequestQuote";
+import { getBreadcrumbSchema, getFaqSchema, getProductSchema } from "@/lib/schema";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -33,7 +34,9 @@ export async function generateMetadata({
   }
 
   const title = product.metaTitle || `${product.name} | Ganpati Lifecare`;
-  const description = product.metaDescription || `Explore ${product.name} from Ganpati Lifecare, a healthcare supplier based in Goluwala, Hanumangarh, Rajasthan. Contact us for product availability and bulk requirements.`;
+  const description =
+    product.metaDescription ||
+    `Explore ${product.name} from Ganpati Lifecare, a healthcare supplier based in Goluwala, Hanumangarh, Rajasthan. Contact us for product availability and bulk requirements.`;
   const canonicalUrl = `${BUSINESS.siteUrl}/products/${product.id}`;
 
   return {
@@ -48,10 +51,16 @@ export async function generateMetadata({
       url: canonicalUrl,
       images: [
         {
-          url: product.image,
+          url: product.image.startsWith("http") ? product.image : `${BUSINESS.siteUrl}${product.image}`,
           alt: `${product.name} - Ganpati Lifecare`,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [product.image.startsWith("http") ? product.image : `${BUSINESS.siteUrl}${product.image}`],
     },
   };
 }
@@ -69,81 +78,44 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     (p) => p.category === product.category && p.id !== product.id
   ).slice(0, 4);
 
-  const getBrandName = (id: string, category: string) => {
-    if (id === "orthocot-cotton-roll") return "Orthocot";
+  const getBrandName = (productId: string, category: string) => {
+    if (productId === "orthocot-cotton-roll") return "Orthocot";
     switch (category) {
-      case "orthopedic": return "GLC Orthopedic";
-      case "surgical": return "GLC Surgical";
-      case "uniforms": return "GLC Uniforms";
-      case "essentials": return "GLC Consumables";
-      default: return "Ganpati Lifecare";
+      case "orthopedic":
+        return "GLC Orthopedic";
+      case "surgical":
+        return "GLC Surgical";
+      case "uniforms":
+        return "GLC Uniforms";
+      case "essentials":
+        return "GLC Consumables";
+      default:
+        return "Ganpati Lifecare";
     }
   };
   const brandName = getBrandName(product.id, product.category);
 
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": `${BUSINESS.siteUrl}/products/${product.id}#product`,
+  const productSchema = getProductSchema({
+    id: product.id,
     name: product.name,
     description: product.description,
-    image: `${BUSINESS.siteUrl}${product.image}`,
+    image: product.image,
     category: product.category,
-    brand: {
-      "@type": "Brand",
-      name: brandName,
-    },
-    manufacturer: {
-      "@type": "Organization",
-      name: "Ganpati Lifecare",
-      url: BUSINESS.siteUrl,
-    },
-  };
+    brandName,
+  });
 
   const productFaqSchema =
-    product.faqs && product.faqs.length > 0
-      ? {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: product.faqs.map((faq) => ({
-            "@type": "Question",
-            name: faq.q,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: faq.a,
-            },
-          })),
-        }
-      : null;
+    product.faqs && product.faqs.length > 0 ? getFaqSchema(product.faqs) : null;
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: BUSINESS.siteUrl,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Products",
-        item: `${BUSINESS.siteUrl}/products`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: product.name,
-        item: `${BUSINESS.siteUrl}/products/${product.id}`,
-      },
-    ],
-  };
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: BUSINESS.siteUrl },
+    { name: "Products", url: `${BUSINESS.siteUrl}/products` },
+    { name: product.name, url: `${BUSINESS.siteUrl}/products/${product.id}` },
+  ]);
 
-  const whatsappInquiryUrl = `https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(
-    `Hello Ganpati Lifecare,\n\nI am interested in ${product.name}.\n\nPlease share availability, sizes and quotation.\n\nThank you.`
-  )}`;
+  const whatsappInquiryUrl = getWhatsAppInquiryUrl(
+    WHATSAPP_MESSAGES.product(product.name)
+  );
 
   return (
     <>
@@ -167,26 +139,26 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       <main className="bg-background min-h-screen py-8 md:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb Navigation */}
-          <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-muted">
-            <Link href="/" className="hover:text-medical">
+          <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-muted">
+            <Link href="/" className="hover:text-medical transition-colors">
               Home
             </Link>
             <span>/</span>
-            <Link href="/products" className="hover:text-medical">
+            <Link href="/products" className="hover:text-medical transition-colors">
               Products
             </Link>
             <span>/</span>
-            <span className="font-semibold text-foreground">{product.name}</span>
+            <span className="font-semibold text-foreground break-words">{product.name}</span>
           </nav>
 
           {/* Main Product Container */}
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-12 items-start">
             {/* Left Column: Image Display */}
             <div>
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-medical/15 bg-card shadow-sm">
                 <Image
                   src={product.image}
-                  alt={`${product.name} - Ganpati Lifecare`}
+                  alt={`${product.name} - Ganpati Lifecare Healthcare Supplies`}
                   fill
                   priority
                   className="object-cover"
@@ -204,7 +176,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                     >
                       <Image
                         src={img}
-                        alt={`${product.name} photo ${idx + 1}`}
+                        alt={`${product.name} detail view ${idx + 1}`}
                         fill
                         className="object-cover"
                       />
@@ -214,12 +186,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               )}
 
               {/* Quick Actions */}
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-col min-[420px]:flex-row gap-3">
                 <a
                   href={whatsappInquiryUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 min-w-[160px] flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-[#1fb855] transition-colors"
+                  className="flex-1 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-[#1fb855] transition-colors"
                 >
                   <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -228,7 +200,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 </a>
                 <a
                   href={`tel:${BUSINESS.phones[0]}`}
-                  className="flex-1 min-w-[160px] flex items-center justify-center gap-2 rounded-xl bg-medical px-4 py-3 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-medical-dark transition-colors"
+                  className="flex-1 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-medical px-4 py-3 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-medical-dark transition-colors"
                 >
                   Call Now
                 </a>
@@ -352,7 +324,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-6">
                 Related {product.category} Products
               </h2>
-              <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-4">
+              <div className="grid grid-cols-1 min-[380px]:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
                 {relatedProducts.map((rel) => (
                   <Link
                     key={rel.id}
@@ -362,7 +334,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                     <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-50">
                       <Image
                         src={rel.image}
-                        alt={rel.name}
+                        alt={`${rel.name} - Ganpati Lifecare`}
                         fill
                         className="object-cover transition duration-300 group-hover:scale-105"
                       />

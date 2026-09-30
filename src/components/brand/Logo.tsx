@@ -8,8 +8,8 @@ import "@/styles/Logo.css";
 type LogoVariant = "full" | "mark";
 
 const sizes: Record<LogoVariant, { width: number; height: number; className: string }> = {
-  full: { width: 150, height: 200, className: "logo-size-full" },
-  mark: { width: 90, height: 120, className: "logo-size-mark" },
+  full: { width: 300, height: 400, className: "logo-size-full" },
+  mark: { width: 300, height: 400, className: "logo-size-mark" },
 };
 
 export function Logo({
@@ -55,7 +55,6 @@ export function Logo({
           width={size.width}
           height={size.height}
           priority={priority}
-          loading={priority ? "eager" : undefined}
           className={`logo-image ${size.className}`}
         />
       </motion.div>

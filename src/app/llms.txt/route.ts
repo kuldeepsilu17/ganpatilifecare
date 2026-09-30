@@ -2,10 +2,6 @@ import { BUSINESS } from "@/lib/constants";
 import { PRODUCTS } from "@/lib/data";
 import { LOCATIONS } from "@/lib/locations";
 
-// A plain-text summary for AI assistants and answer engines (ChatGPT, Perplexity,
-// Claude, Google AI Overviews, etc.), following the emerging llms.txt convention.
-// Generated from the same data files as the rest of the site (products, locations,
-// business info) so it can't drift out of sync the way a hand-written file would.
 export async function GET() {
   const lines: string[] = [];
 
@@ -16,7 +12,7 @@ export async function GET() {
   );
   lines.push("");
   lines.push(
-    `Founded by ${BUSINESS.owner}. Ordering is quote-based via WhatsApp or phone inquiry — there is no online checkout or published pricing.`
+    `Founded and owned by ${BUSINESS.owner}. Ordering is quote-based via WhatsApp or phone inquiry.`
   );
   lines.push("");
 
@@ -28,22 +24,34 @@ export async function GET() {
   }
   lines.push("");
 
-  lines.push("## Areas served");
-  lines.push(`Overview: ${BUSINESS.siteUrl}/areas-we-serve`);
+  lines.push("## Areas Served");
+  lines.push(`Locations overview: ${BUSINESS.siteUrl}/locations`);
+  lines.push(`Regional coverage: ${BUSINESS.siteUrl}/areas-we-serve`);
   lines.push("");
   for (const loc of LOCATIONS) {
     lines.push(`- [${loc.city}, ${loc.region}](${BUSINESS.siteUrl}/locations/${loc.slug}): ${loc.description}`);
   }
   lines.push("");
 
-  lines.push("## Other pages");
+  lines.push("## Categories");
+  lines.push(`- [Orthopedic Supplies](${BUSINESS.siteUrl}/categories/orthopedic): Orthocot cotton rolls, stockinets, skin traction kits, gauze bandages`);
+  lines.push(`- [Surgical Supplies](${BUSINESS.siteUrl}/categories/surgical): Gamjee rolls, sponge pads, crepe bandages, surgical dressing materials`);
+  lines.push(`- [Hospital Uniforms](${BUSINESS.siteUrl}/categories/hospital-uniforms): Doctor coats, nurse scrub suits, OT dresses, staff uniforms`);
+  lines.push(`- [Healthcare Essentials](${BUSINESS.siteUrl}/categories/healthcare-essentials): Medical disposables, masks, caps, gloves, hospital consumables`);
+  lines.push("");
+
+  lines.push("## Company & Pages");
+  lines.push(`- [About Us](${BUSINESS.siteUrl}/about): Company background and founder information`);
+  lines.push(`- [Contact](${BUSINESS.siteUrl}/contact): Direct contact channels and quotation requests`);
   lines.push(`- [Blog](${BUSINESS.siteUrl}/blog): Product and supply category guides`);
   lines.push(`- [Terms & Conditions](${BUSINESS.siteUrl}/terms-and-conditions)`);
   lines.push(`- [Privacy Policy](${BUSINESS.siteUrl}/privacy-policy)`);
   lines.push("");
 
   lines.push("## Contact");
+  lines.push(`- Owner: ${BUSINESS.owner}`);
   lines.push(`- Phone: ${BUSINESS.phoneDisplay.join(", ")}`);
+  lines.push(`- WhatsApp: +${BUSINESS.whatsapp}`);
   lines.push(`- Email: ${BUSINESS.email}`);
   lines.push(`- Location: ${BUSINESS.location}`);
 

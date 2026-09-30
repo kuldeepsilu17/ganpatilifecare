@@ -72,7 +72,10 @@ export async function POST(request: Request) {
     const emailBody = `Hello Ganpati Lifecare Team,\n\nI would like to inquire about your products.\n\nName: ${newInquiry.name}\nPhone: ${newInquiry.phone}\nEmail: ${newInquiry.email || "Not Provided"}\nProduct: ${newInquiry.product_name}\nQuantity: ${newInquiry.quantity}\nMessage:\n${newInquiry.message || "Please provide quotation and availability details."}\n\nPlease share product details and quotation.\n\nThank you.`;
 
     // 2. Compose Customer Direct WhatsApp text according to spec
-    const whatsappMessage = `Hello Ganpati Lifecare,\n\nI am interested in your products.\n\nName: ${newInquiry.name}\nPhone: ${newInquiry.phone}\nProduct: ${newInquiry.product_name}\nQuantity: ${newInquiry.quantity}\n\nPlease share availability and pricing.\n\nThank you.`;
+    const isGeneral = !newInquiry.product_name || newInquiry.product_name === "General Inquiry";
+    const whatsappMessage = isGeneral
+      ? "Hello Ganpati Lifecare, I would like to enquire about your surgical products, especially Surgical Cotton Roll and Dressing Products. Please share product availability and quotation."
+      : `Hello Ganpati Lifecare, I am interested in your ${newInquiry.product_name}. Please share product availability, specifications and quotation.`;
 
     return NextResponse.json({
       success: true,

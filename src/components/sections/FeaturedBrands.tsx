@@ -9,7 +9,7 @@ export function FeaturedBrands() {
 
   return (
     <section className="overflow-hidden bg-background py-10 md:py-16" aria-label="Featured products">
-      <div className="mx-auto max-w-7xl px-4 md:px-6">
+      <div className="mx-auto max-w-7xl px-3.5 sm:px-4 md:px-6">
         <SectionHeading
           eyebrow="Featured"
           title="Popular Medical Supplies"
