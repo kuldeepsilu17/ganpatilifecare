@@ -2,6 +2,9 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.ganpatilifecare.com"
 ).replace(/\/$/, "");
 
+export const abs = (path = "/") =>
+  `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+
 export const SITE_NAME = "Ganpati Lifecare";
 export const OWNER_NAME = "Dharampal Verma";
 export const PHONE_1 = "+919828232254";

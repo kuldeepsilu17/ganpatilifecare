@@ -32,11 +32,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(BUSINESS.siteUrl),
   title: {
-    default: "Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies",
+    default: "Medical & Surgical Supplier in Hanumangarh, Rajasthan | Ganpati Lifecare",
     template: "%s | Ganpati Lifecare",
   },
   description:
-    "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic products, surgical dressings, hospital uniforms, and medical consumables.",
+    "Ganpati Lifecare, Goluwala, Hanumangarh: orthopedic, surgical and hospital supplies — Orthocot cotton rolls, stockinet, traction kits, gauze, uniforms and consumables for hospitals and clinics in North Rajasthan.",
   authors: [{ name: BUSINESS.name }, { name: BUSINESS.owner }],
   creator: BUSINESS.owner,
   publisher: BUSINESS.name,
@@ -59,27 +59,27 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies",
-    description:
-      "Orthopedic, surgical and hospital supplies from Ganpati Lifecare, Goluwala, Hanumangarh, Rajasthan.",
-    url: BUSINESS.siteUrl,
+    type: "website",
     siteName: "Ganpati Lifecare",
     locale: "en_IN",
-    type: "website",
+    url: "/",
+    title: "Medical & Surgical Supplier in Hanumangarh, Rajasthan | Ganpati Lifecare",
+    description:
+      "Ganpati Lifecare, Goluwala, Hanumangarh: orthopedic, surgical and hospital supplies — Orthocot cotton rolls, stockinet, traction kits, gauze, uniforms and consumables for hospitals and clinics in North Rajasthan.",
     images: [
       {
         url: LOGO.og,
         width: 1200,
         height: 630,
-        alt: "Ganpati Lifecare - Orthopedic & Surgical Products",
+        alt: "Ganpati Lifecare – Orthopedic & Surgical Products",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies",
+    title: "Medical & Surgical Supplier in Hanumangarh, Rajasthan | Ganpati Lifecare",
     description:
-      "Orthopedic, surgical and hospital supplies from Ganpati Lifecare, Goluwala, Hanumangarh, Rajasthan.",
+      "Ganpati Lifecare, Goluwala, Hanumangarh: orthopedic, surgical and hospital supplies — Orthocot cotton rolls, stockinet, traction kits, gauze, uniforms and consumables for hospitals and clinics in North Rajasthan.",
     images: [LOGO.og],
   },
   robots: {

@@ -29,12 +29,12 @@ export const metadata: Metadata = {
   },
   description,
   alternates: {
-    canonical: BUSINESS.siteUrl,
+    canonical: "/",
   },
   openGraph: {
     title,
     description,
-    url: BUSINESS.siteUrl,
+    url: "/",
     type: "website",
     images: [
       {
