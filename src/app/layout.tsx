@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Poppins, Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import { BUSINESS } from "@/lib/constants";
+import { SITE_URL } from "@/lib/site";
 import { LOGO } from "@/lib/brand";
 import { getRootGraphSchema } from "@/lib/schema";
 
@@ -30,7 +31,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BUSINESS.siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Medical & Surgical Supplier in Hanumangarh, Rajasthan | Ganpati Lifecare",
     template: "%s | Ganpati Lifecare",
