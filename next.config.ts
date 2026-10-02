@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Permanent 308 redirect from legacy Vercel domain to new canonical domain
       {
         source: "/:path*",
         has: [
@@ -18,6 +19,7 @@ const nextConfig: NextConfig = {
         destination: "https://www.ganpatilifecare.com/:path*",
         permanent: true,
       },
+      // Permanent 308 redirect from naked apex domain to www canonical domain
       {
         source: "/:path*",
         has: [
@@ -29,6 +31,7 @@ const nextConfig: NextConfig = {
         destination: "https://www.ganpatilifecare.com/:path*",
         permanent: true,
       },
+      // Legacy product URL canonical mappings
       {
         source: "/products/orthopedic-gauze",
         destination: "/products/orthopedic-gauze-bandages",
@@ -37,6 +40,17 @@ const nextConfig: NextConfig = {
       {
         source: "/products/surgical-dressing",
         destination: "/products/surgical-dressing-materials",
+        permanent: true,
+      },
+      // Category slug aliases
+      {
+        source: "/categories/uniforms",
+        destination: "/categories/hospital-uniforms",
+        permanent: true,
+      },
+      {
+        source: "/categories/essentials",
+        destination: "/categories/healthcare-essentials",
         permanent: true,
       },
     ];
@@ -65,6 +79,10 @@ const nextConfig: NextConfig = {
       {
         key: "Permissions-Policy",
         value: "camera=(), microphone=(), geolocation=()",
+      },
+      {
+        key: "X-DNS-Prefetch-Control",
+        value: "on",
       },
     ];
 

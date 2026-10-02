@@ -33,7 +33,16 @@ export function getOrganizationSchema() {
       },
     },
     description:
-      "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic products, surgical dressings, hospital uniforms, and medical consumables.",
+      "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic products, surgical cotton roll, dressing products, hospital uniforms, and medical consumables.",
+    knowsAbout: [
+      "Orthopedic Supplies",
+      "Surgical Supplies",
+      "Hospital Supplies",
+      "Surgical Cotton Roll",
+      "Dressing Products",
+      "Hospital Consumables",
+      "Medical Disposables",
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: BUSINESS.address.streetAddress,
@@ -71,7 +80,7 @@ export function getLocalBusinessSchema() {
       jobTitle: "Founder & Owner",
     },
     description:
-      "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic products, surgical dressings, hospital uniforms, and medical consumables.",
+      "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic products, surgical cotton roll, dressing products, hospital uniforms, and medical consumables.",
     url: BUSINESS.siteUrl,
     logo: logoUrl,
     image: ogImageUrl,
@@ -112,7 +121,7 @@ export function getWebSiteSchema() {
     alternateName: "Ganpati Life Care",
     url: BUSINESS.siteUrl,
     description:
-      "Official website of Ganpati Lifecare (GLC) — Orthopedic, Surgical & Hospital Supplies in Hanumangarh, Rajasthan.",
+      "Official website of Ganpati Lifecare — Orthopedic, Surgical & Hospital Supplies in Hanumangarh, Rajasthan.",
     inLanguage: "en-IN",
     publisher: {
       "@id": `${BUSINESS.siteUrl}/#organization`,
@@ -190,6 +199,20 @@ export function getProductSchema(product: {
       "@id": `${BUSINESS.siteUrl}/#organization`,
       name: BUSINESS.name,
       url: BUSINESS.siteUrl,
+    },
+    offers: {
+      "@type": "Offer",
+      url: `${BUSINESS.siteUrl}/products/${product.id}`,
+      priceCurrency: "INR",
+      price: "0",
+      priceValidUntil: "2027-12-31",
+      availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "Organization",
+        name: BUSINESS.name,
+        "@id": `${BUSINESS.siteUrl}/#organization`,
+      },
+      itemCondition: "https://schema.org/NewCondition",
     },
   };
 }
