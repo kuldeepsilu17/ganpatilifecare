@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { BUSINESS, WHATSAPP_MESSAGES, getWhatsAppInquiryUrl } from "@/lib/constants";
-import { PRODUCT_CATEGORIES } from "@/lib/data";
 import { Logo } from "@/components/brand/Logo";
 import { LOGO } from "@/lib/brand";
 

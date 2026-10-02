@@ -9,9 +9,9 @@
 }
 
 .navbar.scrolled {
-  border-color: rgba(26, 127, 77, 0.1);
+  border-color: rgba(0, 146, 69, 0.1);
   background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 1rem 1.5rem rgba(26, 127, 77, 0.05);
+  box-shadow: 0 1rem 1.5rem rgba(0, 146, 69, 0.05);
   backdrop-filter: blur(1rem);
 }
 
@@ -86,8 +86,8 @@
 }
 
 .navbar-link:hover {
-  background-color: rgba(26, 127, 77, 0.08);
-  color: rgb(26, 127, 77);
+  background-color: rgba(0, 146, 69, 0.08);
+  color: #009245;
 }
 
 /* Desktop CTA Buttons */
@@ -136,7 +136,7 @@
 }
 
 .navbar-phone-btn:hover {
-  background-color: var(--brand-orange-dark, #d46f19);
+  background-color: var(--brand-orange-dark, #d96d10);
 }
 
 /* Mobile Menu Toggle */
@@ -175,13 +175,13 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 0.5rem;
-  color: rgb(26, 127, 77);
+  color: #009245;
   transition: all 0.2s ease;
 }
 
 .navbar-menu-toggle:hover,
 .navbar-menu-toggle:active {
-  background-color: rgba(26, 127, 77, 0.1);
+  background-color: rgba(0, 146, 69, 0.1);
 }
 
 .navbar-menu-toggle svg {
@@ -191,7 +191,7 @@
 
 /* Mobile Menu */
 .navbar-mobile-menu {
-  border-top: 1px solid rgba(26, 127, 77, 0.1);
+  border-top: 1px solid rgba(0, 146, 69, 0.1);
   background-color: white;
   box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -230,8 +230,8 @@
 
 .navbar-mobile-link:hover,
 .navbar-mobile-link:active {
-  background-color: rgba(26, 127, 77, 0.08);
-  color: rgb(26, 127, 77);
+  background-color: rgba(0, 146, 69, 0.08);
+  color: #009245;
 }
 
 .navbar-mobile-buttons {
@@ -240,7 +240,7 @@
   gap: 0.5rem;
   padding-top: 0.625rem;
   margin-top: 0.25rem;
-  border-top: 1px solid rgba(26, 127, 77, 0.1);
+  border-top: 1px solid rgba(0, 146, 69, 0.1);
 }
 
 .navbar-mobile-whatsapp-btn {
@@ -281,7 +281,7 @@
 
 .navbar-mobile-phone-btn:hover,
 .navbar-mobile-phone-btn:active {
-  background-color: var(--brand-orange-dark, #d46f19);
+  background-color: var(--brand-orange-dark, #d96d10);
 }
 
 /* Icon Sizing */
