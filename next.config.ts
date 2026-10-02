@@ -53,6 +53,47 @@ const nextConfig: NextConfig = {
         destination: "/categories/healthcare-essentials",
         permanent: true,
       },
+      // Blog aliases
+      {
+        source: "/blog/what-is-orthocot-cotton-roll",
+        destination: "/blog/orthocot-cotton-roll-vs-ordinary-cotton",
+        permanent: true,
+      },
+      {
+        source: "/blog/what-are-orthopedic-gauze-bandages",
+        destination: "/blog/gamjee-roll-vs-sponge-pads-vs-gauze",
+        permanent: true,
+      },
+      {
+        source: "/blog/what-is-a-gamjee-roll",
+        destination: "/blog/gamjee-roll-vs-sponge-pads-vs-gauze",
+        permanent: true,
+      },
+      {
+        source: "/blog/what-are-surgical-dressing-materials",
+        destination: "/blog/gamjee-roll-vs-sponge-pads-vs-gauze",
+        permanent: true,
+      },
+      {
+        source: "/blog/what-are-hospital-consumables",
+        destination: "/blog/hospital-consumables-checklist-clinic-nursing-home-rajasthan",
+        permanent: true,
+      },
+      {
+        source: "/blog/types-of-medical-disposable-products",
+        destination: "/blog/hospital-consumables-checklist-clinic-nursing-home-rajasthan",
+        permanent: true,
+      },
+      {
+        source: "/blog/hospital-uniform-guide",
+        destination: "/blog/how-to-choose-ot-dress-doctor-coat-fabric",
+        permanent: true,
+      },
+      {
+        source: "/blog/doctor-coat-and-nurse-uniform-guide",
+        destination: "/blog/how-to-choose-ot-dress-doctor-coat-fabric",
+        permanent: true,
+      },
     ];
   },
   async headers() {

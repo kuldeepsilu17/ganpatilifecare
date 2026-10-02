@@ -86,19 +86,26 @@ export default async function CategoryDetailPage({ params }: CategoryPageProps) 
 
   const faqSchema = getFaqSchema(category.faqs);
 
-  const itemListSchema = {
+  const collectionSchema = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: category.name,
+    "@type": "CollectionPage",
+    "@id": `${canonicalUrl}#collection`,
+    name: category.h1,
     description: category.description,
     url: canonicalUrl,
-    numberOfItems: categoryProducts.length,
-    itemListElement: categoryProducts.map((product, idx) => ({
-      "@type": "ListItem",
-      position: idx + 1,
-      name: product.name,
-      url: `${SITE_URL}/products/${product.id}`,
-    })),
+    mainEntity: {
+      "@type": "ItemList",
+      name: category.name,
+      description: category.description,
+      url: canonicalUrl,
+      numberOfItems: categoryProducts.length,
+      itemListElement: categoryProducts.map((product, idx) => ({
+        "@type": "ListItem",
+        position: idx + 1,
+        name: product.name,
+        url: `${SITE_URL}/products/${product.id}`,
+      })),
+    },
   };
 
   const whatsappInquiryUrl = getWhatsAppInquiryUrl(
@@ -113,11 +120,11 @@ export default async function CategoryDetailPage({ params }: CategoryPageProps) 
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <Navbar />

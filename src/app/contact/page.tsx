@@ -33,6 +33,18 @@ export default function ContactPage() {
     { name: "Contact", url: canonicalUrl },
   ]);
 
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${canonicalUrl}#contactpage`,
+    name: title,
+    description,
+    url: canonicalUrl,
+    mainEntity: {
+      "@id": `${BUSINESS.siteUrl}/#localbusiness`,
+    },
+  };
+
   const whatsappUrl = getWhatsAppInquiryUrl(WHATSAPP_MESSAGES.general);
 
   return (
@@ -40,6 +52,10 @@ export default function ContactPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
       />
       <script
         type="application/ld+json"

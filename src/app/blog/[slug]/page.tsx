@@ -7,7 +7,7 @@ import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { BLOG_POSTS } from "@/lib/blog";
 import { BUSINESS } from "@/lib/constants";
 import { LOGO } from "@/lib/brand";
-import { getBlogPostingSchema, getBreadcrumbSchema } from "@/lib/schema";
+import { getBlogPostingSchema, getBreadcrumbSchema, getFaqSchema } from "@/lib/schema";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -81,6 +81,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     { name: post.title, url: canonicalUrl },
   ]);
 
+  const faqSchema = post.faqs ? getFaqSchema(post.faqs) : null;
+
   return (
     <>
       <script
@@ -91,6 +93,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <Navbar />
       <main className="min-h-screen bg-background py-12 md:py-20">
         <article className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
@@ -113,12 +121,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-medical/10 flex items-center justify-center font-bold text-medical text-xs sm:text-sm">
                   {post.author.charAt(0)}
                 </div>
-                <span className="text-foreground">{post.author}</span>
+                <div>
+                  <span className="text-foreground font-semibold block">{post.author}</span>
+                  <span className="text-[11px] text-muted block">Founder, Ganpati Lifecare</span>
+                </div>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-medical">📅</span>
+                <span className="text-medical">📅 Published:</span>
                 {post.date}
               </div>
+              {post.updatedDate && (
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="text-medical">🔄 Updated:</span>
+                  {post.updatedDate}
+                </div>
+              )}
               <div className="flex items-center gap-1.5 sm:gap-2">
                 <span className="text-medical">⏱</span>
                 {post.readTime}
@@ -133,8 +150,40 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           >
             {post.content}
           </div>
+
+          {/* FAQs Section */}
+          {post.faqs && post.faqs.length > 0 && (
+            <div className="mt-12 rounded-3xl bg-card p-6 sm:p-8 border border-medical/15 shadow-xs">
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-6">
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-4">
+                {post.faqs.map((faq, idx) => (
+                  <div key={idx} className="border-b border-medical/10 pb-4 last:border-0 last:pb-0">
+                    <h3 className="font-bold text-foreground text-sm sm:text-base">Q: {faq.question}</h3>
+                    <p className="mt-2 text-sm text-foreground/80 leading-relaxed">A: {faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Author Bio Card */}
+          <div className="mt-12 rounded-2xl bg-card p-6 border border-medical/15 shadow-xs flex flex-col sm:flex-row items-center sm:items-start gap-4">
+            <div className="h-16 w-16 rounded-full bg-medical/10 flex items-center justify-center font-bold text-medical text-2xl shrink-0">
+              {post.author.charAt(0)}
+            </div>
+            <div>
+              <h3 className="font-display text-base font-bold text-foreground">
+                Written by {post.author}
+              </h3>
+              <p className="mt-1.5 text-xs sm:text-sm text-foreground/80 leading-relaxed">
+                {post.authorBio}
+              </p>
+            </div>
+          </div>
           
-          <div className="mt-16 pt-8 border-t border-medical/10 flex flex-wrap gap-2">
+          <div className="mt-12 pt-8 border-t border-medical/10 flex flex-wrap gap-2">
             <span className="text-sm font-bold text-foreground mr-2">Tags:</span>
             {post.tags.map((tag) => (
               <span key={tag} className="inline-block rounded-full bg-muted/20 px-3 py-1 text-xs font-semibold text-muted-foreground">

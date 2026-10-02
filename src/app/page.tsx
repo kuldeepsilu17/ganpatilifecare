@@ -19,9 +19,9 @@ import { BUSINESS } from "@/lib/constants";
 import { getFaqSchema } from "@/lib/schema";
 import { FAQS } from "@/lib/data";
 
-const title = "Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies";
+const title = "Medical & Surgical Supplier in Hanumangarh | Ganpati Lifecare";
 const description =
-  "Ganpati Lifecare, owned and operated by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic, surgical and hospital products including surgical cotton roll and dressing products.";
+  "Ganpati Lifecare, Goluwala, Hanumangarh: Orthocot cotton rolls, stockinet, skin traction kits, gauze, hospital uniforms & consumables for clinics and hospitals across North Rajasthan.";
 
 export const metadata: Metadata = {
   title: {

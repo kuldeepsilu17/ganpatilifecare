@@ -17,8 +17,8 @@ export default function NotFound() {
   const quickLinks = [
     { href: "/", label: "Homepage", desc: "Return to our main portal" },
     { href: "/products", label: "Products Catalog", desc: "Surgical cotton rolls & dressings" },
-    { href: "/products#categories", label: "Product Categories", desc: "Orthopedic, surgical & uniforms" },
-    { href: "/locations", label: "Service Locations", desc: "Hanumangarh, Ganganagar & Rajasthan" },
+    { href: "/categories/orthopedic", label: "Product Categories", desc: "Orthopedic, surgical & uniforms" },
+    { href: "/areas-we-serve", label: "Areas We Serve", desc: "Hanumangarh, Ganganagar & Rajasthan" },
     { href: "/blog", label: "Knowledge Center", desc: "Clinical supply guides & insights" },
     { href: "/contact", label: "Contact Us", desc: "Direct inquiries & quote requests" },
   ];

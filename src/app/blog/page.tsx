@@ -60,7 +60,7 @@ export default function BlogIndexPage() {
       <main className="min-h-screen bg-background py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-16">
             <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-xs text-muted">
               <Link href="/" className="hover:text-medical transition-colors">
                 Home
@@ -72,11 +72,28 @@ export default function BlogIndexPage() {
               Knowledge Center
             </span>
             <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight">
-              Medical Insights &amp; Knowledge Center
+              Medical Supplies Blog &amp; Knowledge Center
             </h1>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-foreground/80 leading-relaxed">
-              Educational guides on selecting orthopedic cotton rolls, skin traction kits, hospital uniforms, and clinical consumables.
+            <p className="mt-4 text-sm sm:text-base md:text-lg text-foreground/80 leading-relaxed text-left sm:text-center">
+              Welcome to the Ganpati Lifecare Medical Knowledge Center, curated by founder Dharampal Verma in Goluwala, Hanumangarh, Rajasthan. We provide comprehensive clinical guides and procurement resources for hospital administrators, orthopedic surgeons, nursing staff, and medical distributors across North Rajasthan. Explore our in-depth articles detailing the technical differences between specialized Orthocot cotton rolls and ordinary cotton, complete skin traction kit assemblies, fabric selection for doctor coats and surgical OT dresses, and essential hospital consumables checklists. Our goal is to empower healthcare professionals with actionable, evidence-based supply chain insights.
             </p>
+
+            {/* Topic Filters as Real Links */}
+            <div className="mt-8 flex flex-wrap justify-center gap-2 text-xs sm:text-sm">
+              <span className="font-semibold text-foreground mr-1 self-center">Browse by Topic:</span>
+              <Link href="/categories/orthopedic" className="rounded-full bg-medical/10 px-3.5 py-1.5 text-medical font-medium hover:bg-medical hover:text-white transition">
+                Orthopedic Supplies
+              </Link>
+              <Link href="/categories/surgical" className="rounded-full bg-medical/10 px-3.5 py-1.5 text-medical font-medium hover:bg-medical hover:text-white transition">
+                Surgical Supplies
+              </Link>
+              <Link href="/categories/hospital-uniforms" className="rounded-full bg-medical/10 px-3.5 py-1.5 text-medical font-medium hover:bg-medical hover:text-white transition">
+                Hospital Uniforms
+              </Link>
+              <Link href="/categories/healthcare-essentials" className="rounded-full bg-medical/10 px-3.5 py-1.5 text-medical font-medium hover:bg-medical hover:text-white transition">
+                Healthcare Essentials
+              </Link>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

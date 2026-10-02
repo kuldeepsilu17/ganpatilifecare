@@ -7,7 +7,7 @@ import { LOCATIONS } from "@/lib/locations";
 import { BUSINESS } from "@/lib/constants";
 import { getBreadcrumbSchema } from "@/lib/schema";
 
-const title = "Medical & Surgical Supplies Across Hanumangarh & North Rajasthan | Ganpati Lifecare";
+const title = "Medical Supplies Delivery in Hanumangarh, Sri Ganganagar & North Rajasthan | Ganpati Lifecare";
 const description =
   "Ganpati Lifecare supplies orthopedic products, surgical dressings, hospital uniforms, and medical disposables across Hanumangarh district and North Rajasthan from Goluwala.";
 const canonicalUrl = `${BUSINESS.siteUrl}/areas-we-serve`;
@@ -25,14 +25,16 @@ export default function AreasWeServePage() {
     { name: "Areas We Serve", url: canonicalUrl },
   ]);
 
-  const collectionSchema = {
+  const itemListSchema = {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: title,
+    "@type": "ItemList",
+    name: "Service Locations & Delivery Coverage",
     description,
     url: canonicalUrl,
-    hasPart: LOCATIONS.map((loc) => ({
-      "@type": "WebPage",
+    numberOfItems: LOCATIONS.length,
+    itemListElement: LOCATIONS.map((loc, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
       name: `Medical Supplies in ${loc.city}`,
       url: `${BUSINESS.siteUrl}/locations/${loc.slug}`,
     })),
@@ -46,7 +48,7 @@ export default function AreasWeServePage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
       <Navbar />
       <main className="min-h-screen bg-background">

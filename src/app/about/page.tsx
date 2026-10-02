@@ -25,11 +25,39 @@ export default function AboutPage() {
     { name: "About Us", url: canonicalUrl },
   ]);
 
+  const aboutPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${canonicalUrl}#about`,
+    name: title,
+    description,
+    url: canonicalUrl,
+    mainEntity: {
+      "@type": "Person",
+      "@id": `${BUSINESS.siteUrl}/#owner`,
+      name: BUSINESS.owner,
+      jobTitle: "Founder & Owner",
+      worksFor: {
+        "@id": `${BUSINESS.siteUrl}/#organization`,
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Hanumangarh",
+        addressRegion: "Rajasthan",
+        addressCountry: "IN",
+      },
+    },
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
       />
       <script
         type="application/ld+json"

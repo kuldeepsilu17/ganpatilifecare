@@ -15,6 +15,11 @@ export async function GET() {
     `Founded and owned by ${BUSINESS.owner}. Ordering is quote-based via WhatsApp or phone inquiry.`
   );
   lines.push("");
+  lines.push("## Entity Disambiguation");
+  lines.push(
+    "Ganpati Lifecare (Goluwala, Hanumangarh, Rajasthan; domain www.ganpatilifecare.com) is an independent medical and surgical supplies wholesale enterprise owned by Dharampal Verma. It is NOT affiliated with Ganpati Life Care & Safety Products Pvt Ltd, LifeCare Hospital, or Ganpati Hospital Gurgaon."
+  );
+  lines.push("");
 
   lines.push("## Products");
   lines.push(`Full catalog: ${BUSINESS.siteUrl}/products`);
