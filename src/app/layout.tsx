@@ -32,6 +32,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: "Ganpati Lifecare",
   title: {
     default: "Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies",
     template: "%s | Ganpati Lifecare",

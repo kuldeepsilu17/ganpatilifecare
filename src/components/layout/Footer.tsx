@@ -18,7 +18,7 @@ export function Footer() {
               Owned &amp; operated by {BUSINESS.owner}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-white/88">
-              Ganpati Lifecare — {BUSINESS.location}
+              Ganpati Lifecare (GLC) is a medical supplies business in Goluwala, Hanumangarh, Rajasthan, owned by Dharampal Verma.
             </p>
           </div>
           <div>
@@ -52,11 +52,6 @@ export function Footer() {
               <li>
                 <Link href="/contact" className="transition hover:text-brand-orange">
                   Contact &amp; Inquiries
-                </Link>
-              </li>
-              <li>
-                <Link href="/areas-we-serve" className="transition hover:text-brand-orange">
-                  Areas We Serve
                 </Link>
               </li>
             </ul>
@@ -94,7 +89,7 @@ export function Footer() {
                 <Link href="/locations/pilibanga" className="hover:text-brand-orange">Pilibanga</Link>
                 <Link href="/locations/sangaria" className="hover:text-brand-orange">Sangaria</Link>
                 <Link href="/locations/bhadra" className="hover:text-brand-orange">Bhadra</Link>
-                <Link href="/areas-we-serve" className="hover:text-brand-orange font-semibold text-brand-orange/80">+ More Areas</Link>
+                <Link href="/locations" className="hover:text-brand-orange font-semibold text-brand-orange/80">+ All Service Hubs</Link>
               </div>
             </div>
           </div>

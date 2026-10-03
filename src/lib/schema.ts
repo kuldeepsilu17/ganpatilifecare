@@ -95,9 +95,6 @@ export function getLocalBusinessSchema() {
     image: ogImageUrl,
     telephone: [...BUSINESS.phones],
     email: BUSINESS.email,
-    priceRange: "₹₹",
-    currenciesAccepted: "INR",
-    paymentAccepted: "Cash, Bank Transfer, UPI",
     address: {
       "@type": "PostalAddress",
       streetAddress: BUSINESS.address.streetAddress,
@@ -105,11 +102,6 @@ export function getLocalBusinessSchema() {
       addressRegion: BUSINESS.address.addressRegion,
       postalCode: BUSINESS.address.postalCode,
       addressCountry: BUSINESS.address.addressCountry,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 29.5815,
-      longitude: 74.3294,
     },
     areaServed: [
       ...LOCATIONS.map((loc) => ({ "@type": "City", name: loc.city })),
@@ -126,11 +118,11 @@ export function getWebSiteSchema() {
   return {
     "@type": "WebSite",
     "@id": `${BUSINESS.siteUrl}/#website`,
-    name: BUSINESS.name,
+    name: "Ganpati Lifecare",
     alternateName: "Ganpati Life Care",
     url: BUSINESS.siteUrl,
     description:
-      "Official website of Ganpati Lifecare — Orthopedic, Surgical & Hospital Supplies in Hanumangarh, Rajasthan.",
+      "Official website of Ganpati Lifecare — Orthopedic, Surgical & Hospital Supplies in Goluwala, Hanumangarh, Rajasthan.",
     inLanguage: "en-IN",
     publisher: {
       "@id": `${BUSINESS.siteUrl}/#organization`,
@@ -208,17 +200,6 @@ export function getProductSchema(product: {
       "@id": `${BUSINESS.siteUrl}/#organization`,
       name: BUSINESS.name,
       url: BUSINESS.siteUrl,
-    },
-    offers: {
-      "@type": "Offer",
-      url: `${BUSINESS.siteUrl}/products/${product.id}`,
-      availability: "https://schema.org/InStock",
-      seller: {
-        "@type": "Organization",
-        name: BUSINESS.name,
-        "@id": `${BUSINESS.siteUrl}/#organization`,
-      },
-      itemCondition: "https://schema.org/NewCondition",
     },
   };
 }

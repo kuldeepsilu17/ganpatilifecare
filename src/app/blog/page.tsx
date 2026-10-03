@@ -9,7 +9,7 @@ import { getBreadcrumbSchema } from "@/lib/schema";
 
 const title = "Medical Supplies Blog & Knowledge Center | Ganpati Lifecare";
 const description =
-  "Read expert guides on orthopedic supplies, surgical cotton rolls, hospital consumables, and healthcare uniforms from Ganpati Lifecare in Hanumangarh, Rajasthan.";
+  "Medical guides on orthopedic supplies, surgical cotton rolls, hospital consumables & uniforms from Ganpati Lifecare in Goluwala, Hanumangarh, Rajasthan.";
 const canonicalUrl = `${BUSINESS.siteUrl}/blog`;
 
 export const metadata: Metadata = {

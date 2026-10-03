@@ -1,6 +1,6 @@
 # Ganpati Lifecare
 
-> Medical, surgical, and orthopedic supplies wholesaler based in Goluwala, Hanumangarh, Rajasthan, India. Supplies hospitals, clinics, nursing homes, and healthcare professionals across Rajasthan and North India.
+> Medical, surgical, and orthopedic supplies wholesaler based in Goluwala, Hanumangarh, Rajasthan, India (PIN 335512). Supplies hospitals, clinics, nursing homes, and healthcare professionals across Rajasthan and North India.
 
 Founded and owned by Dharampal Verma. Ordering is quote-based via WhatsApp or phone inquiry.
 
@@ -33,7 +33,6 @@ Full catalog: https://www.ganpatilifecare.com/products
 
 ## Areas Served
 Locations overview: https://www.ganpatilifecare.com/locations
-Regional coverage: https://www.ganpatilifecare.com/areas-we-serve
 
 - [Hanumangarh, Rajasthan](https://www.ganpatilifecare.com/locations/hanumangarh): Serving clinics, nursing homes, and major hospitals in Hanumangarh Town and Junction.
 - [Sri Ganganagar, Rajasthan](https://www.ganpatilifecare.com/locations/sri-ganganagar): Providing medical cotton, surgical dressings, and OT uniforms to Sri Ganganagar district.
@@ -45,10 +44,21 @@ Regional coverage: https://www.ganpatilifecare.com/areas-we-serve
 - [Sangaria, Rajasthan](https://www.ganpatilifecare.com/locations/sangaria): Supplying surgical dressing materials and uniforms in Sangaria.
 - [Bhadra, Rajasthan](https://www.ganpatilifecare.com/locations/bhadra): Orthopedic padding, gauze bandages, and hospital uniforms for Bhadra.
 
+## Medical Knowledge Articles
+Knowledge Hub: https://www.ganpatilifecare.com/blog
+
+- [Orthocot vs Ordinary Cotton Rolls](https://www.ganpatilifecare.com/blog/orthocot-cotton-roll-vs-ordinary-cotton): Clinical differences between specialized cast padding cotton rolls and standard absorbent cotton.
+- [What Is Stockinet? Sizes & Cast Uses](https://www.ganpatilifecare.com/blog/what-is-stockinet): Composition, sizing matrix, and under-cast application for tubular stockinets.
+- [Skin Traction Kit Guide & Uses](https://www.ganpatilifecare.com/blog/what-is-a-skin-traction-kit): Lower extremity fracture stabilization with adhesive and non-adhesive kits.
+- [Choosing OT Dress & Doctor Coat Fabric](https://www.ganpatilifecare.com/blog/how-to-choose-ot-dress-doctor-coat-fabric): Poly-cotton blends, GSM weight, and autoclave resistance for medical apparel.
+- [Hospital Consumables Checklist](https://www.ganpatilifecare.com/blog/hospital-consumables-checklist-clinic-nursing-home-rajasthan): Departmental supply checklist for setting up new clinics in Rajasthan.
+- [Gamjee Roll vs Sponge Pads vs Gauze](https://www.ganpatilifecare.com/blog/gamjee-roll-vs-sponge-pads-vs-gauze): Dressing selection for surgical post-op and trauma wound management.
+- [Wholesale Medical Supplies Sourcing](https://www.ganpatilifecare.com/blog/how-to-buy-medical-supplies-wholesale-hanumangarh-sri-ganganagar): Localized wholesale procurement and same-day delivery in North Rajasthan.
+- [Bulk Ordering Guide for Medical Supplies](https://www.ganpatilifecare.com/blog/bulk-ordering-guide-medical-supplies-rajasthan): MOQs, delivery windows, and questions for medical supply distributors.
+
 ## Company & Pages
 - [About Us](https://www.ganpatilifecare.com/about): Company background and founder Dharampal Verma
 - [Contact](https://www.ganpatilifecare.com/contact): Direct contact channels and quotation requests
-- [Blog](https://www.ganpatilifecare.com/blog): Product and clinical supply guides
 - [Terms & Conditions](https://www.ganpatilifecare.com/terms-and-conditions)
 - [Privacy Policy](https://www.ganpatilifecare.com/privacy-policy)
 

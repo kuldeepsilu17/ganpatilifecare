@@ -4,9 +4,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BRANDS, FEATURED_CAROUSEL } from "@/lib/data";
 
 export function FeaturedBrands() {
-  // Seamless loop without duplicate text in the initial set
-  const items = [...FEATURED_CAROUSEL, ...FEATURED_CAROUSEL];
-
   return (
     <section className="overflow-hidden bg-background py-10 md:py-16" aria-label="Featured products">
       <div className="mx-auto max-w-7xl px-3.5 sm:px-4 md:px-6">
@@ -17,9 +14,18 @@ export function FeaturedBrands() {
         />
         <div className="mt-8 overflow-hidden">
           <ul className="animate-marquee flex w-max gap-3 md:gap-4">
-            {items.map((name, i) => (
+            {FEATURED_CAROUSEL.map((name, i) => (
               <li
                 key={`${name}-${i}`}
+                className="list-none shrink-0 rounded-xl border border-medical/15 bg-card px-4 py-2 text-xs font-medium text-medical shadow-sm md:px-6 md:py-4 md:text-sm"
+              >
+                {name}
+              </li>
+            ))}
+            {FEATURED_CAROUSEL.map((name, i) => (
+              <li
+                key={`${name}-dup-${i}`}
+                aria-hidden="true"
                 className="list-none shrink-0 rounded-xl border border-medical/15 bg-card px-4 py-2 text-xs font-medium text-medical shadow-sm md:px-6 md:py-4 md:text-sm"
               >
                 {name}

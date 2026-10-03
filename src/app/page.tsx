@@ -19,9 +19,9 @@ import { BUSINESS } from "@/lib/constants";
 import { getFaqSchema } from "@/lib/schema";
 import { FAQS } from "@/lib/data";
 
-const title = "Medical & Surgical Supplier in Hanumangarh | Ganpati Lifecare";
+const title = "Medical & Surgical Supplier Hanumangarh | Ganpati Lifecare";
 const description =
-  "Ganpati Lifecare, Goluwala, Hanumangarh: Orthocot cotton rolls, stockinet, skin traction kits, gauze, hospital uniforms & consumables for clinics and hospitals across North Rajasthan.";
+  "Ganpati Lifecare, Goluwala, Hanumangarh: Orthocot cotton rolls, stockinet, traction kits, gauze, uniforms & hospital consumables for North Rajasthan.";
 
 export const metadata: Metadata = {
   title: {

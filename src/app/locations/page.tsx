@@ -7,9 +7,9 @@ import { LOCATIONS } from "@/lib/locations";
 import { BUSINESS } from "@/lib/constants";
 import { getBreadcrumbSchema } from "@/lib/schema";
 
-const title = "Medical & Surgical Supply Locations | Ganpati Lifecare Rajasthan";
+const title = "Medical Supply Locations in Rajasthan | Ganpati Lifecare";
 const description =
-  "Explore Ganpati Lifecare service locations across Hanumangarh, Sri Ganganagar, Suratgarh, Bikaner, Nohar, Rawatsar, Pilibanga, Sangaria, and Bhadra in Rajasthan.";
+  "Ganpati Lifecare service locations across Hanumangarh, Sri Ganganagar, Suratgarh, Bikaner, Nohar, Rawatsar, Pilibanga, Sangaria & Bhadra in Rajasthan.";
 const canonicalUrl = `${BUSINESS.siteUrl}/locations`;
 
 export const metadata: Metadata = {

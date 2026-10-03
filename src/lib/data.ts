@@ -11,6 +11,7 @@ export interface Product {
   category: Exclude<ProductCategory, "all">;
   description: string;
   image: string;
+  imageAlt: string;
   metaTitle: string;
   metaDescription: string;
 }
@@ -32,9 +33,10 @@ export const PRODUCTS: Product[] = [
     name: "Orthocot Cotton Roll",
     category: "orthopedic",
     description: "Premium orthopedic cotton rolls for clinical and hospital use.",
-    image: "/images/products/orthocot_cotton_roll.png",
-    metaTitle: "Orthocot Cotton Roll | Surgical Cotton Roll Supplier | Ganpati Lifecare",
-    metaDescription: "Orthocot surgical cotton roll for hospital cast padding, clinical absorbency, and wound management. Supplied in bulk by Ganpati Lifecare, Goluwala, Hanumangarh.",
+    image: "/images/products/orthocot-cotton-roll.png",
+    imageAlt: "Orthocot medical cotton roll roll-pack for orthopedic cast padding",
+    metaTitle: "Orthocot Cotton Roll Supplier Rajasthan | Ganpati Lifecare",
+    metaDescription: "Orthocot surgical cotton roll for hospital cast padding and wound care. Supplied in wholesale bulk by Ganpati Lifecare, Goluwala, Hanumangarh, Rajasthan.",
   },
   {
     id: "stockinet",
@@ -42,7 +44,8 @@ export const PRODUCTS: Product[] = [
     category: "orthopedic",
     description: "Soft, breathable stockinet for casts and wound care.",
     image: "/images/products/stockinet.png",
-    metaTitle: "Orthopedic Stockinet | Tubular Cast Bandage Supplier | Ganpati Lifecare",
+    imageAlt: "Seamless circular rib-knit tubular orthopedic stockinet for skin protection",
+    metaTitle: "Orthopedic Stockinet Supplier Rajasthan | Ganpati Lifecare",
     metaDescription: "Seamless rib-knit orthopedic stockinet for skin protection under casts and splints. Available for hospitals across Rajasthan from Ganpati Lifecare.",
   },
   {
@@ -50,8 +53,9 @@ export const PRODUCTS: Product[] = [
     name: "Skin Traction Kit",
     category: "orthopedic",
     description: "Complete skin traction kits for orthopedic procedures.",
-    image: "/images/products/skin_traction_kit.jpg",
-    metaTitle: "Skin Traction Kit | Orthopedic Traction Assembly | Ganpati Lifecare",
+    image: "/images/products/skin-traction-kit.jpg",
+    imageAlt: "Complete orthopedic skin traction kit with foam stirrup, cords, and spreader plate",
+    metaTitle: "Skin Traction Kit Supplier in Rajasthan | Ganpati Lifecare",
     metaDescription: "Complete skin traction kits with foam padding, cords, and spreader plate for pre-operative fracture stabilization. Distributed by Ganpati Lifecare.",
   },
   {
@@ -59,8 +63,9 @@ export const PRODUCTS: Product[] = [
     name: "Orthopedic Gauze Bandages",
     category: "orthopedic",
     description: "High-absorbency gauze for orthopedic dressing applications.",
-    image: "/images/products/orthopedic_gauze_bandages.jpg",
-    metaTitle: "Orthopedic Gauze Bandages | Surgical Cotton Gauze | Ganpati Lifecare",
+    image: "/images/products/orthopedic-gauze-bandages.jpg",
+    imageAlt: "Woven medical cotton orthopedic gauze bandage rolls for surgical dressings",
+    metaTitle: "Orthopedic Gauze Bandages Supplier | Ganpati Lifecare",
     metaDescription: "High-absorbency woven cotton orthopedic gauze bandages for surgical packing, dressing retention, and clinical wound care. Ganpati Lifecare, Rajasthan.",
   },
   {
@@ -68,8 +73,9 @@ export const PRODUCTS: Product[] = [
     name: "Bandages",
     category: "surgical",
     description: "Elastic and crepe bandages in multiple sizes.",
-    image: "/images/products/medical_bandage_rolls_1779200753456.png",
-    metaTitle: "Medical Elastic & Crepe Bandages | Compression Rolls | Ganpati Lifecare",
+    image: "/images/products/bandages.png",
+    imageAlt: "Hospital-grade elastic and crepe compression bandage rolls with clips",
+    metaTitle: "Medical Bandages Wholesale Supplier | Ganpati Lifecare",
     metaDescription: "Durable elastic and crepe bandages for joint support, compression dressing, and sprain treatment. Wholesale medical supplies by Ganpati Lifecare.",
   },
   {
@@ -77,35 +83,39 @@ export const PRODUCTS: Product[] = [
     name: "Sponge Pad",
     category: "surgical",
     description: "Sterile sponge pads for surgical and OT procedures.",
-    image: "/images/products/medical_sponge_stockinet_1779200845560.png",
-    metaTitle: "Surgical Sponge Pads | Sterile Gauze Swabs Supplier | Ganpati Lifecare",
-    metaDescription: "High-density absorbent surgical sponge pads with folded edges for operating theatre and clinical wound care. Ganpati Lifecare, Hanumangarh.",
+    image: "/images/products/sponge-pad.png",
+    imageAlt: "Folded-edge absorbent surgical sponge pads and sterile gauze swabs",
+    metaTitle: "Surgical Sponge Pads Supplier | Ganpati Lifecare",
+    metaDescription: "High-density absorbent surgical sponge pads with folded edges for operating theatre and clinical wound care. Supplied by Ganpati Lifecare, Rajasthan.",
   },
   {
     id: "gamjee-roll",
     name: "Gamjee Roll",
     category: "surgical",
     description: "Absorbent gamjee rolls for post-operative care.",
-    image: "/images/products/surgical_cotton_showcase_1779200486555.png",
-    metaTitle: "Gamjee Roll | Absorbent Surgical Dressing Padding | Ganpati Lifecare",
-    metaDescription: "Thick absorbent cotton wool encased in gauze sleeve for heavy wound exudates, burns, and post-operative care. Ganpati Lifecare, Rajasthan.",
+    image: "/images/products/gamjee-roll.png",
+    imageAlt: "Thick absorbent cotton wool Gamjee roll encased in surgical gauze sleeve",
+    metaTitle: "Gamjee Roll Wholesale Supplier | Ganpati Lifecare",
+    metaDescription: "Thick absorbent cotton wool encased in gauze sleeve for heavy wound exudates, burns, and post-operative care. Supplied by Ganpati Lifecare, Rajasthan.",
   },
   {
     id: "surgical-dressing-materials",
     name: "Surgical Dressing Materials",
     category: "surgical",
     description: "Complete range of surgical dressing supplies.",
-    image: "/images/products/complete_product_collection_1779201240988.png",
-    metaTitle: "Surgical Dressing Materials | Clinical Wound Dressing Supply | Ganpati Lifecare",
-    metaDescription: "Comprehensive surgical dressing materials, non-adherent pads, and rolls for hospitals and trauma centers. Ganpati Lifecare, Goluwala.",
+    image: "/images/products/surgical-dressing-materials.png",
+    imageAlt: "Assortment of clinical surgical dressing materials and non-adherent wound pads",
+    metaTitle: "Surgical Dressing Materials Supplier | Ganpati Lifecare",
+    metaDescription: "Comprehensive surgical dressing materials, non-adherent pads, and rolls for hospitals and trauma centers. Wholesale supply by Ganpati Lifecare, Rajasthan.",
   },
   {
     id: "doctor-coats",
     name: "Doctor Coats",
     category: "uniforms",
     description: "Professional doctor coats in premium durable fabric.",
-    image: "/images/products/doctor_apparel.png",
-    metaTitle: "Doctor Coats | Medical Lab & Clinical Apparel | Ganpati Lifecare",
+    image: "/images/products/doctor-coats.png",
+    imageAlt: "Tailored poly-cotton white doctor lab coats with utility chest pockets",
+    metaTitle: "Doctor Coats Wholesale Supplier | Ganpati Lifecare",
     metaDescription: "Durable, stain-resistant poly-cotton doctor coats with utility pockets for clinical consultations and hospital rounds. Supplied by Ganpati Lifecare.",
   },
   {
@@ -113,35 +123,39 @@ export const PRODUCTS: Product[] = [
     name: "Nurse Uniforms",
     category: "uniforms",
     description: "Comfortable, durable nurse uniforms for hospitals.",
-    image: "/images/products/nurse_uniforms.png",
-    metaTitle: "Nurse Uniforms | Hospital Nursing Scrub Suits | Ganpati Lifecare",
-    metaDescription: "Lightweight, breathable, and ergonomic nurse uniforms and scrub sets for hospital shifts. Distributed by Ganpati Lifecare, Rajasthan.",
+    image: "/images/products/nurse-uniforms.png",
+    imageAlt: "Breathable ergonomic hospital nurse scrub uniforms in clinical colors",
+    metaTitle: "Nurse Uniforms Wholesale Supplier | Ganpati Lifecare",
+    metaDescription: "Lightweight, breathable, and ergonomic nurse uniforms and scrub sets for hospital shifts. Distributed in bulk across Rajasthan by Ganpati Lifecare.",
   },
   {
     id: "ot-dresses",
     name: "OT Dresses",
     category: "uniforms",
     description: "Sterile OT scrub suits for operating theatre staff.",
-    image: "/images/products/ot_dresses.png",
-    metaTitle: "OT Dresses | Surgical Operating Theatre Scrubs | Ganpati Lifecare",
-    metaDescription: "Autoclavable, low-linting OT dresses and surgical scrub suits for operating rooms and surgical teams. Ganpati Lifecare, Hanumangarh.",
+    image: "/images/products/ot-dresses.png",
+    imageAlt: "Autoclavable low-linting surgical operating theatre scrub suits for OT staff",
+    metaTitle: "OT Dresses Wholesale Supplier | Ganpati Lifecare",
+    metaDescription: "Autoclavable, low-linting OT dresses and surgical scrub suits for operating rooms and surgical teams. Wholesale supply by Ganpati Lifecare, Rajasthan.",
   },
   {
     id: "staff-uniforms",
     name: "Staff Uniforms",
     category: "uniforms",
     description: "Custom staff uniforms for healthcare facilities.",
-    image: "/images/products/staff_uniforms.png",
-    metaTitle: "Hospital Staff Uniforms | Support Personnel Apparel | Ganpati Lifecare",
-    metaDescription: "Heavy-duty, easy-to-maintain uniforms for hospital ward boys, maintenance, and support staff. Wholesale supply by Ganpati Lifecare.",
+    image: "/images/products/staff-uniforms.png",
+    imageAlt: "Heavy-duty healthcare support staff and ward attendant uniforms",
+    metaTitle: "Hospital Staff Uniforms Supplier | Ganpati Lifecare",
+    metaDescription: "Heavy-duty, easy-to-maintain uniforms for hospital ward boys, maintenance, and support staff. Wholesale supply across Rajasthan by Ganpati Lifecare.",
   },
   {
     id: "medical-disposables",
     name: "Medical Disposable Products",
     category: "essentials",
     description: "Single-use medical disposables for hospitals and clinics.",
-    image: "/images/products/complete_product_collection_1779201240988.png",
-    metaTitle: "Medical Disposables | Single-Use Healthcare Products | Ganpati Lifecare",
+    image: "/images/products/medical-disposables.png",
+    imageAlt: "Single-use clinical medical disposables including masks, caps, and gloves",
+    metaTitle: "Medical Disposables Supplier | Ganpati Lifecare",
     metaDescription: "Essential single-use medical disposables including masks, caps, shoe covers, and gloves for clinical infection control. Ganpati Lifecare, Rajasthan.",
   },
   {
@@ -149,46 +163,42 @@ export const PRODUCTS: Product[] = [
     name: "Hospital Consumables",
     category: "essentials",
     description: "Essential hospital consumables at competitive prices.",
-    image: "/images/products/hospital_uniform_display_1779200633810.png",
-    metaTitle: "Hospital Consumables | Daily Medical & Ward Supplies | Ganpati Lifecare",
-    metaDescription: "Everyday clinical consumables and hospital ward supplies available for wholesale institutional procurement from Ganpati Lifecare, Goluwala.",
+    image: "/images/products/hospital-consumables.png",
+    imageAlt: "Routine hospital ward consumables and clinical treatment supply items",
+    metaTitle: "Hospital Consumables Supplier | Ganpati Lifecare",
+    metaDescription: "Everyday clinical consumables and hospital ward supplies available for wholesale institutional procurement from Ganpati Lifecare, Goluwala, Rajasthan.",
   },
 ];
 
 export const WHY_CHOOSE_US = [
   {
-    title: "Premium Quality Products",
-    description: "Sourced and supplied with strict quality checks for healthcare settings.",
+    title: "Healthcare-Grade Products",
+    description: "Supplies curated for hospital wards, trauma rooms, and outpatient clinics.",
     icon: "shield",
   },
   {
-    title: "Trusted Medical Supplier",
-    description: "Reliable partner for hospitals and clinics across Rajasthan.",
+    title: "Established Regional Partner",
+    description: "Reliable wholesale supplier for hospitals and clinics across North Rajasthan.",
     icon: "trust",
   },
   {
-    title: "Affordable Pricing",
-    description: "Competitive rates on bulk and regular orders.",
+    title: "Wholesale Institutional Rates",
+    description: "Direct carton pricing for routine and bulk clinical procurement.",
     icon: "price",
   },
   {
-    title: "Fast Delivery",
-    description: "Timely dispatch and delivery across North India.",
+    title: "Prompt Regional Dispatch",
+    description: "Direct road delivery across Hanumangarh, Sri Ganganagar, and neighbouring tehsils.",
     icon: "delivery",
   },
   {
-    title: "Customer Satisfaction",
-    description: "Dedicated support for inquiries, quotes, and repeat orders.",
-    icon: "satisfaction",
-  },
-  {
-    title: "Professional Service",
-    description: "Experienced team led by Dharampal Verma for personalized assistance.",
+    title: "Direct Owner Accountability",
+    description: "Personalized assistance and order coordination by founder Dharampal Verma.",
     icon: "service",
   },
   {
-    title: "Wide Product Range",
-    description: "Orthopedic, surgical, uniforms, and consumables under one roof.",
+    title: "Comprehensive Catalog",
+    description: "Orthopedic padding, surgical dressings, hospital uniforms, and consumables under one roof.",
     icon: "range",
   },
 ] as const;
@@ -196,36 +206,36 @@ export const WHY_CHOOSE_US = [
 export const TESTIMONIALS = [
   {
     quote:
-      "Excellent quality medical supplies and prompt dispatch. Ganpati Lifecare is our dependable supplier for orthopedic products.",
-    author: "Healthcare Procurement",
+      "Reliable dispatch and consistent medical supply quality for our routine orthopedic requirements in Hanumangarh district.",
+    author: "Hospital Procurement Department",
     location: "Hanumangarh, Rajasthan",
   },
   {
     quote:
-      "Trusted supplier for hospital uniforms, OT dresses, and cotton rolls. High product quality and honest pricing.",
-    author: "Clinic Administration",
-    location: "Shri Ganganagar, Rajasthan",
+      "Dependable source for hospital uniforms, OT dresses, and cotton rolls with prompt road delivery to our clinic.",
+    author: "Surgical Nursing Home Administration",
+    location: "Sri Ganganagar, Rajasthan",
   },
   {
     quote:
-      "Professional service and genuine products. Very smooth experience for bulk medical supplies.",
-    author: "Orthopedic Centre",
+      "Straightforward order coordination directly with Dharampal Verma for our clinical dressing materials and consumables.",
+    author: "Orthopedic & Trauma Clinic",
     location: "North Rajasthan",
   },
 ] as const;
 
 export const STATS = [
-  { value: "Wide Range", label: "Orthopedic & Surgical Supplies" },
-  { value: "Bulk Ready", label: "Hospital Wholesale Supply" },
-  { value: "Goluwala", label: "Based in Hanumangarh, Rajasthan" },
-  { value: "North Rajasthan", label: "Serving Regional Healthcare" },
+  { value: "Full Range", label: "Orthopedic & Surgical Supplies" },
+  { value: "Wholesale", label: "Direct Hospital Carton Supply" },
+  { value: "Goluwala", label: "Central Distribution Hub" },
+  { value: "North Rajasthan", label: "Regional Healthcare Network" },
 ] as const;
 
 export const CERTIFICATIONS = [
-  "Quality Assured Supplies",
-  "Healthcare Grade Materials",
-  "Reliable Sourcing Network",
-  "Strict Quality Checks",
+  "Clinical-Grade Supply Sourcing",
+  "Autoclavable Surgical Textiles",
+  "Institutional Bulk Packaging",
+  "Direct Roadway Dispatch Network",
 ] as const;
 
 export const BRANDS = [

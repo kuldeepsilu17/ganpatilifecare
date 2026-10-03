@@ -18,7 +18,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
     slug: "orthopedic",
     categoryId: "orthopedic",
     name: "Orthopedic Supplies",
-    metaTitle: "Orthopedic Supplies Supplier in Hanumangarh, Rajasthan | Ganpati Lifecare",
+    metaTitle: "Orthopedic Supplies Supplier Hanumangarh | Ganpati Lifecare",
     metaDescription: "Wholesale orthopedic supplies in Hanumangarh, Rajasthan. Buy Orthocot cotton rolls, stockinet, skin traction kits & gauze bandages from Ganpati Lifecare.",
     h1: "Orthopedic Supplies & Cast Padding Materials",
     quickAnswer:
@@ -58,7 +58,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
     slug: "surgical",
     categoryId: "surgical",
     name: "Surgical Supplies",
-    metaTitle: "Surgical Supplies Supplier in Hanumangarh, Rajasthan | Ganpati Lifecare",
+    metaTitle: "Surgical Supplies Supplier Hanumangarh | Ganpati Lifecare",
     metaDescription: "Wholesale surgical supplies in Hanumangarh, Rajasthan. High-absorbency Gamjee rolls, sponge pads, crepe bandages & surgical dressing materials.",
     h1: "Surgical Supplies & Clinical Dressing Materials",
     quickAnswer:
@@ -93,7 +93,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
     slug: "hospital-uniforms",
     categoryId: "uniforms",
     name: "Hospital Uniforms",
-    metaTitle: "Hospital Uniforms Supplier in Hanumangarh, Rajasthan | Ganpati Lifecare",
+    metaTitle: "Hospital Uniforms Supplier Hanumangarh | Ganpati Lifecare",
     metaDescription: "Durable doctor coats, nurse scrub uniforms, OT dresses & hospital staff attire wholesale in Hanumangarh, Rajasthan. Custom hospital apparel supply.",
     h1: "Hospital Uniforms, Doctor Coats & OT Dresses",
     quickAnswer:
@@ -128,7 +128,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
     slug: "healthcare-essentials",
     categoryId: "essentials",
     name: "Healthcare Essentials & Consumables",
-    metaTitle: "Healthcare Essentials Supplier in Hanumangarh, Rajasthan | Ganpati Lifecare",
+    metaTitle: "Hospital Consumables Supplier Hanumangarh | Ganpati Lifecare",
     metaDescription: "Wholesale hospital consumables & single-use medical disposables in Hanumangarh, Rajasthan. Reliable bulk healthcare supply from Ganpati Lifecare.",
     h1: "Hospital Consumables & Medical Disposables",
     quickAnswer:

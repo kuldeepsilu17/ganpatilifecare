@@ -1,6 +1,7 @@
 import { BUSINESS } from "@/lib/constants";
 import { PRODUCTS } from "@/lib/data";
 import { LOCATIONS } from "@/lib/locations";
+import { BLOG_POSTS } from "@/lib/blog";
 
 export async function GET() {
   const lines: string[] = [];
@@ -29,15 +30,6 @@ export async function GET() {
   }
   lines.push("");
 
-  lines.push("## Areas Served");
-  lines.push(`Locations overview: ${BUSINESS.siteUrl}/locations`);
-  lines.push(`Regional coverage: ${BUSINESS.siteUrl}/areas-we-serve`);
-  lines.push("");
-  for (const loc of LOCATIONS) {
-    lines.push(`- [${loc.city}, ${loc.region}](${BUSINESS.siteUrl}/locations/${loc.slug}): ${loc.description}`);
-  }
-  lines.push("");
-
   lines.push("## Categories");
   lines.push(`- [Orthopedic Supplies](${BUSINESS.siteUrl}/categories/orthopedic): Orthocot cotton rolls, stockinets, skin traction kits, gauze bandages`);
   lines.push(`- [Surgical Supplies](${BUSINESS.siteUrl}/categories/surgical): Gamjee rolls, sponge pads, crepe bandages, surgical dressing materials`);
@@ -45,10 +37,25 @@ export async function GET() {
   lines.push(`- [Healthcare Essentials](${BUSINESS.siteUrl}/categories/healthcare-essentials): Medical disposables, masks, caps, gloves, hospital consumables`);
   lines.push("");
 
+  lines.push("## Areas Served");
+  lines.push(`Locations overview: ${BUSINESS.siteUrl}/locations`);
+  lines.push("");
+  for (const loc of LOCATIONS) {
+    lines.push(`- [${loc.city}, ${loc.region}](${BUSINESS.siteUrl}/locations/${loc.slug}): ${loc.description}`);
+  }
+  lines.push("");
+
+  lines.push("## Medical Knowledge Articles");
+  lines.push(`Knowledge Hub: ${BUSINESS.siteUrl}/blog`);
+  lines.push("");
+  for (const post of BLOG_POSTS) {
+    lines.push(`- [${post.title}](${BUSINESS.siteUrl}/blog/${post.slug}): ${post.excerpt}`);
+  }
+  lines.push("");
+
   lines.push("## Company & Pages");
   lines.push(`- [About Us](${BUSINESS.siteUrl}/about): Company background and founder information`);
   lines.push(`- [Contact](${BUSINESS.siteUrl}/contact): Direct contact channels and quotation requests`);
-  lines.push(`- [Blog](${BUSINESS.siteUrl}/blog): Product and supply category guides`);
   lines.push(`- [Terms & Conditions](${BUSINESS.siteUrl}/terms-and-conditions)`);
   lines.push(`- [Privacy Policy](${BUSINESS.siteUrl}/privacy-policy)`);
   lines.push("");

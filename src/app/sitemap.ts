@@ -31,12 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${CANONICAL_SITE_URL}/areas-we-serve`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
       url: `${CANONICAL_SITE_URL}/about`,
       lastModified: currentDate,
       changeFrequency: "monthly",

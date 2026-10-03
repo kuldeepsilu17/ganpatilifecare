@@ -7,7 +7,7 @@ import { getBreadcrumbSchema } from "@/lib/schema";
 
 const title = "Privacy Policy | Ganpati Lifecare";
 const description =
-  "Privacy Policy and data protection guidelines of Ganpati Lifecare (GLC) for medical supply inquiries and orders.";
+  "Privacy Policy and data protection standards of Ganpati Lifecare in Goluwala, Hanumangarh for medical, surgical and hospital supply inquiries and orders.";
 const canonicalUrl = `${BUSINESS.siteUrl}/privacy-policy`;
 
 export const metadata: Metadata = {

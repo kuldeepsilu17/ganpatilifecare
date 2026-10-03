@@ -6,12 +6,13 @@ export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const search = request.nextUrl.search;
 
-  // Permanent 308 redirect from legacy Vercel domain or naked domain to primary canonical domain
-  if (
+  // Permanent 308 redirect from legacy Vercel domain or naked apex domain to primary canonical domain
+  const isVercelDomain =
     host.includes("ganpatilifecare.vercel.app") ||
-    host === "ganpatilifecare.com" ||
-    host === "www.ganpatilifecare.vercel.app"
-  ) {
+    host === "www.ganpatilifecare.vercel.app";
+  const isNakedDomain = host === "ganpatilifecare.com";
+
+  if (isVercelDomain || isNakedDomain) {
     const targetUrl = `https://www.ganpatilifecare.com${pathname}${search}`;
     return NextResponse.redirect(targetUrl, 308);
   }

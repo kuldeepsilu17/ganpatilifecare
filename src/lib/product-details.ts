@@ -13,11 +13,11 @@ export interface EnrichedProduct extends Product {
 }
 
 export function getProductDetails(product: Product): EnrichedProduct {
-  const collectionImg = "/images/products/complete_product_collection_1779201240988.png";
-  const cottonImg = "/images/products/surgical_cotton_showcase_1779200486555.png";
-  const bandageImg = "/images/products/medical_bandage_rolls_1779200753456.png";
-  const spongeImg = "/images/products/medical_sponge_stockinet_1779200845560.png";
-  const uniformImg = "/images/products/hospital_uniform_display_1779200633810.png";
+  const collectionImg = "/images/products/surgical-dressing-materials.png";
+  const cottonImg = "/images/products/gamjee-roll.png";
+  const bandageImg = "/images/products/bandages.png";
+  const spongeImg = "/images/products/sponge-pad.png";
+  const uniformImg = "/images/products/hospital-consumables.png";
 
   let gallery = [product.image];
   let features: string[] = [];

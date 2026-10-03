@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     return { title: "Article Not Found | Ganpati Lifecare" };
   }
 
-  const title = `${post.title} | Ganpati Lifecare Blog`;
+  const title = `${post.title} | Ganpati Lifecare`;
   const canonicalUrl = `${BUSINESS.siteUrl}/blog/${post.slug}`;
 
   return {

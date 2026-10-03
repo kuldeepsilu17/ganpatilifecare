@@ -8,9 +8,9 @@ import { RequestQuote } from "@/components/sections/RequestQuote";
 import { BUSINESS, WHATSAPP_MESSAGES, getWhatsAppInquiryUrl } from "@/lib/constants";
 import { getBreadcrumbSchema, getLocalBusinessSchema } from "@/lib/schema";
 
-const title = "Contact Ganpati Lifecare | Dharampal Verma | Goluwala, Hanumangarh";
+const title = "Contact Ganpati Lifecare | Medical Supplies Hanumangarh";
 const description =
-  "Contact Ganpati Lifecare and owner Dharampal Verma in Goluwala, Hanumangarh, Rajasthan. Request quotations for orthopedic, surgical, and hospital consumables.";
+  "Contact Ganpati Lifecare and Dharampal Verma in Goluwala, Hanumangarh, Rajasthan. Request wholesale quotes for orthopedic, surgical & hospital supplies.";
 const canonicalUrl = `${BUSINESS.siteUrl}/contact`;
 
 export const metadata: Metadata = {

@@ -9,7 +9,7 @@ import { Products } from "@/components/sections/Products";
 
 const title = "About Ganpati Lifecare | Dharampal Verma | Hanumangarh";
 const description =
-  "Learn about Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan. We supply orthopedic products, surgical dressings, hospital uniforms, and medical consumables.";
+  "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan: orthopedic supplies, surgical dressings, uniforms & hospital consumables.";
 const canonicalUrl = `${BUSINESS.siteUrl}/about`;
 
 export const metadata: Metadata = {
@@ -118,8 +118,8 @@ export default function AboutPage() {
                     View local service hubs &rarr;
                   </Link>
                   <span className="text-muted">•</span>
-                  <Link href="/areas-we-serve" className="text-medical font-bold hover:underline">
-                    View all regional areas &rarr;
+                  <Link href="/products" className="text-medical font-bold hover:underline">
+                    View product catalog &rarr;
                   </Link>
                 </div>
               </section>

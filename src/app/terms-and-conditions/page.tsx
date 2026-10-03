@@ -7,7 +7,7 @@ import { getBreadcrumbSchema } from "@/lib/schema";
 
 const title = "Terms & Conditions | Ganpati Lifecare";
 const description =
-  "Terms and conditions for product inquiries, quotations, and wholesale supply orders with Ganpati Lifecare.";
+  "Terms and conditions for wholesale medical, surgical, and hospital supply inquiries, quotations, and orders with Ganpati Lifecare in Hanumangarh, Rajasthan.";
 const canonicalUrl = `${BUSINESS.siteUrl}/terms-and-conditions`;
 
 export const metadata: Metadata = {

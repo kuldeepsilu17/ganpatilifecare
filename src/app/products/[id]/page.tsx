@@ -158,11 +158,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-medical/15 bg-card shadow-sm">
                 <Image
                   src={product.image}
-                  alt={`${product.name} - Ganpati Lifecare Healthcare Supplies`}
+                  alt={product.imageAlt || `${product.name} - Ganpati Lifecare Healthcare Supplies`}
                   fill
                   priority
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
                 />
               </div>
 

@@ -19,6 +19,17 @@ const nextConfig: NextConfig = {
         destination: "https://www.ganpatilifecare.com/:path*",
         permanent: true,
       },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.ganpatilifecare.vercel.app",
+          },
+        ],
+        destination: "https://www.ganpatilifecare.com/:path*",
+        permanent: true,
+      },
       // Permanent 308 redirect from naked apex domain to www canonical domain
       {
         source: "/:path*",
@@ -40,6 +51,16 @@ const nextConfig: NextConfig = {
       {
         source: "/products/surgical-dressing",
         destination: "/products/surgical-dressing-materials",
+        permanent: true,
+      },
+      {
+        source: "/products/surgical-dressing-material",
+        destination: "/products/surgical-dressing-materials",
+        permanent: true,
+      },
+      {
+        source: "/products/doctor-apparel",
+        destination: "/products/doctor-coats",
         permanent: true,
       },
       // Category slug aliases

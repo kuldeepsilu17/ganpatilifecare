@@ -21,7 +21,7 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "orthocot-cotton-roll-vs-ordinary-cotton",
-    title: "Orthocot Cotton Roll vs Ordinary Cotton: Differences and Uses",
+    title: "Orthocot vs Ordinary Cotton Rolls",
     excerpt: "Understand the vital clinical differences between specialized Orthocot cast padding cotton rolls and standard absorbent cotton for hospital fracture care.",
     date: "August 20, 2026",
     updatedDate: "October 02, 2026",
@@ -122,8 +122,8 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "what-is-stockinet",
-    title: "What Is Stockinet? Sizes and How It's Used Under Plaster",
-    excerpt: "Complete clinical guide on orthopedic tubular stockinet: material composition, sizing selection, and step-by-step application under casts.",
+    title: "What Is Stockinet? Sizes & Cast Uses",
+    excerpt: "Complete clinical guide on orthopedic tubular stockinet: material composition, size selection & step-by-step application under plaster casts.",
     date: "August 15, 2026",
     updatedDate: "October 02, 2026",
     author: "Dharampal Verma",
@@ -209,7 +209,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "what-is-a-skin-traction-kit",
-    title: "Skin Traction Kit: What's Inside and When It's Used",
+    title: "Skin Traction Kit Guide & Uses",
     excerpt: "Learn what is inside a sterile skin traction kit, how traction forces stabilize lower extremity fractures, and adhesive vs non-adhesive kit selection.",
     date: "August 10, 2026",
     updatedDate: "October 02, 2026",
@@ -290,7 +290,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "how-to-choose-ot-dress-doctor-coat-fabric",
-    title: "How to Choose OT Dress and Doctor Coat Fabric for Hospitals",
+    title: "Choosing OT Dress & Doctor Coat Fabric",
     excerpt: "A procurement guide on selecting poly-cotton blends, GSM weight, breathability, and autoclave resistance for doctor coats and OT scrub suits.",
     date: "July 28, 2026",
     updatedDate: "October 02, 2026",
@@ -374,7 +374,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "hospital-consumables-checklist-clinic-nursing-home-rajasthan",
-    title: "Hospital Consumables Checklist for a New Clinic or Nursing Home in Rajasthan",
+    title: "Hospital Consumables Checklist",
     excerpt: "Comprehensive procurement checklist of essential clinical disposables, wound dressings, and ward consumables needed to launch a healthcare facility.",
     date: "July 15, 2026",
     updatedDate: "October 02, 2026",
@@ -471,8 +471,8 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "gamjee-roll-vs-sponge-pads-vs-gauze",
-    title: "Gamjee Roll vs Sponge Pads vs Gauze: Which Dressing for What",
-    excerpt: "Detailed clinical comparison of Gamjee rolls, sterile sponge pads, and woven orthopedic gauze bandages for post-op and trauma wound care.",
+    title: "Gamjee Roll vs Sponge Pads vs Gauze",
+    excerpt: "Detailed clinical comparison of Gamjee rolls, sterile sponge pads & woven orthopedic gauze bandages for post-op surgical and trauma wound care.",
     date: "July 05, 2026",
     updatedDate: "October 02, 2026",
     author: "Dharampal Verma",
@@ -563,7 +563,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "how-to-buy-medical-supplies-wholesale-hanumangarh-sri-ganganagar",
-    title: "How to Buy Medical Supplies Wholesale in Hanumangarh and Sri Ganganagar",
+    title: "Wholesale Medical Supplies Sourcing",
     excerpt: "A guide for hospital procurement managers on sourcing orthopedic rolls, surgical dressing materials, and uniforms directly in North Rajasthan.",
     date: "June 25, 2026",
     updatedDate: "October 02, 2026",
@@ -607,14 +607,14 @@ export const BLOG_POSTS: BlogPost[] = [
         </ol>
 
         <p>
-          Explore our regional coverage across <Link href="/locations/hanumangarh" className="text-medical font-semibold hover:underline">Hanumangarh</Link>, <Link href="/locations/sri-ganganagar" className="text-medical font-semibold hover:underline">Sri Ganganagar</Link>, and our full <Link href="/areas-we-serve" className="text-medical font-semibold hover:underline">Areas We Serve Hub</Link>.
+          Explore our regional coverage across <Link href="/locations/hanumangarh" className="text-medical font-semibold hover:underline">Hanumangarh</Link>, <Link href="/locations/sri-ganganagar" className="text-medical font-semibold hover:underline">Sri Ganganagar</Link>, and our full <Link href="/locations" className="text-medical font-semibold hover:underline">Locations Hub</Link>.
         </p>
       </>
     ),
   },
   {
     slug: "bulk-ordering-guide-medical-supplies-rajasthan",
-    title: "Bulk Ordering Guide: MOQ, Delivery Times and What to Ask Your Supplier",
+    title: "Bulk Ordering Guide for Medical Supplies",
     excerpt: "Crucial questions to ask medical distributors regarding Minimum Order Quantities (MOQ), batch consistency, GST billing, and freight guarantees.",
     date: "June 18, 2026",
     updatedDate: "October 02, 2026",

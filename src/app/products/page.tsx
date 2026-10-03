@@ -9,9 +9,9 @@ import { BUSINESS } from "@/lib/constants";
 import { PRODUCTS } from "@/lib/data";
 import { getBreadcrumbSchema } from "@/lib/schema";
 
-const title = "Orthopedic, Surgical & Hospital Products – Wholesale Supplier | Ganpati Lifecare";
+const title = "Medical & Surgical Products Supplier | Ganpati Lifecare";
 const description =
-  "Explore high-grade Orthocot cotton rolls, tubular stockinets, skin traction kits, surgical gauze, Gamjee rolls, doctor coats, and hospital consumables from Ganpati Lifecare, Rajasthan.";
+  "Explore Orthocot cotton rolls, stockinet, traction kits, surgical gauze, Gamjee rolls, doctor coats & hospital consumables from Ganpati Lifecare, Rajasthan.";
 const canonicalUrl = `${BUSINESS.siteUrl}/products`;
 
 export const metadata: Metadata = {
