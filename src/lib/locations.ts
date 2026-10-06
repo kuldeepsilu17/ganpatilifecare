@@ -35,7 +35,7 @@ export const LOCATIONS: LocationData[] = [
       },
       {
         question: "How can local clinics in Hanumangarh request a quotation?",
-        answer: "Local healthcare providers can call +91 98282 32254 or submit a quote request via WhatsApp for instant pricing from owner Dharampal Verma.",
+        answer: "Local healthcare providers can call +91 98282 32254 or submit a quote request via WhatsApp for instant pricing from Ganpati Lifecare (managed by Dharampal Verma).",
       },
     ],
   },

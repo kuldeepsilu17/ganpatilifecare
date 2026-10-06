@@ -123,7 +123,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </div>
                 <div>
                   <span className="text-foreground font-semibold block">{post.author}</span>
-                  <span className="text-[11px] text-muted block">Founder, Ganpati Lifecare</span>
+                  <span className="text-[11px] text-muted block">Ganpati Lifecare</span>
                 </div>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2">

@@ -44,34 +44,48 @@ export function getProductDetails(product: Product): EnrichedProduct {
 
   switch (product.id) {
     case "orthocot-cotton-roll":
+      gallery = [
+        "/images/products/real_orthocot_cotton_roll_15cm.webp",
+        "/images/products/real_orthocot_soft_cotton_roll_10cm.webp",
+        "/images/products/orthocot-cotton-roll.png",
+        "/images/products/gamjee-roll.png",
+      ];
       features = [
-        "100% natural, highly absorbent pure cotton fibers",
-        "Soft and non-irritating texture suitable for sensitive skin",
-        "Free from impurities, loose lint, and harsh optical agents",
-        "Uniformly layered for smooth unwinding and application",
-        "Autoclavable for sterile medical procedures"
+        "100% natural pure cotton with high absorbency (White Rose Brand)",
+        "Soft and gentle on skin, preventing cast friction and pressure sores",
+        "Reliable institutional quality with uniform carded web layering",
+        "Standard 3-year shelf life for clinical storage",
+        "Autoclavable for sterile surgical and orthopedic procedures",
       ];
       specifications = {
-        "Material": "100% Medical Cotton",
-        "Roll Weights": "100g, 200g, 300g, 500g",
+        "Brand": "White Rose Brand (Ganpati Lifecare)",
+        "Material": "100% Pure Natural Cotton",
+        "Available Sizes": "10 cm x 6 Mtr, 15 cm x 6 Mtr (also 100g, 200g, 300g, 500g)",
         "Color": "Natural White",
-        "Sterility": "Non-Sterile (Autoclavable)"
+        "Sterility": "Non-Sterile (Autoclavable)",
+        "Shelf Life": "Standard 3 Years",
+        "Manufacturer": "Ganpati Lifecare, Main Road, Mandi Goluwala - 335802 (Raj.)",
       };
-      usage = "Orthopedic padding under plaster casts, wound cleansing, surgical preparation, and general clinical fluid absorption.";
-      packaging = "Individual paper roll wrapping, master carton packs for hospital supply.";
-      seoContent = "The Orthocot Cotton Roll supplied by Ganpati Lifecare is a staple in orthopedic and surgical departments across Rajasthan and North India. Known for its pure, highly absorbent 100% medical-grade cotton, it provides exceptional padding under plaster of Paris and synthetic casts. Hospitals in Hanumangarh, Ganganagar, and Bikaner trust our cotton rolls because they are free from impurities and harsh optical bleaching agents, drastically reducing the risk of patient skin irritation. Furthermore, its uniformly layered texture ensures smooth unwinding, preventing lumps that could cause pressure sores under casts. Whether used for heavy wound exudate absorption or surgical preparation, Ganpati Lifecare guarantees bulk availability and consistent quality.";
+      usage = "Orthopedic padding under plaster of Paris & synthetic casts, wound cleansing, surgical preparation, and general clinical fluid absorption.";
+      packaging = "Individual protective wrap roll packaging, master carton packs for hospital wholesale.";
+      seoContent = "The White Rose Brand Orthocot Cotton Roll manufactured and supplied by Ganpati Lifecare is a staple in orthopedic and surgical departments across Rajasthan and North India. Known for its pure, highly absorbent 100% natural cotton, it provides exceptional cushioning under plaster of Paris and synthetic casts. Hospitals in Hanumangarh, Ganganagar, and Bikaner trust our cotton rolls because they are free from impurities and harsh optical bleaching agents, drastically reducing the risk of patient skin irritation. Furthermore, its uniformly layered texture ensures smooth unwinding, preventing lumps that could cause pressure sores under casts.";
       faqs = [
         { q: "Is the Orthocot Cotton Roll suitable for cast padding?", a: "Yes, it is designed specifically for orthopedic cast padding, providing a soft, uniform layer between the skin and the plaster or synthetic cast." },
         { q: "Can the cotton roll be sterilized?", a: "Yes, our medical-grade cotton rolls are autoclavable and can be safely sterilized for surgical use." },
-        { q: "What sizes do you supply?", a: "We offer bulk rolls in 100g, 200g, 300g, and 500g weights to accommodate various clinical needs." }
+        { q: "What sizes do you supply?", a: "We supply standard 10 cm x 6 Mtr, 15 cm x 6 Mtr rolls and bulk weights in 100g, 200g, 300g, and 500g." },
       ];
       aeoSections = [
-        { title: "What is an Orthocot Cotton Roll?", content: "An Orthocot Cotton Roll is a premium, highly absorbent medical-grade cotton roll supplied by Ganpati Lifecare for use in clinical environments." },
-        { title: "What is an orthopedic cotton roll used for?", content: "It is primarily used as protective padding under plaster of Paris and synthetic casts to prevent skin irritation and pressure sores, as well as for general wound cleansing." }
+        { title: "What is an Orthocot Cotton Roll?", content: "An Orthocot Cotton Roll is a White Rose Brand premium, highly absorbent natural cotton roll supplied by Ganpati Lifecare for clinical and orthopedic environments." },
+        { title: "What is an orthopedic cotton roll used for?", content: "It is primarily used as protective padding under plaster of Paris and synthetic casts to prevent skin irritation and pressure sores, as well as for general wound cleansing." },
       ];
       break;
 
     case "stockinet":
+      gallery = [
+        product.image,
+        "/images/products/real_pack_roll_cotton_packing.webp",
+        "/images/products/stockinet.png",
+      ];
       features = [
         "Elastic rib-knit structure providing comfortable, non-constrictive fit",
         "Soft breathable cotton protects skin against friction",
@@ -100,6 +114,11 @@ export function getProductDetails(product: Product): EnrichedProduct {
       break;
 
     case "skin-traction-kit":
+      gallery = [
+        product.image,
+        "/images/products/real_ortho_active_crepe_bandage.webp",
+        "/images/products/skin-traction-kit.jpg",
+      ];
       features = [
         "Complete ready-to-apply kit for rapid clinical deployment",
         "High-friction foam padding prevents slippage and skin shearing",
@@ -128,6 +147,11 @@ export function getProductDetails(product: Product): EnrichedProduct {
 
     case "orthopedic-gauze-bandages":
     case "orthopedic-gauze":
+      gallery = [
+        product.image,
+        "/images/products/real_pack_roll_cotton_packing.webp",
+        "/images/products/orthopedic-gauze-bandages.jpg",
+      ];
       features = [
         "Woven from quality cotton yarn with balanced open mesh",
         "High fluid absorption capacity for blood and exudates",
@@ -148,7 +172,7 @@ export function getProductDetails(product: Product): EnrichedProduct {
         { q: "What sizes do the gauze bandages come in?", a: "We typically supply them in 90cm widths and lengths of 5 meters or 10 meters, folded in 2-ply or 4-ply formats." },
         { q: "Can these be sterilized?", a: "Yes, our gauze rolls can be subjected to standard hospital autoclaving and sterilization protocols." }
       ];
-            aeoSections = [
+      aeoSections = [
         { title: "What are Orthopedic Gauze Bandages?", content: "Orthopedic Gauze Bandages are premium woven cotton gauze rolls with a balanced open mesh design, supplied by Ganpati Lifecare." },
         { title: "What are they used for?", content: "They are used for surgical wound packing, secondary dressing retention, and heavy fluid/exudate management in trauma care." },
         { title: "What type of product is it?", content: "It is a 100% medical cotton consumable that provides high absorbency and breathability to promote wound healing." },
@@ -159,70 +183,91 @@ export function getProductDetails(product: Product): EnrichedProduct {
       break;
 
     case "bandages":
+      gallery = [
+        "/images/products/real_ortho_active_crepe_bandage.webp",
+        "/images/products/bandages.png",
+        "/images/products/sponge-pad.png",
+      ];
       features = [
-        "Durable elasticity offering consistent, controlled compression",
-        "Soft and breathable texture to avoid patient discomfort",
-        "Washable and reusable for extended support",
-        "Firm woven borders prevent unraveling",
-        "Non-slip weave holds firmly over joints and limbs"
+        "Ortho Active high elasticity with fast edges to prevent fraying",
+        "Breathable & comfortable texture to avoid patient discomfort",
+        "Washing renews elasticity for durable and long-lasting support",
+        "Ideal for support & compression dressing across joints and limbs",
+        "Firm woven borders that do not slip or loosen during movement",
       ];
       specifications = {
-        "Material": "Cotton and elastic blend yarn",
-        "Widths": "5cm, 7.5cm, 10cm, 15cm",
-        "Length": "Stretched length 4m / 5m"
+        "Brand": "Ortho Active (Ganpati Lifecare)",
+        "Material": "Cotton Crepe & Elastic Blend with Fast Edges",
+        "Available Widths": "10 CM (also 5cm, 7.5cm, 15cm)",
+        "Length": "Stretched length 4m / 5m",
+        "Key Feature": "Washing Renews Elasticity",
       };
       usage = "Joint support, sprain treatment, compression dressing, and retention of surgical dressings on limbs.";
-      packaging = "Individual cello wrapping with clip fasteners, wholesale box pack.";
-      seoContent = "From treating severe joint sprains to securing surgical dressings, Ganpati Lifecare's medical bandages offer reliable, controlled compression. Our crepe and elastic bandages are woven from a premium cotton-elastic blend, providing consistent pressure without constricting blood flow. The breathable fabric minimizes skin maceration, and the durable woven edges prevent the bandage from fraying even after repeated use and washing. Healthcare facilities in Rajasthan source our bandages for emergency rooms, physiotherapy clinics, and general wards due to their exceptional durability and patient comfort.";
+      packaging = "Individual container / cello wrapping with clip fasteners, wholesale box pack.";
+      seoContent = "From treating severe joint sprains to securing surgical dressings, Ortho Active Cotton Crepe Bandages from Ganpati Lifecare offer reliable, controlled compression. Woven with fast edges to prevent fraying, they provide consistent pressure without restricting blood flow. The breathable fabric minimizes skin maceration, and washing renews elasticity for extended durability. Healthcare facilities in Rajasthan source our bandages for emergency rooms, physiotherapy clinics, and general wards.";
       faqs = [
-        { q: "Are these bandages washable and reusable?", a: "Yes, our elastic and crepe bandages are designed to retain their elasticity and structure even after washing, making them highly cost-effective." },
-        { q: "Do the bandages come with fastening clips?", a: "Yes, each individually wrapped bandage roll includes secure fastening clips." },
-        { q: "What widths are available?", a: "We supply bandages in standard medical widths including 5cm, 7.5cm, 10cm, and 15cm." }
+        { q: "Are these bandages washable and reusable?", a: "Yes, Ortho Active crepe bandages are engineered so that washing renews their elasticity, ensuring exceptional long-term utility." },
+        { q: "Do the bandages come with fast edges?", a: "Yes, they feature fast edges that prevent the bandage from fraying during active movement." },
+        { q: "What widths are available?", a: "We supply 10 CM standard rolls as well as 5cm, 7.5cm, and 15cm widths." },
       ];
       break;
 
     case "sponge-pad":
+      gallery = [
+        "/images/products/real_lap_pad_sponge.webp",
+        "/images/products/sponge-pad.png",
+        "/images/products/bandages.png",
+      ];
       features = [
-        "High-density absorbent surgical gauze pads",
-        "Folded edges prevent loose threads from entering the wound bed",
-        "Rapid absorption rate for fluids and surgical exudate",
-        "Soft and lint-free for clean surgical procedures",
-        "Sterile and non-sterile options available"
+        "100% absorbent cotton cloth sponge with high fluid capacity (Lap-Pad)",
+        "Soft & safe for medical, surgical, and operating theatre use",
+        "8-ply layered design with precision folded edges to prevent loose threads",
+        "Trusted by healthcare professionals for sterile wound cleansing",
+        "Available in convenient M - 25 Pc packs and clinic bulk quantities",
       ];
       specifications = {
-        "Material": "100% Bleached Surgical Cotton Gauze",
-        "Sizes": "10cm x 10cm, 15cm x 15cm",
-        "Ply Options": "8-Ply, 12-Ply, 16-Ply"
+        "Product": "Lap-Pad Cotton Cloth Sponge",
+        "Material": "100% Absorbent Medical Cotton",
+        "Layering": "8 Ply Layered Design",
+        "Pack Sizes": "Size M - 25 Pc (also 10cm x 10cm, 15cm x 15cm)",
+        "Sterility": "Sterile & Autoclavable non-sterile grades",
       };
       usage = "Surgical incision cleaning, operating theatre fluid absorption, and primary sterile wound dressings.";
-      packaging = "Sterile peel-open pouches / clinic multi-packs.";
-      seoContent = "Sponge pads (also known as gauze swabs) are the workhorses of the operating theatre and wound care clinics. Ganpati Lifecare supplies high-density, bleached surgical cotton sponge pads that guarantee rapid absorption of surgical fluids. A critical feature of our sponge pads is their folded inner edges, which ensure that absolutely no loose threads or lint are left behind in the surgical site—a vital requirement for preventing postoperative infections. Available in various plies (8-ply, 12-ply, 16-ply) and supplied across hospitals in Rajasthan, these pads are a trusted choice for surgeons and nursing staff.";
+      packaging = "M - 25 Pc sealed packs / sterile peel-open pouches / clinic multi-packs.";
+      seoContent = "Lap-Pad Sponge pads are the workhorses of the operating theatre and wound care clinics. Ganpati Lifecare supplies high-density, 8-ply 100% absorbent cotton cloth sponge pads that guarantee rapid absorption of surgical fluids. A critical feature is their folded edges, ensuring zero loose threads or lint are left behind in the surgical site. Supplied across hospitals in Rajasthan, these pads are a trusted choice for surgeons and nursing staff.";
       faqs = [
-        { q: "Are the edges folded in?", a: "Yes, all edges are carefully folded inward to prevent lint and loose threads from contaminating wounds." },
-        { q: "Are sterile options available?", a: "We supply both non-sterile bulk packs for clinic autoclaving and pre-sterilized peel-open pouches for immediate OT use." },
-        { q: "What ply thickness do you offer?", a: "Our sponge pads are available in 8-ply, 12-ply, and highly absorbent 16-ply variations." }
+        { q: "What is the ply thickness of Lap-Pad sponge pads?", a: "They feature an 8-ply layered design offering optimal fluid absorbency and softness." },
+        { q: "Are the edges folded?", a: "Yes, all edges are carefully folded inward to prevent lint and loose threads from contaminating wound sites." },
+        { q: "What pack sizes do you supply?", a: "We offer Size M (25 Pc packs) as well as 10cm x 10cm and 15cm x 15cm bulk hospital formats." },
       ];
       break;
 
     case "gamjee-roll":
+      gallery = [
+        "/images/products/real_gamjee_roll.webp",
+        "/images/products/gamjee-roll.png",
+        "/images/products/sponge-pad.png",
+      ];
       features = [
-        "Thick absorbent cotton wool enclosed in a fine gauze sleeve",
-        "High cushioning capacity to protect fragile wounds",
-        "Excellent absorbency for heavy wound exudates",
-        "Easily trimmed to fit various anatomical regions",
-        "Conforms softly to body contours"
+        "Thick 100% pure absorbent cotton wool core with high absorbency",
+        "Soft & skin-friendly fine surgical gauze covering sleeve",
+        "Sterile & safe for medical, surgical, and post-operative trauma care",
+        "Easily trimmed to fit various anatomical regions without cotton falling out",
+        "Conforms softly to body contours for patient comfort",
       ];
       specifications = {
-        "Material": "Absorbent cotton padding with gauze covering",
-        "Widths": "10cm, 15cm, 20cm",
-        "Roll Weights": "250g, 500g"
+        "Product": "Gamjee Roll (Highly Absorbent)",
+        "Material": "100% Pure Absorbent Cotton with Gauze Covering",
+        "Packaging": "Qty: 1 Nos. sealed pack / hospital bulk cartons",
+        "Sterility": "To Be Sterile Before Use",
+        "Widths / Sizes": "10cm, 15cm, 20cm rolls (250g, 500g)",
       };
       usage = "Post-operative heavy exudate management, burn dressings, and protective cushioning under orthopedic casts.";
-      packaging = "Protective paper/poly wrap rolls, bulk cartons.";
-      seoContent = "The Gamjee Roll is an essential highly absorbent surgical dressing utilized for managing heavily exuding wounds and providing thick protective cushioning. Ganpati Lifecare's Gamjee rolls consist of a thick layer of premium absorbent cotton wool tightly encased in an absorbent, non-irritating gauze sleeve. This structure not only absorbs copious amounts of fluid—making it ideal for post-operative trauma care and burn dressings—but also provides excellent mechanical protection to the wound site. Supplied to hospitals throughout North India, our Gamjee rolls can be easily cut to fit any anatomical contour.";
+      packaging = "Protective sealed roll (Qty: 1 Nos), bulk cartons.";
+      seoContent = "The Gamjee Roll is an essential highly absorbent surgical dressing utilized for managing heavily exuding wounds and providing thick protective cushioning. Ganpati Lifecare's Gamjee rolls consist of a thick layer of premium 100% absorbent cotton wool tightly encased in an absorbent, non-irritating gauze sleeve. This structure absorbs copious amounts of fluid—making it ideal for post-operative trauma care and burn dressings—while providing mechanical protection.";
       faqs = [
         { q: "What is a Gamjee Roll used for?", a: "It is primarily used for dressing heavily weeping wounds, burn care, and providing thick cushioning under orthopedic casts." },
-        { q: "Is the outer layer made of gauze?", a: "Yes, it features a thick cotton wool core securely enclosed within a fine surgical gauze sleeve." },
+        { q: "Is the outer layer made of gauze?", a: "Yes, it features a thick pure cotton wool core securely enclosed within a fine surgical gauze sleeve." },
         { q: "Can it be cut to size?", a: "Yes, it can be easily trimmed to the required length without the core cotton falling out." }
       ];
       aeoSections = [
@@ -233,11 +278,17 @@ export function getProductDetails(product: Product): EnrichedProduct {
 
     case "surgical-dressing-materials":
     case "surgical-dressing":
+      gallery = [
+        "/images/products/real_pack_roll_cotton_packing.webp",
+        "/images/products/real_lap_pad_sponge.webp",
+        "/images/products/real_gamjee_roll.webp",
+        "/images/products/surgical-dressing-materials.png",
+      ];
       features = [
-        "Comprehensive dressing materials designed for clinical hygiene",
-        "High tensile strength and dependable absorbency",
+        "Comprehensive dressing materials including cotton cloth Pack Rolls",
+        "High tensile strength and dependable fluid absorbency",
         "Non-adherent surface layers to reduce pain during dressing changes",
-        "Conforms easily around awkward wound sites"
+        "Conforms easily around awkward wound sites",
       ];
       specifications = {
         "Product Type": "Surgical dressing pads and rolls",

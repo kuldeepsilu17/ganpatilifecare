@@ -75,7 +75,7 @@ export default function BlogIndexPage() {
               Medical Supplies Blog &amp; Knowledge Center
             </h1>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-foreground/80 leading-relaxed text-left sm:text-center">
-              Welcome to the Ganpati Lifecare Medical Knowledge Center, curated by founder Dharampal Verma in Goluwala, Hanumangarh, Rajasthan. We provide comprehensive clinical guides and procurement resources for hospital administrators, orthopedic surgeons, nursing staff, and medical distributors across North Rajasthan. Explore our in-depth articles detailing the technical differences between specialized Orthocot cotton rolls and ordinary cotton, complete skin traction kit assemblies, fabric selection for doctor coats and surgical OT dresses, and essential hospital consumables checklists. Our goal is to empower healthcare professionals with actionable, evidence-based supply chain insights.
+              Welcome to the Ganpati Lifecare Medical Knowledge Center, curated under the management of Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan. We provide comprehensive clinical guides and procurement resources for hospital administrators, orthopedic surgeons, nursing staff, and medical distributors across North Rajasthan. Explore our in-depth articles detailing the technical differences between specialized Orthocot cotton rolls and ordinary cotton, complete skin traction kit assemblies, fabric selection for doctor coats and surgical OT dresses, and essential hospital consumables checklists. Our goal is to empower healthcare professionals with actionable, evidence-based supply chain insights.
             </p>
 
             {/* Topic Filters as Real Links */}

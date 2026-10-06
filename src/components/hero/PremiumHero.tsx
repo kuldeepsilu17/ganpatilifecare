@@ -84,7 +84,7 @@ export function PremiumHero() {
 
         {/* Direct AEO Answer Block */}
         <p className="hero-subtitle">
-          Ganpati Lifecare is a premier supplier of orthopedic supplies, surgical supplies, and hospital supplies based in Goluwala, Hanumangarh, Rajasthan, owned and operated by Dharampal Verma. We supply Orthocot surgical cotton rolls, dressing products, stockinets, skin traction kits, gauze bandages, Gamjee rolls, sponge pads, doctor coats, nurse uniforms, and medical consumables to hospitals, nursing homes, and clinics across North Rajasthan.
+          Ganpati Lifecare is a premier manufacturer and wholesale supplier of orthopedic supplies, surgical supplies, and hospital supplies based in Mandi Goluwala, Hanumangarh, Rajasthan, managed by Dharampal Verma. We supply White Rose Brand Orthocot surgical cotton rolls, dressing products, cast rolls, stockinets, skin traction kits, gauze bandages, Gamjee rolls, sponge pads, doctor coats, nurse uniforms, and medical consumables to hospitals, nursing homes, and clinics across North Rajasthan.
         </p>
 
         {/* CTA Buttons */}

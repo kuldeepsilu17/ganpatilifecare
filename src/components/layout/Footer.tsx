@@ -15,10 +15,13 @@ export function Footer() {
               <Logo variant="full" alt={LOGO.alt.seo} className="h-10 md:h-11" />
             </Link>
             <p className="mt-4 text-xs font-semibold text-brand-orange">
-              Owned &amp; operated by {BUSINESS.owner}
+              Managed by Dharampal Verma
             </p>
             <p className="mt-2 text-sm leading-relaxed text-white/88">
-              Ganpati Lifecare (GLC) is a medical supplies business in Goluwala, Hanumangarh, Rajasthan, owned by Dharampal Verma.
+              Ganpati Lifecare is a manufacturer and wholesale supplier of White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll and Gauze dressing products in Mandi Goluwala, Hanumangarh, Rajasthan.
+            </p>
+            <p className="mt-2 text-xs font-medium text-white/80">
+              GSTIN: <span className="font-mono text-brand-orange font-semibold">{BUSINESS.gstin}</span>
             </p>
           </div>
           <div>
@@ -94,9 +97,10 @@ export function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="font-display font-semibold text-brand-orange">Contact &amp; Owner</h4>
+            <h4 className="font-display font-semibold text-brand-orange">Business &amp; Contact Info</h4>
             <ul className="mt-4 space-y-2 text-sm text-white/88">
-              <li className="font-semibold text-white">{BUSINESS.owner} (Founder &amp; Owner)</li>
+              <li className="font-semibold text-white">Managed by Dharampal Verma</li>
+              <li className="text-xs text-brand-orange font-medium">GSTIN: {BUSINESS.gstin}</li>
               {BUSINESS.phoneDisplay.map((p, i) => (
                 <li key={p}>
                   <a href={`tel:${BUSINESS.phones[i]}`} className="hover:text-brand-orange">

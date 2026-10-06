@@ -155,7 +155,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
       {
         question: "How can I get the wholesale price list for hospital consumables?",
         answer:
-          "Contact owner Dharampal Verma directly via phone at +91 98282 32254 or submit our quick WhatsApp inquiry for a tailored bulk quotation.",
+          "Contact Ganpati Lifecare (managed by Dharampal Verma) directly via phone at +91 98282 32254 or submit our quick WhatsApp inquiry for a tailored bulk quotation.",
       },
     ],
   },

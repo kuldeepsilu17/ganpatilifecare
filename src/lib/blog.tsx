@@ -26,7 +26,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "August 20, 2026",
     updatedDate: "October 02, 2026",
     author: "Dharampal Verma",
-    authorBio: "Founder and Owner of Ganpati Lifecare, Goluwala, Hanumangarh. Dharampal Verma has over a decade of experience in medical, surgical, and orthopedic supply distribution across Rajasthan.",
+    authorBio: "Managed by Dharampal Verma at Ganpati Lifecare, Mandi Goluwala, Hanumangarh. Providing premium White Rose brand orthopedic, surgical, and medical supplies across Rajasthan.",
     readTime: "6 min read",
     category: "Orthopedics",
     categorySlug: "orthopedic",
@@ -127,7 +127,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "August 15, 2026",
     updatedDate: "October 02, 2026",
     author: "Dharampal Verma",
-    authorBio: "Founder and Owner of Ganpati Lifecare, Goluwala, Hanumangarh. Dharampal Verma has over a decade of experience in medical, surgical, and orthopedic supply distribution across Rajasthan.",
+    authorBio: "Managed by Dharampal Verma at Ganpati Lifecare, Mandi Goluwala, Hanumangarh. Providing premium White Rose brand orthopedic, surgical, and medical supplies across Rajasthan.",
     readTime: "5 min read",
     category: "Orthopedics",
     categorySlug: "orthopedic",
@@ -214,7 +214,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "August 10, 2026",
     updatedDate: "October 02, 2026",
     author: "Dharampal Verma",
-    authorBio: "Founder and Owner of Ganpati Lifecare, Goluwala, Hanumangarh. Dharampal Verma has over a decade of experience in medical, surgical, and orthopedic supply distribution across Rajasthan.",
+    authorBio: "Managed by Dharampal Verma at Ganpati Lifecare, Mandi Goluwala, Hanumangarh. Providing premium White Rose brand orthopedic, surgical, and medical supplies across Rajasthan.",
     readTime: "5 min read",
     category: "Trauma Care",
     categorySlug: "orthopedic",
@@ -295,7 +295,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "July 28, 2026",
     updatedDate: "October 02, 2026",
     author: "Dharampal Verma",
-    authorBio: "Founder and Owner of Ganpati Lifecare, Goluwala, Hanumangarh. Dharampal Verma has over a decade of experience in medical, surgical, and orthopedic supply distribution across Rajasthan.",
+    authorBio: "Managed by Dharampal Verma at Ganpati Lifecare, Mandi Goluwala, Hanumangarh. Providing premium White Rose brand orthopedic, surgical, and medical supplies across Rajasthan.",
     readTime: "6 min read",
     category: "Hospital Uniforms",
     categorySlug: "hospital-uniforms",
@@ -379,7 +379,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "July 15, 2026",
     updatedDate: "October 02, 2026",
     author: "Dharampal Verma",
-    authorBio: "Founder and Owner of Ganpati Lifecare, Goluwala, Hanumangarh. Dharampal Verma has over a decade of experience in medical, surgical, and orthopedic supply distribution across Rajasthan.",
+    authorBio: "Managed by Dharampal Verma at Ganpati Lifecare, Mandi Goluwala, Hanumangarh. Providing premium White Rose brand orthopedic, surgical, and medical supplies across Rajasthan.",
     readTime: "7 min read",
     category: "Hospital Management",
     categorySlug: "healthcare-essentials",
@@ -476,7 +476,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "July 05, 2026",
     updatedDate: "October 02, 2026",
     author: "Dharampal Verma",
-    authorBio: "Founder and Owner of Ganpati Lifecare, Goluwala, Hanumangarh. Dharampal Verma has over a decade of experience in medical, surgical, and orthopedic supply distribution across Rajasthan.",
+    authorBio: "Managed by Dharampal Verma at Ganpati Lifecare, Mandi Goluwala, Hanumangarh. Providing premium White Rose brand orthopedic, surgical, and medical supplies across Rajasthan.",
     readTime: "6 min read",
     category: "Surgical Supplies",
     categorySlug: "surgical",
@@ -568,7 +568,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "June 25, 2026",
     updatedDate: "October 02, 2026",
     author: "Dharampal Verma",
-    authorBio: "Founder and Owner of Ganpati Lifecare, Goluwala, Hanumangarh. Dharampal Verma has over a decade of experience in medical, surgical, and orthopedic supply distribution across Rajasthan.",
+    authorBio: "Managed by Dharampal Verma at Ganpati Lifecare, Mandi Goluwala, Hanumangarh. Providing premium White Rose brand orthopedic, surgical, and medical supplies across Rajasthan.",
     readTime: "5 min read",
     category: "Wholesale & Logistics",
     categorySlug: "surgical",
@@ -595,7 +595,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
         <h2>The Advantage of Localized Medical Supply in North Rajasthan</h2>
         <p>
-          Many private hospitals and trauma centers in Hanumangarh and Sri Ganganagar struggle with freight delays and minimum order barriers imposed by distant distributors in Jaipur or Delhi. By partnering with Ganpati Lifecare—based centrally in Goluwala—facilities gain rapid roadside dispatch, direct owner accountability, and zero freight markups.
+          Many private hospitals and trauma centers in Hanumangarh and Sri Ganganagar struggle with freight delays and minimum order barriers imposed by distant distributors in Jaipur or Delhi. By partnering with Ganpati Lifecare—based centrally in Mandi Goluwala—facilities gain rapid roadside dispatch, direct management accountability, and zero freight markups.
         </p>
 
         <h2>Steps to Establish a Wholesale Account</h2>
@@ -619,7 +619,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "June 18, 2026",
     updatedDate: "October 02, 2026",
     author: "Dharampal Verma",
-    authorBio: "Founder and Owner of Ganpati Lifecare, Goluwala, Hanumangarh. Dharampal Verma has over a decade of experience in medical, surgical, and orthopedic supply distribution across Rajasthan.",
+    authorBio: "Managed by Dharampal Verma at Ganpati Lifecare, Mandi Goluwala, Hanumangarh. Providing premium White Rose brand orthopedic, surgical, and medical supplies across Rajasthan.",
     readTime: "6 min read",
     category: "Procurement Guide",
     categorySlug: "healthcare-essentials",
@@ -650,7 +650,7 @@ export const BLOG_POSTS: BlogPost[] = [
           <li><strong>2. What is the exact delivery timeline to our district?</strong> Ensure your supplier maintains ready inventory in Rajasthan rather than drop-shipping from other states.</li>
           <li><strong>3. Are packaging materials water-resistant?</strong> Surgical cotton and gauze can degrade if exposed to humidity during monsoon transit.</li>
           <li><strong>4. Can you supply customized sizing for uniforms?</strong> Ensure your supplier can fulfill specialized <Link href="/products/nurse-uniforms" className="text-medical font-semibold hover:underline">Nurse Uniforms</Link> and <Link href="/products/ot-dresses" className="text-medical font-semibold hover:underline">OT Dresses</Link>.</li>
-          <li><strong>5. Is direct owner support available for emergency orders?</strong> Ganpati Lifecare provides direct access to owner Dharampal Verma for urgent hospital requirements.</li>
+          <li><strong>5. Is direct management support available for emergency orders?</strong> Ganpati Lifecare provides direct access to Dharampal Verma for urgent hospital requirements.</li>
         </ul>
 
         <p>

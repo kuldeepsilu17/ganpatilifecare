@@ -9,7 +9,7 @@ export function About() {
         <SectionHeading
           eyebrow="About Ganpati Lifecare"
           title="Direct Sourcing for Regional Healthcare"
-          description={`${BUSINESS.name} (${BUSINESS.shortName}) — led by ${BUSINESS.owner}, your regional medical, surgical, and orthopedic supplies wholesaler in Goluwala, Hanumangarh, Rajasthan.`}
+          description={`${BUSINESS.name} (${BUSINESS.shortName}) — managed by Dharampal Verma, your regional medical, surgical, and orthopedic supplies manufacturer and wholesaler in Mandi Goluwala, Hanumangarh, Rajasthan.`}
         />
         <div className="mt-8 sm:mt-12 grid gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-12">
           <AnimateIn>
@@ -20,7 +20,7 @@ export function About() {
                     Quick Facts &amp; Procurement Summary
                   </p>
                   <p className="text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
-                    Ganpati Lifecare (GLC) is a medical supplies business in Goluwala, Hanumangarh, Rajasthan, owned by Dharampal Verma. We operate as a dedicated wholesale distributor providing standardized carton-packed clinical consumables directly to healthcare facilities across North Rajasthan.
+                    Ganpati Lifecare (GLC) is a medical supplies manufacturer and wholesale distributor in Mandi Goluwala, Hanumangarh, Rajasthan, managed by Dharampal Verma. We supply White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll and Gauze dressing products directly to healthcare facilities across North Rajasthan.
                   </p>
                   <div className="mt-3 pt-3 border-t border-medical/10 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-foreground/80">
                     <div>
@@ -39,25 +39,25 @@ export function About() {
                 </div>
 
                 <p className="text-sm sm:text-base leading-relaxed text-foreground/90">
-                  Owned and managed by <strong>Dharampal Verma</strong>, Ganpati Lifecare coordinates consistent medical supply inventory, carton-level wholesale pricing, and direct doorstep delivery for regional healthcare institutions throughout Rajasthan.
+                  Managed by <strong>Dharampal Verma</strong>, Ganpati Lifecare coordinates consistent medical supply inventory, carton-level wholesale pricing, and direct doorstep delivery for regional healthcare institutions throughout Rajasthan.
                 </p>
 
                 {/* Hindi Localized Section for Regional Search Queries */}
                 <div className="mt-5 pt-4 border-t border-medical/10" lang="hi">
                   <h3 className="text-xs sm:text-sm font-bold text-foreground mb-1">
-                    गणपति लाइफकेयर — गोलूवाला, हनुमानगढ़ (राजस्थान)
+                    गणपति लाइफकेयर — मंडी गोलूवाला, हनुमानगढ़ (राजस्थान)
                   </h3>
                   <p className="text-xs sm:text-sm leading-relaxed text-foreground/80 font-normal">
-                    गणपति लाइफकेयर (Ganpati Lifecare) गोलूवाला, हनुमानगढ़ (राजस्थान 335512) में स्थित एक प्रमुख मेडिकल सप्लायर और थोक विक्रेता है, जिसके संस्थापक और संचालक धर्मपाल वर्मा हैं। हम हनुमानगढ़, श्रीगंगानगर, सूरतगढ़, पीलीबंगा, संगरिया, नोहर, भादरा और बीकानेर सहित संपूर्ण उत्तर राजस्थान में सरकारी एवं निजी अस्पतालों, नर्सिंग होम, सर्जिकल केंद्रों और क्लीनिकों को गुणवत्तापूर्ण चिकित्सा सामग्री की सीधी आपूर्ति करते हैं। हमारे मुख्य उत्पादों में ऑर्थोपेडिक कॉटन रोल (Orthocot Cotton Roll), स्टॉकिनेट, स्किन ट्रैक्शन किट, सर्जिकल ड्रेसिंग थोक सामग्री, गेम्जी रोल, अब्जॉर्बेंट गॉज बैंडेज, स्पंज पैड, डॉक्टर कोट, नर्स यूनिफॉर्म, ओटी ड्रेस और अस्पताल उपभोज्य वस्तुएं शामिल हैं। थोक ऑर्डर एवं कोटेशन के लिए सीधे संपर्क करें।
+                    गणपति लाइफकेयर (Ganpati Lifecare) मंडी गोलूवाला, हनुमानगढ़ (राजस्थान 335802) में स्थित एक प्रमुख चिकित्सा उत्पाद निर्माता और थोक सप्लायर है, जिसके संचालक धर्मपाल वर्मा हैं। हम व्हाइट रोज़ ब्रांड ऑर्थो कॉटन रोल (Orthocot), ऑर्थोपेडिक्स, कास्टरोल, गॉज ड्रेसिंग, स्टॉकिनेट, स्किन ट्रैक्शन किट, गेम्जी रोल, स्पंज पैड, डॉक्टर कोट और अस्पताल सामग्री की सीधी आपूर्ति करते हैं।
                   </p>
                 </div>
               </div>
 
               <div className="mt-6 pt-5 border-t border-medical/10 flex items-center justify-between flex-wrap gap-3">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-medical">Leadership &amp; Location</p>
-                  <p className="text-sm sm:text-base font-bold text-foreground">Founder &amp; Owner: Dharampal Verma</p>
-                  <p className="text-xs text-muted">Goluwala, Hanumangarh, Rajasthan 335512, India</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-medical">Management &amp; Location</p>
+                  <p className="text-sm sm:text-base font-bold text-foreground">Managed by Dharampal Verma</p>
+                  <p className="text-xs text-muted">Main Road, Mandi Goluwala - 335802, Distt. Hanumangarh (Raj.)</p>
                 </div>
                 <span className="inline-flex items-center rounded-full bg-medical/10 px-3.5 py-1 text-xs font-semibold text-medical">
                   Regional Medical Wholesaler
@@ -75,10 +75,10 @@ export function About() {
                 India rely on Ganpati Lifecare for reliable medical supply availability and fast order fulfillment.
               </p>
               <ul className="mt-5 space-y-2.5 text-xs sm:text-sm font-medium">
-                <li>✓ Orthocot surgical &amp; orthopedic cotton rolls</li>
+                <li>✓ White Rose Brand Orthocot surgical &amp; orthopedic cotton rolls</li>
                 <li>✓ Hospital uniforms, doctor coats &amp; OT dresses</li>
                 <li>✓ Skin traction kits, stockinets &amp; crepe bandages</li>
-                <li>✓ Regional road transport delivery &amp; direct owner support</li>
+                <li>✓ Regional road transport delivery &amp; dedicated order support</li>
               </ul>
               <div className="mt-6 sm:mt-8 flex flex-wrap gap-3">
                 <a

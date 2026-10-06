@@ -9,16 +9,16 @@ export async function GET() {
   lines.push(`# ${BUSINESS.name}`);
   lines.push("");
   lines.push(
-    `> Medical, surgical, and orthopedic supplies wholesaler based in ${BUSINESS.location}. Supplies hospitals, clinics, nursing homes, and healthcare professionals across Rajasthan and North India.`
+    `> Manufacturers: White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll and Gauze dressing products, based in ${BUSINESS.location}. Managed by ${BUSINESS.owner}.`
   );
   lines.push("");
   lines.push(
-    `Founded and owned by ${BUSINESS.owner}. Ordering is quote-based via WhatsApp or phone inquiry.`
+    `Managed by ${BUSINESS.owner}. GSTIN: ${BUSINESS.gstin}. Ordering is quote-based via WhatsApp or phone inquiry.`
   );
   lines.push("");
   lines.push("## Entity Disambiguation");
   lines.push(
-    "Ganpati Lifecare (Goluwala, Hanumangarh, Rajasthan; domain www.ganpatilifecare.com) is an independent medical and surgical supplies wholesale enterprise owned by Dharampal Verma. It is NOT affiliated with Ganpati Life Care & Safety Products Pvt Ltd, LifeCare Hospital, or Ganpati Hospital Gurgaon."
+    `Ganpati Lifecare (Main Road, Mandi Goluwala - 335802, Distt. Hanumangarh, Rajasthan; domain www.ganpatilifecare.com; GSTIN: ${BUSINESS.gstin}) is an independent manufacturer and healthcare supplies enterprise managed by Dharampal Verma. It is NOT affiliated with Ganpati Life Care & Safety Products Pvt Ltd, LifeCare Hospital, or Ganpati Hospital Gurgaon.`
   );
   lines.push("");
 
@@ -54,14 +54,15 @@ export async function GET() {
   lines.push("");
 
   lines.push("## Company & Pages");
-  lines.push(`- [About Us](${BUSINESS.siteUrl}/about): Company background and founder information`);
+  lines.push(`- [About Us](${BUSINESS.siteUrl}/about): Company background and business information`);
   lines.push(`- [Contact](${BUSINESS.siteUrl}/contact): Direct contact channels and quotation requests`);
   lines.push(`- [Terms & Conditions](${BUSINESS.siteUrl}/terms-and-conditions)`);
   lines.push(`- [Privacy Policy](${BUSINESS.siteUrl}/privacy-policy)`);
   lines.push("");
 
   lines.push("## Contact");
-  lines.push(`- Owner: ${BUSINESS.owner}`);
+  lines.push(`- Management: Managed by ${BUSINESS.owner}`);
+  lines.push(`- GSTIN: ${BUSINESS.gstin} (State: Rajasthan, State Code: 08)`);
   lines.push(`- Phone: ${BUSINESS.phoneDisplay.join(", ")}`);
   lines.push(`- WhatsApp: +${BUSINESS.whatsapp}`);
   lines.push(`- Email: ${BUSINESS.email}`);

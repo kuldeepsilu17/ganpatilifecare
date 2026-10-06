@@ -46,7 +46,7 @@ const staticPages = [
   {
     url: "https://www.ganpatilifecare.com/about",
     title: "About Ganpati Lifecare | Dharampal Verma | Hanumangarh",
-    desc: "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan: orthopedic supplies, surgical dressings, uniforms & hospital consumables.",
+    desc: "Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan: orthopedic supplies, White Rose products & surgical dressings.",
   },
   {
     url: "https://www.ganpatilifecare.com/products",
@@ -66,7 +66,7 @@ const staticPages = [
   {
     url: "https://www.ganpatilifecare.com/contact",
     title: "Contact Ganpati Lifecare | Medical Supplies Hanumangarh",
-    desc: "Contact Ganpati Lifecare and Dharampal Verma in Goluwala, Hanumangarh, Rajasthan. Request wholesale quotes for orthopedic, surgical & hospital supplies.",
+    desc: "Contact Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan. Request wholesale quotes for orthopedic & hospital supplies.",
   },
   {
     url: "https://www.ganpatilifecare.com/privacy-policy",

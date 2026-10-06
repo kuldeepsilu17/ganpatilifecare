@@ -79,13 +79,14 @@ export function Contact() {
         <SectionHeading
           eyebrow="Contact"
           title="Get In Touch"
-          description={`Reach Ganpati Lifecare in Goluwala, Hanumangarh for medical, orthopedic, and surgical supplies.`}
+          description={`Reach Ganpati Lifecare in Mandi Goluwala, Hanumangarh for medical, orthopedic, and surgical supplies.`}
         />
         <div className="mt-8 sm:mt-12 grid gap-6 sm:gap-10 lg:grid-cols-2">
           <div className="space-y-6">
             <article className="rounded-2xl bg-card p-5 sm:p-6 shadow-md border border-medical/10">
               <h3 className="font-display text-lg sm:text-xl font-bold">{BUSINESS.name}</h3>
-              <p className="mt-1 text-xs sm:text-sm font-semibold text-medical">Owner: {BUSINESS.owner}</p>
+              <p className="mt-1 text-xs sm:text-sm font-semibold text-medical">Managed by Dharampal Verma</p>
+              <p className="mt-1 text-xs font-mono font-medium text-brand-orange">GSTIN: {BUSINESS.gstin}</p>
               <p className="mt-2 text-xs sm:text-sm text-muted">{BUSINESS.location}</p>
               
               <div className="mt-4 pt-4 border-t border-medical/10">

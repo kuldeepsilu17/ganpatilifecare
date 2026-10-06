@@ -9,7 +9,7 @@ import { Products } from "@/components/sections/Products";
 
 const title = "About Ganpati Lifecare | Dharampal Verma | Hanumangarh";
 const description =
-  "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan: orthopedic supplies, surgical dressings, uniforms & hospital consumables.";
+  "Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan: orthopedic supplies, White Rose products & surgical dressings.";
 const canonicalUrl = `${BUSINESS.siteUrl}/about`;
 
 export const metadata: Metadata = {
@@ -34,16 +34,17 @@ export default function AboutPage() {
     url: canonicalUrl,
     mainEntity: {
       "@type": "Person",
-      "@id": `${BUSINESS.siteUrl}/#owner`,
+      "@id": `${BUSINESS.siteUrl}/#manager`,
       name: BUSINESS.owner,
-      jobTitle: "Founder & Owner",
       worksFor: {
         "@id": `${BUSINESS.siteUrl}/#organization`,
       },
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Hanumangarh",
+        streetAddress: BUSINESS.address.streetAddress,
+        addressLocality: "Mandi Goluwala",
         addressRegion: "Rajasthan",
+        postalCode: BUSINESS.address.postalCode,
         addressCountry: "IN",
       },
     },
@@ -97,21 +98,21 @@ export default function AboutPage() {
               <section>
                 <h2 className="font-display text-2xl font-bold text-foreground mb-4">Who is Ganpati Lifecare?</h2>
                 <p className="text-base leading-relaxed text-foreground/80">
-                  Ganpati Lifecare is a dedicated healthcare supplies business based in Goluwala, Hanumangarh, Rajasthan. We specialize in providing high-quality orthopedic supplies, surgical supplies, hospital consumables, medical disposable products, and healthcare uniforms to medical professionals, clinics, nursing homes, and hospitals.
+                  Ganpati Lifecare is a dedicated healthcare and surgical dressing supplies business based in Mandi Goluwala, Hanumangarh, Rajasthan. We specialize as manufacturers and suppliers of White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll, and Gauze dressing products, along with hospital consumables and medical supplies for clinics, nursing homes, and hospitals.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-display text-2xl font-bold text-foreground mb-4">Who owns Ganpati Lifecare?</h2>
+                <h2 className="font-display text-2xl font-bold text-foreground mb-4">Business Management &amp; Operations</h2>
                 <p className="text-base leading-relaxed text-foreground/80">
-                  The business was founded and is currently owned by <strong>Dharampal Verma</strong>. Under his leadership, Ganpati Lifecare has built a strong reputation for reliability, product quality, and direct wholesale pricing for clinics and hospitals across North Rajasthan and North India.
+                  Ganpati Lifecare is managed by <strong>Dharampal Verma</strong>. Under his active management, Ganpati Lifecare has built a strong reputation for reliability, strict quality standards, and dependable wholesale supply for clinics and hospitals across Rajasthan and North India.
                 </p>
               </section>
 
               <section>
                 <h2 className="font-display text-2xl font-bold text-foreground mb-4">Which areas do we serve?</h2>
                 <p className="text-base leading-relaxed text-foreground/80">
-                  While our primary distribution warehouse is located in Goluwala, Hanumangarh, our service network extends across Rajasthan and neighbouring states. We actively supply healthcare facilities in Hanumangarh, Sri Ganganagar, Suratgarh, Bikaner, Nohar, Rawatsar, Pilibanga, Sangaria, and Bhadra. 
+                  While our primary manufacturing and distribution base is located in Mandi Goluwala, Hanumangarh, our service network extends across Rajasthan and neighbouring states. We actively supply healthcare facilities in Hanumangarh, Sri Ganganagar, Suratgarh, Bikaner, Nohar, Rawatsar, Pilibanga, Sangaria, and Bhadra. 
                 </p>
                 <div className="mt-4 flex flex-wrap gap-3">
                   <Link href="/locations" className="text-medical font-bold hover:underline">
@@ -137,23 +138,25 @@ export default function AboutPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
                   <div className="rounded-2xl bg-medical/5 p-4 border border-medical/10">
                     <p className="font-bold text-foreground">Official Business Name</p>
-                    <p className="text-foreground/80 mt-1">Ganpati Lifecare (GLC)</p>
+                    <p className="text-foreground/80 mt-1">{BUSINESS.legalName}</p>
                   </div>
                   <div className="rounded-2xl bg-medical/5 p-4 border border-medical/10">
-                    <p className="font-bold text-foreground">Founder &amp; Owner</p>
-                    <p className="text-foreground/80 mt-1">Dharampal Verma</p>
+                    <p className="font-bold text-foreground">GSTIN (Verified)</p>
+                    <p className="text-foreground/80 mt-1 font-mono font-bold text-medical">{BUSINESS.gstin} (State Code: 08)</p>
                   </div>
                   <div className="rounded-2xl bg-medical/5 p-4 border border-medical/10">
-                    <p className="font-bold text-foreground">Central Warehouse</p>
-                    <p className="text-foreground/80 mt-1">Goluwala, Hanumangarh, Rajasthan 335512</p>
+                    <p className="font-bold text-foreground">Management</p>
+                    <p className="text-foreground/80 mt-1">Managed by {BUSINESS.owner}</p>
                   </div>
                   <div className="rounded-2xl bg-medical/5 p-4 border border-medical/10">
-                    <p className="font-bold text-foreground">Wholesale Delivery</p>
-                    <p className="text-foreground/80 mt-1">Hanumangarh, Sri Ganganagar, Suratgarh &amp; Rajasthan</p>
+                    <p className="font-bold text-foreground">Registered Address</p>
+                    <p className="text-foreground/80 mt-1">{BUSINESS.address.streetAddress}, {BUSINESS.address.addressLocality} - {BUSINESS.address.postalCode}, Distt. Hanumangarh (Raj.)</p>
+                  </div>
+                  <div className="rounded-2xl bg-medical/5 p-4 border border-medical/10 sm:col-span-2">
+                    <p className="font-bold text-foreground">Core Product Range</p>
+                    <p className="text-foreground/80 mt-1">{BUSINESS.description}</p>
                   </div>
                 </div>
-                {/* Placeholders for owner to confirm official registrations */}
-                {/* TODO_CONFIRM_WITH_OWNER: Add GSTIN and Drug Licence Number once provided by Dharampal Verma */}
               </section>
 
             </div>

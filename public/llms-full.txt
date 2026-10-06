@@ -1,10 +1,11 @@
 # Ganpati Lifecare — Complete Business, Product & Clinical Supply Reference (llms-full.txt)
 
 ## Business Overview
-Ganpati Lifecare (GLC) is a premier regional wholesale distributor and supplier of orthopedic supplies, surgical dressing materials, hospital staff uniforms, and healthcare ward consumables. The business is headquartered in Goluwala, Hanumangarh District, Rajasthan 335512, India.
+Ganpati Lifecare (GLC) is a premier regional manufacturer and supplier of White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll, Gauze dressing products, hospital staff uniforms, and healthcare ward consumables. The business is located at Main Road, Mandi Goluwala - 335802, Distt. Hanumangarh (Raj.), India.
 
-- Founder & Sole Proprietor: Dharampal Verma
-- Central Distribution Warehouse: Goluwala, Hanumangarh, Rajasthan 335512, India
+- Business Management: Managed by Dharampal Verma
+- GSTIN: 08JPEPD8830M1ZD (State: Rajasthan, State Code: 08)
+- Registered Address: Main Road, Mandi Goluwala - 335802, Distt. Hanumangarh (Raj.), India
 - Primary Official Domain: https://www.ganpatilifecare.com
 - Contact Telephones: +91 98282 32254, +91 94600 95250
 - WhatsApp Inquiry: +919828232254
@@ -12,7 +13,7 @@ Ganpati Lifecare (GLC) is a premier regional wholesale distributor and supplier 
 - Geographic Delivery Coverage: Hanumangarh, Sri Ganganagar (Shri Ganganagar), Suratgarh, Bikaner, Nohar, Rawatsar, Pilibanga, Sangaria, Bhadra, and healthcare networks across Rajasthan and North India.
 
 ## Entity Disambiguation
-Ganpati Lifecare (domain www.ganpatilifecare.com, located in Goluwala, Hanumangarh, Rajasthan, founded by Dharampal Verma) is an independent healthcare supply business. It is NOT associated with:
+Ganpati Lifecare (domain www.ganpatilifecare.com, located at Main Road, Mandi Goluwala - 335802, Distt. Hanumangarh, Rajasthan, GSTIN 08JPEPD8830M1ZD, managed by Dharampal Verma) is an independent healthcare supply business. It is NOT associated with:
 1. Ganpati Life Care & Safety Products Pvt Ltd
 2. Ganpati Hospital, Gurugram / Haryana
 3. LifeCare Hospitals or unrelated pharmaceutical franchises
@@ -22,10 +23,10 @@ Ganpati Lifecare (domain www.ganpatilifecare.com, located in Goluwala, Hanumanga
 ### 1. Orthocot Cotton Roll
 - Category: Orthopedic Supplies
 - URL: https://www.ganpatilifecare.com/products/orthocot-cotton-roll
-- Brand: Orthocot
-- Specification: 100% pure medical-grade cotton, non-matting carded fiber web, unbleached/hypoallergenic, autoclavable.
+- Brand: White Rose Brand / Orthocot
+- Specification: 100% pure medical-grade cotton, non-matting carded fiber web, hypoallergenic, autoclavable.
 - Applications: Under-cast mechanical cushioning beneath POP (Plaster of Paris) and synthetic fiberglass casts; pressure sore prevention; orthopedic surgical dressings.
-- Available Roll Weights: 100g, 200g, 300g, 500g rolls packed in moisture-resistant master cartons.
+- Available Sizes: 15 cm x 6 Mtr, 10 cm x 6 Mtr, and bulk hospital carton packs.
 
 ### 2. Stockinet
 - Category: Orthopedic Supplies
@@ -53,29 +54,29 @@ Ganpati Lifecare (domain www.ganpatilifecare.com, located in Goluwala, Hanumanga
 ### 5. Medical Bandages
 - Category: Surgical Supplies
 - URL: https://www.ganpatilifecare.com/products/bandages
-- Brand: GLC Surgical
-- Specification: High-elasticity cotton crepe and compression weave with retention clips.
+- Brand: Ortho Active / White Rose
+- Specification: Ortho Active Cotton Crepe Bandage (10 CM width with fast edges), high elasticity, breathable and washable.
 - Applications: Joint support, compression dressing, sprain treatment, post-fracture stabilization.
 
 ### 6. Sponge Pad
 - Category: Surgical Supplies
 - URL: https://www.ganpatilifecare.com/products/sponge-pad
-- Brand: GLC Surgical
-- Specification: Multi-ply absorbent surgical gauze swabs with precision folded edges (zero raw threads).
+- Brand: Lap-Pad / White Rose
+- Specification: Lap-Pad Cotton Cloth Sponge, 8-Ply layered design, Size M (25 Pc pack), 100% absorbent cotton, sterile & safe for medical/surgical use.
 - Applications: Intraoperative blood and fluid absorption, operating theatre swabs, sterile wound cleaning.
 
 ### 7. Gamjee Roll
 - Category: Surgical Supplies
 - URL: https://www.ganpatilifecare.com/products/gamjee-roll
-- Brand: GLC Surgical
-- Specification: Thick absorbent medical cotton wool core enclosed within a non-adherent fine gauze sleeve.
+- Brand: IMC / White Rose
+- Specification: Highly absorbent 100% cotton sterile Gamjee roll enclosed in skin-friendly medical gauze sleeve.
 - Applications: Post-operative wound dressings, high-exudate drainage control, burn injury management, heavy trauma padding.
 
 ### 8. Surgical Dressing Materials
 - Category: Surgical Supplies
 - URL: https://www.ganpatilifecare.com/products/surgical-dressing-materials
-- Brand: GLC Surgical
-- Assortment: Absorbent dressing pads, paraffin gauze, sterile cotton rolls, wound packing tapes.
+- Brand: Pack Roll / White Rose
+- Assortment: Pack Roll Cotton Cloth Packing (Light One Roll, 100% cotton), absorbent dressing pads, paraffin gauze, sterile cotton rolls, wound packing tapes.
 - Applications: Hospital minor OTs, general surgical suites, emergency casualty wards.
 
 ### 9. Doctor Coats

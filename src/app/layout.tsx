@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     template: "%s | Ganpati Lifecare",
   },
   description:
-    "Ganpati Lifecare, owned and operated by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic, surgical and hospital products including surgical cotton roll and dressing products.",
+    "Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan, manufactures and supplies White Rose orthopedic and surgical products.",
   authors: [{ name: BUSINESS.name }, { name: BUSINESS.owner }],
-  creator: BUSINESS.owner,
+  creator: BUSINESS.name,
   publisher: BUSINESS.name,
   formatDetection: {
     telephone: true,
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     url: "/",
     title: "Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies",
     description:
-      "Ganpati Lifecare, owned and operated by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic, surgical and hospital products including surgical cotton roll and dressing products.",
+      "Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan, manufactures and supplies White Rose orthopedic and surgical products.",
     images: [
       {
         url: LOGO.og,
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ganpati Lifecare | Orthopedic, Surgical & Hospital Supplies",
     description:
-      "Ganpati Lifecare, owned and operated by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic, surgical and hospital products including surgical cotton roll and dressing products.",
+      "Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan, manufactures and supplies White Rose orthopedic and surgical products.",
     images: [LOGO.og],
   },
   robots: {

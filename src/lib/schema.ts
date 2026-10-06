@@ -10,12 +10,16 @@ export function getOrganizationSchema() {
     "@type": "Organization",
     "@id": `${BUSINESS.siteUrl}/#organization`,
     name: BUSINESS.name,
+    legalName: BUSINESS.legalName,
+    taxID: BUSINESS.gstin,
+    vatID: BUSINESS.gstin,
     alternateName: [
       "Ganpati Life Care",
       "GLC",
       "Ganpati Lifecare Hanumangarh",
       "Ganpati Life Care Hanumangarh",
       "Ganpati Lifecare Goluwala",
+      "Ganpati Lifecare Mandi Goluwala",
       "Ganpati Lifecare Rajasthan",
     ],
     url: BUSINESS.siteUrl,
@@ -23,18 +27,10 @@ export function getOrganizationSchema() {
     image: ogImageUrl,
     email: BUSINESS.email,
     telephone: [...BUSINESS.phones],
-    founder: {
-      "@type": "Person",
-      "@id": `${BUSINESS.siteUrl}/#owner`,
-      name: BUSINESS.owner,
-      jobTitle: "Founder & Owner",
-      worksFor: {
-        "@id": `${BUSINESS.siteUrl}/#organization`,
-      },
-    },
     description:
-      "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic products, surgical cotton roll, dressing products, hospital uniforms, and medical consumables.",
+      "Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan, is a manufacturer and wholesale supplier of White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll and Gauze dressing products, hospital uniforms, and medical consumables.",
     knowsAbout: [
+      "White Rose Brand Ortho Cotton Roll",
       "Orthopedic Supplies",
       "Surgical Supplies",
       "Hospital Supplies",
@@ -76,20 +72,18 @@ export function getLocalBusinessSchema() {
     "@type": ["LocalBusiness", "MedicalBusiness"],
     "@id": `${BUSINESS.siteUrl}/#localbusiness`,
     name: BUSINESS.name,
+    legalName: BUSINESS.legalName,
+    taxID: BUSINESS.gstin,
+    vatID: BUSINESS.gstin,
     alternateName: [
       "Ganpati Life Care",
       "GLC",
       "Ganpati Lifecare Hanumangarh",
       "Ganpati Lifecare Goluwala",
+      "Ganpati Lifecare Mandi Goluwala",
     ],
-    founder: {
-      "@type": "Person",
-      "@id": `${BUSINESS.siteUrl}/#owner`,
-      name: BUSINESS.owner,
-      jobTitle: "Founder & Owner",
-    },
     description:
-      "Ganpati Lifecare, owned by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan, supplies orthopedic products, surgical cotton roll, dressing products, hospital uniforms, and medical consumables.",
+      "Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan, is a manufacturer and wholesale supplier of White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll and Gauze dressing products, hospital uniforms, and medical consumables.",
     url: BUSINESS.siteUrl,
     logo: logoUrl,
     image: ogImageUrl,
@@ -228,7 +222,7 @@ export function getBlogPostingSchema(post: {
     author: {
       "@type": "Person",
       name: post.author || BUSINESS.owner,
-      jobTitle: "Founder & Owner, Ganpati Lifecare",
+      jobTitle: "Ganpati Lifecare",
     },
     publisher: {
       "@type": "Organization",

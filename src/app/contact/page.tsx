@@ -10,7 +10,7 @@ import { getBreadcrumbSchema, getLocalBusinessSchema } from "@/lib/schema";
 
 const title = "Contact Ganpati Lifecare | Medical Supplies Hanumangarh";
 const description =
-  "Contact Ganpati Lifecare and Dharampal Verma in Goluwala, Hanumangarh, Rajasthan. Request wholesale quotes for orthopedic, surgical & hospital supplies.";
+  "Contact Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan. Request wholesale quotes for orthopedic & hospital supplies.";
 const canonicalUrl = `${BUSINESS.siteUrl}/contact`;
 
 export const metadata: Metadata = {
@@ -80,7 +80,7 @@ export default function ContactPage() {
               Contact Ganpati Lifecare
             </h1>
             <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-foreground/80 max-w-2xl mx-auto leading-relaxed">
-              Reach out directly to owner <strong>Dharampal Verma</strong> for bulk orders, hospital supply inquiries, and price quotations across Rajasthan.
+              Reach out directly to Ganpati Lifecare (managed by <strong>Dharampal Verma</strong>) for bulk orders, hospital supply inquiries, and price quotations across Rajasthan.
             </p>
           </div>
         </section>
@@ -93,8 +93,8 @@ export default function ContactPage() {
                 <div className="mx-auto h-12 w-12 rounded-full bg-medical/10 flex items-center justify-center text-medical text-xl font-bold mb-4">
                   📞
                 </div>
-                <h2 className="font-display text-lg font-bold text-foreground mb-2">Phone &amp; Owner</h2>
-                <p className="text-xs text-muted mb-3">{BUSINESS.owner} (Founder &amp; Owner)</p>
+                <h2 className="font-display text-lg font-bold text-foreground mb-2">Phone &amp; Management</h2>
+                <p className="text-xs text-muted mb-3">Managed by {BUSINESS.owner}</p>
                 {BUSINESS.phoneDisplay.map((phone, idx) => (
                   <div key={idx} className="mb-1">
                     <a
@@ -129,7 +129,7 @@ export default function ContactPage() {
                 </div>
                 <h2 className="font-display text-lg font-bold text-foreground mb-2">Business Location</h2>
                 <p className="text-sm font-medium text-foreground mb-1">{BUSINESS.location}</p>
-                <p className="text-xs text-muted mb-3">Postal Code: {BUSINESS.address.postalCode}</p>
+                <p className="text-xs text-muted mb-3">GSTIN: {BUSINESS.gstin}</p>
                 <a
                   href={BUSINESS.directionsUrl}
                   target="_blank"
