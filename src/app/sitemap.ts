@@ -37,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${CANONICAL_SITE_URL}/company-facts`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${CANONICAL_SITE_URL}/contact`,
       lastModified: currentDate,
       changeFrequency: "monthly",

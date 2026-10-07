@@ -1,18 +1,41 @@
 import { BUSINESS } from "./constants";
 import { LOGO } from "./brand";
 import { LOCATIONS } from "./locations";
+import {
+  DISAMBIGUATING_DESCRIPTION,
+  FOUNDING_DATE,
+  GEO_LAT,
+  GEO_LNG,
+  GBP_URL,
+  SAME_AS_PROFILES,
+} from "./site";
 
 const logoUrl = `${BUSINESS.siteUrl}/logo.svg`;
 const ogImageUrl = `${BUSINESS.siteUrl}${LOGO.og}`;
 
-export function getOrganizationSchema() {
+/* ── Founder / Owner Person ─────────────────────────────────────── */
+
+export function getFounderPersonSchema() {
   return {
-    "@type": "Organization",
-    "@id": `${BUSINESS.siteUrl}/#organization`,
+    "@type": "Person",
+    "@id": `${BUSINESS.siteUrl}/about#dharampal-verma`,
+    name: BUSINESS.owner,
+    jobTitle: "Proprietor & Manager", // TODO_CONFIRM_WITH_OWNER: confirm exact title
+    worksFor: {
+      "@id": `${BUSINESS.siteUrl}/#business`,
+    },
+    // sameAs: [], // TODO_CONFIRM_WITH_OWNER: add LinkedIn / Facebook only if owner agrees
+  };
+}
+
+/* ── Main Business Entity (LocalBusiness + MedicalBusiness) ──────── */
+
+export function getBusinessSchema() {
+  const schema: Record<string, unknown> = {
+    "@type": ["LocalBusiness", "MedicalBusiness"],
+    "@id": `${BUSINESS.siteUrl}/#business`,
     name: BUSINESS.name,
     legalName: BUSINESS.legalName,
-    taxID: BUSINESS.gstin,
-    vatID: BUSINESS.gstin,
     alternateName: [
       "Ganpati Life Care",
       "GLC",
@@ -22,32 +45,21 @@ export function getOrganizationSchema() {
       "Ganpati Lifecare Mandi Goluwala",
       "Ganpati Lifecare Rajasthan",
     ],
+    disambiguatingDescription: DISAMBIGUATING_DESCRIPTION,
+    description:
+      "Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan, is a manufacturer and wholesale supplier of White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll and Gauze dressing products, hospital uniforms, and medical consumables.",
     url: BUSINESS.siteUrl,
     logo: logoUrl,
     image: ogImageUrl,
-    email: BUSINESS.email,
     telephone: [...BUSINESS.phones],
-    description:
-      "Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan, is a manufacturer and wholesale supplier of White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll and Gauze dressing products, hospital uniforms, and medical consumables.",
-    knowsAbout: [
-      "White Rose Brand Ortho Cotton Roll",
-      "Orthopedic Supplies",
-      "Surgical Supplies",
-      "Hospital Supplies",
-      "Orthopedic Cotton Roll",
-      "Surgical Cotton Roll",
-      "Stockinet",
-      "Skin Traction Kit",
-      "Surgical Dressings",
-      "Gamjee Roll",
-      "Sponge Pads",
-      "Doctor Coats",
-      "Nurse Uniforms",
-      "OT Dresses",
-      "Hospital Uniforms",
-      "Hospital Consumables",
-      "Medical Disposables",
-    ],
+    email: BUSINESS.email,
+    taxID: BUSINESS.gstin,
+    vatID: BUSINESS.gstin,
+    identifier: {
+      "@type": "PropertyValue",
+      name: "GSTIN",
+      value: BUSINESS.gstin,
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: BUSINESS.address.streetAddress,
@@ -55,6 +67,35 @@ export function getOrganizationSchema() {
       addressRegion: BUSINESS.address.addressRegion,
       postalCode: BUSINESS.address.postalCode,
       addressCountry: BUSINESS.address.addressCountry,
+    },
+    founder: { "@id": `${BUSINESS.siteUrl}/about#dharampal-verma` },
+    areaServed: [
+      ...LOCATIONS.map((loc) => ({ "@type": "City" as const, name: loc.city })),
+      { "@type": "AdministrativeArea" as const, name: "Rajasthan" },
+    ],
+    knowsAbout: [
+      "Orthocot cotton roll",
+      "Stockinet",
+      "Skin traction kit",
+      "Gamjee roll",
+      "Surgical dressing",
+      "Hospital uniforms",
+      "OT dress",
+      "Doctor coat",
+      "Crepe bandage",
+      "Sponge pad",
+      "Hospital consumables",
+      "Medical disposables",
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Ganpati Lifecare product catalog",
+      itemListElement: [
+        "Orthopedic Supplies",
+        "Surgical Supplies",
+        "Hospital Uniforms",
+        "Healthcare Essentials",
+      ],
     },
     contactPoint: {
       "@type": "ContactPoint",
@@ -63,50 +104,56 @@ export function getOrganizationSchema() {
       areaServed: "IN",
       availableLanguage: ["en", "hi"],
     },
-    sameAs: [`https://wa.me/${BUSINESS.whatsapp}`],
+  };
+
+  // Only add geo if confirmed (not TODO)
+  if (GEO_LAT !== "TODO_CONFIRM_WITH_OWNER" && GEO_LNG !== "TODO_CONFIRM_WITH_OWNER") {
+    schema.geo = {
+      "@type": "GeoCoordinates",
+      latitude: GEO_LAT,
+      longitude: GEO_LNG,
+    };
+  }
+
+  // Only add foundingDate if confirmed
+  if (FOUNDING_DATE !== "TODO_CONFIRM_WITH_OWNER") {
+    schema.foundingDate = FOUNDING_DATE;
+  }
+
+  // Only add hasMap if confirmed
+  if (GBP_URL !== "TODO_CONFIRM_WITH_OWNER") {
+    schema.hasMap = GBP_URL;
+  }
+
+  // Only add sameAs if there are real profile URLs
+  if (SAME_AS_PROFILES.length > 0) {
+    schema.sameAs = SAME_AS_PROFILES;
+  }
+
+  return schema;
+}
+
+/* ── Legacy aliases — keep backward compatibility with existing pages ── */
+
+export function getOrganizationSchema() {
+  return {
+    "@type": "Organization",
+    "@id": `${BUSINESS.siteUrl}/#organization`,
+    name: BUSINESS.name,
+    legalName: BUSINESS.legalName,
+    url: BUSINESS.siteUrl,
+    logo: logoUrl,
+    // This is an alias that points to the main business entity
+    sameAs: [`${BUSINESS.siteUrl}/`],
   };
 }
 
 export function getLocalBusinessSchema() {
-  return {
-    "@type": ["LocalBusiness", "MedicalBusiness"],
-    "@id": `${BUSINESS.siteUrl}/#localbusiness`,
-    name: BUSINESS.name,
-    legalName: BUSINESS.legalName,
-    taxID: BUSINESS.gstin,
-    vatID: BUSINESS.gstin,
-    alternateName: [
-      "Ganpati Life Care",
-      "GLC",
-      "Ganpati Lifecare Hanumangarh",
-      "Ganpati Lifecare Goluwala",
-      "Ganpati Lifecare Mandi Goluwala",
-    ],
-    description:
-      "Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan, is a manufacturer and wholesale supplier of White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll and Gauze dressing products, hospital uniforms, and medical consumables.",
-    url: BUSINESS.siteUrl,
-    logo: logoUrl,
-    image: ogImageUrl,
-    telephone: [...BUSINESS.phones],
-    email: BUSINESS.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: BUSINESS.address.streetAddress,
-      addressLocality: BUSINESS.address.addressLocality,
-      addressRegion: BUSINESS.address.addressRegion,
-      postalCode: BUSINESS.address.postalCode,
-      addressCountry: BUSINESS.address.addressCountry,
-    },
-    areaServed: [
-      ...LOCATIONS.map((loc) => ({ "@type": "City", name: loc.city })),
-      { "@type": "AdministrativeArea", name: "Rajasthan" },
-      { "@type": "Country", name: "India" },
-    ],
-    parentOrganization: {
-      "@id": `${BUSINESS.siteUrl}/#organization`,
-    },
-  };
+  // Return the main business schema (used on pages that specifically need LocalBusiness)
+  return getBusinessSchema();
 }
+
+/* ── WebSite ────────────────────────────────────────────────────── */
 
 export function getWebSiteSchema() {
   return {
@@ -119,21 +166,32 @@ export function getWebSiteSchema() {
       "Official website of Ganpati Lifecare — Orthopedic, Surgical & Hospital Supplies in Goluwala, Hanumangarh, Rajasthan.",
     inLanguage: "en-IN",
     publisher: {
-      "@id": `${BUSINESS.siteUrl}/#organization`,
+      "@id": `${BUSINESS.siteUrl}/#business`,
     },
   };
 }
+
+/* ── Root @graph (used in layout.tsx <head>) ─────────────────────── */
 
 export function getRootGraphSchema() {
   return {
     "@context": "https://schema.org",
     "@graph": [
+      getBusinessSchema(),
+      getFounderPersonSchema(),
       getWebSiteSchema(),
-      getOrganizationSchema(),
-      getLocalBusinessSchema(),
+      {
+        "@type": "WebPage",
+        "@id": `${BUSINESS.siteUrl}/#webpage`,
+        url: `${BUSINESS.siteUrl}/`,
+        isPartOf: { "@id": `${BUSINESS.siteUrl}/#website` },
+        about: { "@id": `${BUSINESS.siteUrl}/#business` },
+      },
     ],
   };
 }
+
+/* ── Breadcrumb ─────────────────────────────────────────────────── */
 
 export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
   return {
@@ -147,6 +205,8 @@ export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
     })),
   };
 }
+
+/* ── FAQ ─────────────────────────────────────────────────────────── */
 
 export function getFaqSchema(
   faqs: readonly { question: string; answer: string }[] | readonly { q: string; a: string }[]
@@ -168,6 +228,8 @@ export function getFaqSchema(
     }),
   };
 }
+
+/* ── Product ─────────────────────────────────────────────────────── */
 
 export function getProductSchema(product: {
   id: string;
@@ -191,18 +253,21 @@ export function getProductSchema(product: {
     },
     manufacturer: {
       "@type": "Organization",
-      "@id": `${BUSINESS.siteUrl}/#organization`,
+      "@id": `${BUSINESS.siteUrl}/#business`,
       name: BUSINESS.name,
       url: BUSINESS.siteUrl,
     },
   };
 }
 
+/* ── BlogPosting ─────────────────────────────────────────────────── */
+
 export function getBlogPostingSchema(post: {
   slug: string;
   title: string;
   excerpt: string;
   date: string;
+  updatedDate?: string;
   author: string;
   image?: string;
 }) {
@@ -218,15 +283,15 @@ export function getBlogPostingSchema(post: {
     description: post.excerpt,
     image: post.image ? (post.image.startsWith("http") ? post.image : `${BUSINESS.siteUrl}${post.image}`) : ogImageUrl,
     datePublished: new Date(post.date).toISOString(),
-    dateModified: new Date(post.date).toISOString(),
+    dateModified: new Date(post.updatedDate || post.date).toISOString(),
     author: {
       "@type": "Person",
+      "@id": `${BUSINESS.siteUrl}/about#dharampal-verma`,
       name: post.author || BUSINESS.owner,
-      jobTitle: "Ganpati Lifecare",
     },
     publisher: {
       "@type": "Organization",
-      "@id": `${BUSINESS.siteUrl}/#organization`,
+      "@id": `${BUSINESS.siteUrl}/#business`,
       name: BUSINESS.name,
       logo: {
         "@type": "ImageObject",
@@ -234,5 +299,19 @@ export function getBlogPostingSchema(post: {
       },
     },
     inLanguage: "en-IN",
+  };
+}
+
+/* ── Speakable (for AEO — marks the answer block) ───────────────── */
+
+export function getSpeakableSchema(url: string, cssSelectors: string[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": url,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: cssSelectors,
+    },
   };
 }

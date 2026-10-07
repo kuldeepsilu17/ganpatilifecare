@@ -248,7 +248,41 @@ export const BRANDS = [
   "GLC Consumables",
 ] as const;
 
+export const BRAND_FAQS = [
+  {
+    question: "What is Ganpati Lifecare?",
+    answer:
+      "Ganpati Lifecare (GLC) is an independently owned medical, surgical and orthopedic supplies wholesaler and manufacturer based in Goluwala, Hanumangarh, Rajasthan. Managed by Dharampal Verma, GLC supplies White Rose Brand Orthocot cotton rolls, surgical dressings, hospital uniforms, and healthcare consumables to clinics and hospitals across North Rajasthan.",
+  },
+  {
+    question: "Where is Ganpati Lifecare located?",
+    answer:
+      "Ganpati Lifecare's warehouse and office are located at Main Road, Mandi Goluwala, District Hanumangarh, Rajasthan, India (PIN 335802). The business serves hospitals and clinics across Hanumangarh, Sri Ganganagar, Suratgarh, Bikaner, Nohar, Rawatsar, Pilibanga, Sangaria, and Bhadra.",
+  },
+  {
+    question: "Who owns Ganpati Lifecare?",
+    answer:
+      "Ganpati Lifecare is managed by Dharampal Verma from Goluwala, Hanumangarh, Rajasthan. He oversees all operations including manufacturing, wholesale supply, customer coordination, and dispatch of medical and surgical products across North Rajasthan.",
+  },
+  {
+    question: "Is Ganpati Lifecare the same as Ganpati Life Care & Safety Products?",
+    answer:
+      "No. Ganpati Lifecare (GLC) in Goluwala, Hanumangarh, Rajasthan is an independently owned business and is not affiliated with Ganpati Life Care & Safety Products Pvt Ltd in Delhi or any other company of a similar name. They are separate, unrelated entities.",
+  },
+  {
+    question: "What does Ganpati Lifecare sell?",
+    answer:
+      "Ganpati Lifecare supplies orthopedic products (Orthocot cotton rolls, stockinets, skin traction kits, gauze bandages), surgical dressings (Gamjee rolls, sponge pads, crepe bandages), hospital uniforms (doctor coats, nurse scrubs, OT dresses), and general hospital consumables and disposables.",
+  },
+  {
+    question: "Does Ganpati Lifecare supply gamjee rolls?",
+    answer:
+      "Yes. Ganpati Lifecare is a wholesale supplier of highly absorbent 100% pure cotton Gamjee rolls for surgical and post-operative wound care. Gamjee rolls are available in standard hospital sizes and can be ordered in bulk from our Goluwala, Hanumangarh facility.",
+  },
+] as const;
+
 export const FAQS = [
+  ...BRAND_FAQS,
   {
     question: "Who is the primary orthopedic cotton roll supplier in Hanumangarh?",
     answer:
