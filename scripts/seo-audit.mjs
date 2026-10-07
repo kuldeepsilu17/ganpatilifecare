@@ -74,6 +74,21 @@ const staticPages = [
     desc: "Privacy Policy and data protection standards of Ganpati Lifecare in Goluwala, Hanumangarh for medical, surgical and hospital supply inquiries and orders.",
   },
   {
+    url: "https://www.ganpatilifecare.com/company-facts",
+    title: "Company Facts & Trade Information | Ganpati Lifecare",
+    desc: "Verified company facts, legal ownership, address, GSTIN and trade information for Ganpati Lifecare in Mandi Goluwala, Hanumangarh, Rajasthan 335512.",
+  },
+  {
+    url: "https://www.ganpatilifecare.com/become-a-distributor",
+    title: "Become a Medical Supplies Distributor | Ganpati Lifecare",
+    desc: "Partner with Ganpati Lifecare in Hanumangarh. Wholesale distributor opportunities for orthopedic cotton rolls, gamjee rolls, gauze & hospital supplies.",
+  },
+  {
+    url: "https://www.ganpatilifecare.com/glossary",
+    title: "Medical & Surgical Supplies Glossary | Ganpati Lifecare",
+    desc: "Clinical glossary of orthopedic supplies, cotton cast padding, gamjee rolls, stockinets, and surgical dressings by Ganpati Lifecare, Hanumangarh, Rajasthan.",
+  },
+  {
     url: "https://www.ganpatilifecare.com/terms-and-conditions",
     title: "Terms & Conditions | Ganpati Lifecare",
     desc: "Terms and conditions for wholesale medical, surgical, and hospital supply inquiries, quotations, and orders with Ganpati Lifecare in Hanumangarh, Rajasthan.",
@@ -83,7 +98,7 @@ const staticPages = [
 console.log("--- 1. STATIC PAGES METADATA ---");
 staticPages.forEach((p) => checkMetadata(p.url, p.title, p.desc));
 
-// 2. Read Categories, Products, Locations, Blog from codebase
+// 2. Read Categories, Landing Pages, Glossary, Products, Locations, Blog from codebase
 import("../src/lib/categories.ts").then((catModule) => {
   console.log("\n--- 2. CATEGORY PAGES METADATA ---");
   catModule.CATEGORIES_DATA.forEach((cat) => {
@@ -94,9 +109,33 @@ import("../src/lib/categories.ts").then((catModule) => {
     );
   });
 
+  return import("../src/lib/landing-pages.ts");
+}).then((landingModule) => {
+  console.log("\n--- 3. HIGH-INTENT MONEY PAGES METADATA ---");
+  landingModule.LANDING_PAGES.forEach((lp) => {
+    checkMetadata(
+      `https://www.ganpatilifecare.com/${lp.slug}`,
+      lp.metaTitle,
+      lp.metaDescription
+    );
+  });
+
+  return import("../src/lib/glossary.ts");
+}).then((glossaryModule) => {
+  console.log("\n--- 4. GLOSSARY PAGES METADATA ---");
+  glossaryModule.GLOSSARY_TERMS.forEach((term) => {
+    const title = `${term.term} Definition & Uses | Ganpati Lifecare`;
+    const desc = `${term.shortDef.slice(0, 130)} Managed by Dharampal Verma at Ganpati Lifecare in Hanumangarh, Rajasthan.`.slice(0, 156);
+    checkMetadata(
+      `https://www.ganpatilifecare.com/glossary/${term.slug}`,
+      title.length > 60 ? `${term.term} | Ganpati Lifecare` : title,
+      desc.length < 140 ? `${desc} Verified medical standards and wholesale supply.` : desc.slice(0, 158)
+    );
+  });
+
   return import("../src/lib/data.ts");
 }).then((dataModule) => {
-  console.log("\n--- 3. PRODUCT PAGES METADATA ---");
+  console.log("\n--- 5. PRODUCT PAGES METADATA ---");
   dataModule.PRODUCTS.forEach((prod) => {
     checkMetadata(
       `https://www.ganpatilifecare.com/products/${prod.id}`,
@@ -107,7 +146,7 @@ import("../src/lib/categories.ts").then((catModule) => {
 
   return import("../src/lib/locations.ts");
 }).then((locModule) => {
-  console.log("\n--- 4. LOCATION PAGES METADATA ---");
+  console.log("\n--- 6. LOCATION PAGES METADATA ---");
   locModule.LOCATIONS.forEach((loc) => {
     checkMetadata(
       `https://www.ganpatilifecare.com/locations/${loc.slug}`,
@@ -118,7 +157,7 @@ import("../src/lib/categories.ts").then((catModule) => {
 
   return import("../src/lib/blog.tsx");
 }).then((blogModule) => {
-  console.log("\n--- 5. BLOG POSTS METADATA ---");
+  console.log("\n--- 7. BLOG POSTS METADATA ---");
   blogModule.BLOG_POSTS.forEach((post) => {
     checkMetadata(
       `https://www.ganpatilifecare.com/blog/${post.slug}`,

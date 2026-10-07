@@ -98,14 +98,22 @@ export default function AboutPage() {
               <section>
                 <h2 className="font-display text-2xl font-bold text-foreground mb-4">Who is Ganpati Lifecare?</h2>
                 <p className="text-base leading-relaxed text-foreground/80">
-                  Ganpati Lifecare is a dedicated healthcare and surgical dressing supplies business based in Mandi Goluwala, Hanumangarh, Rajasthan. We specialize as manufacturers and suppliers of White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll, and Gauze dressing products, along with hospital consumables and medical supplies for clinics, nursing homes, and hospitals.
+                  Ganpati Lifecare (GLC) is a dedicated healthcare, orthopedic, and surgical dressing supplies business based in Mandi Goluwala, Hanumangarh, Rajasthan. We specialize as manufacturers and wholesale suppliers of White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll, and Gauze dressing products, along with hospital consumables and medical supplies for clinics, nursing homes, and hospitals.
                 </p>
               </section>
+
+              {/* Entity Disambiguation Note */}
+              <div className="rounded-2xl bg-amber-500/10 border border-amber-500/20 p-5 text-sm">
+                <p className="font-bold text-amber-700 dark:text-amber-400">Official Entity Information:</p>
+                <p className="mt-1 text-foreground/80 leading-relaxed">
+                  Ganpati Lifecare (GLC) in Goluwala, Hanumangarh, Rajasthan is an independently owned business, not affiliated with similarly named companies elsewhere, including in Delhi or Gurgaon. For detailed verified facts, see our <Link href="/company-facts" className="text-medical font-bold underline">Company Facts Sheet</Link>.
+                </p>
+              </div>
 
               <section>
                 <h2 className="font-display text-2xl font-bold text-foreground mb-4">Business Management &amp; Operations</h2>
                 <p className="text-base leading-relaxed text-foreground/80">
-                  Ganpati Lifecare is managed by <strong>Dharampal Verma</strong>. Under his active management, Ganpati Lifecare has built a strong reputation for reliability, strict quality standards, and dependable wholesale supply for clinics and hospitals across Rajasthan and North India.
+                  Ganpati Lifecare is owned and managed by <strong>Dharampal Verma</strong>. Under his active management, Ganpati Lifecare has built a strong reputation for reliability, strict quality standards, and dependable wholesale supply for clinics and hospitals across Rajasthan and North India.
                 </p>
               </section>
 

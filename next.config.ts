@@ -74,6 +74,12 @@ const nextConfig: NextConfig = {
         destination: "/categories/healthcare-essentials",
         permanent: true,
       },
+      // Merge /areas-we-serve into /locations
+      {
+        source: "/areas-we-serve",
+        destination: "/locations",
+        permanent: true,
+      },
       // Blog aliases
       {
         source: "/blog/what-is-orthocot-cotton-roll",

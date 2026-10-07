@@ -229,6 +229,8 @@ export function getFaqSchema(
   };
 }
 
+export const getFAQSchema = getFaqSchema;
+
 /* ── Product ─────────────────────────────────────────────────────── */
 
 export function getProductSchema(product: {
