@@ -46,6 +46,7 @@ export const BUSINESS = {
   address: {
     streetAddress: LOCATION_STREET,
     addressLocality: LOCATION_CITY,
+    addressDistrict: LOCATION_DISTRICT,
     addressRegion: LOCATION_STATE,
     postalCode: LOCATION_POSTAL_CODE,
     addressCountry: "IN",

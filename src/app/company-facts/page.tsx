@@ -50,6 +50,10 @@ export default function CompanyFactsPage() {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getBusinessSchema()) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(companyFactsPageSchema) }}
       />
       <script
