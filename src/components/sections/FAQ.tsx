@@ -17,7 +17,7 @@ export function FAQ() {
         />
         <ul className="mt-8 sm:mt-10 space-y-3">
           {FAQS.map((faq, i) => (
-            <li key={faq.question} className="list-none overflow-hidden rounded-2xl border border-medical/10 bg-background">
+            <li key={`faq-item-${i}`} className="list-none overflow-hidden rounded-2xl border border-medical/10 bg-background">
               <button
                 type="button"
                 id={`faq-question-${i}`}

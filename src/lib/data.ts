@@ -289,11 +289,6 @@ export const FAQS = [
       "Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, is a leading regional manufacturer and wholesale supplier of premium White Rose Brand Orthocot medical cotton rolls, orthopedic stockinets, and surgical dressing products across North Rajasthan.",
   },
   {
-    question: "What products does Ganpati Lifecare supply?",
-    answer:
-      "We supply White Rose Brand orthopedic products (Orthocot cotton rolls, tubular stockinets, skin traction kits, gauze bandages), surgical dressing supplies (Gamjee rolls, sponge pads, crepe bandages), hospital uniforms (doctor coats, nurse scrubs, OT dresses), and general clinical consumables.",
-  },
-  {
     question: "What is Orthocot cotton roll used for?",
     answer:
       "Orthocot cotton rolls are 100% pure, hypoallergenic medical cotton rolls used primarily as protective cast padding beneath synthetic or plaster of Paris casts to prevent pressure sores, friction, and skin maceration during bone fracture healing.",
@@ -317,11 +312,6 @@ export const FAQS = [
     question: "Do you offer bulk and wholesale pricing for hospitals?",
     answer:
       "Yes, Ganpati Lifecare specializes in institutional B2B procurement, offering direct carton-level wholesale pricing with transparent quotes for nursing homes, multi-specialty hospitals, and regional medical distributors.",
-  },
-  {
-    question: "Where is Ganpati Lifecare located?",
-    answer:
-      "Our central distribution facility is located at Main Road, Mandi Goluwala - 335802, Distt. Hanumangarh (Raj.), India, providing rapid road transit access across North Rajasthan.",
   },
   {
     question: "How fast is delivery across Hanumangarh and Rajasthan?",
