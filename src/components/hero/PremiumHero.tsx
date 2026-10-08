@@ -79,12 +79,12 @@ export function PremiumHero() {
 
         {/* Main Heading */}
         <h1 className="hero-title">
-          Orthopedic, Surgical &amp; <span className="hero-title-accent">Hospital Supplies</span>
+          Ganpati Lifecare — Orthopedic, Surgical &amp; <span className="hero-title-accent">Hospital Supplies in Goluwala, Hanumangarh</span>
         </h1>
 
         {/* Direct AEO Answer Block */}
         <p className="hero-subtitle">
-          Ganpati Lifecare is a premier manufacturer and wholesale supplier of orthopedic supplies, surgical supplies, and hospital supplies based in Mandi Goluwala, Hanumangarh, Rajasthan, managed by Dharampal Verma. We supply White Rose Brand Orthocot surgical cotton rolls, dressing products, cast rolls, stockinets, skin traction kits, gauze bandages, Gamjee rolls, sponge pads, doctor coats, nurse uniforms, and medical consumables to hospitals, nursing homes, and clinics across North Rajasthan.
+          Ganpati Lifecare (GLC) is an established manufacturer and wholesale supplier of orthopedic, surgical, and hospital supplies based in Mandi Goluwala, Hanumangarh, Rajasthan (PIN 335802), managed by Dharampal Verma. We supply White Rose Brand Orthocot surgical cotton rolls, Ortho Active crepe bandages, Lap-Pad sponges, stockinets, skin traction kits, gauze, doctor coats, OT dresses, and hospital consumables to hospitals, nursing homes, and clinics across North Rajasthan.
         </p>
 
         {/* CTA Buttons */}

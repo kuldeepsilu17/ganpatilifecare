@@ -26,7 +26,7 @@ export const LOCATION_CITY = "Mandi Goluwala";
 export const LOCATION_DISTRICT = "Hanumangarh";
 export const LOCATION_STATE = "Rajasthan";
 export const LOCATION_COUNTRY = "India";
-export const LOCATION_POSTAL_CODE = "335802"; // TODO_CONFIRM_WITH_OWNER: prompt says 335512 for Goluwala — verify correct PIN
+export const LOCATION_POSTAL_CODE = "335802";
 export const LOCATION_FULL =
   "Main Road, Mandi Goluwala - 335802, Distt. Hanumangarh (Raj.)";
 

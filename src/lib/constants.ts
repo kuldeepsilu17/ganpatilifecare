@@ -76,13 +76,13 @@ export function getWhatsAppInquiryUrl(message: string): string {
 }
 
 export const NAV_LINKS = [
-  { href: "/#home", label: "Home" },
-  { href: "/#about", label: "About" },
-  { href: "/#products", label: "Products" },
-  { href: "/#categories", label: "Categories" },
-  { href: "/#why-us", label: "Why Choose Us" },
-  { href: "/#testimonials", label: "Testimonials" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/products", label: "Products" },
+  { href: "/brands", label: "Brands" },
+  { href: "/locations", label: "Locations" },
+  { href: "/blog", label: "Knowledge" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 export const SEO_KEYWORDS = [

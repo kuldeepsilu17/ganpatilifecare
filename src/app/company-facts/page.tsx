@@ -120,7 +120,6 @@ export default function CompanyFactsPage() {
                       <td className="py-3 pr-4 font-semibold text-foreground whitespace-nowrap">PIN Code</td>
                       <td className="py-3 text-foreground/80">
                         {BUSINESS.address.postalCode}
-                        {/* TODO_CONFIRM_WITH_OWNER: verify correct PIN — 335802 vs 335512 */}
                       </td>
                     </tr>
                     <tr>

@@ -48,13 +48,28 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/brands" className="transition hover:text-brand-orange">
+                  Product Brands
+                </Link>
+              </li>
+              <li>
                 <Link href="/locations" className="transition hover:text-brand-orange">
                   Service Locations
                 </Link>
               </li>
               <li>
+                <Link href="/glossary" className="transition hover:text-brand-orange">
+                  Medical Glossary
+                </Link>
+              </li>
+              <li>
                 <Link href="/blog" className="transition hover:text-brand-orange">
                   Medical Knowledge Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/become-a-distributor" className="transition hover:text-brand-orange">
+                  Distributor Partnership
                 </Link>
               </li>
               <li>
@@ -65,39 +80,24 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-display font-semibold text-brand-orange">Categories &amp; Service Areas</h4>
-            <ul className="mt-4 space-y-2 text-sm text-white/88">
-              <li>
-                <Link href="/categories/orthopedic" className="transition hover:text-brand-orange">
-                  Orthopedic Supplies
-                </Link>
-              </li>
-              <li>
-                <Link href="/categories/surgical" className="transition hover:text-brand-orange">
-                  Surgical Supplies
-                </Link>
-              </li>
-              <li>
-                <Link href="/categories/hospital-uniforms" className="transition hover:text-brand-orange">
-                  Hospital Uniforms
-                </Link>
-              </li>
-              <li>
-                <Link href="/categories/healthcare-essentials" className="transition hover:text-brand-orange">
-                  Healthcare Essentials
-                </Link>
-              </li>
-            </ul>
+            <h4 className="font-display font-semibold text-brand-orange">Featured Brands &amp; Hubs</h4>
+            <div className="mt-4 flex flex-wrap gap-2 text-xs text-white/88">
+              <Link href="/brands/white-rose" className="rounded-md bg-white/10 px-2 py-1 hover:bg-brand-orange">White Rose</Link>
+              <Link href="/brands/orthocot" className="rounded-md bg-white/10 px-2 py-1 hover:bg-brand-orange">Orthocot</Link>
+              <Link href="/brands/ortho-active" className="rounded-md bg-white/10 px-2 py-1 hover:bg-brand-orange">Ortho Active</Link>
+              <Link href="/brands/lap-pad" className="rounded-md bg-white/10 px-2 py-1 hover:bg-brand-orange">Lap-Pad</Link>
+            </div>
             <div className="mt-4 pt-3 border-t border-white/10">
               <p className="text-xs font-semibold text-brand-orange mb-2 uppercase tracking-wider">Service Hubs</p>
               <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-white/80">
+                <Link href="/locations/goluwala" className="hover:text-brand-orange font-bold text-amber-300">Goluwala (HQ)</Link>
                 <Link href="/locations/hanumangarh" className="hover:text-brand-orange">Hanumangarh</Link>
                 <Link href="/locations/sri-ganganagar" className="hover:text-brand-orange">Sri Ganganagar</Link>
                 <Link href="/locations/suratgarh" className="hover:text-brand-orange">Suratgarh</Link>
                 <Link href="/locations/pilibanga" className="hover:text-brand-orange">Pilibanga</Link>
                 <Link href="/locations/sangaria" className="hover:text-brand-orange">Sangaria</Link>
                 <Link href="/locations/bhadra" className="hover:text-brand-orange">Bhadra</Link>
-                <Link href="/locations" className="hover:text-brand-orange font-semibold text-brand-orange/80">+ All Service Hubs</Link>
+                <Link href="/locations" className="hover:text-brand-orange font-semibold text-brand-orange/80">+ All Hubs</Link>
               </div>
             </div>
           </div>

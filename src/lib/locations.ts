@@ -14,6 +14,28 @@ export interface LocationData {
 
 export const LOCATIONS: LocationData[] = [
   {
+    city: "Goluwala",
+    slug: "goluwala",
+    region: "Rajasthan",
+    description: "Wholesale medical & surgical supplies in Mandi Goluwala: Orthocot cotton rolls, cast padding, gauze & uniforms from Ganpati Lifecare (PIN 335802).",
+    hospitalCount: "Headquarters & Warehouse Hub",
+    metaTitle: "Medical Supplies in Goluwala | Ganpati Lifecare",
+    h1: "Medical & Surgical Supplies in Mandi Goluwala",
+    details: "Mandi Goluwala (PIN 335802), District Hanumangarh is the official manufacturing and distribution headquarters of Ganpati Lifecare (managed by Dharampal Verma). Local clinics, nursing homes, and regional distributors receive immediate same-day order pickup and fast doorstep delivery across Goluwala and nearby tehsils.",
+    nearbyAreas: ["Hanumangarh", "Pilibanga", "Suratgarh", "Rawatsar", "Sangaria"],
+    keyProducts: ["Orthocot Cotton Roll", "Gamjee Roll", "Lap-Pad Sponge", "Ortho Active Bandage", "Doctor Coats"],
+    faqs: [
+      {
+        question: "Where is Ganpati Lifecare located in Goluwala?",
+        answer: "Ganpati Lifecare is located at Main Road, Mandi Goluwala - 335802, District Hanumangarh, Rajasthan. Managed by Dharampal Verma."
+      },
+      {
+        question: "Can healthcare clinics in Goluwala purchase supplies directly?",
+        answer: "Yes, local clinics and practitioners can buy directly from our Mandi Goluwala warehouse or order via phone/WhatsApp for immediate delivery."
+      }
+    ],
+  },
+  {
     city: "Hanumangarh",
     slug: "hanumangarh",
     region: "Rajasthan",

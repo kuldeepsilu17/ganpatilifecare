@@ -20,7 +20,7 @@ export function About() {
                     Quick Facts &amp; Procurement Summary
                   </p>
                   <p className="text-xs sm:text-sm leading-relaxed text-foreground/90 font-medium">
-                    Ganpati Lifecare (GLC) is a medical supplies manufacturer and wholesale distributor in Mandi Goluwala, Hanumangarh, Rajasthan, managed by Dharampal Verma. We supply White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll and Gauze dressing products directly to healthcare facilities across North Rajasthan.
+                    Registered GST healthcare enterprise (State Code 08) operating with direct factory inventory in Mandi Goluwala - 335802. We provide master carton wholesale pricing and dependable road transit dispatch across North Rajasthan.
                   </p>
                   <div className="mt-3 pt-3 border-t border-medical/10 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-foreground/80">
                     <div>
