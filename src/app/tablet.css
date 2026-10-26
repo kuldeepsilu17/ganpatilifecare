@@ -1,0 +1,16 @@
+ .main-nav > a.is-active {
+  color: #176b57;
+  font-weight: 800;
+}
+
+@media (min-width: 701px) and (max-width: 850px) {
+  .header-call {
+    width: 42px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .header-call span {
+    display: none;
+  }
+}

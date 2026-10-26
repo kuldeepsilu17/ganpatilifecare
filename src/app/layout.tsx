@@ -1,6 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
+import "./tablet.css";
+import "./showcase.css";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { FloatingActions } from "@/components/floating-actions";
 import { BUSINESS } from "@/lib/constants";
 import { SITE_URL } from "@/lib/site";
 import { LOGO } from "@/lib/brand";
@@ -12,6 +17,12 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
   display: "swap",
   fallback: ["Inter", "Arial", "sans-serif"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
@@ -100,7 +111,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`${inter.variable} scroll-smooth`}
+      className={`${inter.variable} ${manrope.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>
@@ -109,7 +120,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(rootSchema) }}
         />
       </head>
-      <body className="min-h-screen font-body antialiased">{children}</body>
+      <body className="min-h-screen font-body antialiased">
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+        <FloatingActions />
+      </body>
     </html>
   );
 }

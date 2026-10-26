@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
-import { Products } from "@/components/sections/Products";
-import { RequestQuote } from "@/components/sections/RequestQuote";
+import { PageHero } from "@/components/page-shell";
+import { ProductCatalog } from "@/components/product-catalog";
+import { getPublishedProducts } from "@/lib/public-data";
 import { BUSINESS } from "@/lib/constants";
 import { PRODUCTS } from "@/lib/data";
 import { getBreadcrumbSchema } from "@/lib/schema";
 
-const title = "Medical & Surgical Products Supplier | Ganpati Lifecare";
+const title = "Medical, Surgical & Orthopedic Products | Ganpati Lifecare";
 const description =
   "Explore Orthocot cotton rolls, stockinet, traction kits, surgical gauze, Gamjee rolls, doctor coats & hospital consumables from Ganpati Lifecare, Rajasthan.";
 const canonicalUrl = `${BUSINESS.siteUrl}/products`;
 
 export const metadata: Metadata = {
-  title,
+  title: {
+    absolute: title,
+  },
   description,
   alternates: {
     canonical: canonicalUrl,
@@ -28,7 +27,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ProductsCatalogPage() {
+export default async function ProductsPage() {
+  const products = await getPublishedProducts();
+
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", url: BUSINESS.siteUrl },
     { name: "Products", url: canonicalUrl },
@@ -57,7 +58,7 @@ export default function ProductsCatalogPage() {
   };
 
   return (
-    <>
+    <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -66,45 +67,19 @@ export default function ProductsCatalogPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
       />
-      <Navbar />
-      <main className="min-h-screen pt-24 pb-12">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 mb-8">
-          <nav aria-label="Breadcrumb" className="mb-4 text-xs sm:text-sm text-[#68766D]">
-            <ol className="flex items-center space-x-2">
-              <li>
-                <Link href="/" className="hover:text-[#174C38] transition-colors">Home</Link>
-              </li>
-              <li>/</li>
-              <li className="text-[#18352A] font-semibold">Products</li>
-            </ol>
-          </nav>
-          <h1 className="font-display text-3xl font-bold tracking-tight text-[#18352A] md:text-4xl lg:text-5xl">
-            Our Medical, Surgical &amp; Orthopedic Products
-          </h1>
-          <p className="mt-4 max-w-4xl text-base leading-relaxed text-[#46554C] md:text-lg">
-            Ganpati Lifecare is a premier manufacturer and wholesale supplier of White Rose Brand orthopedic products, surgical dressing materials, healthcare uniforms, and clinical consumables based in Mandi Goluwala, Hanumangarh, Rajasthan. Managed by Dharampal Verma, we supply government and private hospitals, nursing homes, trauma clinics, and surgical centers across Rajasthan, including Hanumangarh, Sri Ganganagar, Suratgarh, and Bikaner. Every product in our catalog—from 100% pure Orthocot cotton rolls and tubular stockinets to sterilized sponge pads and tailor-fit doctor coats—meets strict institutional healthcare benchmarks. Explore our specialized categories below, view detailed technical specifications, and request immediate bulk wholesale quotations for your healthcare facility.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2 text-xs sm:text-sm">
-            <span className="font-semibold text-foreground mr-1 self-center">Browse Categories:</span>
-            <Link href="/categories/orthopedic" className="rounded-full bg-[#EDF5EF] px-3.5 py-1.5 text-[#174C38] hover:bg-[#174C38] hover:text-white transition-colors border border-[#D7E5DA]">
-              Orthopedic Supplies
-            </Link>
-            <Link href="/categories/surgical" className="rounded-full bg-[#EDF5EF] px-3.5 py-1.5 text-[#174C38] hover:bg-[#174C38] hover:text-white transition-colors border border-[#D7E5DA]">
-              Surgical Supplies
-            </Link>
-            <Link href="/categories/hospital-uniforms" className="rounded-full bg-[#EDF5EF] px-3.5 py-1.5 text-[#174C38] hover:bg-[#174C38] hover:text-white transition-colors border border-[#D7E5DA]">
-              Hospital Uniforms
-            </Link>
-            <Link href="/categories/healthcare-essentials" className="rounded-full bg-[#EDF5EF] px-3.5 py-1.5 text-[#174C38] hover:bg-[#174C38] hover:text-white transition-colors border border-[#D7E5DA]">
-              Healthcare Essentials
-            </Link>
-          </div>
+
+      <PageHero
+        eyebrow="OUR PRODUCTS"
+        title="Medical, surgical & orthopedic products"
+        summary="Browse the Ganpati Lifecare catalog. Contact us to confirm current product specifications, packaging, availability and wholesale pricing."
+        breadcrumbs={[{ label: "Products" }]}
+      />
+
+      <section className="page-content">
+        <div className="wrap">
+          <ProductCatalog products={products} />
         </div>
-        <Products />
-        <RequestQuote />
-      </main>
-      <Footer />
-      <WhatsAppButton />
-    </>
+      </section>
+    </main>
   );
 }

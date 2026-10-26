@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { Logo } from "@/components/brand/Logo";
+import { PageHero } from "@/components/page-shell";
 
 export const metadata: Metadata = {
   title: "Page Not Found | Ganpati Lifecare",
@@ -24,54 +22,33 @@ export default function NotFound() {
   ];
 
   return (
-    <>
-      <Navbar />
-      <main className="min-h-[75vh] flex flex-col items-center justify-center px-4 py-16 sm:py-20 text-center bg-background">
-        <div className="mx-auto max-w-2xl">
-          <div className="mb-6 inline-block rounded-2xl bg-white p-3.5 shadow-xs border border-[#D7E5DA]">
-            <Logo variant="mark" priority className="h-14 w-auto" />
-          </div>
-          
-          <span className="inline-block rounded-full bg-[#EDF5EF] border border-[#D7E5DA] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#174C38] mb-3">
-            404 Error
-          </span>
-          
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-[#18352A] tracking-tight">
-            Page Not Found
-          </h1>
-          
-          <p className="mt-3 text-sm sm:text-base text-[#46554C] max-w-md mx-auto leading-relaxed">
-            The page you are looking for may have been moved, renamed, or is temporarily unavailable. Browse the essential links below:
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 text-left">
+    <main>
+      <PageHero
+        eyebrow="404 ERROR"
+        title="Page not found"
+        summary="The page you are looking for may have been moved, renamed, or is temporarily unavailable. Browse the essential links below."
+        breadcrumbs={[{ label: "404 Not Found" }]}
+      />
+      <section className="page-content">
+        <div className="wrap">
+          <div className="content-cards">
             {quickLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group rounded-2xl border border-[#D7E5DA] bg-white p-4 shadow-xs transition-all hover:-translate-y-0.5 hover:border-[#174C38]"
-              >
-                <span className="font-display text-xs sm:text-sm font-bold text-[#18352A] group-hover:text-[#174C38] block transition-colors">
-                  {item.label} →
-                </span>
-                <span className="mt-1 text-[11px] sm:text-xs text-[#68766D] block">
-                  {item.desc}
-                </span>
-              </Link>
+              <article className="content-card" key={item.href}>
+                <h2>{item.label}</h2>
+                <p>{item.desc}</p>
+                <Link className="text-link" href={item.href}>
+                  Visit page &rarr;
+                </Link>
+              </article>
             ))}
           </div>
-
-          <div className="mt-8">
-            <Link
-              href="/"
-              className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[#174C38] px-8 py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#236747] transition-all"
-            >
-              Back to Home
+          <div className="inline-quote" style={{ marginTop: "40px", textAlign: "center" }}>
+            <Link className="button button-orange" href="/">
+              Return to Homepage
             </Link>
           </div>
         </div>
-      </main>
-      <Footer />
-    </>
+      </section>
+    </main>
   );
 }

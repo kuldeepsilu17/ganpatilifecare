@@ -1,90 +1,86 @@
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { notFound } from "next/navigation";
+import { PageHero } from "@/components/page-shell";
+import { business, articles } from "@/lib/site-data";
 import { BLOG_POSTS } from "@/lib/blog";
 import { BUSINESS } from "@/lib/constants";
-import { LOGO } from "@/lib/brand";
 import { getBlogPostingSchema, getBreadcrumbSchema, getFaqSchema } from "@/lib/schema";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({
-    slug: post.slug,
-  }));
+export function generateStaticParams() {
+  const slugs = new Set([
+    ...articles.map((a) => a.slug),
+    ...BLOG_POSTS.map((p) => p.slug),
+  ]);
+  return Array.from(slugs).map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
+  const article = articles.find((item) => item.slug === slug);
   const post = BLOG_POSTS.find((p) => p.slug === slug);
 
-  if (!post) {
+  if (!article && !post) {
     return { title: "Article Not Found | Ganpati Lifecare" };
   }
 
-  const title = `${post.title} | Ganpati Lifecare`;
-  const canonicalUrl = `${BUSINESS.siteUrl}/blog/${post.slug}`;
+  const title = post?.title || article?.title || "";
+  const excerpt = post?.excerpt || article?.excerpt || "";
+  const canonicalUrl = `${BUSINESS.siteUrl}/blog/${slug}`;
 
   return {
-    title,
-    description: post.excerpt,
-    alternates: {
-      canonical: canonicalUrl,
+    title: {
+      absolute: `${title} | Ganpati Lifecare`,
     },
+    description: excerpt,
+    authors: [{ name: business.manager }],
+    alternates: { canonical: canonicalUrl },
     openGraph: {
       title,
-      description: post.excerpt,
+      description: excerpt,
       url: canonicalUrl,
       type: "article",
-      authors: [post.author],
-      images: [
-        {
-          url: `${BUSINESS.siteUrl}${LOGO.og}`,
-          alt: post.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description: post.excerpt,
-      images: [`${BUSINESS.siteUrl}${LOGO.og}`],
     },
   };
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function ArticlePage({ params }: BlogPostPageProps) {
   const { slug } = await params;
+  const article = articles.find((item) => item.slug === slug);
   const post = BLOG_POSTS.find((p) => p.slug === slug);
 
-  if (!post) {
-    notFound();
-  }
+  if (!article && !post) notFound();
 
-  const canonicalUrl = `${BUSINESS.siteUrl}/blog/${post.slug}`;
+  const title = post?.title || article?.title || "";
+  const excerpt = post?.excerpt || article?.excerpt || "";
+  const topic = post?.category || article?.topic || "Medical Supplies";
+  const date = post?.date || article?.date || "2026";
+  const canonicalUrl = `${BUSINESS.siteUrl}/blog/${slug}`;
+
   const schema = getBlogPostingSchema({
-    slug: post.slug,
-    title: post.title,
-    excerpt: post.excerpt,
-    date: post.date,
-    author: post.author,
+    slug,
+    title,
+    excerpt,
+    date,
+    author: post?.author || business.manager,
   });
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", url: BUSINESS.siteUrl },
-    { name: "Blog", url: `${BUSINESS.siteUrl}/blog` },
-    { name: post.title, url: canonicalUrl },
+    { name: "Knowledge Center", url: `${BUSINESS.siteUrl}/blog` },
+    { name: title, url: canonicalUrl },
   ]);
 
-  const faqSchema = post.faqs ? getFaqSchema(post.faqs) : null;
+  const faqSchema = post?.faqs ? getFaqSchema(post.faqs) : null;
 
   return (
-    <>
+    <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -99,120 +95,60 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      <Navbar />
-      <main className="min-h-screen bg-background py-12 md:py-20">
-        <article className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          
-          <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8 flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs font-semibold text-[#68766D] uppercase tracking-wider">
-            <Link href="/" className="hover:text-[#174C38] transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/blog" className="hover:text-[#174C38] transition-colors">Blog</Link>
-            <span>/</span>
-            <span className="text-[#258653]">{post.category}</span>
-          </nav>
 
-          <header className="mb-8 sm:mb-12 border-b border-[#D7E5DA] pb-6 sm:pb-10">
-            <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-[#18352A] tracking-tight leading-tight mb-4 sm:mb-6 break-words">
-              {post.title}
-            </h1>
-            
-            <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium text-[#68766D]">
-              <div className="flex items-center gap-2">
-                <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-[#EDF5EF] flex items-center justify-center font-bold text-[#174C38] text-xs sm:text-sm">
-                  {post.author.charAt(0)}
-                </div>
-                <div>
-                  <span className="text-[#18352A] font-semibold block">{post.author}</span>
-                  <span className="text-[11px] text-[#68766D] block">Ganpati Lifecare</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-[#174C38]">📅 Published:</span>
-                {post.date}
-              </div>
-              {post.updatedDate && (
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <span className="text-[#174C38]">🔄 Updated:</span>
-                  {post.updatedDate}
-                </div>
-              )}
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-[#174C38]">⏱</span>
-                {post.readTime}
-              </div>
+      <PageHero
+        eyebrow={`${topic.toUpperCase()} · ${date}`}
+        title={title}
+        summary={excerpt}
+        breadcrumbs={[
+          { label: "Knowledge Center", href: "/blog" },
+          { label: title },
+        ]}
+      />
+
+      <article className="page-content">
+        <div className="wrap prose">
+          <p>
+            <strong>Article overview:</strong> {excerpt}
+          </p>
+
+          {/* Render content */}
+          {post?.content ? (
+            <div className="article-body">
+              <p>{post.content}</p>
             </div>
-          </header>
-
-          <div className="prose prose-base sm:prose-lg prose-medical max-w-none text-[#46554C] leading-relaxed break-words
-            prose-headings:font-display prose-headings:font-bold prose-headings:text-[#18352A]
-            prose-h2:text-xl sm:prose-h2:text-2xl prose-h2:mt-8 sm:prose-h2:mt-12 prose-h2:mb-4 sm:prose-h2:mb-6 prose-h2:border-b prose-h2:border-[#D7E5DA] prose-h2:pb-3 sm:prose-h2:pb-4
-            prose-p:mb-4 sm:prose-p:mb-6 prose-li:mb-1.5 sm:prose-li:mb-2 prose-strong:text-[#18352A]"
-          >
-            {post.content}
-          </div>
-
-          {/* FAQs Section */}
-          {post.faqs && post.faqs.length > 0 && (
-            <div className="mt-12 rounded-2xl bg-white p-6 sm:p-8 border border-[#D7E5DA] shadow-xs">
-              <h2 className="font-display text-xl sm:text-2xl font-bold text-[#18352A] mb-6">
-                Frequently Asked Questions
-              </h2>
-              <div className="space-y-4">
-                {post.faqs.map((faq, idx) => (
-                  <div key={idx} className="border-b border-[#D7E5DA] pb-4 last:border-0 last:pb-0">
-                    <h3 className="font-bold text-[#18352A] text-sm sm:text-base">Q: {faq.question}</h3>
-                    <p className="mt-2 text-sm text-[#46554C] leading-relaxed">A: {faq.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+          ) : article?.body && article.body.length > 0 ? (
+            article.body.map((paragraph, index) => (
+              <section key={index}>
+                <h2>
+                  {index === 0
+                    ? "Understanding the product"
+                    : index === 1
+                    ? "What to confirm before ordering"
+                    : "Wholesale inquiries"}
+                </h2>
+                <p>{paragraph}</p>
+              </section>
+            ))
+          ) : (
+            <p>{excerpt}</p>
           )}
 
-          {/* Author Bio Card */}
-          <div className="mt-12 rounded-2xl bg-white p-6 border border-[#D7E5DA] shadow-xs flex flex-col sm:flex-row items-center sm:items-start gap-4">
-            <div className="h-16 w-16 rounded-full bg-[#EDF5EF] flex items-center justify-center font-bold text-[#174C38] text-2xl shrink-0">
-              {post.author.charAt(0)}
-            </div>
-            <div>
-              <h3 className="font-display text-base font-bold text-[#18352A]">
-                Written by {post.author}
-              </h3>
-              <p className="mt-1.5 text-xs sm:text-sm text-[#46554C] leading-relaxed">
-                {post.authorBio}
-              </p>
-            </div>
-          </div>
-          
-          <div className="mt-12 pt-8 border-t border-[#D7E5DA] flex flex-wrap gap-2">
-            <span className="text-sm font-bold text-[#18352A] mr-2">Tags:</span>
-            {post.tags.map((tag) => (
-              <span key={tag} className="inline-block rounded-full bg-[#EDF5EF] border border-[#D7E5DA] px-3 py-1 text-xs font-semibold text-[#174C38]">
-                #{tag}
-              </span>
-            ))}
-          </div>
-
-          <div className="mt-12 rounded-2xl bg-[#F7F8F5] p-6 border border-[#D7E5DA] flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-              <h3 className="font-display text-base font-bold text-[#18352A]">
-                Need wholesale supply for this product?
-              </h3>
-              <p className="text-xs text-[#68766D]">
-                Contact Ganpati Lifecare for rapid dispatch across Rajasthan.
-              </p>
-            </div>
-            <Link
-              href="/contact"
-              className="inline-flex min-h-[40px] items-center justify-center gap-2 rounded-full bg-[#174C38] px-5 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-[#236747] transition-all"
-            >
-              Request Price Quote
+          <p>
+            Written by {business.manager} at Ganpati Lifecare, Mandi Goluwala,
+            Hanumangarh, Rajasthan.
+          </p>
+          <p>
+            For product-specific details, contact the business directly. Product selection
+            and clinical use should be determined by qualified healthcare professionals.
+          </p>
+          <p>
+            <Link className="text-link" href="/contact">
+              Contact Ganpati Lifecare &rarr;
             </Link>
-          </div>
-          
-        </article>
-      </main>
-      <Footer />
-      <WhatsAppButton />
-    </>
+          </p>
+        </div>
+      </article>
+    </main>
   );
 }

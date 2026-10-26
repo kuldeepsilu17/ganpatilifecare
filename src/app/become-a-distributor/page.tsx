@@ -1,32 +1,31 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
-import { DistributorPartnership } from "@/components/sections/DistributorPartnership";
+import { ContactActions, PageHero } from "@/components/page-shell";
+import { InquiryForm } from "@/components/inquiry-form";
 import { BUSINESS } from "@/lib/constants";
 import { getBreadcrumbSchema, getOrganizationSchema } from "@/lib/schema";
 
-const title = "Become a Medical Supplies Distributor | Ganpati Lifecare";
+const title = "Distributor & Wholesale Partnership | Ganpati Lifecare";
 const description =
   "Partner with Ganpati Lifecare in Hanumangarh. Wholesale distributor opportunities for orthopedic cotton rolls, gamjee rolls, gauze & hospital supplies.";
 const canonicalUrl = `${BUSINESS.siteUrl}/become-a-distributor`;
 
 export const metadata: Metadata = {
-  title,
+  title: {
+    absolute: title,
+  },
   description,
   alternates: { canonical: canonicalUrl },
   openGraph: { title, description, url: canonicalUrl, type: "website" },
 };
 
-export default function BecomeADistributorPage() {
+export default function DistributorPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", url: BUSINESS.siteUrl },
     { name: "Become a Distributor", url: canonicalUrl },
   ]);
 
   return (
-    <>
+    <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -35,102 +34,51 @@ export default function BecomeADistributorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(getOrganizationSchema()) }}
       />
-      <Navbar />
-      <main className="min-h-screen bg-background">
-        <section className="bg-[#EDF5EF]/60 py-14 sm:py-20 border-b border-[#D7E5DA]">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
-            <nav aria-label="Breadcrumb" className="mb-4 flex items-center justify-center gap-2 text-xs text-[#68766D]">
-              <Link href="/" className="hover:text-[#174C38] transition-colors">
-                Home
-              </Link>
-              <span>/</span>
-              <span className="font-semibold text-[#18352A]">Become a Distributor</span>
-            </nav>
-            <span className="inline-block rounded-full bg-[#EDF5EF] border border-[#D7E5DA] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#174C38] mb-3">
-              B2B Partnerships
-            </span>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#18352A] tracking-tight">
-              Distributor &amp; Wholesale Supply Partnership
-            </h1>
-            <p className="mt-4 text-sm sm:text-base text-[#46554C] max-w-2xl mx-auto leading-relaxed">
-              Expand your healthcare supply business across Rajasthan, Punjab, and Haryana by becoming an authorized distributor for Ganpati Lifecare products.
+
+      <PageHero
+        eyebrow="B2B PARTNERSHIPS"
+        title="Distributor & wholesale supply partnership"
+        summary="Partner inquiries for medical suppliers, healthcare distributors and institutions interested in Ganpati Lifecare catalog products."
+        breadcrumbs={[{ label: "Distributor Inquiries" }]}
+      />
+
+      <section className="page-content">
+        <div className="wrap">
+          <div className="content-cards">
+            <article className="content-card">
+              <h2>Catalog discussion</h2>
+              <p>
+                Discuss orthopedic, surgical, uniform and healthcare products available
+                in the Ganpati Lifecare catalog.
+              </p>
+            </article>
+            <article className="content-card">
+              <h2>Wholesale inquiry</h2>
+              <p>
+                Share product names and estimated order quantities to request current
+                pricing and availability.
+              </p>
+            </article>
+            <article className="content-card">
+              <h2>Order coordination</h2>
+              <p>
+                Confirm invoicing, delivery location, freight options and timing directly
+                with the business.
+              </p>
+            </article>
+          </div>
+
+          <div className="inline-quote">
+            <h2>Become a Ganpati Lifecare distributor</h2>
+            <p>
+              Send your requirements and business contact details. Commercial terms are
+              discussed directly and are not guaranteed by this inquiry.
             </p>
+            <InquiryForm productName="Distributor partnership inquiry" />
+            <ContactActions label="distributor partnership" />
           </div>
-        </section>
-
-        {/* Benefits & Criteria */}
-        <section className="py-12 sm:py-16">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="rounded-2xl bg-white p-6 sm:p-8 border border-[#D7E5DA] shadow-xs">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#EDF5EF] text-[#174C38] font-bold text-xl mb-4">
-                  ₹
-                </div>
-                <h2 className="font-display text-lg font-bold text-[#18352A]">
-                  Direct Factory Pricing
-                </h2>
-                <p className="mt-2 text-xs sm:text-sm text-[#46554C] leading-relaxed">
-                  Earn competitive margins on White Rose Brand Orthocot cotton rolls, POP cast padding, sterile surgical gauze, and staff uniforms.
-                </p>
-              </div>
-
-              <div className="rounded-2xl bg-white p-6 sm:p-8 border border-[#D7E5DA] shadow-xs">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#EDF5EF] text-[#174C38] font-bold text-xl mb-4">
-                  ⚡
-                </div>
-                <h2 className="font-display text-lg font-bold text-[#18352A]">
-                  Rapid Dispatch Logistics
-                </h2>
-                <p className="mt-2 text-xs sm:text-sm text-[#46554C] leading-relaxed">
-                  Fast vehicle delivery and reliable courier dispatch from our Mandi Goluwala, Hanumangarh hub across North Rajasthan.
-                </p>
-              </div>
-
-              <div className="rounded-2xl bg-white p-6 sm:p-8 border border-[#D7E5DA] shadow-xs">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#EDF5EF] text-[#174C38] font-bold text-xl mb-4">
-                  📋
-                </div>
-                <h2 className="font-display text-lg font-bold text-[#18352A]">
-                  Zero Invoicing Friction
-                </h2>
-                <p className="mt-2 text-xs sm:text-sm text-[#46554C] leading-relaxed">
-                  Verified GST invoicing (State Code 08), batch compliance, and dedicated direct support with management.
-                </p>
-              </div>
-            </div>
-
-            {/* Partnership Requirements */}
-            <div className="mt-12 rounded-2xl bg-white p-8 sm:p-10 border border-[#D7E5DA] shadow-xs">
-              <h2 className="font-display text-2xl font-bold text-[#18352A] mb-6">
-                Who Can Apply as a Ganpati Lifecare Distributor?
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm text-[#46554C]">
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#F7F8F5] border border-[#D7E5DA]">
-                  <span className="text-[#258653] font-bold">✓</span>
-                  <span>Medical supply &amp; surgical goods wholesalers with active local transport routes.</span>
-                </div>
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#F7F8F5] border border-[#D7E5DA]">
-                  <span className="text-[#258653] font-bold">✓</span>
-                  <span>Hospital procurement agencies &amp; institutional healthcare vendors.</span>
-                </div>
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#F7F8F5] border border-[#D7E5DA]">
-                  <span className="text-[#258653] font-bold">✓</span>
-                  <span>Chemist &amp; druggist distribution firms supplying private clinics &amp; nursing homes.</span>
-                </div>
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#F7F8F5] border border-[#D7E5DA]">
-                  <span className="text-[#258653] font-bold">✓</span>
-                  <span>Uniform retailers &amp; institutional textile suppliers for medical staff.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Distributor Application Component */}
-        <DistributorPartnership />
-      </main>
-      <Footer />
-      <WhatsAppButton />
-    </>
+        </div>
+      </section>
+    </main>
   );
 }

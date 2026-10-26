@@ -1,19 +1,21 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { ArrowUpRight } from "lucide-react";
+import { PageHero } from "@/components/page-shell";
+import { getPublishedArticles } from "@/lib/public-data";
 import { BLOG_POSTS } from "@/lib/blog";
 import { BUSINESS } from "@/lib/constants";
 import { getBreadcrumbSchema } from "@/lib/schema";
 
 const title = "Medical Supplies Blog & Knowledge Center | Ganpati Lifecare";
 const description =
-  "Medical guides on orthopedic supplies, surgical cotton rolls, hospital consumables & uniforms from Ganpati Lifecare in Goluwala, Hanumangarh, Rajasthan.";
+  "Practical product and procurement information from Ganpati Lifecare in Mandi Goluwala, Rajasthan. Orthopedic supplies, cotton rolls, and hospital consumables.";
 const canonicalUrl = `${BUSINESS.siteUrl}/blog`;
 
 export const metadata: Metadata = {
-  title,
+  title: {
+    absolute: title,
+  },
   description,
   alternates: {
     canonical: canonicalUrl,
@@ -26,10 +28,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogIndexPage() {
+export default async function BlogPage() {
+  const articles = await getPublishedArticles();
+
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", url: BUSINESS.siteUrl },
-    { name: "Blog", url: canonicalUrl },
+    { name: "Knowledge Center", url: canonicalUrl },
   ]);
 
   const collectionSchema = {
@@ -38,7 +42,7 @@ export default function BlogIndexPage() {
     name: title,
     description,
     url: canonicalUrl,
-    hasPart: BLOG_POSTS.map((post) => ({
+    hasPart: (BLOG_POSTS || []).map((post) => ({
       "@type": "BlogPosting",
       headline: post.title,
       url: `${BUSINESS.siteUrl}/blog/${post.slug}`,
@@ -47,7 +51,7 @@ export default function BlogIndexPage() {
   };
 
   return (
-    <>
+    <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -56,87 +60,34 @@ export default function BlogIndexPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
       />
-      <Navbar />
-      <main className="min-h-screen bg-background py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-16">
-            <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-xs text-[#68766D]">
-              <Link href="/" className="hover:text-[#174C38] transition-colors">
-                Home
-              </Link>
-              <span>/</span>
-              <span className="font-semibold text-[#18352A]">Blog</span>
-            </nav>
-            <span className="inline-block rounded-full bg-[#EDF5EF] border border-[#D7E5DA] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#174C38] mb-3 sm:mb-4">
-              Knowledge Center
-            </span>
-            <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-[#18352A] tracking-tight">
-              Medical Supplies Blog &amp; Knowledge Center
-            </h1>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-[#46554C] leading-relaxed text-left sm:text-center">
-              Welcome to the Ganpati Lifecare Medical Knowledge Center, curated under the management of Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan. We provide comprehensive clinical guides and procurement resources for hospital administrators, orthopedic surgeons, nursing staff, and medical distributors across North Rajasthan. Explore our in-depth articles detailing the technical differences between specialized Orthocot cotton rolls and ordinary cotton, complete skin traction kit assemblies, fabric selection for doctor coats and surgical OT dresses, and essential hospital consumables checklists. Our goal is to empower healthcare professionals with actionable, evidence-based supply chain insights.
-            </p>
 
-            {/* Topic Filters as Real Links */}
-            <div className="mt-8 flex flex-wrap justify-center gap-2 text-xs sm:text-sm">
-              <span className="font-semibold text-[#18352A] mr-1 self-center">Browse by Topic:</span>
-              <Link href="/categories/orthopedic" className="rounded-full bg-[#EDF5EF] border border-[#D7E5DA] px-3.5 py-1.5 text-[#174C38] font-medium hover:bg-[#174C38] hover:text-white transition">
-                Orthopedic Supplies
-              </Link>
-              <Link href="/categories/surgical" className="rounded-full bg-[#EDF5EF] border border-[#D7E5DA] px-3.5 py-1.5 text-[#174C38] font-medium hover:bg-[#174C38] hover:text-white transition">
-                Surgical Supplies
-              </Link>
-              <Link href="/categories/hospital-uniforms" className="rounded-full bg-[#EDF5EF] border border-[#D7E5DA] px-3.5 py-1.5 text-[#174C38] font-medium hover:bg-[#174C38] hover:text-white transition">
-                Hospital Uniforms
-              </Link>
-              <Link href="/categories/healthcare-essentials" className="rounded-full bg-[#EDF5EF] border border-[#D7E5DA] px-3.5 py-1.5 text-[#174C38] font-medium hover:bg-[#174C38] hover:text-white transition">
-                Healthcare Essentials
-              </Link>
-            </div>
-          </div>
+      <PageHero
+        eyebrow="KNOWLEDGE CENTER"
+        title="Medical supplies & procurement notes"
+        summary="Product and purchasing information for healthcare teams. Content is general supply information, not a substitute for professional clinical guidance."
+        breadcrumbs={[{ label: "Knowledge Center" }]}
+      />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {BLOG_POSTS.map((post) => (
-              <article 
-                key={post.slug} 
-                className="group flex flex-col rounded-2xl border border-[#D7E5DA] bg-white overflow-hidden shadow-xs hover:border-[#174C38] transition-all hover:-translate-y-1"
-              >
-                <div className="p-5 sm:p-8 flex flex-col flex-grow">
-                  <div className="flex items-center gap-3 text-xs font-semibold text-[#68766D] mb-4 uppercase tracking-wider">
-                    <span className="text-[#258653]">{post.category}</span>
-                    <span>•</span>
-                    <span>{post.readTime}</span>
-                  </div>
-                  
-                  <Link href={`/blog/${post.slug}`} className="block mb-3">
-                    <h2 className="font-display text-xl font-bold text-[#18352A] group-hover:text-[#174C38] transition-colors">
-                      {post.title}
-                    </h2>
-                  </Link>
-                  
-                  <p className="text-sm text-[#46554C] leading-relaxed mb-6 flex-grow">
-                    {post.excerpt}
-                  </p>
-                  
-                  <div className="mt-auto pt-5 border-t border-[#D7E5DA] flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="h-8 w-8 rounded-full bg-[#EDF5EF] flex items-center justify-center font-bold text-[#174C38] text-xs">
-                        {post.author.charAt(0)}
-                      </div>
-                      <span className="text-xs font-semibold text-[#18352A]">{post.author}</span>
-                    </div>
-                    <span className="text-xs text-[#68766D]">{post.date}</span>
-                  </div>
-                </div>
+      <section className="page-content">
+        <div className="wrap">
+          <div className="article-grid">
+            {articles.map((article, index) => (
+              <article className="article-card" key={article.slug}>
+                <span className="article-number">
+                  0{index + 1} / {article.topic} · {article.date}
+                </span>
+                <h2>
+                  <Link href={`/blog/${article.slug}`}>{article.title}</Link>
+                </h2>
+                <p>{article.excerpt}</p>
+                <Link className="product-link" href={`/blog/${article.slug}`}>
+                  Read article <ArrowUpRight size={15} />
+                </Link>
               </article>
             ))}
           </div>
-
         </div>
-      </main>
-      <Footer />
-      <WhatsAppButton />
-    </>
+      </section>
+    </main>
   );
 }

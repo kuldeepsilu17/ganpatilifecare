@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+  <defs>
+    <!-- Premium Gradients -->
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E94B35" />
+      <stop offset="100%" stop-color="#C0392B" />
+    </linearGradient>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F58220" />
+      <stop offset="100%" stop-color="#E67E22" />
+    </linearGradient>
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00B050" />
+      <stop offset="100%" stop-color="#009245" />
+    </linearGradient>
+    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F39C12" />
+      <stop offset="100%" stop-color="#F1C40F" />
+    </linearGradient>
+    
+    <!-- Shadows for Depth -->
+    <filter id="cottonShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+    <filter id="textShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+    
+    <!-- Inner Shadow for Puffs -->
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff" />
+      <feFlood flood-color="#E6E6E6" flood-opacity="0.6" />
+      <feComposite in2="shadowDiff" operator="in" />
+      <feComposite in2="SourceGraphic" operator="over" />
+    </filter>
+
+    <clipPath id="capsule-clip">
+      <rect x="10" y="10" width="280" height="380" rx="140" ry="140" />
+    </clipPath>
+  </defs>
+
+  <!-- Outer Premium Border -->
+  <rect x="8" y="8" width="284" height="384" rx="142" ry="142" fill="none" stroke="url(#borderGradient)" stroke-width="12" />
+
+  <!-- Background Split -->
+  <g clip-path="url(#capsule-clip)">
+    <!-- Top Red -->
+    <rect x="0" y="0" width="300" height="260" fill="url(#redGradient)" />
+    <!-- Bottom Orange -->
+    <rect x="0" y="260" width="300" height="150" fill="url(#orangeGradient)" />
+  </g>
+
+  <!-- Cotton Flower (Enhanced) -->
+  <g filter="url(#cottonShadow)">
+    <!-- Puffs (White with inner depth) -->
+    <circle cx="150" cy="110" r="48" fill="#FFFFFF" filter="url(#innerGlow)" />
+    <circle cx="100" cy="150" r="42" fill="#FFFFFF" filter="url(#innerGlow)" />
+    <circle cx="200" cy="150" r="42" fill="#FFFFFF" filter="url(#innerGlow)" />
+    <!-- Smooth Puff outlines -->
+    <path d="M115,130 Q150,152 185,130" fill="none" stroke="#D5D5D5" stroke-width="5" stroke-linecap="round" />
+    <path d="M100,192 Q120,165 150,172 Q180,165 200,192" fill="none" stroke="#D5D5D5" stroke-width="4" stroke-linecap="round" />
+    
+    <!-- Detailed Green Leaves/Stem -->
+    <path d="M150,180 C125,165 95,185 75,195 C115,195 130,190 145,212 C145,235 140,245 140,245 C147,235 155,225 155,212 C170,190 185,195 225,195 C205,185 175,165 150,180 Z" fill="url(#greenGradient)" />
+  </g>
+
+  <!-- GLC Typography (Sharpened and Shadowed) -->
+  <g fill="#FFFFFF" transform="translate(35, 205)" filter="url(#textShadow)">
+    <!-- G -->
+    <path d="M70,25 C88,25 98,35 98,50 L75,50 C75,42 70,38 60,38 C42,38 32,50 32,70 C32,90 42,102 60,102 C74,102 82,95 82,85 L60,85 L60,70 L102,70 L102,110 C92,122 75,128 60,128 C28,128 8,105 8,70 C8,35 28,12 60,12 C78,12 90,20 100,32 L82,46 C75,38 70,36 60,36 Z" />
+    <!-- L -->
+    <path d="M110,35 L135,35 L135,100 L175,100 L175,122 L110,122 Z" />
+    <!-- C -->
+    <path d="M225,35 C242,35 252,45 252,60 L230,60 C230,52 225,48 215,48 C198,48 188,60 188,80 C188,100 198,112 215,112 C225,112 235,105 235,95 L257,95 C252,118 235,128 215,128 C182,128 162,105 162,80 C162,55 182,32 215,32 Z" />
+  </g>
+
+  <!-- Bottom Horizontal Lines (Shadowed) -->
+  <g fill="#FFFFFF" filter="url(#textShadow)">
+    <rect x="70" y="340" width="160" height="8" rx="4" />
+    <rect x="90" y="356" width="120" height="4" rx="2" />
+  </g>
+
+</svg>

@@ -34,7 +34,13 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, phone, email, product_name, quantity, message, source } = body;
+    const name = (body.name || body.customerName || "").trim();
+    const phone = (body.phone || "").trim();
+    const email = (body.email || "").trim();
+    const product_name = (body.product_name || body.productName || body.requirement || "General Inquiry").trim();
+    const quantity = (body.quantity || "1").trim();
+    const message = (body.message || "").trim();
+    const source = (body.source || body.inquiryType || "Website").trim();
 
     // Validate required fields
     if (!name || !phone) {
@@ -79,6 +85,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
+      message: "Your inquiry has been received by Ganpati Lifecare.",
       inquiry: newInquiry,
       emailSubject,
       emailBody,

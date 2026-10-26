@@ -1,107 +1,58 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { PageHero } from "@/components/page-shell";
 import { GLOSSARY_TERMS } from "@/lib/glossary";
 import { BUSINESS } from "@/lib/constants";
 import { getBreadcrumbSchema } from "@/lib/schema";
 
 const title = "Medical & Surgical Supplies Glossary | Ganpati Lifecare";
 const description =
-  "Clinical glossary of orthopedic supplies, cotton cast padding, gamjee rolls, stockinets, and surgical dressings by Ganpati Lifecare, Hanumangarh, Rajasthan.";
+  "Plain-language supply definitions and product terms from Ganpati Lifecare. Orthopedic padding, cotton rolls, stockinet and surgical dressing terms.";
 const canonicalUrl = `${BUSINESS.siteUrl}/glossary`;
 
 export const metadata: Metadata = {
-  title,
+  title: {
+    absolute: title,
+  },
   description,
   alternates: { canonical: canonicalUrl },
   openGraph: { title, description, url: canonicalUrl, type: "website" },
 };
 
-export default function GlossaryIndexPage() {
+export default function GlossaryPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", url: BUSINESS.siteUrl },
     { name: "Medical Glossary", url: canonicalUrl },
   ]);
 
   return (
-    <>
+    <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <Navbar />
-      <main className="min-h-screen bg-background">
-        <section className="bg-[#EDF5EF]/60 py-14 sm:py-20 border-b border-[#D7E5DA]">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
-            <nav aria-label="Breadcrumb" className="mb-4 flex items-center justify-center gap-2 text-xs text-[#68766D]">
-              <Link href="/" className="hover:text-[#174C38] transition-colors">
-                Home
+
+      <PageHero
+        eyebrow="CLINICAL REFERENCE"
+        title="Medical & surgical supplies glossary"
+        summary="Plain-language descriptions of product terms found in the Ganpati Lifecare catalog. These entries are general information, not clinical guidance."
+        breadcrumbs={[{ label: "Glossary" }]}
+      />
+
+      <section className="page-content">
+        <div className="wrap content-cards">
+          {GLOSSARY_TERMS.map((term) => (
+            <article className="content-card" key={term.slug}>
+              {term.hindiTerm && <span className="pill-label">{term.hindiTerm}</span>}
+              <h2>{term.term}</h2>
+              <p>{term.shortDef}</p>
+              <Link className="text-link" href={`/glossary/${term.slug}`}>
+                Read definition &rarr;
               </Link>
-              <span>/</span>
-              <span className="font-semibold text-[#18352A]">Medical Glossary</span>
-            </nav>
-            <span className="inline-block rounded-full bg-[#EDF5EF] border border-[#D7E5DA] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#174C38] mb-3">
-              Clinical Reference
-            </span>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#18352A] tracking-tight">
-              Medical &amp; Surgical Supplies Glossary
-            </h1>
-            <p className="mt-4 text-sm sm:text-base text-[#46554C] max-w-2xl mx-auto leading-relaxed">
-              Clear clinical definitions, specifications, and applications of essential orthopedic padding, surgical dressings, and hospital consumables.
-            </p>
-          </div>
-        </section>
-
-        <section className="py-12 sm:py-16">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {GLOSSARY_TERMS.map((item) => (
-                <article
-                  key={item.slug}
-                  className="rounded-2xl bg-white p-6 sm:p-8 border border-[#D7E5DA] shadow-xs hover:border-[#174C38] transition-all flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="text-xs font-semibold text-[#258653] font-mono uppercase tracking-wider">
-                        Clinical Term
-                      </span>
-                      {item.hindiTerm && (
-                        <span className="text-xs text-[#68766D] font-medium" lang="hi">
-                          {item.hindiTerm}
-                        </span>
-                      )}
-                    </div>
-                    <h2 className="font-display text-xl font-bold text-[#18352A] hover:text-[#174C38] transition">
-                      <Link href={`/glossary/${item.slug}`}>
-                        {item.term}
-                      </Link>
-                    </h2>
-                    <p className="mt-3 text-xs sm:text-sm text-[#46554C] leading-relaxed">
-                      {item.shortDef}
-                    </p>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-[#D7E5DA] flex items-center justify-between">
-                    <span className="text-xs text-[#68766D]">
-                      {item.clinicalUses.length} Clinical Applications
-                    </span>
-                    <Link
-                      href={`/glossary/${item.slug}`}
-                      className="text-xs font-semibold text-[#174C38] hover:underline flex items-center gap-1"
-                    >
-                      Read full definition &rarr;
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-      <WhatsAppButton />
-    </>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }

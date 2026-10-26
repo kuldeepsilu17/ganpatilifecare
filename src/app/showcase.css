@@ -1,0 +1,43 @@
+.showcase-index {
+  width: min(355px, 82%);
+  display: flex;
+  flex-direction: column;
+  margin-top: 55px;
+  border-top: 1px solid #ffffff3d;
+}
+
+.showcase-index a {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  align-items: center;
+  border-bottom: 1px solid #ffffff3d;
+  color: #edf3ef;
+  font-size: 13px;
+  font-weight: 650;
+  transition: color 0.2s, padding 0.2s;
+}
+
+.showcase-index a:hover {
+  padding-left: 6px;
+  color: #f0b25f;
+}
+
+.showcase-index a span {
+  color: #f0a64e;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+@media (max-width: 700px) {
+  .showcase-index {
+    width: 82%;
+    margin: 42px 0 0 -8%;
+  }
+
+  .showcase-index a {
+    min-height: 43px;
+    grid-template-columns: 30px 1fr;
+    font-size: 11px;
+  }
+}
