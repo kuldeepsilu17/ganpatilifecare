@@ -52,7 +52,7 @@ export function DistributorPartnership() {
   };
 
   return (
-    <section className="bg-gradient-to-br from-[#007a38] to-[#009245] py-14 text-white md:py-20">
+    <section className="bg-[#174C38] py-14 text-white md:py-20 border-b border-[#236747]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <AnimateIn>
@@ -64,18 +64,18 @@ export function DistributorPartnership() {
             />
           </AnimateIn>
           <AnimateIn delay={0.15}>
-            <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-xs border border-white/20">
+            <div className="rounded-2xl bg-white/10 p-6 sm:p-8 border border-white/15 shadow-2xs">
               <ul className="space-y-3 text-xs sm:text-sm text-white/95">
                 <li className="flex items-center gap-2.5">
-                  <span className="text-amber-300 font-bold">●</span>
+                  <span className="text-[#A7C4AE] font-bold">●</span>
                   Reliable wholesale pricing for hospitals and retail supply
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <span className="text-amber-300 font-bold">●</span>
+                  <span className="text-[#A7C4AE] font-bold">●</span>
                   High-demand orthopedic cotton rolls, stockinet, and gauze
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <span className="text-amber-300 font-bold">●</span>
+                  <span className="text-[#A7C4AE] font-bold">●</span>
                   Dependable dispatch support across Rajasthan &amp; North India
                 </li>
               </ul>
@@ -83,13 +83,13 @@ export function DistributorPartnership() {
                 <button
                   type="button"
                   onClick={() => setShowModal(true)}
-                  className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-brand-orange px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-brand-orange-dark transition-colors cursor-pointer"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-white px-6 py-3 text-xs sm:text-sm font-bold text-[#174C38] shadow-2xs hover:bg-[#EDF5EF] transition-colors cursor-pointer"
                 >
                   Become a Partner
                 </button>
                 <a
                   href={`tel:${BUSINESS.phones[0]}`}
-                  className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-white/20 border border-white/40 px-5 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white hover:text-medical transition-colors"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-white/10 border border-white/20 px-5 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/20 transition-colors"
                 >
                   Talk to Sales
                 </a>
@@ -102,7 +102,7 @@ export function DistributorPartnership() {
       {/* Distributor Application Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs text-foreground overflow-y-auto">
-          <div className="relative w-full max-w-lg rounded-2xl bg-card p-5 sm:p-6 shadow-2xl border border-medical/20 max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-lg rounded-2xl bg-white p-5 sm:p-6 shadow-2xl border border-[#D7E5DA] max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => {
                 setShowModal(false);
@@ -116,13 +116,13 @@ export function DistributorPartnership() {
 
             {sent ? (
               <div className="py-6 text-center">
-                <h3 className="font-display text-xl font-bold text-medical">Application Received!</h3>
+                <h3 className="font-display text-xl font-bold text-[#174C38]">Application Received!</h3>
                 <p className="mt-2 text-xs text-muted">
                   Thank you for your interest in partnering with Ganpati Lifecare. We will contact you soon.
                 </p>
                 <button
                   onClick={() => setShowModal(false)}
-                  className="mt-5 min-h-[44px] rounded-full bg-medical px-6 py-2.5 text-xs sm:text-sm font-bold text-white"
+                  className="mt-5 min-h-[44px] rounded-full bg-[#174C38] px-6 py-2.5 text-xs sm:text-sm font-bold text-white hover:bg-[#236747] transition-colors"
                 >
                   Close
                 </button>
@@ -137,13 +137,13 @@ export function DistributorPartnership() {
                     name="name"
                     required
                     placeholder="Your Name *"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-[#174C38]"
                   />
                   <input
                     name="businessName"
                     required
                     placeholder="Business / Firm Name *"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-[#174C38]"
                   />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -152,13 +152,13 @@ export function DistributorPartnership() {
                     type="tel"
                     required
                     placeholder="Phone Number *"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-[#174C38]"
                   />
                   <input
                     name="email"
                     type="email"
                     placeholder="Email Address"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-[#174C38]"
                   />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -166,24 +166,24 @@ export function DistributorPartnership() {
                     name="city"
                     required
                     placeholder="City / Region *"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-[#174C38]"
                   />
                   <input
                     name="products"
                     placeholder="Products Interested In"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-[#174C38]"
                   />
                 </div>
                 <textarea
                   name="message"
                   rows={3}
                   placeholder="Tell us about your distribution experience and coverage..."
-                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-medical"
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-xs outline-none focus:border-[#174C38]"
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full min-h-[44px] rounded-xl bg-brand-orange py-3 text-xs sm:text-sm font-bold text-white hover:bg-brand-orange-dark transition-colors cursor-pointer"
+                  className="w-full min-h-[44px] rounded-xl bg-[#174C38] py-3 text-xs sm:text-sm font-bold text-white hover:bg-[#236747] transition-colors cursor-pointer"
                 >
                   {isSubmitting ? "Submitting..." : "Submit Partnership Request"}
                 </button>

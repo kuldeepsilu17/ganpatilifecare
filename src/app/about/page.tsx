@@ -72,19 +72,19 @@ export default function AboutPage() {
       <main className="min-h-screen bg-background">
         
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-medical/5 py-16 sm:py-24">
+        <section className="relative overflow-hidden bg-[#EDF5EF]/50 py-14 sm:py-20 border-b border-[#D7E5DA]">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <nav aria-label="Breadcrumb" className="mb-6 flex items-center justify-center gap-2 text-xs text-muted">
-              <Link href="/" className="hover:text-medical transition-colors">
+              <Link href="/" className="hover:text-[#174C38] transition-colors">
                 Home
               </Link>
               <span>/</span>
               <span className="font-semibold text-foreground">About Us</span>
             </nav>
-            <span className="inline-block rounded-full bg-medical/10 px-4 py-1.5 text-sm font-bold uppercase tracking-wider text-medical mb-4">
+            <span className="inline-block rounded-full bg-[#EDF5EF] px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#174C38] mb-4 border border-[#D7E5DA]">
               Our Story
             </span>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight">
               About Ganpati Lifecare
             </h1>
           </div>
@@ -93,7 +93,7 @@ export default function AboutPage() {
         {/* Content Section */}
         <section className="py-12 sm:py-16">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-3xl bg-card p-8 sm:p-12 shadow-sm border border-medical/10 space-y-8">
+            <div className="rounded-2xl bg-white p-6 sm:p-10 shadow-2xs border border-[#D7E5DA] space-y-8">
               
               <section>
                 <h2 className="font-display text-2xl font-bold text-foreground mb-4">Who is Ganpati Lifecare?</h2>
@@ -103,10 +103,10 @@ export default function AboutPage() {
               </section>
 
               {/* Entity Disambiguation Note */}
-              <div className="rounded-2xl bg-amber-500/10 border border-amber-500/20 p-5 text-sm">
-                <p className="font-bold text-amber-700 dark:text-amber-400">Official Entity Information:</p>
+              <div className="rounded-xl bg-[#EDF5EF] border border-[#D7E5DA] p-5 text-sm">
+                <p className="font-bold text-[#174C38]">Official Entity Information:</p>
                 <p className="mt-1 text-foreground/80 leading-relaxed">
-                  Ganpati Lifecare (GLC) in Goluwala, Hanumangarh, Rajasthan is an independently owned business, not affiliated with similarly named companies elsewhere, including in Delhi or Gurgaon. For detailed verified facts, see our <Link href="/company-facts" className="text-medical font-bold underline">Company Facts Sheet</Link>.
+                  Ganpati Lifecare (GLC) in Goluwala, Hanumangarh, Rajasthan is an independently owned business, not affiliated with similarly named companies elsewhere, including in Delhi or Gurgaon. For detailed verified facts, see our <Link href="/company-facts" className="text-[#174C38] font-bold underline">Company Facts Sheet</Link>.
                 </p>
               </div>
 
@@ -123,11 +123,11 @@ export default function AboutPage() {
                   While our primary manufacturing and distribution base is located in Mandi Goluwala, Hanumangarh, our service network extends across Rajasthan and neighbouring states. We actively supply healthcare facilities in Hanumangarh, Sri Ganganagar, Suratgarh, Bikaner, Nohar, Rawatsar, Pilibanga, Sangaria, and Bhadra. 
                 </p>
                 <div className="mt-4 flex flex-wrap gap-3">
-                  <Link href="/locations" className="text-medical font-bold hover:underline">
+                  <Link href="/locations" className="text-[#174C38] font-bold hover:underline">
                     View local service hubs &rarr;
                   </Link>
                   <span className="text-muted">•</span>
-                  <Link href="/products" className="text-medical font-bold hover:underline">
+                  <Link href="/products" className="text-[#174C38] font-bold hover:underline">
                     View product catalog &rarr;
                   </Link>
                 </div>
@@ -141,26 +141,26 @@ export default function AboutPage() {
                 <Products />
               </section>
 
-              <section className="pt-6 border-t border-medical/10">
+              <section className="pt-6 border-t border-[#D7E5DA]">
                 <h2 className="font-display text-xl font-bold text-foreground mb-3">Business Information &amp; Transparency</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
-                  <div className="rounded-2xl bg-medical/5 p-4 border border-medical/10">
+                  <div className="rounded-xl bg-[#F7F8F5] p-4 border border-[#D7E5DA]">
                     <p className="font-bold text-foreground">Official Business Name</p>
                     <p className="text-foreground/80 mt-1">{BUSINESS.legalName}</p>
                   </div>
-                  <div className="rounded-2xl bg-medical/5 p-4 border border-medical/10">
+                  <div className="rounded-xl bg-[#F7F8F5] p-4 border border-[#D7E5DA]">
                     <p className="font-bold text-foreground">GSTIN (Verified)</p>
-                    <p className="text-foreground/80 mt-1 font-mono font-bold text-medical">{BUSINESS.gstin} (State Code: 08)</p>
+                    <p className="text-foreground/80 mt-1 font-mono font-bold text-[#174C38]">{BUSINESS.gstin} (State Code: 08)</p>
                   </div>
-                  <div className="rounded-2xl bg-medical/5 p-4 border border-medical/10">
+                  <div className="rounded-xl bg-[#F7F8F5] p-4 border border-[#D7E5DA]">
                     <p className="font-bold text-foreground">Management</p>
                     <p className="text-foreground/80 mt-1">Managed by {BUSINESS.owner}</p>
                   </div>
-                  <div className="rounded-2xl bg-medical/5 p-4 border border-medical/10">
+                  <div className="rounded-xl bg-[#F7F8F5] p-4 border border-[#D7E5DA]">
                     <p className="font-bold text-foreground">Registered Address</p>
                     <p className="text-foreground/80 mt-1">{BUSINESS.address.streetAddress}, {BUSINESS.address.addressLocality} - {BUSINESS.address.postalCode}, Distt. Hanumangarh (Raj.)</p>
                   </div>
-                  <div className="rounded-2xl bg-medical/5 p-4 border border-medical/10 sm:col-span-2">
+                  <div className="rounded-xl bg-[#F7F8F5] p-4 border border-[#D7E5DA] sm:col-span-2">
                     <p className="font-bold text-foreground">Core Product Range</p>
                     <p className="text-foreground/80 mt-1">{BUSINESS.description}</p>
                   </div>
@@ -172,7 +172,7 @@ export default function AboutPage() {
             <div className="mt-12 text-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-medical px-8 py-4 text-sm font-bold text-white shadow-md hover:bg-medical-dark transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#174C38] px-8 py-3.5 text-sm font-bold text-white shadow-sm hover:bg-[#236747] transition-all hover:-translate-y-0.5"
               >
                 Contact Us Today
               </Link>

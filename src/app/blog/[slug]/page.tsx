@@ -103,65 +103,65 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <main className="min-h-screen bg-background py-12 md:py-20">
         <article className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           
-          <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8 flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs font-semibold text-muted uppercase tracking-wider">
-            <Link href="/" className="hover:text-medical transition-colors">Home</Link>
+          <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8 flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs font-semibold text-[#68766D] uppercase tracking-wider">
+            <Link href="/" className="hover:text-[#174C38] transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/blog" className="hover:text-medical transition-colors">Blog</Link>
+            <Link href="/blog" className="hover:text-[#174C38] transition-colors">Blog</Link>
             <span>/</span>
-            <span className="text-medical">{post.category}</span>
+            <span className="text-[#258653]">{post.category}</span>
           </nav>
 
-          <header className="mb-8 sm:mb-12 border-b border-medical/10 pb-6 sm:pb-10">
-            <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-4 sm:mb-6 break-words">
+          <header className="mb-8 sm:mb-12 border-b border-[#D7E5DA] pb-6 sm:pb-10">
+            <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-[#18352A] tracking-tight leading-tight mb-4 sm:mb-6 break-words">
               {post.title}
             </h1>
             
-            <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium text-muted">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium text-[#68766D]">
               <div className="flex items-center gap-2">
-                <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-medical/10 flex items-center justify-center font-bold text-medical text-xs sm:text-sm">
+                <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-[#EDF5EF] flex items-center justify-center font-bold text-[#174C38] text-xs sm:text-sm">
                   {post.author.charAt(0)}
                 </div>
                 <div>
-                  <span className="text-foreground font-semibold block">{post.author}</span>
-                  <span className="text-[11px] text-muted block">Ganpati Lifecare</span>
+                  <span className="text-[#18352A] font-semibold block">{post.author}</span>
+                  <span className="text-[11px] text-[#68766D] block">Ganpati Lifecare</span>
                 </div>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-medical">📅 Published:</span>
+                <span className="text-[#174C38]">📅 Published:</span>
                 {post.date}
               </div>
               {post.updatedDate && (
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <span className="text-medical">🔄 Updated:</span>
+                  <span className="text-[#174C38]">🔄 Updated:</span>
                   {post.updatedDate}
                 </div>
               )}
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-medical">⏱</span>
+                <span className="text-[#174C38]">⏱</span>
                 {post.readTime}
               </div>
             </div>
           </header>
 
-          <div className="prose prose-base sm:prose-lg prose-medical max-w-none text-foreground/80 leading-relaxed break-words
-            prose-headings:font-display prose-headings:font-bold prose-headings:text-foreground
-            prose-h2:text-xl sm:prose-h2:text-2xl prose-h2:mt-8 sm:prose-h2:mt-12 prose-h2:mb-4 sm:prose-h2:mb-6 prose-h2:border-b prose-h2:border-medical/10 prose-h2:pb-3 sm:prose-h2:pb-4
-            prose-p:mb-4 sm:prose-p:mb-6 prose-li:mb-1.5 sm:prose-li:mb-2 prose-strong:text-foreground"
+          <div className="prose prose-base sm:prose-lg prose-medical max-w-none text-[#46554C] leading-relaxed break-words
+            prose-headings:font-display prose-headings:font-bold prose-headings:text-[#18352A]
+            prose-h2:text-xl sm:prose-h2:text-2xl prose-h2:mt-8 sm:prose-h2:mt-12 prose-h2:mb-4 sm:prose-h2:mb-6 prose-h2:border-b prose-h2:border-[#D7E5DA] prose-h2:pb-3 sm:prose-h2:pb-4
+            prose-p:mb-4 sm:prose-p:mb-6 prose-li:mb-1.5 sm:prose-li:mb-2 prose-strong:text-[#18352A]"
           >
             {post.content}
           </div>
 
           {/* FAQs Section */}
           {post.faqs && post.faqs.length > 0 && (
-            <div className="mt-12 rounded-3xl bg-card p-6 sm:p-8 border border-medical/15 shadow-xs">
-              <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-6">
+            <div className="mt-12 rounded-2xl bg-white p-6 sm:p-8 border border-[#D7E5DA] shadow-xs">
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-[#18352A] mb-6">
                 Frequently Asked Questions
               </h2>
               <div className="space-y-4">
                 {post.faqs.map((faq, idx) => (
-                  <div key={idx} className="border-b border-medical/10 pb-4 last:border-0 last:pb-0">
-                    <h3 className="font-bold text-foreground text-sm sm:text-base">Q: {faq.question}</h3>
-                    <p className="mt-2 text-sm text-foreground/80 leading-relaxed">A: {faq.answer}</p>
+                  <div key={idx} className="border-b border-[#D7E5DA] pb-4 last:border-0 last:pb-0">
+                    <h3 className="font-bold text-[#18352A] text-sm sm:text-base">Q: {faq.question}</h3>
+                    <p className="mt-2 text-sm text-[#46554C] leading-relaxed">A: {faq.answer}</p>
                   </div>
                 ))}
               </div>
@@ -169,41 +169,41 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           {/* Author Bio Card */}
-          <div className="mt-12 rounded-2xl bg-card p-6 border border-medical/15 shadow-xs flex flex-col sm:flex-row items-center sm:items-start gap-4">
-            <div className="h-16 w-16 rounded-full bg-medical/10 flex items-center justify-center font-bold text-medical text-2xl shrink-0">
+          <div className="mt-12 rounded-2xl bg-white p-6 border border-[#D7E5DA] shadow-xs flex flex-col sm:flex-row items-center sm:items-start gap-4">
+            <div className="h-16 w-16 rounded-full bg-[#EDF5EF] flex items-center justify-center font-bold text-[#174C38] text-2xl shrink-0">
               {post.author.charAt(0)}
             </div>
             <div>
-              <h3 className="font-display text-base font-bold text-foreground">
+              <h3 className="font-display text-base font-bold text-[#18352A]">
                 Written by {post.author}
               </h3>
-              <p className="mt-1.5 text-xs sm:text-sm text-foreground/80 leading-relaxed">
+              <p className="mt-1.5 text-xs sm:text-sm text-[#46554C] leading-relaxed">
                 {post.authorBio}
               </p>
             </div>
           </div>
           
-          <div className="mt-12 pt-8 border-t border-medical/10 flex flex-wrap gap-2">
-            <span className="text-sm font-bold text-foreground mr-2">Tags:</span>
+          <div className="mt-12 pt-8 border-t border-[#D7E5DA] flex flex-wrap gap-2">
+            <span className="text-sm font-bold text-[#18352A] mr-2">Tags:</span>
             {post.tags.map((tag) => (
-              <span key={tag} className="inline-block rounded-full bg-muted/20 px-3 py-1 text-xs font-semibold text-muted-foreground">
+              <span key={tag} className="inline-block rounded-full bg-[#EDF5EF] border border-[#D7E5DA] px-3 py-1 text-xs font-semibold text-[#174C38]">
                 #{tag}
               </span>
             ))}
           </div>
 
-          <div className="mt-12 rounded-2xl bg-medical/5 p-6 border border-medical/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-12 rounded-2xl bg-[#F7F8F5] p-6 border border-[#D7E5DA] flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <h3 className="font-display text-base font-bold text-foreground">
+              <h3 className="font-display text-base font-bold text-[#18352A]">
                 Need wholesale supply for this product?
               </h3>
-              <p className="text-xs text-muted">
+              <p className="text-xs text-[#68766D]">
                 Contact Ganpati Lifecare for rapid dispatch across Rajasthan.
               </p>
             </div>
             <Link
               href="/contact"
-              className="inline-flex min-h-[40px] items-center justify-center gap-2 rounded-full bg-medical px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-medical-dark transition-all"
+              className="inline-flex min-h-[40px] items-center justify-center gap-2 rounded-full bg-[#174C38] px-5 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-[#236747] transition-all"
             >
               Request Price Quote
             </Link>

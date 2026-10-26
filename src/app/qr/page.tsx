@@ -54,7 +54,7 @@ export default function QRPage() {
             <span className="inline-block rounded-full bg-medical/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-medical mb-3">
               Print &amp; Packaging Assets
             </span>
-            <h1 className="font-display text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
+            <h1 className="font-display text-3xl sm:text-4xl font-bold text-foreground tracking-tight">
               Official QR Codes for Print &amp; Invoices
             </h1>
             <p className="mt-3 text-sm sm:text-base text-muted max-w-2xl mx-auto">

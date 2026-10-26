@@ -1,19 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #1a2e24;
-  --medical-green: #009245;
-  --medical-green-dark: #007a38;
-  --medical-green-light: #00b050;
-  --brand-orange: #f58220;
-  --brand-orange-dark: #d96d10;
-  --brand-red: #e94b35;
-  --gold: #f58220;
-  --gold-dark: #d96d10;
-  --sky: #f4faf6;
-  --card: #ffffff;
-  --muted: #5a6b63;
+  /* 60% — Neutral Background Colors */
+  --background: #F7F8F5;
+  --foreground: #46554C;
+  --card: #FFFFFF;
+  --bg-soft-green: #EDF5EF;
+  --bg-mint: #E5F1E8;
+  --bg-subtle: #F0F4F0;
+  --warm-off-white: #F7F8F5;
+
+  /* 30% — Brand Green Colors */
+  --primary-forest: #174C38;
+  --secondary-green: #236747;
+  --kelly-green: #258653;
+  --deep-green: #103B2C;
+  --muted-sage: #A7C4AE;
+  --border-light: #D7E5DA;
+  --border-neutral: #D7E5DA;
+
+  /* 10% — Restrained Accent Amber */
+  --accent-amber: #D69A42;
+  --accent-amber-soft: #FBF2E3;
+
+  /* Text Colors */
+  --text-heading: #18352A;
+  --text-body: #46554C;
+  --text-secondary: #68766D;
+  --text-primary: #18352A;
+  --muted: #68766D;
+  --text-on-dark: #FFFFFF;
+  --text-on-dark-muted: #D6E4DA;
+
+  /* Backward Compatibility Aliases */
+  --forest-green: #174C38;
+  --medical-green: #174C38;
+  --medical-green-dark: #103B2C;
+  --medical-green-deep: #236747;
+  --medical-green-light: #258653;
+  --muted-teal: #236747;
+  --soft-sage: #EDF5EF;
+  --subtle-green: #258653;
+  --brand-orange: #D69A42;
+  --brand-orange-dark: #B87B28;
+  --brand-red: #DC2626;
+  --gold: #174C38;
+  --gold-dark: #103B2C;
+  --sky: #EDF5EF;
 }
 
 .dark {
@@ -22,25 +55,39 @@
   --sky: #142820;
   --card: #162a22;
   --muted: #9cb5a8;
+  --text-heading: #FFFFFF;
+  --text-body: #D6E4DA;
+  --border-light: #234d3b;
+  --border-neutral: #234d3b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-medical: var(--medical-green);
-  --color-medical-dark: var(--medical-green-dark);
-  --color-medical-light: var(--medical-green-light);
-  --color-brand-orange: var(--brand-orange);
-  --color-brand-orange-dark: var(--brand-orange-dark);
-  --color-brand-red: var(--brand-red);
-  --color-gold: var(--gold);
-  --color-gold-dark: var(--gold-dark);
-  --color-sky: var(--sky);
   --color-card: var(--card);
+  --color-forest: var(--primary-forest);
+  --color-medical: var(--secondary-green);
+  --color-medical-dark: var(--deep-green);
+  --color-medical-deep: var(--deep-green);
+  --color-medical-light: var(--kelly-green);
+  --color-kelly: var(--kelly-green);
+  --color-sage: var(--muted-sage);
+  --color-soft-sage: var(--bg-soft-green);
+  --color-bg-soft: var(--bg-soft-green);
+  --color-bg-mint: var(--bg-mint);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-border-light: var(--border-light);
+  --color-border-neutral: var(--border-neutral);
+  --color-heading: var(--text-heading);
+  --color-body: var(--text-body);
+  --color-text-secondary: var(--text-secondary);
   --color-muted: var(--muted);
-  --font-sans: var(--font-poppins);
-  --font-display: var(--font-montserrat);
-  --font-body: var(--font-inter);
+  --color-amber: var(--accent-amber);
+  --color-amber-soft: var(--accent-amber-soft);
+  --color-brand-orange: var(--accent-amber);
+  --font-sans: var(--font-inter), Inter, Arial, sans-serif;
+  --font-display: var(--font-inter), Inter, Arial, sans-serif;
+  --font-body: var(--font-inter), Inter, Arial, sans-serif;
 }
 
 *,
@@ -59,19 +106,30 @@ html {
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  color: var(--text-body);
+  font-family: var(--font-inter), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  font-size: 0.875rem;
+  font-size: 1rem;
+  line-height: 1.6;
   -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (min-width: 768px) {
   body {
     font-size: 1rem;
+    line-height: 1.65;
   }
+}
+
+/* Accessible focus ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #174C38;
+  outline-offset: 2px;
 }
 
 /* Ensure inputs never trigger unwanted zoom on iOS Safari */
@@ -79,6 +137,7 @@ input,
 textarea,
 select {
   font-size: 16px;
+  font-family: var(--font-inter), Inter, Arial, sans-serif;
 }
 
 @media (min-width: 640px) {
@@ -90,40 +149,40 @@ select {
 }
 
 .font-display {
-  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-family: var(--font-inter), Inter, Arial, sans-serif;
+  letter-spacing: -0.015em;
 }
 
+/* Healthcare Brand Gradients */
 .gradient-hero {
-  background: linear-gradient(
-    135deg,
-    #009245 0%,
-    #00a651 35%,
-    #f58220 75%,
-    #e94b35 100%
-  );
+  background: linear-gradient(180deg, #F7F8F5 0%, #EDF5EF 100%);
 }
 
 .gradient-footer {
-  background: linear-gradient(160deg, #007a38 0%, #009245 45%, #007a38 100%);
+  background: linear-gradient(180deg, #174C38 0%, #103B2C 100%);
 }
 
 .gradient-green-soft {
-  background: linear-gradient(180deg, #ffffff 0%, #f4faf6 50%, #eef8f1 100%);
+  background: linear-gradient(180deg, #F7F8F5 0%, #EDF5EF 100%);
 }
 
 .dark .gradient-green-soft {
   background: linear-gradient(180deg, #0f1f18 0%, #142820 50%, #0f1f18 100%);
 }
 
+.card-glow {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
 .card-glow:hover {
   box-shadow:
-    0 12px 40px -12px rgba(0, 146, 69, 0.3),
-    0 0 0 1px rgba(245, 130, 32, 0.2);
+    0 10px 24px -4px rgba(23, 76, 56, 0.08),
+    0 4px 8px -2px rgba(23, 76, 56, 0.04);
+  border-color: #A7C4AE;
 }
 
 .logo-glow {
-  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.45))
-    drop-shadow(0 0 40px rgba(245, 130, 32, 0.35));
+  filter: drop-shadow(0 4px 12px rgba(23, 76, 56, 0.12));
 }
 
 @keyframes float {
@@ -132,7 +191,7 @@ select {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-6px);
   }
 }
 
@@ -151,6 +210,18 @@ select {
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Hide Next.js development portal / badge in development mode */

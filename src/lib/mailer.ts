@@ -36,11 +36,11 @@ function compileHtmlTemplate(inquiry: Inquiry): string {
             background-color: #ffffff;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 146, 69, 0.08);
-            border: 1px border rgba(0, 146, 69, 0.1);
+            box-shadow: 0 4px 12px rgba(23, 76, 56, 0.08);
+            border: 1px solid #D7E5DA;
           }
           .header {
-            background: linear-gradient(135deg, #007a38 0%, #009245 100%);
+            background: linear-gradient(135deg, #174C38 0%, #236747 100%);
             padding: 30px;
             text-align: center;
             color: #ffffff;
@@ -58,14 +58,14 @@ function compileHtmlTemplate(inquiry: Inquiry): string {
           }
           .badge {
             display: inline-block;
-            background-color: #f58220;
+            background-color: #174C38;
             color: #ffffff;
             padding: 6px 14px;
             border-radius: 99px;
             font-size: 13px;
             font-weight: 600;
             margin-top: 15px;
-            box-shadow: 0 2px 6px rgba(245, 130, 32, 0.2);
+            box-shadow: 0 2px 6px rgba(23, 76, 56, 0.2);
           }
           .content {
             padding: 30px;
@@ -75,9 +75,9 @@ function compileHtmlTemplate(inquiry: Inquiry): string {
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #009245;
-            border-bottom: 2px solid #eef8f1;
-            padding-pb: 6px;
+            color: #174C38;
+            border-bottom: 2px solid #D7E5DA;
+            padding-bottom: 6px;
             margin-top: 0;
             margin-bottom: 15px;
           }
@@ -96,35 +96,35 @@ function compileHtmlTemplate(inquiry: Inquiry): string {
             width: 140px;
             font-size: 13px;
             font-weight: 600;
-            color: #5a6b63;
+            color: #4B5563;
             flex-shrink: 0;
           }
           .value {
             font-size: 14px;
-            color: #1a2e24;
+            color: #1F2937;
             word-break: break-word;
           }
           .message-box {
-            background-color: #f4faf6;
-            border-left: 4px solid #009245;
+            background-color: #F7F8F5;
+            border-left: 4px solid #174C38;
             padding: 15px 20px;
             border-radius: 0 12px 12px 0;
             font-size: 14px;
             line-height: 1.6;
-            color: #1a2e24;
+            color: #1F2937;
             margin-bottom: 25px;
             white-space: pre-wrap;
           }
           .footer {
-            background-color: #eef8f1;
+            background-color: #F7F8F5;
             padding: 20px;
             text-align: center;
             font-size: 12px;
-            color: #5a6b63;
-            border-top: 1px solid rgba(0, 146, 69, 0.05);
+            color: #6B7280;
+            border-top: 1px solid #D7E5DA;
           }
           .footer a {
-            color: #009245;
+            color: #174C38;
             text-decoration: none;
             font-weight: 600;
           }
@@ -170,7 +170,7 @@ function compileHtmlTemplate(inquiry: Inquiry): string {
               </div>
               <div class="grid-row">
                 <div class="label">Inquiry Status</div>
-                <div class="value"><span style="color: #009245; font-weight: bold;">${inquiry.status}</span></div>
+                <div class="value"><span style="color: #174C38; font-weight: bold;">${inquiry.status}</span></div>
               </div>
             </div>
 

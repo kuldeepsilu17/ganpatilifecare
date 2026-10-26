@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { BRAND_COLORS } from "@/lib/brand";
 
 const DURATION = 30;
-const GREEN = BRAND_COLORS.green;
 type Scene = {
   start: number;
   end: number;
@@ -32,11 +30,11 @@ function drawGradientBase(
   t: number
 ) {
   const g = ctx.createLinearGradient(0, 0, w, h);
-  const shift = Math.sin(t * 0.4) * 0.08;
-  g.addColorStop(0, `rgb(0, ${Math.floor(120 + shift * 40)}, 60)`);
-  g.addColorStop(0.45, GREEN);
-  g.addColorStop(0.75, `rgb(20, ${Math.floor(140 + shift * 30)}, 80)`);
-  g.addColorStop(1, `rgb(200, ${Math.floor(100 + shift * 50)}, 40)`);
+  const shift = Math.sin(t * 0.3) * 0.02;
+  g.addColorStop(0, "#174C38");
+  g.addColorStop(0.45 + shift, "#236747");
+  g.addColorStop(0.75, "#174C38");
+  g.addColorStop(1, "#103B2C");
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, w, h);
 }

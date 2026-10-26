@@ -36,18 +36,18 @@ export function LoadingScreen() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mt-6 font-display text-sm font-semibold tracking-wide text-medical"
+            className="mt-6 font-display text-sm font-semibold tracking-wide text-[#174C38]"
           >
             Ganpati Lifecare
           </motion.p>
           <motion.div
-            className="mt-6 h-1 w-32 overflow-hidden rounded-full bg-medical/15"
+            className="mt-6 h-1 w-32 overflow-hidden rounded-full bg-[#EDF5EF]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
             <motion.div
-              className="h-full rounded-full bg-gradient-to-r from-medical via-brand-orange to-brand-red"
+              className="h-full rounded-full bg-gradient-to-r from-[#174C38] via-[#236747] to-[#258653]"
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{ duration: 1.2, ease: "easeInOut" }}

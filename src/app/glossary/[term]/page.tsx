@@ -76,36 +76,36 @@ export default async function GlossaryDetailPage({ params }: Props) {
       )}
       <Navbar />
       <main className="min-h-screen bg-background">
-        <section className="bg-medical/5 py-14 sm:py-20 border-b border-medical/10">
+        <section className="bg-[#EDF5EF]/60 py-14 sm:py-20 border-b border-[#D7E5DA]">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <nav aria-label="Breadcrumb" className="mb-4 flex items-center gap-2 text-xs text-muted">
-              <Link href="/" className="hover:text-medical">
+            <nav aria-label="Breadcrumb" className="mb-4 flex items-center gap-2 text-xs text-[#68766D]">
+              <Link href="/" className="hover:text-[#174C38] transition-colors">
                 Home
               </Link>
               <span>/</span>
-              <Link href="/glossary" className="hover:text-medical">
+              <Link href="/glossary" className="hover:text-[#174C38] transition-colors">
                 Glossary
               </Link>
               <span>/</span>
-              <span className="font-semibold text-foreground">{item.term}</span>
+              <span className="font-semibold text-[#18352A]">{item.term}</span>
             </nav>
             <div className="flex flex-wrap items-center gap-3 mb-3">
-              <span className="inline-block rounded-full bg-medical/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-medical">
+              <span className="inline-block rounded-full bg-[#EDF5EF] border border-[#D7E5DA] px-4 py-1 text-xs font-semibold uppercase tracking-wider text-[#174C38]">
                 Clinical Definition
               </span>
               {item.hindiTerm && (
-                <span className="text-sm font-semibold text-foreground/80" lang="hi">
+                <span className="text-sm font-semibold text-[#46554C]" lang="hi">
                   {item.hindiTerm}
                 </span>
               )}
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#18352A] tracking-tight">
               {item.term}
             </h1>
             
             {/* 40-60 Word Direct Answer Block */}
-            <div className="mt-6 rounded-2xl bg-card p-6 border border-medical/20 shadow-xs">
-              <p className="text-sm sm:text-base leading-relaxed text-foreground font-medium">
+            <div className="mt-6 rounded-2xl bg-white p-6 border border-[#D7E5DA] shadow-xs">
+              <p className="text-sm sm:text-base leading-relaxed text-[#46554C] font-medium">
                 {item.shortDef}
               </p>
             </div>
@@ -116,23 +116,23 @@ export default async function GlossaryDetailPage({ params }: Props) {
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-10">
             {/* Full Explanation */}
             <div>
-              <h2 className="font-display text-2xl font-bold text-foreground mb-4">
+              <h2 className="font-display text-2xl font-bold text-[#18352A] mb-4">
                 Clinical Overview &amp; Function
               </h2>
-              <p className="text-base leading-relaxed text-foreground/80">
+              <p className="text-base leading-relaxed text-[#46554C]">
                 {item.fullDef}
               </p>
             </div>
 
             {/* Clinical Uses */}
             <div>
-              <h2 className="font-display text-2xl font-bold text-foreground mb-4">
+              <h2 className="font-display text-2xl font-bold text-[#18352A] mb-4">
                 Primary Clinical Applications
               </h2>
               <ul className="space-y-2.5">
                 {item.clinicalUses.map((use, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-foreground/85">
-                    <span className="text-medical font-bold">✓</span>
+                  <li key={i} className="flex items-start gap-3 text-sm text-[#46554C]">
+                    <span className="text-[#258653] font-bold">✓</span>
                     <span>{use}</span>
                   </li>
                 ))}
@@ -141,20 +141,20 @@ export default async function GlossaryDetailPage({ params }: Props) {
 
             {/* Specifications Table */}
             <div>
-              <h2 className="font-display text-2xl font-bold text-foreground mb-4">
+              <h2 className="font-display text-2xl font-bold text-[#18352A] mb-4">
                 Key Specifications &amp; Sizing
               </h2>
-              <div className="rounded-2xl border border-medical/15 overflow-hidden bg-card">
+              <div className="rounded-2xl border border-[#D7E5DA] overflow-hidden bg-white">
                 <table className="w-full text-xs sm:text-sm text-left">
-                  <tbody className="divide-y divide-medical/10">
+                  <tbody className="divide-y divide-[#D7E5DA]">
                     {item.specs.map((spec, i) => {
                       const [label, ...val] = spec.split(":");
                       return (
-                        <tr key={i} className={i % 2 === 0 ? "bg-medical/5" : "bg-card"}>
-                          <td className="px-4 py-3 font-bold text-foreground w-1/3">
+                        <tr key={i} className={i % 2 === 0 ? "bg-[#F7F8F5]" : "bg-white"}>
+                          <td className="px-4 py-3 font-bold text-[#18352A] w-1/3">
                             {label}
                           </td>
-                          <td className="px-4 py-3 text-foreground/80">
+                          <td className="px-4 py-3 text-[#46554C]">
                             {val.join(":").trim()}
                           </td>
                         </tr>
@@ -168,7 +168,7 @@ export default async function GlossaryDetailPage({ params }: Props) {
             {/* Related Products */}
             {item.relatedProducts.length > 0 && (
               <div>
-                <h2 className="font-display text-2xl font-bold text-foreground mb-4">
+                <h2 className="font-display text-2xl font-bold text-[#18352A] mb-4">
                   Related Products Supplied by Ganpati Lifecare
                 </h2>
                 <div className="flex flex-wrap gap-3">
@@ -176,7 +176,7 @@ export default async function GlossaryDetailPage({ params }: Props) {
                     <Link
                       key={i}
                       href={p.href}
-                      className="rounded-2xl bg-card border border-medical/20 px-4 py-3 text-xs sm:text-sm font-bold text-medical hover:bg-medical hover:text-white transition shadow-2xs"
+                      className="rounded-xl bg-white border border-[#D7E5DA] px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#174C38] hover:bg-[#174C38] hover:text-white transition shadow-xs"
                     >
                       {p.name} &rarr;
                     </Link>
@@ -188,16 +188,16 @@ export default async function GlossaryDetailPage({ params }: Props) {
             {/* FAQs */}
             {item.faqs.length > 0 && (
               <div>
-                <h2 className="font-display text-2xl font-bold text-foreground mb-4">
+                <h2 className="font-display text-2xl font-bold text-[#18352A] mb-4">
                   Frequently Asked Clinical Questions
                 </h2>
                 <div className="space-y-4">
                   {item.faqs.map((faq, i) => (
-                    <div key={i} className="rounded-2xl bg-card p-5 border border-medical/10">
-                      <h3 className="font-bold text-foreground text-sm sm:text-base">
+                    <div key={i} className="rounded-2xl bg-white p-5 border border-[#D7E5DA] shadow-xs">
+                      <h3 className="font-bold text-[#18352A] text-sm sm:text-base">
                         {faq.question}
                       </h3>
-                      <p className="mt-2 text-xs sm:text-sm text-foreground/80 leading-relaxed">
+                      <p className="mt-2 text-xs sm:text-sm text-[#46554C] leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -207,23 +207,23 @@ export default async function GlossaryDetailPage({ params }: Props) {
             )}
 
             {/* Bottom Sourcing CTA */}
-            <div className="rounded-3xl bg-gradient-to-br from-medical to-medical-dark p-8 text-white text-center">
+            <div className="rounded-2xl bg-[#174C38] p-8 text-white text-center">
               <h2 className="font-display text-2xl font-bold">
                 Source Wholesale {item.term} Directly
               </h2>
-              <p className="mt-2 text-xs sm:text-sm text-white/90 max-w-xl mx-auto">
+              <p className="mt-2 text-xs sm:text-sm text-[#D6E4DA] max-w-xl mx-auto">
                 Ganpati Lifecare manufactures and stocks hospital-grade supplies in Mandi Goluwala, Hanumangarh for fast dispatch across Rajasthan.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Link
                   href="/contact"
-                  className="rounded-full bg-brand-orange px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-brand-orange-dark transition"
+                  className="rounded-full bg-white px-6 py-3 text-xs sm:text-sm font-semibold text-[#174C38] shadow-xs hover:bg-[#EDF5EF] transition"
                 >
                   Request Wholesale Quotation
                 </Link>
                 <a
                   href={`tel:${BUSINESS.phones[0]}`}
-                  className="rounded-full bg-white/20 border border-white/40 px-6 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white hover:text-medical transition"
+                  className="rounded-full bg-white/10 border border-white/20 px-6 py-3 text-xs sm:text-sm font-semibold text-white hover:bg-white hover:text-[#174C38] transition"
                 >
                   Call +91 98282 32254
                 </a>

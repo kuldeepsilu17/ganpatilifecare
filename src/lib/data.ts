@@ -225,10 +225,10 @@ export const TESTIMONIALS = [
 ] as const;
 
 export const STATS = [
-  { value: "Full Range", label: "Orthopedic & Surgical Supplies" },
-  { value: "Wholesale", label: "Direct Hospital Carton Supply" },
-  { value: "Mandi Goluwala", label: "Central Distribution Hub" },
-  { value: "North Rajasthan", label: "Regional Healthcare Network" },
+  { value: "Wide Range", label: "Orthopedic and surgical supplies" },
+  { value: "Bulk Ready", label: "Hospital supply inquiries" },
+  { value: "Local Business", label: "Based in Goluwala, Hanumangarh" },
+  { value: "Service Area", label: "Regional healthcare supply" },
 ] as const;
 
 export const CERTIFICATIONS = [

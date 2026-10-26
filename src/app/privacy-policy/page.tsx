@@ -40,10 +40,10 @@ export default function PrivacyPolicyPage() {
       <main className="bg-background min-h-screen py-12 md:py-20 text-foreground">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <Link href="/" className="text-xs font-semibold text-medical hover:underline">
+            <Link href="/" className="text-xs font-semibold text-[#174C38] hover:underline">
               ← Back to Home
             </Link>
-            <h1 className="mt-3 font-display text-3xl sm:text-4xl font-extrabold text-foreground">
+            <h1 className="mt-3 font-display text-3xl sm:text-4xl font-bold text-foreground">
               Privacy Policy
             </h1>
             <p className="mt-2 text-xs text-muted">Last Updated: 2026</p>

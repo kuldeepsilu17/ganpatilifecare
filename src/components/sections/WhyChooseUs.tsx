@@ -14,24 +14,28 @@ const icons: Record<string, string> = {
 
 export function WhyChooseUs() {
   return (
-    <section id="why-us" className="bg-card py-12 md:py-24">
+    <section id="why-us" className="bg-white py-12 md:py-20 border-b border-[#D7E5DA]">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <SectionHeading
           eyebrow="Why Choose Us"
           title="Trusted Medical Supplier in Rajasthan"
-          description="Premium quality, affordable pricing, and professional service for hospitals and clinics."
+          description="Consistent quality, direct wholesale pricing, and reliable service for hospitals and clinics."
         />
         <ul className="mt-8 sm:mt-10 grid grid-cols-1 min-[380px]:grid-cols-2 gap-3.5 sm:gap-6 lg:grid-cols-4">
           {WHY_CHOOSE_US.map((item, i) => (
             <AnimateIn key={item.title} delay={i * 0.05}>
-              <li className="list-none flex h-full flex-col rounded-2xl border border-medical/10 bg-background p-4 sm:p-5 md:p-6 shadow-sm transition hover:border-medical/30 hover:shadow-md">
-                <span className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-xl bg-medical/10 text-medical shrink-0">
-                  <svg className="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <li className="list-none flex h-full flex-col rounded-2xl border border-[#D7E5DA] bg-[#F7F8F5] p-5 sm:p-6 shadow-2xs transition hover:border-[#A7C4AE] hover:shadow-xs">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EDF5EF] text-[#174C38] shrink-0 border border-[#D7E5DA]">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={icons[item.icon] || icons.shield} />
                   </svg>
                 </span>
-                <h3 className="mt-3 font-display font-semibold text-sm sm:text-base leading-snug break-words">{item.title}</h3>
-                <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted">{item.description}</p>
+                <h3 className="mt-3.5 font-display font-semibold text-sm sm:text-base leading-snug break-words text-[#18352A]">
+                  {item.title}
+                </h3>
+                <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-[#46554C]">
+                  {item.description}
+                </p>
               </li>
             </AnimateIn>
           ))}

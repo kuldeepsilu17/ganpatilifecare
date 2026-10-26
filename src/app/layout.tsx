@@ -1,33 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins, Montserrat, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { BUSINESS } from "@/lib/constants";
 import { SITE_URL } from "@/lib/site";
 import { LOGO } from "@/lib/brand";
 import { getRootGraphSchema } from "@/lib/schema";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-});
-
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  fallback: ["Inter", "Arial", "sans-serif"],
 });
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#009245",
+  themeColor: "#174C38",
 };
 
 export const metadata: Metadata = {
@@ -109,7 +100,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`${poppins.variable} ${montserrat.variable} ${inter.variable} scroll-smooth`}
+      className={`${inter.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>

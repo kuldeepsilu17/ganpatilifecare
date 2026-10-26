@@ -25,13 +25,27 @@ export function RequestQuote() {
       return;
     }
 
+    const businessOrg = (formData.get("business") as string) || "";
+    const productName = (formData.get("products") as string) || "General Supplies";
+    const quantity = (formData.get("quantity") as string) || "";
+    const messageNotes = (formData.get("message") as string) || "";
+
+    const fullMessage = [
+      businessOrg ? `Organization: ${businessOrg}` : null,
+      quantity ? `Quantity: ${quantity}` : null,
+      messageNotes ? `Notes: ${messageNotes}` : null,
+    ]
+      .filter(Boolean)
+      .join(" | ");
+
     const payload = {
       name: formData.get("name") as string,
       phone: formData.get("phone") as string,
-      email: "",
-      product_name: formData.get("products") as string,
-      quantity: formData.get("quantity") as string,
-      message: "Order placed via Request a Quote Form.",
+      email: (formData.get("email") as string) || "",
+      product_name: productName,
+      quantity: quantity || "Wholesale Inquiry",
+      message: fullMessage || "Order inquiry placed via Request a Quote Form.",
+      source: "Request Quote Form",
     };
 
     try {
@@ -46,19 +60,18 @@ export function RequestQuote() {
       const result = await res.json();
 
       if (!res.ok) {
-        throw new Error(result.error || "Something went wrong.");
+        throw new Error(result.error || "Unable to submit your quote request.");
       }
 
       setInquiryId(result.inquiry.inquiry_id);
       setSent(true);
       form.reset();
 
-      // Launch WhatsApp in a new tab with the formatted WhatsApp enquiry message
+      // Launch WhatsApp in a new tab with formatted enquiry message
+      const whatsappText = `Hello Ganpati Lifecare,\n\nI want to request a quote for ${payload.product_name}.\nName: ${payload.name}\n${businessOrg ? `Organization: ${businessOrg}\n` : ""}Phone: ${payload.phone}\n${quantity ? `Quantity: ${quantity}\n` : ""}${messageNotes ? `Notes: ${messageNotes}\n` : ""}\nPlease share availability and institutional pricing. Thank you.`;
+
       const whatsappUrl = `https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(
-        result.whatsappMessage ||
-        (payload.product_name
-          ? `Hello Ganpati Lifecare, I am interested in your ${payload.product_name}. Please share product availability, specifications and quotation.`
-          : "Hello Ganpati Lifecare, I would like to enquire about your surgical products, especially Surgical Cotton Roll and Dressing Products. Please share product availability and quotation.")
+        result.whatsappMessage || whatsappText
       )}`;
       
       window.open(whatsappUrl, "_blank");
@@ -72,37 +85,40 @@ export function RequestQuote() {
   };
 
   return (
-    <section id="quote" className="py-10 md:py-24">
-      <div className="mx-auto max-w-3xl px-3.5 sm:px-4 md:px-6">
+    <section id="quote" className="py-12 md:py-20 bg-white border-b border-[#D7E5DA]" aria-label="Request a Quote Section">
+      <div className="mx-auto max-w-3xl px-4 md:px-6">
         <SectionHeading
-          eyebrow="Get a Quote"
-          title="Request a Quote"
-          description="Contact us for bulk orders — premium medical supplies at competitive prices."
+          eyebrow="Direct Wholesale Sourcing"
+          title="Request a Quotation"
+          description="Submit your facility or clinic requirements for direct carton-level wholesale pricing and fast regional dispatch."
         />
 
         {sent ? (
-          <div className="mt-8 sm:mt-10 rounded-3xl bg-card p-6 sm:p-8 shadow-xl border border-medical/15 flex flex-col items-center text-center justify-center min-h-[340px]">
-            <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-medical/10 text-medical shadow-inner">
-              <svg className="h-7 w-7 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="mt-8 sm:mt-10 rounded-2xl bg-[#F7F8F5] p-6 sm:p-10 shadow-2xs border border-[#D7E5DA] flex flex-col items-center text-center justify-center min-h-[320px]">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#EDF5EF] text-[#174C38] border border-[#D7E5DA]">
+              <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="mt-5 font-display text-xl sm:text-2xl font-bold text-foreground">Quote Request Saved!</h3>
-            <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-muted">
-              Inquiry ID: <span className="text-medical">{inquiryId}</span>
+            <h3 className="mt-4 font-display text-xl sm:text-2xl font-bold text-[#18352A]">
+              Quotation Request Received
+            </h3>
+            <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#68766D]">
+              Inquiry Reference: <span className="font-mono text-[#174C38] font-bold">{inquiryId}</span>
             </p>
-            <p className="mt-3 text-xs sm:text-sm leading-relaxed text-foreground/80 max-w-md">
-              Thank you for contacting Ganpati Lifecare. Your inquiry has been received successfully. Our team will contact you shortly.
+            <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[#46554C] max-w-md">
+              Thank you for contacting Ganpati Lifecare. Dharampal Verma and our distribution team have received your details and will follow up shortly.
             </p>
-            <p className="mt-3 text-xs text-muted">
-              Opening WhatsApp automatically to send your formatted quote request...
+            <p className="mt-2 text-xs text-[#68766D]">
+              A WhatsApp chat has also opened to connect with us immediately.
             </p>
             <button
+              type="button"
               onClick={() => {
                 setSent(false);
                 setInquiryId("");
               }}
-              className="mt-6 sm:mt-8 inline-flex items-center justify-center min-h-[42px] rounded-full border border-medical/20 bg-background px-6 py-2.5 text-xs font-bold text-medical hover:bg-medical/5 transition-colors cursor-pointer"
+              className="mt-6 inline-flex items-center justify-center min-h-[42px] rounded-full border border-[#D7E5DA] bg-white px-6 py-2.5 text-xs font-bold text-[#174C38] hover:bg-[#EDF5EF] transition-colors cursor-pointer"
             >
               Request Another Quote
             </button>
@@ -110,10 +126,10 @@ export function RequestQuote() {
         ) : (
           <form
             onSubmit={onSubmit}
-            className="mt-8 sm:mt-10 space-y-3.5 sm:space-y-4 rounded-3xl bg-card p-5 sm:p-8 shadow-xl border border-medical/10"
+            className="mt-8 sm:mt-10 space-y-4 rounded-2xl bg-[#F7F8F5] p-6 sm:p-8 shadow-2xs border border-[#D7E5DA]"
           >
             {errorMsg && (
-              <div className="rounded-xl bg-brand-red/10 p-3 sm:p-4 text-xs sm:text-sm text-brand-red border border-brand-red/10">
+              <div className="rounded-xl bg-red-50 p-3.5 text-xs sm:text-sm text-red-800 border border-red-200">
                 {errorMsg}
               </div>
             )}
@@ -127,54 +143,92 @@ export function RequestQuote() {
               aria-hidden="true"
             />
 
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label className="block">
+                <span className="text-xs sm:text-sm font-medium text-[#18352A]">Full Name <span className="text-red-500">*</span></span>
+                <input
+                  name="name"
+                  required
+                  placeholder="e.g. Dr. Rajesh Kumar"
+                  className="mt-1 w-full rounded-xl border border-[#D7E5DA] bg-white px-3.5 py-2.5 text-sm text-[#18352A] placeholder:text-gray-400 focus:border-[#174C38] focus:ring-2 focus:ring-[#174C38]/15 outline-none transition-all"
+                />
+              </label>
+
+              <label className="block">
+                <span className="text-xs sm:text-sm font-medium text-[#18352A]">Hospital / Business / Organization (Optional)</span>
+                <input
+                  name="business"
+                  placeholder="e.g. Lifecare Hospital, Hanumangarh"
+                  className="mt-1 w-full rounded-xl border border-[#D7E5DA] bg-white px-3.5 py-2.5 text-sm text-[#18352A] placeholder:text-gray-400 focus:border-[#174C38] focus:ring-2 focus:ring-[#174C38]/15 outline-none transition-all"
+                />
+              </label>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label className="block">
+                <span className="text-xs sm:text-sm font-medium text-[#18352A]">Phone / WhatsApp Number <span className="text-red-500">*</span></span>
+                <input
+                  name="phone"
+                  type="tel"
+                  required
+                  placeholder="+91 98765 43210"
+                  className="mt-1 w-full rounded-xl border border-[#D7E5DA] bg-white px-3.5 py-2.5 text-sm text-[#18352A] placeholder:text-gray-400 focus:border-[#174C38] focus:ring-2 focus:ring-[#174C38]/15 outline-none transition-all"
+                />
+              </label>
+
+              <label className="block">
+                <span className="text-xs sm:text-sm font-medium text-[#18352A]">Email Address (Optional)</span>
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="doctor@hospital.org"
+                  className="mt-1 w-full rounded-xl border border-[#D7E5DA] bg-white px-3.5 py-2.5 text-sm text-[#18352A] placeholder:text-gray-400 focus:border-[#174C38] focus:ring-2 focus:ring-[#174C38]/15 outline-none transition-all"
+                />
+              </label>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label className="block">
+                <span className="text-xs sm:text-sm font-medium text-[#18352A]">Product of Interest <span className="text-red-500">*</span></span>
+                <input
+                  name="products"
+                  required
+                  placeholder="e.g. Orthocot Cotton Roll 15cm, Crepe Bandages"
+                  className="mt-1 w-full rounded-xl border border-[#D7E5DA] bg-white px-3.5 py-2.5 text-sm text-[#18352A] placeholder:text-gray-400 focus:border-[#174C38] focus:ring-2 focus:ring-[#174C38]/15 outline-none transition-all"
+                />
+              </label>
+
+              <label className="block">
+                <span className="text-xs sm:text-sm font-medium text-[#18352A]">Estimated Quantity / Boxes (Optional)</span>
+                <input
+                  name="quantity"
+                  placeholder="e.g. 5 cartons / 200 rolls"
+                  className="mt-1 w-full rounded-xl border border-[#D7E5DA] bg-white px-3.5 py-2.5 text-sm text-[#18352A] placeholder:text-gray-400 focus:border-[#174C38] focus:ring-2 focus:ring-[#174C38]/15 outline-none transition-all"
+                />
+              </label>
+            </div>
+
             <label className="block">
-              <span className="text-xs sm:text-sm font-medium">Your Name</span>
-              <input
-                name="name"
-                required
-                placeholder="Enter your name"
-                className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out box-border"
-              />
-            </label>
-            <label className="block">
-              <span className="text-xs sm:text-sm font-medium">Phone Number</span>
-              <input
-                name="phone"
-                type="tel"
-                required
-                placeholder="Enter your phone number"
-                className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out box-border"
-              />
-            </label>
-            <label className="block">
-              <span className="text-xs sm:text-sm font-medium">Products Needed</span>
+              <span className="text-xs sm:text-sm font-medium text-[#18352A]">Specific Requirements or Message (Optional)</span>
               <textarea
-                name="products"
+                name="message"
                 rows={3}
-                required
-                placeholder="Enter products needed"
-                className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out box-border"
+                placeholder="Share any specifications, delivery location, or timeline..."
+                className="mt-1 w-full rounded-xl border border-[#D7E5DA] bg-white px-3.5 py-2.5 text-sm text-[#18352A] placeholder:text-gray-400 focus:border-[#174C38] focus:ring-2 focus:ring-[#174C38]/15 outline-none transition-all"
               />
             </label>
-            <label className="block">
-              <span className="text-xs sm:text-sm font-medium">Quantity / Bulk Details</span>
-              <input
-                name="quantity"
-                required
-                placeholder="Enter quantity or bulk details"
-                className="mt-1 w-full rounded-xl border border-medical/20 bg-background px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm placeholder:text-gray-400 focus:border-medical focus:ring-4 focus:ring-medical/15 focus:shadow-md outline-none transition-all duration-300 ease-in-out box-border"
-              />
-            </label>
+
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex items-center justify-center min-h-[46px] rounded-full bg-medical py-3.5 font-semibold text-xs sm:text-sm text-white transition-all duration-300 hover:bg-medical-dark shadow-md active:scale-98 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full flex items-center justify-center min-h-[46px] rounded-full bg-[#174C38] py-3 font-semibold text-sm text-white transition-all hover:bg-[#236747] shadow-sm active:scale-98 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? "Submitting..." : "Send via WhatsApp"}
+              {isSubmitting ? "Submitting Quotation..." : "Request Official Quotation"}
             </button>
-            {isSubmitting && (
-              <p className="text-center text-xs sm:text-sm text-medical mt-3 animate-pulse">Processing your booking order…</p>
-            )}
+
+            <p className="text-center text-xs text-[#68766D] mt-2">
+              Inquiry is submitted directly to Dharampal Verma in Mandi Goluwala. We will reply promptly with availability and quotation.
+            </p>
           </form>
         )}
       </div>

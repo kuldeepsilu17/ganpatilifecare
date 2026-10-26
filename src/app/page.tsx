@@ -66,8 +66,8 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <About />
         <Stats />
+        <About />
         <Products />
         <WhyChooseUs />
         <Certifications />

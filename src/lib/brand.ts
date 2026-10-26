@@ -1,10 +1,20 @@
 export const BRAND_COLORS = {
-  orange: "#F58220",
-  green: "#009245",
+  primary: "#174C38",
+  secondary: "#236747",
+  deep: "#103B2C",
+  kelly: "#258653",
+  sage: "#A7C4AE",
+  softSage: "#EDF5EF",
+  mint: "#E5F1E8",
+  subtle: "#F0F4F0",
+  warmWhite: "#F7F8F5",
   white: "#FFFFFF",
-  redOrange: "#E94B35",
-  greenDark: "#007A38",
-  greenLight: "#00B050",
+  amber: "#D69A42",
+  amberSoft: "#FBF2E3",
+  borderLight: "#D7E5DA",
+  textHeading: "#18352A",
+  textBody: "#46554C",
+  textSecondary: "#68766D",
 } as const;
 
 export const LOGO = {

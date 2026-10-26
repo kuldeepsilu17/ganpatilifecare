@@ -155,7 +155,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           <div className="grid grid-cols-1 gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-12 items-start">
             {/* Left Column: Image Display */}
             <div>
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-medical/15 bg-card shadow-sm">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[#D7E5DA] bg-white shadow-xs">
                 <Image
                   src={product.image}
                   alt={product.imageAlt || `${product.name} - Ganpati Lifecare Healthcare Supplies`}
@@ -172,7 +172,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   {product.gallery.map((img, idx) => (
                     <div
                       key={idx}
-                      className="relative h-18 w-24 shrink-0 overflow-hidden rounded-xl border border-medical/20 bg-card shadow-xs"
+                      className="relative h-18 w-24 shrink-0 overflow-hidden rounded-xl border border-[#D7E5DA] bg-white shadow-xs"
                     >
                       <Image
                         src={img}
@@ -200,7 +200,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 </a>
                 <a
                   href={`tel:${BUSINESS.phones[0]}`}
-                  className="flex-1 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-medical px-4 py-3 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-medical-dark transition-colors"
+                  className="flex-1 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-[#174C38] px-4 py-3 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-[#236747] transition-colors"
                 >
                   Call Now
                 </a>
@@ -210,10 +210,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             {/* Right Column: Detailed Product Information */}
             <div className="space-y-6">
               <div>
-                <span className="inline-block rounded-full bg-medical/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-medical">
+                <span className="inline-block rounded-full bg-[#EDF5EF] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#174C38]">
                   {product.category}
                 </span>
-                <h1 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground">
+                <h1 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
                   {product.name}
                 </h1>
                 <p className="mt-3 text-sm sm:text-base leading-relaxed text-foreground/80">
@@ -223,14 +223,14 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
               {/* Key Features */}
               {product.features && product.features.length > 0 && (
-                <div className="rounded-2xl border border-medical/15 bg-card p-5 shadow-xs">
-                  <h2 className="text-sm font-bold uppercase tracking-wider text-foreground">
+                <div className="rounded-2xl border border-[#D7E5DA] bg-white p-5 shadow-xs">
+                  <h2 className="text-sm font-bold uppercase tracking-wider text-[#18352A]">
                     Key Features &amp; Quality Points
                   </h2>
-                  <ul className="mt-3 space-y-2 text-xs sm:text-sm text-foreground/80">
+                  <ul className="mt-3 space-y-2 text-xs sm:text-sm text-[#46554C]">
                     {product.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="text-medical font-bold">✓</span>
+                        <span className="text-[#258653] font-bold">✓</span>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -240,15 +240,15 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
               {/* Specifications */}
               {product.specifications && Object.keys(product.specifications).length > 0 && (
-                <div className="rounded-2xl border border-medical/15 bg-card p-5 shadow-xs">
-                  <h2 className="text-sm font-bold uppercase tracking-wider text-foreground mb-3">
+                <div className="rounded-2xl border border-[#D7E5DA] bg-white p-5 shadow-xs">
+                  <h2 className="text-sm font-bold uppercase tracking-wider text-[#18352A] mb-3">
                     Product Specifications
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
                     {Object.entries(product.specifications).map(([key, val]) => (
-                      <div key={key} className="border-b border-gray-100 pb-2">
-                        <span className="font-semibold text-muted">{key}: </span>
-                        <span className="font-medium text-foreground">{val}</span>
+                      <div key={key} className="border-b border-[#D7E5DA] pb-2">
+                        <span className="font-semibold text-[#68766D]">{key}: </span>
+                        <span className="font-medium text-[#18352A]">{val}</span>
                       </div>
                     ))}
                   </div>
@@ -256,17 +256,17 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               )}
 
               {/* Applications & Packaging */}
-              <div className="rounded-2xl border border-medical/15 bg-card p-5 shadow-xs space-y-3 text-xs sm:text-sm">
+              <div className="rounded-2xl border border-[#D7E5DA] bg-white p-5 shadow-xs space-y-3 text-xs sm:text-sm">
                 {product.usage && (
                   <div>
-                    <h3 className="font-bold text-foreground">Clinical Applications:</h3>
-                    <p className="mt-1 text-foreground/80 leading-relaxed">{product.usage}</p>
+                    <h3 className="font-bold text-[#18352A]">Clinical Applications:</h3>
+                    <p className="mt-1 text-[#46554C] leading-relaxed">{product.usage}</p>
                   </div>
                 )}
                 {product.packaging && (
-                  <div className="pt-2 border-t border-gray-100">
-                    <h3 className="font-bold text-foreground">Packaging &amp; Supply:</h3>
-                    <p className="mt-1 text-foreground/80 leading-relaxed">{product.packaging}</p>
+                  <div className="pt-2 border-t border-[#D7E5DA]">
+                    <h3 className="font-bold text-[#18352A]">Packaging &amp; Supply:</h3>
+                    <p className="mt-1 text-[#46554C] leading-relaxed">{product.packaging}</p>
                   </div>
                 )}
               </div>
@@ -275,11 +275,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
           {/* SEO Content Section */}
           {product.seoContent && (
-            <div className="mt-12 rounded-3xl bg-card p-6 sm:p-8 md:p-10 shadow-sm border border-medical/10">
-              <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-4">
+            <div className="mt-12 rounded-2xl bg-white p-6 sm:p-8 md:p-10 shadow-xs border border-[#D7E5DA]">
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-[#18352A] mb-4">
                 Detailed Product Overview
               </h2>
-              <p className="text-sm sm:text-base leading-relaxed text-foreground/80">
+              <p className="text-sm sm:text-base leading-relaxed text-[#46554C]">
                 {product.seoContent}
               </p>
             </div>
@@ -287,13 +287,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
           {/* AEO Content Section */}
           {product.aeoSections && product.aeoSections.length > 0 && (
-            <div className="mt-12 rounded-3xl bg-card p-6 sm:p-8 md:p-10 shadow-sm border border-medical/10 space-y-8">
+            <div className="mt-12 rounded-2xl bg-white p-6 sm:p-8 md:p-10 shadow-xs border border-[#D7E5DA] space-y-8">
               {product.aeoSections.map((section, idx) => (
                 <section key={idx}>
-                  <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-3">
+                  <h2 className="font-display text-xl sm:text-2xl font-bold text-[#18352A] mb-3">
                     {section.title}
                   </h2>
-                  <p className="text-sm sm:text-base leading-relaxed text-foreground/80">
+                  <p className="text-sm sm:text-base leading-relaxed text-[#46554C]">
                     {section.content}
                   </p>
                 </section>
@@ -303,15 +303,15 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
           {/* Product FAQs */}
           {product.faqs && product.faqs.length > 0 && (
-            <div className="mt-8 rounded-3xl bg-card p-6 sm:p-8 md:p-10 shadow-sm border border-medical/10">
-              <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-6">
+            <div className="mt-8 rounded-2xl bg-white p-6 sm:p-8 md:p-10 shadow-xs border border-[#D7E5DA]">
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-[#18352A] mb-6">
                 Frequently Asked Questions about {product.name}
               </h2>
               <div className="space-y-4">
                 {product.faqs.map((faq, idx) => (
-                  <div key={idx} className="border-b border-medical/10 pb-4 last:border-0 last:pb-0">
-                    <h3 className="font-bold text-foreground text-sm sm:text-base">Q: {faq.q}</h3>
-                    <p className="mt-2 text-sm text-foreground/80 leading-relaxed">A: {faq.a}</p>
+                  <div key={idx} className="border-b border-[#D7E5DA] pb-4 last:border-0 last:pb-0">
+                    <h3 className="font-bold text-[#18352A] text-sm sm:text-base">Q: {faq.q}</h3>
+                    <p className="mt-2 text-sm text-[#46554C] leading-relaxed">A: {faq.a}</p>
                   </div>
                 ))}
               </div>
@@ -320,8 +320,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
           {/* Related Products Grid */}
           {relatedProducts.length > 0 && (
-            <div className="mt-16 pt-12 border-t border-medical/10">
-              <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-6">
+            <div className="mt-16 pt-12 border-t border-[#D7E5DA]">
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-[#18352A] mb-6">
                 Related {product.category} Products
               </h2>
               <div className="grid grid-cols-1 min-[380px]:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
@@ -329,9 +329,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   <Link
                     key={rel.id}
                     href={`/products/${rel.id}`}
-                    className="group flex flex-col overflow-hidden rounded-2xl border border-medical/15 bg-card shadow-xs transition hover:shadow-md"
+                    className="group flex flex-col overflow-hidden rounded-2xl border border-[#D7E5DA] bg-white shadow-xs transition hover:border-[#174C38]"
                   >
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-50">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F7F8F5]">
                       <Image
                         src={rel.image}
                         alt={`${rel.name} - Ganpati Lifecare`}
@@ -340,10 +340,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                       />
                     </div>
                     <div className="p-3">
-                      <h3 className="font-display text-xs sm:text-sm font-bold text-foreground line-clamp-1 group-hover:text-medical">
+                      <h3 className="font-display text-xs sm:text-sm font-bold text-[#18352A] line-clamp-1 group-hover:text-[#174C38] transition-colors">
                         {rel.name}
                       </h3>
-                      <p className="mt-1 text-[11px] sm:text-xs text-muted line-clamp-1">
+                      <p className="mt-1 text-[11px] sm:text-xs text-[#68766D] line-clamp-1">
                         {rel.description}
                       </p>
                     </div>

@@ -69,7 +69,7 @@ export default function LocationsIndexPage() {
             <span className="inline-block rounded-full bg-medical/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-medical mb-4">
               Local Distribution Network
             </span>
-            <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight">
+            <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight">
               Medical &amp; Hospital Supply Locations
             </h1>
             <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-foreground/80 max-w-2xl mx-auto leading-relaxed">
@@ -95,7 +95,7 @@ export default function LocationsIndexPage() {
                         {loc.hospitalCount}
                       </span>
                     </div>
-                    <p className="text-xs font-semibold text-brand-orange mb-3">
+                    <p className="text-xs font-semibold text-[#0F766E] mb-3">
                       {loc.region}, India
                     </p>
                     <p className="text-xs sm:text-sm leading-relaxed text-foreground/80 mb-4">
