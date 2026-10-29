@@ -10,11 +10,18 @@ console.log(" Target Domain: https://www.ganpatilifecare.com");
 console.log("=================================================\n");
 
 const TARGET_KEYWORDS = [
-  // Brand Queries
+  // Brand Queries & Variants
   "ganpati lifecare",
+  "ganpati life care",
   "ganpati lifecare hanumangarh",
-  "ganpati lifecare goluwala",
   "ganpati life care hanumangarh",
+  "ganpati lifecare goluwala",
+  "ganpati life care goluwala",
+  "ganpati lifecare rajasthan",
+  "ganpati life care rajasthan",
+  "ganpati lifecare dharampal verma",
+  "ganpati life care dharampal verma",
+  "ganpati life care surgical products",
   "GLC medical supplier",
   
   // Core Product & Wholesale Queries

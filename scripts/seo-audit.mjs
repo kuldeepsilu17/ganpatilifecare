@@ -56,9 +56,9 @@ function checkMetadata(url, title, description, primaryKeyword) {
 const staticPages = [
   {
     url: "https://www.ganpatilifecare.com/",
-    title: "Medical & Surgical Supplier Hanumangarh | Ganpati Lifecare",
-    desc: "Ganpati Lifecare, Goluwala, Hanumangarh: Orthocot cotton rolls, stockinet, traction kits, gauze, uniforms & hospital consumables for North Rajasthan.",
-    primaryKeyword: "ganpati lifecare hanumangarh",
+    title: "Ganpati Lifecare | Surgical, Orthopedic & Hospital Supplies",
+    desc: "Ganpati Lifecare (Ganpati Life Care), managed by Dharampal Verma in Goluwala, Hanumangarh, Rajasthan: surgical cotton rolls, dressings & orthopedic supplies.",
+    primaryKeyword: "ganpati lifecare",
   },
   {
     url: "https://www.ganpatilifecare.com/about",

@@ -1,14 +1,19 @@
 import { NextResponse } from "next/server";
 import { updateInquiryStatus, deleteInquiry, InquiryStatus } from "@/lib/db";
 
+import { verifySessionToken } from "@/lib/auth";
+
 // Helper to authenticate admin panel requests
 function isAuthorized(request: Request): boolean {
   const authHeader = request.headers.get("Authorization");
-  const expectedPassword = process.env.ADMIN_PASSWORD;
-  if (!expectedPassword || !authHeader) {
-    return false;
+  const cookie = request.headers.get("cookie");
+  let cookieToken: string | null = null;
+  if (cookie) {
+    const match = cookie.match(/glc_admin_session=([^;]+)/);
+    if (match) cookieToken = match[1];
   }
-  return authHeader === expectedPassword;
+  const token = authHeader?.replace("Bearer ", "") || cookieToken;
+  return verifySessionToken(token).valid;
 }
 
 const VALID_STATUSES: InquiryStatus[] = [

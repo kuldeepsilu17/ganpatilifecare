@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server";
 
 export function proxy(request: NextRequest) {
   const host = request.headers.get("host") || "";
+  const proto = request.headers.get("x-forwarded-proto");
   const pathname = request.nextUrl.pathname;
   const search = request.nextUrl.search;
 
@@ -11,8 +12,9 @@ export function proxy(request: NextRequest) {
     host.includes("ganpatilifecare.vercel.app") ||
     host === "www.ganpatilifecare.vercel.app";
   const isNakedDomain = host === "ganpatilifecare.com";
+  const isHttpOnCanonical = proto === "http" && host === "www.ganpatilifecare.com";
 
-  if (isVercelDomain || isNakedDomain) {
+  if (isVercelDomain || isNakedDomain || isHttpOnCanonical) {
     const targetUrl = `https://www.ganpatilifecare.com${pathname}${search}`;
     return NextResponse.redirect(targetUrl, 308);
   }

@@ -36,20 +36,17 @@ export function getBusinessSchema() {
     "@id": `${BUSINESS.siteUrl}/#business`,
     name: BUSINESS.name,
     legalName: BUSINESS.legalName,
-    alternateName: [
-      "Ganpati Life Care",
-      "GLC",
-      "Ganpati Lifecare Hanumangarh",
-      "Ganpati Life Care Hanumangarh",
-      "Ganpati Lifecare Goluwala",
-      "Ganpati Lifecare Mandi Goluwala",
-      "Ganpati Lifecare Rajasthan",
-    ],
+    alternateName: [...BUSINESS.alternateNames],
     disambiguatingDescription: DISAMBIGUATING_DESCRIPTION,
     description:
       "Ganpati Lifecare, managed by Dharampal Verma in Mandi Goluwala, Hanumangarh, Rajasthan, is a manufacturer and wholesale supplier of White Rose Brand Ortho Cotton Roll, Orthopaedics, Castroll and Gauze dressing products, hospital uniforms, and medical consumables.",
     url: BUSINESS.siteUrl,
-    logo: logoUrl,
+    logo: {
+      "@type": "ImageObject",
+      url: `${BUSINESS.siteUrl}/favicon-192x192.png`,
+      width: 192,
+      height: 192,
+    },
     image: ogImageUrl,
     telephone: [...BUSINESS.phones],
     email: BUSINESS.email,
@@ -138,12 +135,16 @@ export function getBusinessSchema() {
 export function getOrganizationSchema() {
   return {
     "@type": "Organization",
-    "@id": `${BUSINESS.siteUrl}/#organization`,
+    "@id": `${BUSINESS.siteUrl}/#business`,
     name: BUSINESS.name,
     legalName: BUSINESS.legalName,
     url: BUSINESS.siteUrl,
-    logo: logoUrl,
-    // This is an alias that points to the main business entity
+    logo: {
+      "@type": "ImageObject",
+      url: `${BUSINESS.siteUrl}/favicon-192x192.png`,
+      width: 192,
+      height: 192,
+    },
     sameAs: [`${BUSINESS.siteUrl}/`],
   };
 }
@@ -160,7 +161,7 @@ export function getWebSiteSchema() {
     "@type": "WebSite",
     "@id": `${BUSINESS.siteUrl}/#website`,
     name: "Ganpati Lifecare",
-    alternateName: "Ganpati Life Care",
+    alternateName: [...BUSINESS.alternateNames],
     url: BUSINESS.siteUrl,
     description:
       "Official website of Ganpati Lifecare — Orthopedic, Surgical & Hospital Supplies in Goluwala, Hanumangarh, Rajasthan.",

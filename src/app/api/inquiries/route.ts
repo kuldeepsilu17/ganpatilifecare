@@ -2,14 +2,19 @@ import { NextResponse } from "next/server";
 import { getInquiries, createInquiry } from "@/lib/db";
 import { sendAdminNotification } from "@/lib/mailer";
 
+import { verifySessionToken } from "@/lib/auth";
+
 // Helper to authenticate admin panel requests
 function isAuthorized(request: Request): boolean {
   const authHeader = request.headers.get("Authorization");
-  const expectedPassword = process.env.ADMIN_PASSWORD;
-  if (!expectedPassword || !authHeader) {
-    return false;
+  const cookie = request.headers.get("cookie");
+  let cookieToken: string | null = null;
+  if (cookie) {
+    const match = cookie.match(/glc_admin_session=([^;]+)/);
+    if (match) cookieToken = match[1];
   }
-  return authHeader === expectedPassword;
+  const token = authHeader?.replace("Bearer ", "") || cookieToken;
+  return verifySessionToken(token).valid;
 }
 
 // GET: Fetch all inquiries (Secured)
@@ -34,13 +39,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const name = (body.name || body.customerName || "").trim();
-    const phone = (body.phone || "").trim();
-    const email = (body.email || "").trim();
-    const product_name = (body.product_name || body.productName || body.requirement || "General Inquiry").trim();
-    const quantity = (body.quantity || "1").trim();
-    const message = (body.message || "").trim();
-    const source = (body.source || body.inquiryType || "Website").trim();
+    const { name, phone, email, product_name, quantity, message, source } = body;
 
     // Validate required fields
     if (!name || !phone) {
@@ -85,7 +84,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: "Your inquiry has been received by Ganpati Lifecare.",
       inquiry: newInquiry,
       emailSubject,
       emailBody,

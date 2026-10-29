@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHero } from "@/components/page-shell";
 import { QR_LINKS } from "@/lib/utm";
 
